@@ -8,8 +8,13 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Context
 {
-   public class Accounting_DbContext : DbContext
+   public class Accounting_DbContext : DbContext 
+
     {
+        public Accounting_DbContext() : base("name=AccountingConnectionString")
+        {
+
+        }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Config> Config { get; set; }

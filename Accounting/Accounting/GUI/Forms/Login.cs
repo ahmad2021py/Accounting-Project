@@ -70,6 +70,12 @@ namespace Accounting.GUI.Forms
 
                      
                     }
+                    else
+                    {
+                        MessageBox.Show("کاربری با این مشخصات یافت نشد ");
+                        txtPassword.Text = "";
+                        txtUserName.Text = "";
+                    }
 
                 }
             }
@@ -84,7 +90,7 @@ namespace Accounting.GUI.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-          
+            this.Close();
         }
     }
 }

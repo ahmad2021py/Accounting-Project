@@ -129,7 +129,7 @@
             this.خروجToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(996, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(996, 30);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,7 +137,7 @@
             // 
             this.خروجToolStripMenuItem.Image = global::Accounting.Properties.Resources.exit;
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
@@ -163,7 +163,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "صفحه اصلی ";
+            this.Text = "خانه";
             this.Load += new System.EventHandler(this.frmMainMenu_Load);
             this.StatusStrip1.ResumeLayout(false);
             this.StatusStrip1.PerformLayout();

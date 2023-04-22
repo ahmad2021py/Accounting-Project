@@ -164,8 +164,10 @@ namespace Accounting.GUI.Forms
             // 
             // Login
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.label2);
@@ -177,9 +179,12 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel1);
+            this.MaximizeBox = false;
             this.Name = "Login";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "ورود";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

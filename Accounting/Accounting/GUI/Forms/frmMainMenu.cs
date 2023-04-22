@@ -39,7 +39,8 @@ namespace Accounting.GUI.Forms
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-
+            frmLoginDetails frm = new frmLoginDetails();
+            frm.ShowDialog();
         }
 
         private void btnRegistration_Click(object sender, EventArgs e)
