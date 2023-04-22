@@ -4217,6 +4217,24 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>472, 17</value>
   </metadata>
+  <data name="btnUsers.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAHUAAAA0CAYAAAC0AHd1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACrSURBVHhe7dGxCcMwAABB7RHsedMYsp/HUC8HeYznioPv
+        f3y+6z5/z0PD/jl2jEHF+9PUFlODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0y
+        NcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFOD
+        TA0yNcjUoPfnca25g4bjWvMPKGo9y6Sc5BEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnRegistration.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAHUAAAA0CAYAAAC0AHd1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACrSURBVHhe7dGxCcMwAABB7RHsedMYsp/HUC8HeYznioPv
+        f3y+6z5/z0PD/jl2jEHF+9PUFlODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0y
+        NcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFODTA0yNcjUIFOD
+        TA0yNcjUoPfnca25g4bjWvMPKGo9y6Sc5BEAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

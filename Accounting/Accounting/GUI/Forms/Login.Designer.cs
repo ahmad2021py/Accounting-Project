@@ -29,16 +29,26 @@ namespace Accounting.GUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUserName = new System.Windows.Forms.TextBox();
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.txtUserName = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.txtPassword = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.btnOK = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.SuspendLayout();
             // 
             // cbRole
@@ -65,49 +75,6 @@ namespace Accounting.GUI.Forms
             this.label2.TabIndex = 63;
             this.label2.Text = "نقش کاربری";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(524, 220);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(93, 38);
-            this.btnCancel.TabIndex = 60;
-            this.btnCancel.Text = "انصراف";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnOK
-            // 
-            this.btnOK.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(262, 220);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(112, 38);
-            this.btnOK.TabIndex = 59;
-            this.btnOK.Text = "ورود";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(310, 144);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(229, 29);
-            this.txtPassword.TabIndex = 57;
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.txtUserName.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(310, 94);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(229, 29);
-            this.txtUserName.TabIndex = 55;
             // 
             // PasswordLabel
             // 
@@ -146,6 +113,7 @@ namespace Accounting.GUI.Forms
             this.linkLabel3.TabIndex = 58;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "بازیابی کلمه عبور";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel1
             // 
@@ -161,20 +129,229 @@ namespace Accounting.GUI.Forms
             this.linkLabel1.TabIndex = 56;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "تغییر کلمه عبور";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.AcceptsReturn = false;
+            this.txtUserName.AcceptsTab = false;
+            this.txtUserName.AnimationSpeed = 200;
+            this.txtUserName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtUserName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtUserName.BackColor = System.Drawing.Color.Transparent;
+            this.txtUserName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtUserName.BackgroundImage")));
+            this.txtUserName.BorderColorActive = System.Drawing.Color.Red;
+            this.txtUserName.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtUserName.BorderColorHover = System.Drawing.Color.Yellow;
+            this.txtUserName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtUserName.BorderRadius = 1;
+            this.txtUserName.BorderThickness = 1;
+            this.txtUserName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtUserName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUserName.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtUserName.DefaultText = ".";
+            this.txtUserName.FillColor = System.Drawing.Color.White;
+            this.txtUserName.HideSelection = true;
+            this.txtUserName.IconLeft = null;
+            this.txtUserName.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUserName.IconPadding = 10;
+            this.txtUserName.IconRight = null;
+            this.txtUserName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUserName.Lines = new string[] {
+        "."};
+            this.txtUserName.Location = new System.Drawing.Point(293, 77);
+            this.txtUserName.MaxLength = 32767;
+            this.txtUserName.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtUserName.Modified = false;
+            this.txtUserName.Multiline = false;
+            this.txtUserName.Name = "txtUserName";
+            stateProperties9.BorderColor = System.Drawing.Color.Red;
+            stateProperties9.FillColor = System.Drawing.Color.Empty;
+            stateProperties9.ForeColor = System.Drawing.Color.Empty;
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtUserName.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtUserName.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.Blue;
+            stateProperties11.FillColor = System.Drawing.Color.Empty;
+            stateProperties11.ForeColor = System.Drawing.Color.Empty;
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtUserName.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            stateProperties12.FillColor = System.Drawing.Color.White;
+            stateProperties12.ForeColor = System.Drawing.Color.Empty;
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtUserName.OnIdleState = stateProperties12;
+            this.txtUserName.Padding = new System.Windows.Forms.Padding(3);
+            this.txtUserName.PasswordChar = '\0';
+            this.txtUserName.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtUserName.PlaceholderText = "نام کاربری خود را وارد کنید";
+            this.txtUserName.ReadOnly = false;
+            this.txtUserName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtUserName.SelectedText = "";
+            this.txtUserName.SelectionLength = 0;
+            this.txtUserName.SelectionStart = 1;
+            this.txtUserName.ShortcutsEnabled = true;
+            this.txtUserName.Size = new System.Drawing.Size(246, 44);
+            this.txtUserName.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txtUserName.TabIndex = 2;
+            this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtUserName.TextMarginBottom = 0;
+            this.txtUserName.TextMarginLeft = 3;
+            this.txtUserName.TextMarginTop = 0;
+            this.txtUserName.TextPlaceholder = "نام کاربری خود را وارد کنید";
+            this.txtUserName.UseSystemPasswordChar = false;
+            this.txtUserName.WordWrap = true;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.AcceptsReturn = false;
+            this.txtPassword.AcceptsTab = false;
+            this.txtPassword.AnimationSpeed = 200;
+            this.txtPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtPassword.BackColor = System.Drawing.Color.Transparent;
+            this.txtPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtPassword.BackgroundImage")));
+            this.txtPassword.BorderColorActive = System.Drawing.Color.Red;
+            this.txtPassword.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPassword.BorderColorHover = System.Drawing.Color.Yellow;
+            this.txtPassword.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.txtPassword.BorderRadius = 1;
+            this.txtPassword.BorderThickness = 1;
+            this.txtPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
+            this.txtPassword.DefaultText = ".";
+            this.txtPassword.FillColor = System.Drawing.Color.White;
+            this.txtPassword.HideSelection = true;
+            this.txtPassword.IconLeft = null;
+            this.txtPassword.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.IconPadding = 10;
+            this.txtPassword.IconRight = null;
+            this.txtPassword.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.Lines = new string[] {
+        "."};
+            this.txtPassword.Location = new System.Drawing.Point(293, 145);
+            this.txtPassword.MaxLength = 32767;
+            this.txtPassword.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtPassword.Modified = false;
+            this.txtPassword.Multiline = false;
+            this.txtPassword.Name = "txtPassword";
+            stateProperties13.BorderColor = System.Drawing.Color.Red;
+            stateProperties13.FillColor = System.Drawing.Color.Empty;
+            stateProperties13.ForeColor = System.Drawing.Color.Empty;
+            stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtPassword.OnActiveState = stateProperties13;
+            stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties14.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtPassword.OnDisabledState = stateProperties14;
+            stateProperties15.BorderColor = System.Drawing.Color.Blue;
+            stateProperties15.FillColor = System.Drawing.Color.Empty;
+            stateProperties15.ForeColor = System.Drawing.Color.Empty;
+            stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtPassword.OnHoverState = stateProperties15;
+            stateProperties16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            stateProperties16.FillColor = System.Drawing.Color.White;
+            stateProperties16.ForeColor = System.Drawing.Color.Empty;
+            stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtPassword.OnIdleState = stateProperties16;
+            this.txtPassword.Padding = new System.Windows.Forms.Padding(3);
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txtPassword.PlaceholderText = "رمز خود را وارد کنید";
+            this.txtPassword.ReadOnly = false;
+            this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.SelectionLength = 0;
+            this.txtPassword.SelectionStart = 1;
+            this.txtPassword.ShortcutsEnabled = true;
+            this.txtPassword.Size = new System.Drawing.Size(246, 44);
+            this.txtPassword.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtPassword.TextMarginBottom = 0;
+            this.txtPassword.TextMarginLeft = 3;
+            this.txtPassword.TextMarginTop = 0;
+            this.txtPassword.TextPlaceholder = "رمز خود را وارد کنید";
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.WordWrap = true;
+            // 
+            // btnOK
+            // 
+            this.btnOK.ActiveBorderThickness = 1;
+            this.btnOK.ActiveCornerRadius = 20;
+            this.btnOK.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnOK.ActiveForecolor = System.Drawing.Color.White;
+            this.btnOK.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnOK.BackColor = System.Drawing.SystemColors.Control;
+            this.btnOK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOK.BackgroundImage")));
+            this.btnOK.ButtonText = "ورود";
+            this.btnOK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOK.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnOK.IdleBorderThickness = 1;
+            this.btnOK.IdleCornerRadius = 20;
+            this.btnOK.IdleFillColor = System.Drawing.Color.White;
+            this.btnOK.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnOK.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnOK.Location = new System.Drawing.Point(211, 220);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(5);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(84, 64);
+            this.btnOK.TabIndex = 64;
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.ActiveBorderThickness = 1;
+            this.btnCancel.ActiveCornerRadius = 20;
+            this.btnCancel.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnCancel.ActiveForecolor = System.Drawing.Color.White;
+            this.btnCancel.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.BackgroundImage")));
+            this.btnCancel.ButtonText = "انصراف";
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnCancel.IdleBorderThickness = 1;
+            this.btnCancel.IdleCornerRadius = 20;
+            this.btnCancel.IdleFillColor = System.Drawing.Color.White;
+            this.btnCancel.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnCancel.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnCancel.Location = new System.Drawing.Point(539, 220);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(84, 64);
+            this.btnCancel.TabIndex = 64;
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
             // 
             // Login
             // 
-            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cbRole);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.cbRole);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.linkLabel3);
@@ -195,13 +372,14 @@ namespace Accounting.GUI.Forms
 
         private System.Windows.Forms.ComboBox cbRole;
         internal System.Windows.Forms.Label label2;
-        internal System.Windows.Forms.Button btnCancel;
-        internal System.Windows.Forms.Button btnOK;
-        internal System.Windows.Forms.TextBox txtPassword;
-        internal System.Windows.Forms.TextBox txtUserName;
         internal System.Windows.Forms.Label PasswordLabel;
         internal System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        public Bunifu.UI.WinForms.BunifuTextBox txtUserName;
+        public Bunifu.UI.WinForms.BunifuTextBox txtPassword;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnOK;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnCancel;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }

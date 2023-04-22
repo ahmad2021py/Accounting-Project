@@ -37,15 +37,17 @@ namespace Accounting.GUI.Forms
             frm.Show();
         }
 
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-            frmLoginDetails frm = new frmLoginDetails();
-            frm.ShowDialog();
-        }
+       
 
         private void btnRegistration_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            frmLoginDetails frm = new frmLoginDetails();
+            frm.ShowDialog();
         }
     }
 }
