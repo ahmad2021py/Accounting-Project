@@ -39,7 +39,6 @@ namespace Accounting.GUI.Forms
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // cbRole
@@ -71,7 +70,7 @@ namespace Accounting.GUI.Forms
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(545, 220);
+            this.btnCancel.Location = new System.Drawing.Point(524, 220);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(93, 38);
@@ -163,19 +162,11 @@ namespace Accounting.GUI.Forms
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "تغییر کلمه عبور";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(24, 343);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(744, 27);
-            this.progressBar1.TabIndex = 64;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);
@@ -187,6 +178,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel1);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
@@ -206,6 +198,5 @@ namespace Accounting.GUI.Forms
         internal System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        public System.Windows.Forms.ProgressBar progressBar1;
     }
 }

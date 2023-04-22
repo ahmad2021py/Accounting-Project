@@ -59,35 +59,16 @@ namespace Accounting.GUI.Forms
                     IUserRepository IUserRepository = _UnitOfWork.UserRepository;
                     if (IUserRepository.UserExist(UserTemp))
                     {
-                        this.Hide();
-                        int i;
-                        progressBar1.Visible = true;
-                        progressBar1.Maximum = 5000;
-                        progressBar1.Minimum = 0;
-                        progressBar1.Value = 4;
-                        progressBar1.Step = 1;
+                        this.Hide();                                         
+                        frmMainMenu frm = new frmMainMenu();
+                        frm.Show();
+                        frm.lblUser.Text = cbRole.Text;
 
-                        for (i = 0; i <= 5000; i++)
-                        {
-                            progressBar1.PerformStep();
-                        }
 
-                        this.Hide();
-                      //  frmMainMenu frm = new frmMainMenu();
-                      
-                      //  frm.Show();
-                      //  frm.lblUser.Text = cbRole.Text;
 
-                        //The following is user defined call for method disable 
-                        //ignore the green highlight
+                       
 
-                     //   if (cbRole.SelectedItem == "Manager")
-                     //   frm.disable();
-
-                       // if (cbRole.SelectedItem == "Employee")
-                       // frm.disable1();
-
-                      //  GlobalVariables.UserName = UserTemp.UserName;
+                     
                     }
 
                 }
@@ -97,7 +78,7 @@ namespace Accounting.GUI.Forms
 
         private void Login_Load(object sender, EventArgs e)
         {
-            progressBar1.Visible = false;
+           
             txtUserName.Focus();
         }
 
