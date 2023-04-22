@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Accounting
 {
+
     static class Program
     {
         /// <summary>
