@@ -73,6 +73,12 @@
     <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
     <Compile Include="DataLayer\Services\UserRepository.cs" />
+    <Compile Include="GUI\Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202304221228578_initialize.cs" />
     <Compile Include="Migrations\202304221228578_initialize.designer.cs">
       <DependentUpon>202304221228578_initialize.cs</DependentUpon>
@@ -80,6 +86,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304221228578_initialize.resx">
       <DependentUpon>202304221228578_initialize.cs</DependentUpon>
     </EmbeddedResource>
