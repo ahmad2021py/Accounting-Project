@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Context
 {
-  public  class UnitOfWork
+  public  class UnitOfWork:IDisposable
     {
+
         // ############# فیلد های کلاس  ##########
         Accounting_DbContext db = new Accounting_DbContext();
 
