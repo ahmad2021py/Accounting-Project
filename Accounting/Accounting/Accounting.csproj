@@ -68,6 +68,7 @@
     <Compile Include="DataLayer\Entities\Stock.cs" />
     <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
+    <Compile Include="DataLayer\Services\UserRepository.cs" />
     <Compile Include="Migrations\202304221228578_initialize.cs" />
     <Compile Include="Migrations\202304221228578_initialize.designer.cs">
       <DependentUpon>202304221228578_initialize.cs</DependentUpon>
