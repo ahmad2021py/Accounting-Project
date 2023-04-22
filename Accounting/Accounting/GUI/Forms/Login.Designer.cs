@@ -86,6 +86,7 @@ namespace Accounting.GUI.Forms
             this.btnOK.Size = new System.Drawing.Size(112, 38);
             this.btnOK.TabIndex = 59;
             this.btnOK.Text = "ورود";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtPassword
             // 
