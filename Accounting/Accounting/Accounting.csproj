@@ -56,6 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLayer\Entities\Categories.cs" />
+    <Compile Include="DataLayer\Entities\Company.cs" />
+    <Compile Include="DataLayer\Entities\Config.cs" />
+    <Compile Include="DataLayer\Entities\Customer.cs" />
+    <Compile Include="DataLayer\Entities\Product.cs" />
+    <Compile Include="DataLayer\Entities\ProductSold.cs" />
+    <Compile Include="DataLayer\Entities\Registration.cs" />
+    <Compile Include="DataLayer\Entities\Sales.cs" />
+    <Compile Include="DataLayer\Entities\Stock.cs" />
+    <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
