@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer\Context\Accounting_DbContext.cs" />
+    <Compile Include="DataLayer\Context\UnitOfWork.cs" />
     <Compile Include="DataLayer\Entities\Categories.cs" />
     <Compile Include="DataLayer\Entities\Company.cs" />
     <Compile Include="DataLayer\Entities\Config.cs" />
