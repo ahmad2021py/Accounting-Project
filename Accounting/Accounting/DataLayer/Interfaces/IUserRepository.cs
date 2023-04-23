@@ -12,7 +12,9 @@ namespace Accounting.DataLayer.Interfaces
     {
 
         bool UserExist(User user);
+        bool UserExist(string userName, string userPassword);
         List<User> GetUserList();
+        bool ChangeUserPassword(User user, string newUserPassword);
 
         //  bool UserExist(int userid);
         //   bool UserExist(string role, string username, string password);

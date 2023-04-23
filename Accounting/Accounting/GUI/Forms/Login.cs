@@ -108,7 +108,9 @@ namespace Accounting.GUI.Forms
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            frmChangePassword Frm = new frmChangePassword();
+            Frm.ShowDialog();
+            
         }
     }
 }

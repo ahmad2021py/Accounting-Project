@@ -51,7 +51,32 @@ namespace Accounting.DataLayer.Services
 
 
         }
+        //-----------------------------------------------------------
+        public bool UserExist(string userName,string userPassword)
+        {
+            try
+            {
 
+                IQueryable<User> query;
+                query = db.User.Where(n => n.UserName == userName && n.User_Password == userPassword).Select(n => n);
+
+                if (query.ToList().Count > 0)
+                {
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+
+        }
 
 
 
@@ -89,6 +114,50 @@ namespace Accounting.DataLayer.Services
 
 
         #endregion
+
+
+        #region متد تغییر رمز کاربر
+
+        public bool ChangeUserPassword(User user,string newUserPassword )
+        {
+
+            try
+            {
+
+                User query = db.User.Where(n => n.UserName == user.UserName && n.User_Password == user.User_Password).Select(n => n).First();
+                db.User.Attach(query);
+                db.Entry(query).Entity.User_Password = newUserPassword;
+                //SAVE change
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
+
+
+
+
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }  
 
