@@ -101,6 +101,8 @@ namespace Accounting.GUI.Forms
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            frmRecoveryPassword frm = new frmRecoveryPassword();
+            frm.ShowDialog();
 
         }
 

@@ -49,5 +49,7 @@ namespace Accounting.GUI.Forms
             frmLoginDetails frm = new frmLoginDetails();
             frm.ShowDialog();
         }
+
+     
     }
 }

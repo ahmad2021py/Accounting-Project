@@ -1,4 +1,5 @@
-﻿using Accounting.DataLayer.Interfaces;
+﻿using Accounting.DataLayer.Entities;
+using Accounting.DataLayer.Interfaces;
 using Accounting.DataLayer.Services;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Accounting.DataLayer.Context
         Accounting_DbContext db = new Accounting_DbContext();
 
         private IUserRepository _userRepository;
+        private IRegistrationRepository _RegistrationRepository;
 
 
         //#############پراپرتی های کلاس#############
@@ -32,7 +34,18 @@ namespace Accounting.DataLayer.Context
         }
 
         //--------------------------------------------------
+        public IRegistrationRepository RegistrationRepository
+        {
+            get
+            {
+                if (_RegistrationRepository == null)
+                {
+                    _RegistrationRepository = new RegistrationRepository(db);
+                }
 
+                return _RegistrationRepository;
+            }
+        }
 
         //############متد های کلاس ##################
 

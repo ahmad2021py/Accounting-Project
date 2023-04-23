@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Interfaces
 {
-  public  interface IUserRepository
+    public interface IUserRepository
     {
-     
+
         bool UserExist(User user);
         List<User> GetUserList();
-      //  bool UserExist(int userid);
-      //   bool UserExist(string role, string username, string password);
+
+        //  bool UserExist(int userid);
+        //   bool UserExist(string role, string username, string password);
 
 
 
