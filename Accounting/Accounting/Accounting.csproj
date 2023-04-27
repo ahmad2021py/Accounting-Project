@@ -107,12 +107,26 @@
     <Compile Include="DataLayer\Entities\Sales.cs" />
     <Compile Include="DataLayer\Entities\Stock.cs" />
     <Compile Include="DataLayer\Entities\User.cs" />
+    <Compile Include="DataLayer\Interfaces\ICategoryRepository.cs" />
     <Compile Include="DataLayer\Interfaces\ICompanyRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRegistrationRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
+    <Compile Include="DataLayer\Services\CategoryRepository.cs" />
     <Compile Include="DataLayer\Services\CompanyRepository.cs" />
     <Compile Include="DataLayer\Services\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\UserRepository.cs" />
+    <Compile Include="GUI\Forms\frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCategoryRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCategoryRecords.Designer.cs">
+      <DependentUpon>frmCategoryRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +186,12 @@
     <Compile Include="Utilities\EmailPacket.cs" />
     <Compile Include="Utilities\GlobalVariables.cs" />
     <Compile Include="Utilities\WorkWithEmail.cs" />
+    <EmbeddedResource Include="GUI\Forms\frmCategory.resx">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmCategoryRecords.resx">
+      <DependentUpon>frmCategoryRecords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>

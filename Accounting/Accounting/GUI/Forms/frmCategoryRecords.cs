@@ -12,23 +12,24 @@ using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
 {
-    public partial class frmCompanyRecords : Form
+    public partial class frmCategoryRecords : Form
     {
-        public frmCompanyRecords()
+        public frmCategoryRecords()
         {
             InitializeComponent();
         }
 
-        private void frmCompanyRecords_Load(object sender, EventArgs e)
+        private void frmCategoryRecords_Load(object sender, EventArgs e)
         {
+           
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
+                ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
                 try
                 {
-                    DGV1.DataSource = _CompanyRepository.GetCompanyList();
-                    DGV1.Columns[0].HeaderText = " کد شرکت";
-                    DGV1.Columns[1].HeaderText = " نام شرکت";
+                    DGV1.DataSource = _CategoryRepository.GetCategoryList();
+                    DGV1.Columns[0].HeaderText = " کد دسته بندی";
+                    DGV1.Columns[1].HeaderText = " نام دسته بندی";
                 }
                 catch
                 {
@@ -36,7 +37,6 @@ namespace Accounting.GUI.Forms
                 }
 
             }
-
         }
     }
 }

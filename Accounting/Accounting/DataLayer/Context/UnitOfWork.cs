@@ -12,14 +12,13 @@ namespace Accounting.DataLayer.Context
   public  class UnitOfWork:IDisposable
     {
 
-        // ############# فیلد های کلاس  ##########
+        //--------Fileds--------------
         Accounting_DbContext db = new Accounting_DbContext();
-
         private IUserRepository _userRepository;
         private IRegistrationRepository _RegistrationRepository;
         private ICompanyRepository _CompanyRepository;
-
-        //#############پراپرتی های کلاس#############
+        private ICategoryRepository _CategoryRepository;
+        //-----------Properties---------------
         public IUserRepository UserRepository
         {
             get
@@ -33,7 +32,6 @@ namespace Accounting.DataLayer.Context
             }
         }
 
-        //--------------------------------------------------
         public IRegistrationRepository RegistrationRepository
         {
             get
@@ -60,8 +58,19 @@ namespace Accounting.DataLayer.Context
             }
         }
 
-        //############متد های کلاس ##################
+        public ICategoryRepository CategoryRepository
+        {
+            get
+            {
+                if (_CategoryRepository == null)
+                {
+                    _CategoryRepository = new CategoryRepository(db);
+                }
 
+                return _CategoryRepository;
+            }
+        }
+        //---------Methods-----------------
         public void Save()
         {
             db.SaveChanges();
