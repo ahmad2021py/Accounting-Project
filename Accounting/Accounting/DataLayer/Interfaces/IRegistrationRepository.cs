@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accounting.DataLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,11 @@ namespace Accounting.DataLayer.Interfaces
     {
         bool RegistrationIsValid(string username, string email);
         string GetUserPassword(string username, string email);
+         bool InsertToRegistration(Registration record);
 
-
-
+        bool DeleteRecord(string record);
+        bool UpdateRecord(Registration record);
+        Registration GetRecord(string UserName);
 
     }
 

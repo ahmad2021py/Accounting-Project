@@ -129,11 +129,18 @@
     <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmUserRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmUserRegistration.Designer.cs">
+      <DependentUpon>frmUserRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Forms\Login.Designer.cs">
+    <Compile Include="GUI\Forms\.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Migrations\202304221714285_initialize.cs" />
     <Compile Include="Migrations\202304221714285_initialize.designer.cs">
@@ -156,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmUserRegistration.resx">
+      <DependentUpon>frmUserRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -193,6 +203,12 @@
     <None Include="GUI\Resourses\exit.png" />
     <Content Include="GUI\Resourses\ico1.ico" />
     <None Include="GUI\Resourses\ico2.ico" />
+    <None Include="GUI\Resourses\icons8_team_48px.png" />
+    <None Include="GUI\Resourses\icons8_registration_skin_type_7_48px.png" />
+    <None Include="GUI\Resourses\icons8_customer_48px.png" />
+    <None Include="GUI\Resourses\icons8_home.ico" />
+    <None Include="GUI\Resourses\icons8_exit_sign_128px.png" />
+    <None Include="GUI\Resourses\icons8_enter_key_2.ico" />
     <Content Include="Utilities\AccountingDLL.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

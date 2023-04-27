@@ -20,7 +20,8 @@ namespace Accounting.GUI.Forms
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            ToolStripStatusLabel4.Text = System.DateTime.Now.ToString();
+            toolStripStatusLabel4.Text = System.DateTime.Now.ToString();
+           
             // GetData();
         }
     
@@ -39,10 +40,7 @@ namespace Accounting.GUI.Forms
 
        
 
-        private void btnRegistration_Click(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
@@ -50,6 +48,20 @@ namespace Accounting.GUI.Forms
             frm.ShowDialog();
         }
 
-     
+        private void btnRegistration_Click(object sender, EventArgs e)
+        {
+            frmUserRegistration frm = new frmUserRegistration();
+            frm.ShowDialog();
+        }
+
+        private void StatusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabel4.Text = System.DateTime.Now.ToString();
+        }
     }
 }

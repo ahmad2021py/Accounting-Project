@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,30 @@ namespace Accounting.DataLayer.Services
         #endregion
         //------------------------------------------------
         #region متد تست وجود یوزر در دیتابیس
+       public bool UserExist(string UserName)
+        {
+            try
+            {
+
+                IQueryable<User> query;
+                query = db.User.Where(n => n.UserName == UserName).Select(n => n);
+
+                if (query.ToList().Count > 0)
+                {
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        //------------
         public bool UserExist(User user)
         {
             try
@@ -51,6 +76,9 @@ namespace Accounting.DataLayer.Services
 
 
         }
+    
+       
+
         //-----------------------------------------------------------
         public bool UserExist(string userName,string userPassword)
         {
@@ -142,13 +170,27 @@ namespace Accounting.DataLayer.Services
 
 
         }
+
+
         #endregion
 
+        //--------------------------------------
+        #region Delete User
+        public bool DeleteUser(string userName)
+        {
+            try
+            {
+                var db_record = db.User.Where(n => n.UserName == userName).Select(n => n).First(); 
+                db.Entry(db_record).State = EntityState.Deleted;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
-
-
-
-
+        #endregion
 
 
 

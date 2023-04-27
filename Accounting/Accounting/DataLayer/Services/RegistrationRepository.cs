@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,8 +69,103 @@ namespace Accounting.DataLayer.Services
 
         }
         #endregion
+        //----------------
+        #region متد اضافه کردن رکورد به جدول ثبت نام
+
+        public bool InsertToRegistration(Registration record)
+        {
+            try
+            {
+                db.Registration.Add(record);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        #endregion
+        //------------
+        #region Delete Registration Record
+
+        public bool DeleteRecord(string _username)
+        {
+            try
+            {
+                Registration record = db.Registration.Where(n => n.UserName == _username).Select(n => n).First();
+                db.Registration.Remove(record);
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        #endregion
+
+        #region Update Record
+
+        public bool UpdateRecord(Registration record)
+        {
+
+            try
+            {
+
+                Registration _dbRecord = db.Registration.Where(n => n.UserName == record.UserName).Select(n => n).First();
+                db.Registration.Attach(_dbRecord);
+                db.Entry(_dbRecord).Entity.User_Password = record.User_Password;
+                db.Entry(_dbRecord).Entity.Role = record.Role;
+                db.Entry(_dbRecord).Entity.ContactNo = record.ContactNo;
+                db.Entry(_dbRecord).Entity.NameOfUser = record.NameOfUser;
+                db.Entry(_dbRecord).Entity.Email = record.Email;
+                //SAVE change
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
 
 
+
+
+
+
+        }
+
+
+        #endregion
+
+
+
+        #region
+     public   Registration GetRecord(string UserName)
+        {
+
+            try
+            {
+                Registration Db_Record = db.Registration.Where(n => n.UserName == UserName).Select(n => n).FirstOrDefault();
+                return Db_Record;
+            }
+
+            catch
+            {
+                throw new Exception();
+            }
+
+
+
+
+
+
+        }
+
+
+        #endregion
     }
 }
- 

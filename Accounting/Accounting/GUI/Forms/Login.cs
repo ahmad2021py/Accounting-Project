@@ -77,7 +77,7 @@ namespace Accounting.GUI.Forms
                             frmMainMenu frm = new frmMainMenu();
                             frm.Show();
                             frm.lblUser.Text = cbRole.Text;
-
+                            frm.toolStripStatusLabel3.Text = UserTemp.UserName;
 
 
 
