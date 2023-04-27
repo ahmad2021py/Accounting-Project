@@ -47,8 +47,14 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuFormDock">
       <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGroupBox">
+      <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuGroupBox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
       <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
@@ -101,8 +107,10 @@
     <Compile Include="DataLayer\Entities\Sales.cs" />
     <Compile Include="DataLayer\Entities\Stock.cs" />
     <Compile Include="DataLayer\Entities\User.cs" />
+    <Compile Include="DataLayer\Interfaces\ICompanyRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRegistrationRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
+    <Compile Include="DataLayer\Services\CompanyRepository.cs" />
     <Compile Include="DataLayer\Services\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\UserRepository.cs" />
     <Compile Include="GUI\Forms\frmChangePassword.cs">
@@ -110,6 +118,18 @@
     </Compile>
     <Compile Include="GUI\Forms\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCompany.Designer.cs">
+      <DependentUpon>frmCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCompanyRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCompanyRecords.Designer.cs">
+      <DependentUpon>frmCompanyRecords.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmLoginDetails.cs">
       <SubType>Form</SubType>
@@ -154,6 +174,12 @@
     <Compile Include="Utilities\WorkWithEmail.cs" />
     <EmbeddedResource Include="GUI\Forms\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmCompany.resx">
+      <DependentUpon>frmCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmCompanyRecords.resx">
+      <DependentUpon>frmCompanyRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmLoginDetails.resx">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
@@ -201,6 +227,8 @@
   <ItemGroup>
     <None Include="GUI\Resourses\main_background.png" />
     <None Include="GUI\Resourses\exit.png" />
+    <None Include="GUI\Resourses\Company-256.png" />
+    <None Include="GUI\Resourses\company-icon-for-graphic-and-web-design-vector-31970933.jpg" />
     <Content Include="GUI\Resourses\ico1.ico" />
     <None Include="GUI\Resourses\ico2.ico" />
     <None Include="GUI\Resourses\icons8_team_48px.png" />

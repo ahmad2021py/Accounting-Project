@@ -43,6 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistration = new Bunifu.UI.WinForms.BunifuImageButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCompany = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -216,6 +218,53 @@
             this.label2.TabIndex = 68;
             this.label2.Text = "مدیریت کاربران";
             // 
+            // btnCompany
+            // 
+            this.btnCompany.ActiveImage = null;
+            this.btnCompany.AllowAnimations = true;
+            this.btnCompany.AllowBuffering = false;
+            this.btnCompany.AllowToggling = false;
+            this.btnCompany.AllowZooming = true;
+            this.btnCompany.AllowZoomingOnFocus = false;
+            this.btnCompany.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCompany.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCompany.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnCompany.ErrorImage")));
+            this.btnCompany.FadeWhenInactive = false;
+            this.btnCompany.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnCompany.Image = global::Accounting.Properties.Resources.Company_256;
+            this.btnCompany.ImageActive = null;
+            this.btnCompany.ImageLocation = "";
+            this.btnCompany.ImageMargin = 10;
+            this.btnCompany.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnCompany.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.btnCompany.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCompany.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCompany.InitialImage")));
+            this.btnCompany.Location = new System.Drawing.Point(295, 371);
+            this.btnCompany.Name = "btnCompany";
+            this.btnCompany.Rotation = 0;
+            this.btnCompany.ShowActiveImage = true;
+            this.btnCompany.ShowCursorChanges = true;
+            this.btnCompany.ShowImageBorders = true;
+            this.btnCompany.ShowSizeMarkers = false;
+            this.btnCompany.Size = new System.Drawing.Size(90, 90);
+            this.btnCompany.TabIndex = 70;
+            this.btnCompany.ToolTipText = "";
+            this.btnCompany.WaitOnLoad = false;
+            this.btnCompany.Zoom = 10;
+            this.btnCompany.ZoomSpeed = 10;
+            this.btnCompany.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label3.Location = new System.Drawing.Point(296, 470);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 41);
+            this.label3.TabIndex = 72;
+            this.label3.Text = "شرکت ها";
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,6 +273,8 @@
             this.BackgroundImage = global::Accounting.Properties.Resources.main_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 555);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegistration);
@@ -265,5 +316,7 @@
         public System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private Bunifu.UI.WinForms.BunifuImageButton btnCompany;
+        private System.Windows.Forms.Label label3;
     }
 }

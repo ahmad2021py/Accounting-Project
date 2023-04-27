@@ -17,7 +17,7 @@ namespace Accounting.DataLayer.Context
 
         private IUserRepository _userRepository;
         private IRegistrationRepository _RegistrationRepository;
-
+        private ICompanyRepository _CompanyRepository;
 
         //#############پراپرتی های کلاس#############
         public IUserRepository UserRepository
@@ -44,6 +44,19 @@ namespace Accounting.DataLayer.Context
                 }
 
                 return _RegistrationRepository;
+            }
+        }
+        //----------------------------------------------
+        public ICompanyRepository CompanyRepository
+        {
+            get
+            {
+                if (_CompanyRepository == null)
+                {
+                    _CompanyRepository = new CompanyRepository(db);
+                }
+
+                return _CompanyRepository;
             }
         }
 

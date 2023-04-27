@@ -63,5 +63,12 @@ namespace Accounting.GUI.Forms
         {
             toolStripStatusLabel4.Text = System.DateTime.Now.ToString();
         }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            frmCompany frm = new frmCompany();
+            frm.ShowDialog();
+
+        }
     }
 }
