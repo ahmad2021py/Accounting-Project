@@ -52,7 +52,7 @@ namespace Accounting.GUI.Forms
             this.txtCompany = new Bunifu.UI.WinForms.BunifuTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtCategory = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.btnGetData = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnExport = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -381,30 +381,31 @@ namespace Accounting.GUI.Forms
             this.txtCategory.WordWrap = true;
             this.txtCategory.TextChanged += new System.EventHandler(this.txtCategory_TextChanged);
             // 
-            // btnGetData
+            // btnExport
             // 
-            this.btnGetData.ActiveBorderThickness = 1;
-            this.btnGetData.ActiveCornerRadius = 20;
-            this.btnGetData.ActiveFillColor = System.Drawing.Color.Red;
-            this.btnGetData.ActiveForecolor = System.Drawing.Color.White;
-            this.btnGetData.ActiveLineColor = System.Drawing.Color.Red;
-            this.btnGetData.BackColor = System.Drawing.SystemColors.Control;
-            this.btnGetData.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGetData.BackgroundImage")));
-            this.btnGetData.ButtonText = "چاپ";
-            this.btnGetData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGetData.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetData.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnGetData.IdleBorderThickness = 1;
-            this.btnGetData.IdleCornerRadius = 20;
-            this.btnGetData.IdleFillColor = System.Drawing.Color.White;
-            this.btnGetData.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnGetData.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnGetData.Location = new System.Drawing.Point(61, 438);
-            this.btnGetData.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.btnGetData.Name = "btnGetData";
-            this.btnGetData.Size = new System.Drawing.Size(178, 74);
-            this.btnGetData.TabIndex = 76;
-            this.btnGetData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExport.ActiveBorderThickness = 1;
+            this.btnExport.ActiveCornerRadius = 20;
+            this.btnExport.ActiveFillColor = System.Drawing.Color.Red;
+            this.btnExport.ActiveForecolor = System.Drawing.Color.White;
+            this.btnExport.ActiveLineColor = System.Drawing.Color.Red;
+            this.btnExport.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
+            this.btnExport.ButtonText = "خروجی اکسل";
+            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExport.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnExport.IdleBorderThickness = 1;
+            this.btnExport.IdleCornerRadius = 20;
+            this.btnExport.IdleFillColor = System.Drawing.Color.White;
+            this.btnExport.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnExport.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnExport.Location = new System.Drawing.Point(61, 438);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(178, 74);
+            this.btnExport.TabIndex = 76;
+            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // frmProductRecords
             // 
@@ -412,7 +413,7 @@ namespace Accounting.GUI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1027, 579);
-            this.Controls.Add(this.btnGetData);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -441,6 +442,6 @@ namespace Accounting.GUI.Forms
         public Bunifu.UI.WinForms.BunifuTextBox txtCompany;
         private System.Windows.Forms.GroupBox groupBox3;
         public Bunifu.UI.WinForms.BunifuTextBox txtCategory;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnGetData;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnExport;
     }
 }

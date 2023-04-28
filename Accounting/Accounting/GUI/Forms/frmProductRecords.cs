@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Accounting.GUI.Forms
 {
@@ -117,6 +118,56 @@ namespace Accounting.GUI.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            int rowsTotal = 0;
+            int colsTotal = 0;
+            int I = 0;
+            int j = 0;
+            int iC = 0;
+            Cursor.Current = Cursors.WaitCursor;
+            Excel.Application _ExcelApplication = new Excel.Application();
+
+            try
+            {
+                Excel.Workbook ExcelBook = _ExcelApplication.Workbooks.Add();
+                Excel.Worksheet ExcelWorksheet = ExcelBook.Worksheets[1];
+                _ExcelApplication.Visible = true;
+
+                rowsTotal = DGV1.RowCount;
+                colsTotal = DGV1.Columns.Count - 1;
+                var _ExcelWorksheet = ExcelWorksheet;
+
+                for (iC = 0; iC <= colsTotal; iC++)
+                {
+                    _ExcelWorksheet.Cells[1, iC + 1].Value = DGV1.Columns[iC].HeaderText;
+                }
+                for (I = 0; I <= rowsTotal - 1; I++)
+                {
+                    for (j = 0; j <= colsTotal; j++)
+                    {
+                        _ExcelWorksheet.Cells[I + 2, j + 1].value = DGV1.Rows[I].Cells[j].Value;
+                    }
+                }
+
+
+                _ExcelWorksheet.Cells.Columns.AutoFit();
+                _ExcelWorksheet.Cells.Select();
+                _ExcelWorksheet.Cells.EntireColumn.AutoFit();
+                _ExcelWorksheet.Cells[1, 1].Select();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+
+                Cursor.Current = Cursors.Default;
+                _ExcelApplication = null;
             }
         }
     }

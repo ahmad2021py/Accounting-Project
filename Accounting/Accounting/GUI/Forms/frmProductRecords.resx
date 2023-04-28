@@ -146,7 +146,7 @@
         xA9R4oco8UOU+CFK/BAlfogSP0Rd49/ez+/5AMzs9jt6n+kDPWP8AHQ5uFDpjwvyAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnGetData.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnExport.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAALIAAABKCAYAAAAfSw4cAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAL6SURBVHhe7d3BS9NxGMfx/qJuXbx18mQXhSA6aAcJFAxh
