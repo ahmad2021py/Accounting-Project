@@ -12,20 +12,19 @@ namespace Accounting.DataLayer.Services
 {
     public class CompanyRepository : ICompanyRepository
     {
+        //------Feilds----------------------
         #region فیلد های کلاس
         private Accounting_DbContext db;
         #endregion
 
-        //-------------------------------------
+       //---------Methods-----------------
         #region متد سازنده کلاس 
         public CompanyRepository(Accounting_DbContext context)
         {
             db = context;
         }
         #endregion
-        //---------
-
-
+       
 
         #region متد تست وجود شرکت در دیتابیس
         public bool ComapnyExist(string CompanyName)
@@ -52,7 +51,7 @@ namespace Accounting.DataLayer.Services
             }
         }
         #endregion
-        //------------
+      
         #region متد اضافه کردن رکورد به جدول شرکت
 
         public bool InsertToCompany(Company record)
@@ -70,7 +69,9 @@ namespace Accounting.DataLayer.Services
         }
 
         #endregion
-        //------------
+
+
+        #region Delete Record
         public bool DeleteCompany(string CompanyName) 
         {
             try
@@ -85,7 +86,8 @@ namespace Accounting.DataLayer.Services
                 return false;
             }
         }
-        //---------------------
+        #endregion
+
 
         #region متد دریافت لیست شرکت ها
         public List<Company> GetCompanyList()
@@ -105,6 +107,8 @@ namespace Accounting.DataLayer.Services
 
 
         #endregion
+
+
 
     }
 }

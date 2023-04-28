@@ -47,11 +47,17 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
+      <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
       <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuFormDock">
       <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
+      <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGroupBox">
       <HintPath>C:\Users\Administrator\Desktop\Bunifu UI WinForms 5.0.3\ui.winforms.5.0.3\Bunifu.UI.WinForms.BunifuGroupBox.dll</HintPath>
@@ -109,10 +115,12 @@
     <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="DataLayer\Interfaces\ICategoryRepository.cs" />
     <Compile Include="DataLayer\Interfaces\ICompanyRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\IProductRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRegistrationRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
     <Compile Include="DataLayer\Services\CategoryRepository.cs" />
     <Compile Include="DataLayer\Services\CompanyRepository.cs" />
+    <Compile Include="DataLayer\Services\ProductRepository.cs" />
     <Compile Include="DataLayer\Services\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\UserRepository.cs" />
     <Compile Include="GUI\Forms\frmCategory.cs">
@@ -157,6 +165,18 @@
     <Compile Include="GUI\Forms\frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmProductRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmProductRecords.Designer.cs">
+      <DependentUpon>frmProductRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmRecoveryPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +199,10 @@
     <Compile Include="Migrations\202304221714285_initialize.cs" />
     <Compile Include="Migrations\202304221714285_initialize.designer.cs">
       <DependentUpon>202304221714285_initialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304280721305_FixProductEntity.cs" />
+    <Compile Include="Migrations\202304280721305_FixProductEntity.designer.cs">
+      <DependentUpon>202304280721305_FixProductEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -207,6 +231,12 @@
     <EmbeddedResource Include="GUI\Forms\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmProductRecords.resx">
+      <DependentUpon>frmProductRecords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304221714285_initialize.resx">
       <DependentUpon>202304221714285_initialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304280721305_FixProductEntity.resx">
+      <DependentUpon>202304280721305_FixProductEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -12,12 +12,13 @@ namespace Accounting.DataLayer.Context
   public  class UnitOfWork:IDisposable
     {
 
-        //--------Fileds--------------
+        //--------Fields--------------
         Accounting_DbContext db = new Accounting_DbContext();
         private IUserRepository _userRepository;
         private IRegistrationRepository _RegistrationRepository;
         private ICompanyRepository _CompanyRepository;
         private ICategoryRepository _CategoryRepository;
+        private IProductRepository _ProductRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -44,7 +45,7 @@ namespace Accounting.DataLayer.Context
                 return _RegistrationRepository;
             }
         }
-        //----------------------------------------------
+      
         public ICompanyRepository CompanyRepository
         {
             get
@@ -70,6 +71,22 @@ namespace Accounting.DataLayer.Context
                 return _CategoryRepository;
             }
         }
+
+        public IProductRepository ProductRepository
+        {
+            get
+            {
+                if (_ProductRepository == null)
+                {
+                    _ProductRepository = new ProductRepository(db);
+                }
+
+                return _ProductRepository;
+            }
+        }
+
+
+
         //---------Methods-----------------
         public void Save()
         {
