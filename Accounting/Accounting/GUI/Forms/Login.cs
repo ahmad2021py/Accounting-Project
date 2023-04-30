@@ -18,19 +18,60 @@ namespace Accounting.GUI.Forms
 {
     public partial class Login : Form
     {
+        //-----Fields-------------------
         #region class Fields
         User UserTemp;
         #endregion
+        //------Methods------------
+        #region frmMainInitialize Method
+        void frmMainInitialize()
+        {
+            this.Hide();
+            frmMainMenu frm = new frmMainMenu();
+            frm.Show();
+            frm.lblUser.Text = cbRole.Text;
+            frm.toolStripStatusLabel3.Text = UserTemp.UserName;
+            if (frm.lblUser.Text == "Manager")
+            {
+                //Hide btnRegistration 
+                frm.btnRegistration.Enabled = false;
+                frm.btnRegistration.Visible = false;
+                frm.lblRegistration.Visible = false;
+                // Hide btnUsers
+                frm.btnUsers.Enabled = false;
+                frm.btnUsers.Visible = false;
+                frm.lblUsers.Visible = false;
+            }
+            else if (frm.lblUser.Text == "Employee")
+            {
+                //Hide btnRegistration 
+                frm.btnRegistration.Enabled = false;
+                frm.btnRegistration.Visible = false;
+                frm.lblRegistration.Visible = false;
+                // Hide btnUsers
+                frm.btnUsers.Enabled = false;
+                frm.btnUsers.Visible = false;
+                frm.lblUsers.Visible = false;
+
+                //  frm.btnModify.Enabled = false;
+                // btnInvoiceRpt.Enabled = false;
+                //  frm.butonInvoice.Enabled = false;
+                // frm.btnInvoice.Enabled = false;
+            }
+        }
+        #endregion
+
+
         public Login()
         {
             InitializeComponent();
             UserTemp = new User();
         }
 
-       
-    private void Login_Load(object sender, EventArgs e)
+
+        private void Login_Load(object sender, EventArgs e)
         {
-           
+
             txtUserName.Focus();
         }
 
@@ -41,62 +82,53 @@ namespace Accounting.GUI.Forms
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            
 
-                if (WorkWithTextboxes.TextBoxisNull(cbRole.Text))
+
+            if (WorkWithTextboxes.TextBoxisNull(cbRole.Text))
+            {
+
+                MessageBox.Show("لطفا نقش خود را مشخص کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cbRole.Focus();
+            }
+            else if (WorkWithTextboxes.TextBoxisNull(txtUserName.Text))
+            {
+
+                MessageBox.Show("لطفا نام کاربری خود را وارد کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUserName.Focus();
+            }
+            else if (WorkWithTextboxes.TextBoxisNull(txtPassword.Text))
+            {
+
+                MessageBox.Show("لطفا کلمه عبور خود را وارد کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Focus();
+            }
+
+            else
+            {
+                UserTemp.UserName = txtUserName.Text.Trim();
+                UserTemp.User_Password = txtPassword.Text.Trim();
+                UserTemp.Role = cbRole.Text;
+
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
-
-                    MessageBox.Show("لطفا نقش خود را مشخص کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cbRole.Focus();
-                }
-                else if (WorkWithTextboxes.TextBoxisNull(txtUserName.Text))
-                {
-
-                    MessageBox.Show("لطفا نام کاربری خود را وارد کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtUserName.Focus();
-                }
-                else if (WorkWithTextboxes.TextBoxisNull(txtPassword.Text))
-                {
-
-                    MessageBox.Show("لطفا کلمه عبور خود را وارد کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPassword.Focus();
-                }
-
-                else
-                {
-                    UserTemp.UserName = txtUserName.Text.Trim();
-                    UserTemp.User_Password = txtPassword.Text.Trim();
-                    UserTemp.Role = cbRole.Text;
-
-                    using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                    IUserRepository IUserRepository = _UnitOfWork.UserRepository;
+                    if (IUserRepository.UserExist(UserTemp))
                     {
-                        IUserRepository IUserRepository = _UnitOfWork.UserRepository;
-                        if (IUserRepository.UserExist(UserTemp))
-                        {
-                            this.Hide();
-                            frmMainMenu frm = new frmMainMenu();
-                            frm.Show();
-                            frm.lblUser.Text = cbRole.Text;
-                            frm.toolStripStatusLabel3.Text = UserTemp.UserName;
-
-
-
-
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("کاربری با این مشخصات یافت نشد ");
-                            txtPassword.Text = "";
-                            txtUserName.Text = "";
-                        }
-
+                        frmMainInitialize();
+                    }
+                    else
+                    {
+                        MessageBox.Show("کاربری با این مشخصات یافت نشد ");
+                        txtPassword.Text = "";
+                        txtUserName.Text = "";
                     }
 
-
                 }
 
-            
+
+            }
+
+
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -110,7 +142,7 @@ namespace Accounting.GUI.Forms
         {
             frmChangePassword Frm = new frmChangePassword();
             Frm.ShowDialog();
-            
+
         }
     }
 }

@@ -40,11 +40,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.خروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUsers = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUsers = new System.Windows.Forms.Label();
             this.btnRegistration = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRegistration = new System.Windows.Forms.Label();
             this.btnCompany = new Bunifu.UI.WinForms.BunifuImageButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnProdut = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.lblProdut = new System.Windows.Forms.Label();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -160,16 +162,16 @@
             this.btnUsers.ZoomSpeed = 10;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
-            // label1
+            // lblUsers
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(22, 468);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 41);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "کاربران";
+            this.lblUsers.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsers.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblUsers.Location = new System.Drawing.Point(22, 468);
+            this.lblUsers.Name = "lblUsers";
+            this.lblUsers.Size = new System.Drawing.Size(80, 41);
+            this.lblUsers.TabIndex = 68;
+            this.lblUsers.Text = "کاربران";
             // 
             // btnRegistration
             // 
@@ -207,16 +209,16 @@
             this.btnRegistration.ZoomSpeed = 10;
             this.btnRegistration.Click += new System.EventHandler(this.btnRegistration_Click);
             // 
-            // label2
+            // lblRegistration
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label2.Location = new System.Drawing.Point(129, 468);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 41);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "مدیریت کاربران";
+            this.lblRegistration.BackColor = System.Drawing.Color.Transparent;
+            this.lblRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistration.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblRegistration.Location = new System.Drawing.Point(129, 468);
+            this.lblRegistration.Name = "lblRegistration";
+            this.lblRegistration.Size = new System.Drawing.Size(146, 41);
+            this.lblRegistration.TabIndex = 68;
+            this.lblRegistration.Text = "مدیریت کاربران";
             // 
             // btnCompany
             // 
@@ -259,11 +261,58 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(296, 470);
+            this.label3.Location = new System.Drawing.Point(292, 468);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 41);
             this.label3.TabIndex = 72;
             this.label3.Text = "شرکت ها";
+            // 
+            // btnProdut
+            // 
+            this.btnProdut.ActiveImage = null;
+            this.btnProdut.AllowAnimations = true;
+            this.btnProdut.AllowBuffering = false;
+            this.btnProdut.AllowToggling = false;
+            this.btnProdut.AllowZooming = true;
+            this.btnProdut.AllowZoomingOnFocus = false;
+            this.btnProdut.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnProdut.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnProdut.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnProdut.ErrorImage")));
+            this.btnProdut.FadeWhenInactive = false;
+            this.btnProdut.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnProdut.Image = global::Accounting.Properties.Resources.icons8_product_128px_2;
+            this.btnProdut.ImageActive = null;
+            this.btnProdut.ImageLocation = "";
+            this.btnProdut.ImageMargin = 10;
+            this.btnProdut.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnProdut.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.btnProdut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnProdut.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnProdut.InitialImage")));
+            this.btnProdut.Location = new System.Drawing.Point(448, 371);
+            this.btnProdut.Name = "btnProdut";
+            this.btnProdut.Rotation = 0;
+            this.btnProdut.ShowActiveImage = true;
+            this.btnProdut.ShowCursorChanges = true;
+            this.btnProdut.ShowImageBorders = true;
+            this.btnProdut.ShowSizeMarkers = false;
+            this.btnProdut.Size = new System.Drawing.Size(90, 90);
+            this.btnProdut.TabIndex = 70;
+            this.btnProdut.ToolTipText = "";
+            this.btnProdut.WaitOnLoad = false;
+            this.btnProdut.Zoom = 10;
+            this.btnProdut.ZoomSpeed = 10;
+            this.btnProdut.Click += new System.EventHandler(this.btnProdut_Click);
+            // 
+            // lblProdut
+            // 
+            this.lblProdut.BackColor = System.Drawing.Color.Transparent;
+            this.lblProdut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProdut.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblProdut.Location = new System.Drawing.Point(446, 469);
+            this.lblProdut.Name = "lblProdut";
+            this.lblProdut.Size = new System.Drawing.Size(93, 41);
+            this.lblProdut.TabIndex = 72;
+            this.lblProdut.Text = "محصولات";
             // 
             // frmMainMenu
             // 
@@ -273,10 +322,12 @@
             this.BackgroundImage = global::Accounting.Properties.Resources.main_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 555);
+            this.Controls.Add(this.lblProdut);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnProdut);
             this.Controls.Add(this.btnCompany);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblRegistration);
+            this.Controls.Add(this.lblUsers);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.btnUsers);
             this.Controls.Add(this.StatusStrip1);
@@ -308,15 +359,17 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem خروجToolStripMenuItem;
-        private Bunifu.UI.WinForms.BunifuImageButton btnUsers;
-        private System.Windows.Forms.Label label1;
-        private Bunifu.UI.WinForms.BunifuImageButton btnRegistration;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         public System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private Bunifu.UI.WinForms.BunifuImageButton btnCompany;
         private System.Windows.Forms.Label label3;
+        public Bunifu.UI.WinForms.BunifuImageButton btnUsers;
+        public Bunifu.UI.WinForms.BunifuImageButton btnRegistration;
+        public System.Windows.Forms.Label lblRegistration;
+        public System.Windows.Forms.Label lblUsers;
+        private Bunifu.UI.WinForms.BunifuImageButton btnProdut;
+        private System.Windows.Forms.Label lblProdut;
     }
 }

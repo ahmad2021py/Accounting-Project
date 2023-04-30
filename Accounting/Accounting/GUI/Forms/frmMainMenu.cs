@@ -21,7 +21,7 @@ namespace Accounting.GUI.Forms
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
             toolStripStatusLabel4.Text = System.DateTime.Now.ToString();
-           
+          
             // GetData();
         }
     
@@ -30,6 +30,7 @@ namespace Accounting.GUI.Forms
 
         private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             this.Hide();
             Login frm = new Login();
             frm.txtUserName.Text = "";
@@ -69,6 +70,12 @@ namespace Accounting.GUI.Forms
             frmCompany frm = new frmCompany();
             frm.ShowDialog();
 
+        }
+
+        private void btnProdut_Click(object sender, EventArgs e)
+        {
+            frmProduct frm = new frmProduct();
+            frm.ShowDialog();
         }
     }
 }

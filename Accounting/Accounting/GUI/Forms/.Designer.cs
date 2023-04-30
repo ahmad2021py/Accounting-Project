@@ -48,7 +48,6 @@ namespace Accounting.GUI.Forms
             this.txtPassword = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnOK = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.SuspendLayout();
             // 
             // cbRole
@@ -331,14 +330,6 @@ namespace Accounting.GUI.Forms
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // entityCommand1
-            // 
-            this.entityCommand1.CommandTimeout = 0;
-            this.entityCommand1.CommandTree = null;
-            this.entityCommand1.Connection = null;
-            this.entityCommand1.EnablePlanCaching = true;
-            this.entityCommand1.Transaction = null;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -379,6 +370,5 @@ namespace Accounting.GUI.Forms
         public Bunifu.UI.WinForms.BunifuTextBox txtPassword;
         private Bunifu.Framework.UI.BunifuThinButton2 btnOK;
         private Bunifu.Framework.UI.BunifuThinButton2 btnCancel;
-        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }

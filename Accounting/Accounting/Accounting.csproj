@@ -294,6 +294,8 @@
     <None Include="GUI\Resourses\icons8_home.ico" />
     <None Include="GUI\Resourses\icons8_exit_sign_128px.png" />
     <None Include="GUI\Resourses\icons8_enter_key_2.ico" />
+    <None Include="GUI\Resourses\icons8_product_128px_2.png" />
+    <None Include="GUI\Resourses\icons8_product.ico" />
     <Content Include="Utilities\AccountingDLL.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

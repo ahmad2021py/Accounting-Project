@@ -96,6 +96,13 @@ namespace Accounting.DataLayer.Context
         public void Dispose()
         {
             db.Dispose();
+            db = null;
+            _userRepository = null;
+            _RegistrationRepository = null;
+            _CompanyRepository = null;
+            _CategoryRepository = null;
+            _ProductRepository = null;
+
         }
     }
 }
