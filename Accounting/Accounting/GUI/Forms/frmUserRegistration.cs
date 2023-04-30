@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.Utilities;
 using AccountingDLL;
 using System;
 using System.Collections.Generic;
@@ -77,21 +78,30 @@ namespace Accounting.GUI.Forms
         #endregion
         //-------------
         #region Fill_RegistrationInstance
-        Registration Fill_RegistrationInstance(Registration _registration)
+        Registration Fill_RegistrationInstance(Registration RegistrationRecord)
         {
 
-            _registration.Role = cbRole.Text;
-            _registration.UserName = txtUserName.Text;
-            _registration.User_Password = txtUserPass.Text;
-            _registration.NameOfUser = txtName.Text;
-            _registration.Email = txtMail.Text;
-            _registration.ContactNo = txtContactNo.Text;
-            _registration.JoiningDate = DateTime.Now;
-            return _registration;
+            RegistrationRecord.Role = cbRole.Text;
+            RegistrationRecord.UserName = txtUserName.Text;
+            RegistrationRecord.User_Password = Encryption.EncryptPassword(txtUserPass.Text);
+            RegistrationRecord.NameOfUser = txtName.Text;
+            RegistrationRecord.Email = txtMail.Text;
+            RegistrationRecord.ContactNo = txtContactNo.Text;
+            RegistrationRecord.JoiningDate = DateTime.Now;
+            return RegistrationRecord;
         }
         #endregion
-        //--------------------------
-        #region Delete
+
+        #region  Fill_UserInstance Method
+        User Fill_UserInstance(User UserRecord)
+        {
+
+            UserRecord.Role = cbRole.Text;
+            UserRecord.UserName = txtUserName.Text;
+            UserRecord.User_Password = Encryption.EncryptPassword(txtUserPass.Text);
+
+            return UserRecord;
+        }
         #endregion
 
 
@@ -103,28 +113,27 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
-        private void bunifuThinButton22_Click(object sender, EventArgs e)
-        {
-            Reset();
-        }
-
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
-                // if (TxtNotNull()&& !_IUserRepository.UserExist(txtUserName.Text))
                 if (!TxtNull())
                 {
                     if (!_IUserRepository.UserExist(txtUserName.Text))
                     {
                         using (UnitOfWork _unitOfWork = new UnitOfWork())
                         {
-                            Registration Record = new Registration();
-                            Record = Fill_RegistrationInstance(Record);
+                            Registration RegistrationRecord = new Registration();
+                            RegistrationRecord = Fill_RegistrationInstance(RegistrationRecord);
+                            User UserRecord = new User();
+                            UserRecord = Fill_UserInstance(UserRecord);
+
                             IRegistrationRepository _RegistrationRepository = _unitOfWork.RegistrationRepository;
-                            if (_RegistrationRepository.InsertToRegistration(Record))
+                            IUserRepository _UserRepository = _unitOfWork.UserRepository;
+
+                            if (_RegistrationRepository.InsertToRegistration(RegistrationRecord) && _UserRepository.InsertToUsers(UserRecord))
                             {
                                 MessageBox.Show("رکورد با موفقیت ثبت شد");
                                 _unitOfWork.Save();
@@ -155,12 +164,12 @@ namespace Accounting.GUI.Forms
         {
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-             using(UnitOfWork _unitOfWork =new UnitOfWork())
+                using (UnitOfWork _unitOfWork = new UnitOfWork())
                 {
                     IRegistrationRepository _RegistrationRepository = _unitOfWork.RegistrationRepository;
                     IUserRepository _UserRepository = _unitOfWork.UserRepository;
 
-                    if (_RegistrationRepository.DeleteRecord(txtUserName.Text)&& _UserRepository.DeleteUser(txtUserName.Text))
+                    if (_RegistrationRepository.DeleteRecord(txtUserName.Text) && _UserRepository.DeleteUser(txtUserName.Text))
                     {
                         MessageBox.Show("رکورد با موفقیت حذف شد");
                         Reset();
@@ -184,12 +193,12 @@ namespace Accounting.GUI.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            using(UnitOfWork _unitOfWork = new UnitOfWork())
+            using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
                 IRegistrationRepository _registrationRepository = _unitOfWork.RegistrationRepository;
                 Registration record = new Registration();
-                 record=Fill_RegistrationInstance(record);
-              if(_registrationRepository.UpdateRecord(record))
+                record = Fill_RegistrationInstance(record);
+                if (_registrationRepository.UpdateRecord(record))
                 {
                     MessageBox.Show("رکورد با موفقیت  بروز شد");
                 }
@@ -203,13 +212,13 @@ namespace Accounting.GUI.Forms
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
-            using(UnitOfWork _unitOfWork =new UnitOfWork())
+            using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
                 IUserRepository _UserRepository = _unitOfWork.UserRepository;
                 IRegistrationRepository _registrationRepository = _unitOfWork.RegistrationRepository;
-               if(_UserRepository.UserExist(txtUserName.Text))
+                if (_UserRepository.UserExist(txtUserName.Text))
                 {
-                  Registration ResultRecord= _registrationRepository.GetRecord(txtUserName.Text);
+                    Registration ResultRecord = _registrationRepository.GetRecord(txtUserName.Text);
                     txtName.Text = ResultRecord.NameOfUser;
                     txtMail.Text = ResultRecord.Email;
                     txtContactNo.Text = ResultRecord.ContactNo;
@@ -219,6 +228,11 @@ namespace Accounting.GUI.Forms
 
 
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 

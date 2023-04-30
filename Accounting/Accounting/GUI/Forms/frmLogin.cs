@@ -16,7 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Accounting.GUI.Forms
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
         //-----Fields-------------------
         #region class Fields
@@ -62,7 +62,7 @@ namespace Accounting.GUI.Forms
         #endregion
 
 
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
             UserTemp = new User();
@@ -106,7 +106,7 @@ namespace Accounting.GUI.Forms
             else
             {
                 UserTemp.UserName = txtUserName.Text.Trim();
-                UserTemp.User_Password = txtPassword.Text.Trim();
+                UserTemp.User_Password = Encryption.EncryptPassword(txtPassword.Text.Trim());
                 UserTemp.Role = cbRole.Text;
 
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())

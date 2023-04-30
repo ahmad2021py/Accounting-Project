@@ -32,7 +32,7 @@ namespace Accounting.GUI.Forms
         {
 
             this.Hide();
-            Login frm = new Login();
+            frmLogin frm = new frmLogin();
             frm.txtUserName.Text = "";
             frm.txtPassword.Text = "";
             frm.txtUserName.Focus();

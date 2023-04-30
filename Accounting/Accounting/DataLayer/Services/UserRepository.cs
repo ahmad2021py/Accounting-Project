@@ -14,20 +14,21 @@ namespace Accounting.DataLayer.Services
     public class UserRepository : IUserRepository
     {
 
-        //#############فیلد های کلاس ##############
+        //------------Fields----------------
         private Accounting_DbContext db;
 
 
-        //############        متد های کلاس      #####################
-        #region متد سازنده کلاس 
+        //-------Methods--------------------------
+        #region constructor
         public UserRepository(Accounting_DbContext context)
         {
             db = context;
         }
         #endregion
-        //------------------------------------------------
-        #region متد تست وجود یوزر در دیتابیس
-       public bool UserExist(string UserName)
+
+
+        #region UserExist
+        public bool UserExist(string UserName)
         {
             try
             {
@@ -130,8 +131,10 @@ namespace Accounting.DataLayer.Services
         //    }
 
         #endregion
-        //------------------------------------------------
-        #region متد دریافت لیست کاربران
+
+
+
+        #region GetUserList
         public List<User> GetUserList()
         {
 
@@ -144,7 +147,7 @@ namespace Accounting.DataLayer.Services
         #endregion
 
 
-        #region متد تغییر رمز کاربر
+        #region ChangeUserPassword Method
 
         public bool ChangeUserPassword(User user,string newUserPassword )
         {
@@ -174,7 +177,7 @@ namespace Accounting.DataLayer.Services
 
         #endregion
 
-        //--------------------------------------
+        
         #region Delete User
         public bool DeleteUser(string userName)
         {
@@ -193,6 +196,23 @@ namespace Accounting.DataLayer.Services
         #endregion
 
 
+
+        #region Insert Record To Users
+
+        public bool InsertToUsers(User record)
+        {
+            try
+            {
+                db.User.Add(record);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        #endregion
 
 
 

@@ -53,7 +53,7 @@ namespace Accounting.GUI.Forms
                         {
                             MessageBox.Show("پسورد به ایمیل شما ارسال شد", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
                             this.Hide();
-                            Login LoginForm1 = new Login();
+                            frmLogin LoginForm1 = new frmLogin();
                             LoginForm1.Show();
                             LoginForm1.txtUserName.Text = "";
                             LoginForm1.txtPassword.Text = "";

@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.Utilities;
 using AccountingDLL;
 using System;
 using System.Collections.Generic;
@@ -36,12 +37,12 @@ namespace Accounting.GUI.Forms
                if( WorkWithPassword.PassIsValid(txtOldPass.Text, txtNewPass.Text,txtRepeatNewPass.Text))
                  {
                     _user.UserName = txtUserName.Text;
-                    _user.User_Password = txtOldPass.Text;
+                    _user.User_Password = Encryption.EncryptPassword( txtOldPass.Text);
                     using (UnitOfWork _UnitOfWork = new UnitOfWork())
                     {
                         IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
                         if (_IUserRepository.UserExist(_user.UserName,_user.User_Password))
-                        if (_IUserRepository.ChangeUserPassword(_user, txtNewPass.Text))
+                        if (_IUserRepository.ChangeUserPassword(_user, Encryption.EncryptPassword( txtNewPass.Text)))
                         {
                             MessageBox.Show("رمز عبور باموفقیت تغییر یافت", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
                                 this.Close();
