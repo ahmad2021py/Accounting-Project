@@ -20,7 +20,7 @@ namespace Accounting.GUI.Forms
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            toolStripStatusLabel4.Text = System.DateTime.Now.ToString();
+            lblDateTime.Text = System.DateTime.Now.ToString();
           
             // GetData();
         }
@@ -45,7 +45,7 @@ namespace Accounting.GUI.Forms
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            frmLoginDetails frm = new frmLoginDetails();
+            frmUserReords frm = new frmUserReords();
             frm.ShowDialog();
         }
 
@@ -62,7 +62,7 @@ namespace Accounting.GUI.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            toolStripStatusLabel4.Text = System.DateTime.Now.ToString();
+            lblDateTime.Text = System.DateTime.Now.ToString();
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace Accounting.GUI.Forms
 
         private void btnProdut_Click(object sender, EventArgs e)
         {
-            frmProduct frm = new frmProduct();
+            frmLoginDetails frm = new frmLoginDetails();
             frm.ShowDialog();
         }
     }

@@ -30,44 +30,109 @@ namespace Accounting.GUI.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginDetails));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblRegistration = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUserLoginTime = new System.Windows.Forms.Label();
+            this.lblUserRole = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // lblRegistration
             // 
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-1, -3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(566, 434);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.lblRegistration.BackColor = System.Drawing.Color.Transparent;
+            this.lblRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistration.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblRegistration.Location = new System.Drawing.Point(46, 17);
+            this.lblRegistration.Name = "lblRegistration";
+            this.lblRegistration.Size = new System.Drawing.Size(146, 41);
+            this.lblRegistration.TabIndex = 69;
+            this.lblRegistration.Text = "نام کاربری";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.Location = new System.Drawing.Point(46, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 41);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "سطح دسترسی";
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label2.Location = new System.Drawing.Point(46, 179);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 41);
+            this.label2.TabIndex = 69;
+            this.label2.Text = "زمان ورود";
+            // 
+            // lblUserLoginTime
+            // 
+            this.lblUserLoginTime.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserLoginTime.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblUserLoginTime.Location = new System.Drawing.Point(245, 178);
+            this.lblUserLoginTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserLoginTime.Name = "lblUserLoginTime";
+            this.lblUserLoginTime.Size = new System.Drawing.Size(407, 28);
+            this.lblUserLoginTime.TabIndex = 71;
+            this.lblUserLoginTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblUserRole
+            // 
+            this.lblUserRole.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserRole.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblUserRole.Location = new System.Drawing.Point(245, 96);
+            this.lblUserRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserRole.Name = "lblUserRole";
+            this.lblUserRole.Size = new System.Drawing.Size(407, 28);
+            this.lblUserRole.TabIndex = 72;
+            this.lblUserRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblUserName.Location = new System.Drawing.Point(245, 17);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(407, 28);
+            this.lblUserName.TabIndex = 73;
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmLoginDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(565, 428);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(719, 255);
+            this.Controls.Add(this.lblUserLoginTime);
+            this.Controls.Add(this.lblUserRole);
+            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblRegistration);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLoginDetails";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.Text = "کاربران";
+            this.Text = "جزئیات ورود";
             this.Load += new System.EventHandler(this.frmLoginDetails_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.Label lblRegistration;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label lblUserLoginTime;
+        internal System.Windows.Forms.Label lblUserRole;
+        internal System.Windows.Forms.Label lblUserName;
     }
 }

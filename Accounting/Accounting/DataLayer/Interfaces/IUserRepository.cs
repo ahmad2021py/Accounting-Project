@@ -18,6 +18,9 @@ namespace Accounting.DataLayer.Interfaces
         bool ChangeUserPassword(User user, string newUserPassword);
          bool DeleteUser(string userName);
         bool InsertToUsers(User record);
+        List<User> GetUserListByUserIDFilter(int UserID);
+         List<User> GetUserListByUserNameFilter(string UserName);
+        List<User> GetUserListByUserRoleFilter(string Role);
         //  bool UserExist(int userid);
         //   bool UserExist(string role, string username, string password);
 

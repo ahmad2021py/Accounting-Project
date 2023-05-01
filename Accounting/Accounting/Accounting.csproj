@@ -163,6 +163,12 @@
     <Compile Include="GUI\Forms\frmLoginDetails.Designer.cs">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmUserReords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmUserReords.Designer.cs">
+      <DependentUpon>frmUserReords.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     <EmbeddedResource Include="GUI\Forms\frmLoginDetails.resx">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmUserReords.resx">
+      <DependentUpon>frmUserReords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +306,8 @@
     <None Include="GUI\Resourses\icons8_enter_key_2.ico" />
     <None Include="GUI\Resourses\icons8_product_128px_2.png" />
     <None Include="GUI\Resourses\icons8_product.ico" />
+    <None Include="GUI\Resourses\icons8_enter.ico" />
+    <None Include="GUI\Resourses\icons8_enter_80px.png" />
     <Content Include="Utilities\AccountingDLL.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

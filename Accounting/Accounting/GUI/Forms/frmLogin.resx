@@ -120,11 +120,11 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtUserName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAPYAAAAsCAYAAABWt0WBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADASURBVHhe7dOxDcJAAATBLx2R0BaIMlwGuQ22PqCFX81I
+        iVBORw0KGgoAAAANSUhEUgAAAPYAAAArCAYAAABLsnU5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAC9SURBVHhe7dOxDcJAAATBLx2R0BaIMlwGuQ22PqCFX81I
         l1y+A4ja34/teN4OM1t7Z8sz6zGuE1jfr+WZtbAhQ9gQJGwIEjYECRuChA1BwoYgYUOQsCFI2BAkbAgS
         NgQJG4KEDUHChiBhQ5CwIUjYECRsCBI2BAkbgoQNQcKGIGFDkLAhSNgQJGwIEjYECRuChA1BwoYgYUOQ
-        sCFI2BAkbAgSNgQJG4KEDUHChqD/sPfX/XPFbWZL72x5Zg20jPEF6JrjOndYkfgAAAAASUVORK5CYII=
+        sCFI2BAkbAgSNgQJG4KEDUH/Ye+v++eK28yW3tnyzBpoGeML/YAYWWB1j84AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="txtPassword.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

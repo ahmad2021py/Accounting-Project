@@ -8,6 +8,8 @@ namespace Accounting.Utilities
 {
     public static class GlobalVariables
     {
-        public static string UserName;
+        public static string LoginedUserName;
+        public static string LoginedUserRole;
+        public static DateTime LoginedUserTime;
     }
 }

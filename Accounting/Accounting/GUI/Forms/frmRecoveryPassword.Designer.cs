@@ -72,7 +72,7 @@ namespace Accounting.GUI.Forms
             this.txtEmail.IconRight = null;
             this.txtEmail.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.Lines = new string[0];
-            this.txtEmail.Location = new System.Drawing.Point(22, 113);
+            this.txtEmail.Location = new System.Drawing.Point(142, 108);
             this.txtEmail.MaxLength = 32767;
             this.txtEmail.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtEmail.Modified = false;
@@ -137,7 +137,7 @@ namespace Accounting.GUI.Forms
             this.btnSend.IdleFillColor = System.Drawing.Color.White;
             this.btnSend.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnSend.IdleLineColor = System.Drawing.Color.Teal;
-            this.btnSend.Location = new System.Drawing.Point(219, 205);
+            this.btnSend.Location = new System.Drawing.Point(271, 190);
             this.btnSend.Margin = new System.Windows.Forms.Padding(5);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(84, 64);
@@ -149,7 +149,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label2.Location = new System.Drawing.Point(453, 120);
+            this.label2.Location = new System.Drawing.Point(14, 112);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -185,7 +185,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.IconRight = null;
             this.txtUserName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUserName.Lines = new string[0];
-            this.txtUserName.Location = new System.Drawing.Point(22, 52);
+            this.txtUserName.Location = new System.Drawing.Point(142, 47);
             this.txtUserName.MaxLength = 32767;
             this.txtUserName.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtUserName.Modified = false;
@@ -236,7 +236,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(452, 68);
+            this.label1.Location = new System.Drawing.Point(13, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

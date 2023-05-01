@@ -70,9 +70,7 @@ namespace Accounting.GUI.Forms
             txtContactNo.Text = "";
             txtName.Text = "";
             txtMail.Text = "";
-            btnRegister.Enabled = true;
-            btnDelete.Enabled = false;
-            btnUpdate.Enabled = false;
+           
             txtUserName.Focus();
         }
         #endregion

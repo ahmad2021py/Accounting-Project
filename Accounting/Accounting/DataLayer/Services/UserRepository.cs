@@ -77,11 +77,11 @@ namespace Accounting.DataLayer.Services
 
 
         }
-    
-       
+
+
 
         //-----------------------------------------------------------
-        public bool UserExist(string userName,string userPassword)
+        public bool UserExist(string userName, string userPassword)
         {
             try
             {
@@ -149,7 +149,7 @@ namespace Accounting.DataLayer.Services
 
         #region ChangeUserPassword Method
 
-        public bool ChangeUserPassword(User user,string newUserPassword )
+        public bool ChangeUserPassword(User user, string newUserPassword)
         {
 
             try
@@ -177,13 +177,13 @@ namespace Accounting.DataLayer.Services
 
         #endregion
 
-        
+
         #region Delete User
         public bool DeleteUser(string userName)
         {
             try
             {
-                var db_record = db.User.Where(n => n.UserName == userName).Select(n => n).First(); 
+                var db_record = db.User.Where(n => n.UserName == userName).Select(n => n).First();
                 db.Entry(db_record).State = EntityState.Deleted;
                 return true;
             }
@@ -214,6 +214,50 @@ namespace Accounting.DataLayer.Services
 
         #endregion
 
+        public List<User> GetUserListByUserIDFilter(int UserID)
+        {
+            try
+            {
+                List<User> List = db.User.Where(n => n.UserId == UserID).ToList();
+                return List;
+
+            }
+            catch
+            {
+                throw new Exception();
+            }
+
+        }
+
+        public List<User> GetUserListByUserNameFilter(string UserName)
+        {
+            try
+            {
+                List<User> List = db.User.Where(n => n.UserName == UserName).ToList();
+                return List;
+
+            }
+            catch
+            {
+                throw new Exception();
+            }
+
+        }
+
+        public List<User> GetUserListByUserRoleFilter(string Role)
+        {
+            try
+            {
+                List<User> List = db.User.Where(n => n.Role == Role).ToList();
+                return List;
+
+            }
+            catch
+            {
+                throw new Exception();
+            }
+
+        }
 
 
 
@@ -221,9 +265,9 @@ namespace Accounting.DataLayer.Services
 
 
     }
-}  
+}
 
 
-    
+
 
 

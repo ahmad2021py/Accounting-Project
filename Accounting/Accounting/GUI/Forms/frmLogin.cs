@@ -29,9 +29,12 @@ namespace Accounting.GUI.Forms
             this.Hide();
             frmMainMenu frm = new frmMainMenu();
             frm.Show();
-            frm.lblUser.Text = cbRole.Text;
-            frm.toolStripStatusLabel3.Text = UserTemp.UserName;
-            if (frm.lblUser.Text == "Manager")
+            //frm.lblUser.Text = cbRole.Text;
+            //frm.toolStripStatusLabel3.Text = UserTemp.UserName;
+            GlobalVariables.LoginedUserName = UserTemp.UserName;
+            GlobalVariables.LoginedUserRole = cbRole.Text;
+            GlobalVariables.LoginedUserTime = DateTime.Now;
+            if (cbRole.Text == "Manager")
             {
                 //Hide btnRegistration 
                 frm.btnRegistration.Enabled = false;
@@ -42,7 +45,7 @@ namespace Accounting.GUI.Forms
                 frm.btnUsers.Visible = false;
                 frm.lblUsers.Visible = false;
             }
-            else if (frm.lblUser.Text == "Employee")
+            else if (cbRole.Text == "Employee")
             {
                 //Hide btnRegistration 
                 frm.btnRegistration.Enabled = false;

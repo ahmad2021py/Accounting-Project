@@ -21,7 +21,7 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
-        private void frmProductRecords_Load(object sender, EventArgs e)
+        void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -40,54 +40,80 @@ namespace Accounting.GUI.Forms
                 }
             }
         }
+        private void frmProductRecords_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
 
         private void txtProductName_TextChanged(object sender, EventArgs e)
         {
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            if (txtProductName.Text == "")
             {
-                IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                try
+                LoadData();
+            }
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
-                    DGV1.DataSource = _ProductRepository.GetProductListByProductNameFilter(txtProductName.Text);
+                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+                    try
+                    {
+                        DGV1.DataSource = _ProductRepository.GetProductListByProductNameFilter(txtProductName.Text);
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" خطایی رخ داده است");
+                    }
+
                 }
             }
         }
 
         private void txtCompany_TextChanged(object sender, EventArgs e)
         {
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            if (txtCompany.Text == "")
             {
-                IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                try
+                LoadData();
+            }
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
-                    DGV1.DataSource = _ProductRepository.GetProductListByCompanyFilter(txtCompany.Text);
-                   
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
+                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+                    try
+                    {
+                        DGV1.DataSource = _ProductRepository.GetProductListByCompanyFilter(txtCompany.Text);
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" خطایی رخ داده است");
+                    }
                 }
             }
         }
 
         private void txtCategory_TextChanged(object sender, EventArgs e)
         {
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            if (txtCategory.Text == "")
             {
-                IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                try
+                LoadData();
+            }
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
-                    DGV1.DataSource = _ProductRepository.GetProductListByCategoryFilter(txtCategory.Text);
+                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+                    try
+                    {
+                        DGV1.DataSource = _ProductRepository.GetProductListByCategoryFilter(txtCategory.Text);
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" خطایی رخ داده است");
+                    }
                 }
             }
         }
