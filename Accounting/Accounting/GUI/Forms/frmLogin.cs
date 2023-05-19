@@ -83,7 +83,7 @@ namespace Accounting.GUI.Forms
             this.Close();
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private async void btnOK_Click(object sender, EventArgs e)
         {
 
 
@@ -115,7 +115,8 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     IUserRepository IUserRepository = _UnitOfWork.UserRepository;
-                    if (IUserRepository.UserExist(UserTemp))
+                    bool Result =await IUserRepository.UserExist(UserTemp);
+                    if (Result)
                     {
                         frmMainInitialize();
                     }

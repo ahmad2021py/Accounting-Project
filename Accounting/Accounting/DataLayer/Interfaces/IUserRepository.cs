@@ -11,7 +11,7 @@ namespace Accounting.DataLayer.Interfaces
     public interface IUserRepository
     {
 
-        bool UserExist(User user);
+        Task<bool> UserExist(User user);
         bool UserExist(string UserName);
         bool UserExist(string userName, string userPassword);
         List<User> GetUserList();

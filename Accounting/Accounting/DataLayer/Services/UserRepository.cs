@@ -52,30 +52,32 @@ namespace Accounting.DataLayer.Services
             }
         }
         //------------
-        public bool UserExist(User user)
+        public async Task<bool> UserExist(User user)
         {
-            try
-            {
+            return await Task.Run(() =>
+           {
+               try
+               {
 
-                IQueryable<User> query;
-                query = db.User.Where(n => n.UserName == user.UserName && n.User_Password == user.User_Password && n.Role == user.Role).Select(n => n);
+                   IQueryable<User> query;
+                   query = db.User.Where(n => n.UserName == user.UserName && n.User_Password == user.User_Password && n.Role == user.Role).Select(n => n);
 
-                if (query.ToList().Count > 0)
-                {
-                    return true;
+                   if (query.ToList().Count > 0)
+                   {
+                       return true;
 
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch
-            {
-                return false;
-            }
+                   }
+                   else
+                   {
+                       return false;
+                   }
+               }
+               catch
+               {
+                   return false;
+               }
 
-
+           });
         }
 
 
