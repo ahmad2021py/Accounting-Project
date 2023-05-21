@@ -274,6 +274,10 @@
     <Compile Include="Migrations\202304280721305_FixProductEntity.designer.cs">
       <DependentUpon>202304280721305_FixProductEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305211144254_updateConfigEntity.cs" />
+    <Compile Include="Migrations\202305211144254_updateConfigEntity.designer.cs">
+      <DependentUpon>202305211144254_updateConfigEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -325,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304280721305_FixProductEntity.resx">
       <DependentUpon>202304280721305_FixProductEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305211144254_updateConfigEntity.resx">
+      <DependentUpon>202305211144254_updateConfigEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

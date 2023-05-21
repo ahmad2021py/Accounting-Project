@@ -15,5 +15,7 @@ namespace Accounting.DataLayer.Entities
         public string Features { get; set; }
 
         public float Price { get; set; }
+
+        public byte[] Picture { get; set; }
     }
 }
