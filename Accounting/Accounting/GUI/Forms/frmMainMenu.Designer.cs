@@ -43,8 +43,13 @@
             this.lblProdut = new System.Windows.Forms.Label();
             this.btnfrmLoginDetails = new Bunifu.UI.WinForms.BunifuImageButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblDateTime = new System.Windows.Forms.Label();
+            this.lblThisDay = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblText = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -306,16 +311,70 @@
             this.label1.TabIndex = 72;
             this.label1.Text = "جزئیات ورود";
             // 
-            // lblDateTime
+            // lblThisDay
             // 
-            this.lblDateTime.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.lblDateTime.Location = new System.Drawing.Point(727, 0);
-            this.lblDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(242, 28);
-            this.lblDateTime.TabIndex = 74;
-            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblThisDay.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThisDay.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblThisDay.Location = new System.Drawing.Point(231, 21);
+            this.lblThisDay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblThisDay.Name = "lblThisDay";
+            this.lblThisDay.Size = new System.Drawing.Size(85, 28);
+            this.lblThisDay.TabIndex = 74;
+            this.lblThisDay.Text = "lblThisDay";
+            this.lblThisDay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTime
+            // 
+            this.lblTime.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblTime.Location = new System.Drawing.Point(7, 22);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTime.Size = new System.Drawing.Size(99, 28);
+            this.lblTime.TabIndex = 74;
+            this.lblTime.Text = "lblTime";
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblDate
+            // 
+            this.lblDate.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblDate.Location = new System.Drawing.Point(146, 22);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(85, 28);
+            this.lblDate.TabIndex = 74;
+            this.lblDate.Text = "lblDate";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblText
+            // 
+            this.lblText.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblText.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblText.Location = new System.Drawing.Point(88, 24);
+            this.lblText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblText.Name = "lblText";
+            this.lblText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblText.Size = new System.Drawing.Size(57, 28);
+            this.lblText.TabIndex = 74;
+            this.lblText.Text = "ساعت :";
+            this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.lblText);
+            this.groupBox1.Controls.Add(this.lblDate);
+            this.groupBox1.Controls.Add(this.lblTime);
+            this.groupBox1.Controls.Add(this.lblThisDay);
+            this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.groupBox1.Location = new System.Drawing.Point(654, 498);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(309, 50);
+            this.groupBox1.TabIndex = 76;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "تاریخ امروز";
             // 
             // frmMainMenu
             // 
@@ -325,7 +384,7 @@
             this.BackgroundImage = global::Accounting.Properties.Resources.main_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 555);
-            this.Controls.Add(this.lblDateTime);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblProdut);
             this.Controls.Add(this.label3);
@@ -351,6 +410,7 @@
             this.Load += new System.EventHandler(this.frmMainMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,6 +430,10 @@
         private System.Windows.Forms.Label lblProdut;
         private Bunifu.UI.WinForms.BunifuImageButton btnfrmLoginDetails;
         private System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.Label lblDateTime;
+        internal System.Windows.Forms.Label lblThisDay;
+        internal System.Windows.Forms.Label lblTime;
+        internal System.Windows.Forms.Label lblDate;
+        internal System.Windows.Forms.Label lblText;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

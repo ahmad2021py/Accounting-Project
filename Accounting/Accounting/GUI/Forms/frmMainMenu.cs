@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.IO;
+using mgh;
+using Accounting.Utilities;
+
 namespace Accounting.GUI.Forms
 {
     public partial class frmMainMenu : Form
@@ -20,9 +23,17 @@ namespace Accounting.GUI.Forms
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = System.DateTime.Now.ToString();
-          
-            // GetData();
+
+            //------GetNowDate
+            string shamsiDate="";
+            FarsiDate.MiladiToShamsi(DateTime.Now,ref shamsiDate);
+            lblDate.Text = shamsiDate;
+
+            //--------GetNowDay
+            string ThisDay =ShamsiDay.GetThisTimeShamsiDay(DateTime.Now);
+            lblThisDay.Text =ThisDay;
+
+           
         }
     
 
@@ -62,7 +73,14 @@ namespace Accounting.GUI.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDateTime.Text = System.DateTime.Now.ToString();
+         
+            
+            lblTime.Text = DateTime.Now.Hour.ToString("0#");
+            lblTime.Text += " : ";
+            lblTime.Text += DateTime.Now.Minute.ToString("0#");
+            lblTime.Text += " : ";
+            lblTime.Text += DateTime.Now.Second.ToString("0#");
+
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
