@@ -19,6 +19,7 @@ namespace Accounting.DataLayer.Context
         private ICompanyRepository _CompanyRepository;
         private ICategoryRepository _CategoryRepository;
         private IProductRepository _ProductRepository;
+        private IConfigRepository _ConfigRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -86,6 +87,19 @@ namespace Accounting.DataLayer.Context
         }
 
 
+        public IConfigRepository ConfigRepository
+        {
+            get
+            {
+                if (_ConfigRepository == null)
+                {
+                    _ConfigRepository = new ConfigRepository(db);
+                }
+
+                return _ConfigRepository;
+            }
+        }
+
 
         //---------Methods-----------------
         public void Save()
@@ -104,6 +118,28 @@ namespace Accounting.DataLayer.Context
             _ProductRepository = null;
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //---End Block of Class And Namespace------------------------
     }
 }
 
