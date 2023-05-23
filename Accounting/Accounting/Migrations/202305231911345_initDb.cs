@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitDb : DbMigration
+    public partial class initDb : DbMigration
     {
         public override void Up()
         {
@@ -26,18 +26,6 @@
                 .PrimaryKey(t => t.CompanyId);
             
             CreateTable(
-                "dbo.Configs",
-                c => new
-                    {
-                        ConfigId = c.Int(nullable: false, identity: true),
-                        ProductName = c.String(),
-                        Features = c.String(),
-                        Price = c.Double(nullable: false),
-                        Picture = c.Binary(),
-                    })
-                .PrimaryKey(t => t.ConfigId);
-            
-            CreateTable(
                 "dbo.Customers",
                 c => new
                     {
@@ -57,12 +45,16 @@
                 "dbo.Products",
                 c => new
                     {
-                        ProductId = c.Int(nullable: false, identity: true),
-                        ProductName = c.String(),
-                        Category = c.String(),
-                        Company = c.String(),
+                        id = c.Long(nullable: false, identity: true),
+                        ProductId = c.Int(nullable: false),
+                        ProductName = c.String(nullable: false),
+                        Features = c.String(nullable: false),
+                        Price = c.Double(nullable: false),
+                        Picture = c.Binary(nullable: false),
+                        Category = c.String(nullable: false),
+                        Company = c.String(nullable: false),
                     })
-                .PrimaryKey(t => t.ProductId);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.ProductSolds",
@@ -141,7 +133,6 @@
             DropTable("dbo.ProductSolds");
             DropTable("dbo.Products");
             DropTable("dbo.Customers");
-            DropTable("dbo.Configs");
             DropTable("dbo.Companies");
             DropTable("dbo.Categories");
         }

@@ -10,72 +10,77 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Services
 {
-    public class ProductRepository: IProductRepository
+    public class ProductRepository : IProductRepository
     {
-        //------Fields---------------
+        //------------Fields----------------
         private Accounting_DbContext db;
-      
 
-        //--------Methods-------------------
-        #region Class Constructor Method
+
+        //-------Methods--------------------------
+        #region constructor
         public ProductRepository(Accounting_DbContext context)
         {
             db = context;
         }
         #endregion
-
-        #region ProductExist Method
-        public bool ProductExist(string ProductName)
+        //------------
+        public async Task<bool> ProductExist(int productId)
         {
-            try
+            return await Task.Run(() =>
             {
-
-                IQueryable<Product> query;
-                query = db.Product.Where(n => n.ProductName == ProductName).Select(n => n);
-
-                if (query.ToList().Count > 0)
+                try
                 {
-                    return true;
 
+                    IQueryable<Product> query;
+                    query = db.Product.Where(n =>n.ProductId == productId).Select(n => n);
+
+                    if (query.ToList().Count > 0)
+                    {
+                        return true;
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
+                catch
                 {
                     return false;
                 }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        #endregion
 
-        #region Insert Record ToProduct Method
+            });
+        }
+
+
+
+        //-----------------------------------------------------------
+        #region Insert Record To Product
 
         public bool InsertToProduct(Product record)
         {
             try
             {
                 db.Product.Add(record);
-                db.SaveChanges();
                 return true;
             }
             catch
             {
                 return false;
             }
+
         }
 
         #endregion
 
-        #region Delete Record
-        public bool DeleteProduct(string ProductName)
+
+        #region Delete ProductRecord
+        public bool DeleteProductRecord(int productId)
         {
             try
             {
-                var db_record = db.Product.Where(n => n.ProductName == ProductName).Select(n => n).First();
+                var db_record = db.Product.Where(n => n.ProductId == productId).Select(n => n).First();
                 db.Entry(db_record).State = EntityState.Deleted;
-                db.SaveChanges();
                 return true;
             }
             catch
@@ -83,7 +88,46 @@ namespace Accounting.DataLayer.Services
                 return false;
             }
         }
+
         #endregion
+
+
+        #region Update Record
+
+        public bool UpdateRecord(Product record)
+        {
+
+            try
+            {
+
+                Product dbRecord = db.Product.Where(n => n.ProductId == record.ProductId).Select(n => n).First();
+                db.Product.Attach(dbRecord);
+                db.Entry(dbRecord).Entity.ProductName = record.ProductName;
+                db.Entry(dbRecord).Entity.Features = record.Features;
+                db.Entry(dbRecord).Entity.Picture = record.Picture;
+                db.Entry(dbRecord).Entity.Price = record.Price;
+                db.Entry(dbRecord).Entity.Company = record.Company;
+                db.Entry(dbRecord).Entity.Category = record.Category;
+               
+
+                //SAVE change
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
+
+
+
+
+        }
+
+
+        #endregion
+
 
 
         #region GetProductList method
@@ -101,20 +145,10 @@ namespace Accounting.DataLayer.Services
 
         }
 
-        public List<Product> GetProductListByCompanyFilter(string Company)
-        {
-            try
-            {
-                List<Product> List = db.Product.Where(n => n.Company == Company).ToList();
-                return List;
 
-            }
-            catch
-            {
-                throw new Exception();
-            }
+        #endregion
 
-        }
+
 
         public List<Product> GetProductListByProductNameFilter(string ProductName)
         {
@@ -130,6 +164,26 @@ namespace Accounting.DataLayer.Services
             }
 
         }
+
+
+
+
+        public List<Product> GetProductListByCompanyFilter(string Company)
+        {
+            try
+            {
+                List<Product> List = db.Product.Where(n => n.Company == Company).ToList();
+                return List;
+
+            }
+            catch
+            {
+                throw new Exception();
+            }
+
+        }
+
+     
 
         public List<Product> GetProductListByCategoryFilter(string Category)
         {
@@ -147,40 +201,24 @@ namespace Accounting.DataLayer.Services
         }
 
 
-        #endregion
-
-        #region Update Record
-
-        public bool UpdateRecord(Product record)
-        {
-
-            try
-            {
-
-                Product _dbRecord = db.Product.Where(n => n.ProductName == record.ProductName).Select(n => n).First();
-                db.Product.Attach(_dbRecord);
-                db.Entry(_dbRecord).Entity.ProductName = record.ProductName;
-                db.Entry(_dbRecord).Entity.Category = record.Category;
-                db.Entry(_dbRecord).Entity.Company = record.Company;
-                
-                //SAVE change
-                db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
 
 
 
 
 
 
-        }
 
 
-        #endregion
 
+
+
+
+
+
+
+
+
+
+        //---End Block of Class And Namespace------------------------
     }
 }

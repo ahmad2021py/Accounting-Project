@@ -80,6 +80,10 @@ namespace Accounting.GUI.Forms
             }
         }
 
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

@@ -40,7 +40,7 @@
             this.btnCompany = new Bunifu.UI.WinForms.BunifuImageButton();
             this.label3 = new System.Windows.Forms.Label();
             this.btnProdut = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.lblProdut = new System.Windows.Forms.Label();
+            this.lblCustomer = new System.Windows.Forms.Label();
             this.btnfrmLoginDetails = new Bunifu.UI.WinForms.BunifuImageButton();
             this.label1 = new System.Windows.Forms.Label();
             this.lblThisDay = new System.Windows.Forms.Label();
@@ -48,6 +48,8 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblText = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.lblProducts = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -253,16 +255,16 @@
             this.btnProdut.ZoomSpeed = 10;
             this.btnProdut.Click += new System.EventHandler(this.btnProdut_Click);
             // 
-            // lblProdut
+            // lblCustomer
             // 
-            this.lblProdut.BackColor = System.Drawing.Color.Transparent;
-            this.lblProdut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProdut.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblProdut.Location = new System.Drawing.Point(513, 458);
-            this.lblProdut.Name = "lblProdut";
-            this.lblProdut.Size = new System.Drawing.Size(93, 41);
-            this.lblProdut.TabIndex = 72;
-            this.lblProdut.Text = "محصولات";
+            this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomer.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblCustomer.Location = new System.Drawing.Point(664, 458);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(76, 27);
+            this.lblCustomer.TabIndex = 72;
+            this.lblCustomer.Text = "مشتری";
             // 
             // btnfrmLoginDetails
             // 
@@ -376,6 +378,53 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تاریخ امروز";
             // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.ActiveImage = null;
+            this.bunifuImageButton1.AllowAnimations = true;
+            this.bunifuImageButton1.AllowBuffering = false;
+            this.bunifuImageButton1.AllowToggling = false;
+            this.bunifuImageButton1.AllowZooming = true;
+            this.bunifuImageButton1.AllowZoomingOnFocus = false;
+            this.bunifuImageButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bunifuImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuImageButton1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ErrorImage")));
+            this.bunifuImageButton1.FadeWhenInactive = false;
+            this.bunifuImageButton1.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.bunifuImageButton1.Image = global::Accounting.Properties.Resources.icons8_budget_160px;
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.ImageLocation = "";
+            this.bunifuImageButton1.ImageMargin = 10;
+            this.bunifuImageButton1.ImageSize = new System.Drawing.Size(80, 80);
+            this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.bunifuImageButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
+            this.bunifuImageButton1.Location = new System.Drawing.Point(651, 360);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Rotation = 0;
+            this.bunifuImageButton1.ShowActiveImage = true;
+            this.bunifuImageButton1.ShowCursorChanges = true;
+            this.bunifuImageButton1.ShowImageBorders = true;
+            this.bunifuImageButton1.ShowSizeMarkers = false;
+            this.bunifuImageButton1.Size = new System.Drawing.Size(90, 90);
+            this.bunifuImageButton1.TabIndex = 70;
+            this.bunifuImageButton1.ToolTipText = "";
+            this.bunifuImageButton1.WaitOnLoad = false;
+            this.bunifuImageButton1.Zoom = 10;
+            this.bunifuImageButton1.ZoomSpeed = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.btnProdut_Click);
+            // 
+            // lblProducts
+            // 
+            this.lblProducts.BackColor = System.Drawing.Color.Transparent;
+            this.lblProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProducts.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblProducts.Location = new System.Drawing.Point(520, 458);
+            this.lblProducts.Name = "lblProducts";
+            this.lblProducts.Size = new System.Drawing.Size(94, 27);
+            this.lblProducts.TabIndex = 78;
+            this.lblProducts.Text = "محصولات";
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -384,11 +433,13 @@
             this.BackgroundImage = global::Accounting.Properties.Resources.main_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 555);
+            this.Controls.Add(this.lblProducts);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblProdut);
+            this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnfrmLoginDetails);
+            this.Controls.Add(this.bunifuImageButton1);
             this.Controls.Add(this.btnProdut);
             this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.lblRegistration);
@@ -427,7 +478,7 @@
         public System.Windows.Forms.Label lblRegistration;
         public System.Windows.Forms.Label lblUsers;
         private Bunifu.UI.WinForms.BunifuImageButton btnProdut;
-        private System.Windows.Forms.Label lblProdut;
+        private System.Windows.Forms.Label lblCustomer;
         private Bunifu.UI.WinForms.BunifuImageButton btnfrmLoginDetails;
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label lblThisDay;
@@ -435,5 +486,7 @@
         internal System.Windows.Forms.Label lblDate;
         internal System.Windows.Forms.Label lblText;
         private System.Windows.Forms.GroupBox groupBox1;
+        private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton1;
+        private System.Windows.Forms.Label lblProducts;
     }
 }

@@ -7,16 +7,65 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Interfaces
 {
-   public interface IProductRepository
+    public interface IProductRepository
     {
-        bool ProductExist(string ProductName);
+        Task<bool> ProductExist(int productId);
         bool InsertToProduct(Product record);
-        bool DeleteProduct(string ProductName);
+
+        bool DeleteProductRecord(int productId);
+
+        bool UpdateRecord(Product record);
 
         List<Product> GetProductList();
+
+        List<Product> GetProductListByProductNameFilter(string ProductName);
         List<Product> GetProductListByCompanyFilter(string Company);
-         List<Product> GetProductListByProductNameFilter(string ProductName);
+       
         List<Product> GetProductListByCategoryFilter(string Category);
-         bool UpdateRecord(Product record);
+       
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //---End Block of Interface And Namespace------------------------
     }
 }

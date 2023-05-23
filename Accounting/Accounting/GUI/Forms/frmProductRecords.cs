@@ -2,25 +2,21 @@
 using Accounting.DataLayer.Interfaces;
 using AccountingDLL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Accounting.GUI.Forms
 {
     public partial class frmProductRecords : Form
     {
+        //------------Fields----------------
+
+        //-------Methods--------------------------
         public frmProductRecords()
         {
             InitializeComponent();
         }
-
         void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
@@ -28,11 +24,19 @@ namespace Accounting.GUI.Forms
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
                 try
                 {
+                    //--------
                     DGV1.DataSource = _ProductRepository.GetProductList();
-                    DGV1.Columns[0].HeaderText = " کد محصول";
-                    DGV1.Columns[1].HeaderText = " نام محصول";
-                    DGV1.Columns[2].HeaderText = " دسته بندی";
-                    DGV1.Columns[3].HeaderText = " شرکت";
+                    DGV1.Columns["ProductId"].HeaderText = " کد محصول";
+                    DGV1.Columns["ProductName"].HeaderText = " نام محصول";
+                    DGV1.Columns["Features"].HeaderText = " ویژگی";
+                    DGV1.Columns["Price"].HeaderText = " قیمت";
+                    DGV1.Columns["Price"].HeaderText = " قیمت";
+                    DGV1.Columns["Company"].HeaderText = " قیمت";
+                    DGV1.Columns["Category"].HeaderText = " قیمت";
+                    DGV1.Columns["Picture"].Visible = false;//Picture Column
+                    //----------------------------------
+
+
                 }
                 catch
                 {
@@ -40,7 +44,8 @@ namespace Accounting.GUI.Forms
                 }
             }
         }
-        private void frmProductRecords_Load(object sender, EventArgs e)
+        
+        private void frmConfigRecords_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -67,6 +72,38 @@ namespace Accounting.GUI.Forms
                     }
 
                 }
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            WorkWithExcel.ExportExcel(DGV1);
+        }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow dr = DGV1.SelectedRows[0];
+                this.Hide();
+                frmProduct obj = new frmProduct();
+                
+                obj.Show();
+                obj.txtProductCode.Text = dr.Cells["ProductId"].Value.ToString();
+                obj.txtProductName.Text = dr.Cells["ProductName"].Value.ToString();
+                obj.txtFeatures.Text = dr.Cells["Features"].Value.ToString();
+                obj.txtPrice.Text = dr.Cells["Price"].Value.ToString();
+                obj.cbCategory.Text = dr.Cells["Category"].Value.ToString();
+                obj.cbCompany.Text = dr.Cells["Company"].Value.ToString();
+                byte[] data = (byte[])dr.Cells["Picture"].Value;
+                MemoryStream ms = new MemoryStream(data);
+                obj.PboxProductPicture.Image = Image.FromStream(ms);
+                obj.txtProductCode.Focus();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -118,39 +155,28 @@ namespace Accounting.GUI.Forms
             }
         }
 
-     
 
-        
-      
 
-        private void DGV1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridViewRow dr = DGV1.SelectedRows[0];
-                frmProduct frm = new frmProduct();
-                this.Hide();
-                frm.txtProductName.Text = dr.Cells[1].Value.ToString();
-                frm.cbCategory.Text = dr.Cells[2].Value.ToString();
-                frm.cbCompany.Text = dr.Cells[3].Value.ToString();
-                frm.btnUpdate.Enabled = true;
-                frm.btnDelete.Enabled = true;
-                
-               
-                frm.ShowDialog();
-                frm.txtProductName.Focus();
 
-            }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            WorkWithExcel.ExportExcel(DGV1);
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //---End Block of Class And Namespace------------------------
     }
 }

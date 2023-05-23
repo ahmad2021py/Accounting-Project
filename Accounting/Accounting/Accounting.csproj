@@ -189,9 +189,8 @@
     <Compile Include="DataLayer\Context\UnitOfWork.cs" />
     <Compile Include="DataLayer\Entities\Categories.cs" />
     <Compile Include="DataLayer\Entities\Company.cs" />
-    <Compile Include="DataLayer\Entities\Config.cs" />
-    <Compile Include="DataLayer\Entities\Customer.cs" />
     <Compile Include="DataLayer\Entities\Product.cs" />
+    <Compile Include="DataLayer\Entities\Customer.cs" />
     <Compile Include="DataLayer\Entities\ProductSold.cs" />
     <Compile Include="DataLayer\Entities\Registration.cs" />
     <Compile Include="DataLayer\Entities\Sales.cs" />
@@ -199,16 +198,14 @@
     <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="DataLayer\Interfaces\ICategoryRepository.cs" />
     <Compile Include="DataLayer\Interfaces\ICompanyRepository.cs" />
-    <Compile Include="DataLayer\Interfaces\IConfigRepository.cs" />
-    <Compile Include="DataLayer\Interfaces\ICustomerRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IProductRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\ICustomerRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRegistrationRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
     <Compile Include="DataLayer\Services\CategoryRepository.cs" />
     <Compile Include="DataLayer\Services\CompanyRepository.cs" />
-    <Compile Include="DataLayer\Services\ConfigRepository.cs" />
-    <Compile Include="DataLayer\Services\CustomerRepository.cs" />
     <Compile Include="DataLayer\Services\ProductRepository.cs" />
+    <Compile Include="DataLayer\Services\CustomerRepository.cs" />
     <Compile Include="DataLayer\Services\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\UserRepository.cs" />
     <Compile Include="GUI\Forms\frmCategory.cs">
@@ -241,17 +238,17 @@
     <Compile Include="GUI\Forms\frmCompanyRecords.Designer.cs">
       <DependentUpon>frmCompanyRecords.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Forms\frmConfig.cs">
+    <Compile Include="GUI\Forms\frmProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Forms\frmConfig.Designer.cs">
-      <DependentUpon>frmConfig.cs</DependentUpon>
+    <Compile Include="GUI\Forms\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Forms\frmConfigRecords.cs">
+    <Compile Include="GUI\Forms\frmProductRecords.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Forms\frmConfigRecords.Designer.cs">
-      <DependentUpon>frmConfigRecords.cs</DependentUpon>
+    <Compile Include="GUI\Forms\frmProductRecords.Designer.cs">
+      <DependentUpon>frmProductRecords.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmCustomer.cs">
       <SubType>Form</SubType>
@@ -271,6 +268,12 @@
     <Compile Include="GUI\Forms\frmLoginDetails.Designer.cs">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmRecoveryPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
+      <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmUserReords.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,24 +285,6 @@
     </Compile>
     <Compile Include="GUI\Forms\frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Forms\frmProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\frmProduct.Designer.cs">
-      <DependentUpon>frmProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Forms\frmProductRecords.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\frmProductRecords.Designer.cs">
-      <DependentUpon>frmProductRecords.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Forms\frmRecoveryPassword.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
-      <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmUserRegistration.cs">
       <SubType>Form</SubType>
@@ -314,9 +299,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202305231345549_InitDb.cs" />
-    <Compile Include="Migrations\202305231345549_InitDb.designer.cs">
-      <DependentUpon>202305231345549_InitDb.cs</DependentUpon>
+    <Compile Include="Migrations\202305231911345_initDb.cs" />
+    <Compile Include="Migrations\202305231911345_initDb.designer.cs">
+      <DependentUpon>202305231911345_initDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -343,11 +328,11 @@
     <EmbeddedResource Include="GUI\Forms\frmCompanyRecords.resx">
       <DependentUpon>frmCompanyRecords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmConfig.resx">
-      <DependentUpon>frmConfig.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Forms\frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmConfigRecords.resx">
-      <DependentUpon>frmConfigRecords.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Forms\frmProductRecords.resx">
+      <DependentUpon>frmProductRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
@@ -358,20 +343,14 @@
     <EmbeddedResource Include="GUI\Forms\frmLoginDetails.resx">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
+      <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmUserReords.resx">
       <DependentUpon>frmUserReords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmProduct.resx">
-      <DependentUpon>frmProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmProductRecords.resx">
-      <DependentUpon>frmProductRecords.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
-      <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmUserRegistration.resx">
       <DependentUpon>frmUserRegistration.cs</DependentUpon>
@@ -379,8 +358,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305231345549_InitDb.resx">
-      <DependentUpon>202305231345549_InitDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305231911345_initDb.resx">
+      <DependentUpon>202305231911345_initDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -490,6 +469,8 @@
     <Content Include="bin\Debug\Stimulsoft.Report.dll" />
     <Content Include="bin\Debug\Stimulsoft.Report.Web.dll" />
     <Content Include="bin\Debug\Stimulsoft.Report.Win.dll" />
+    <None Include="GUI\Resourses\icons8_budget_1.ico" />
+    <None Include="GUI\Resourses\icons8_budget_160px.png" />
     <Content Include="Utilities\mgh.dll" />
     <None Include="GUI\Resourses\main_background.png" />
     <None Include="GUI\Resourses\exit.png" />
