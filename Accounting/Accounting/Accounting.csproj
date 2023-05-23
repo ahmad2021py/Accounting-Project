@@ -373,7 +373,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\Accounting.exe.config" />
-    <None Include="bin\Debug\Report.mrt" />
+    <None Include="bin\Debug\Reports\Customer.mrt" />
     <None Include="bin\Debug\Variables.mrt" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -492,6 +492,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+    <Folder Include="GUI\Forms\Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

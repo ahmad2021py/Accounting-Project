@@ -48,7 +48,7 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblText = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bunifuImageButton1 = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.btnCustomer = new Bunifu.UI.WinForms.BunifuImageButton();
             this.lblProducts = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -206,7 +206,7 @@
             this.btnCompany.WaitOnLoad = false;
             this.btnCompany.Zoom = 10;
             this.btnCompany.ZoomSpeed = 10;
-            this.btnCompany.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            this.btnCompany.Click += new System.EventHandler(this.btnCompany_Click);
             // 
             // label3
             // 
@@ -300,7 +300,7 @@
             this.btnfrmLoginDetails.WaitOnLoad = false;
             this.btnfrmLoginDetails.Zoom = 10;
             this.btnfrmLoginDetails.ZoomSpeed = 10;
-            this.btnfrmLoginDetails.Click += new System.EventHandler(this.btnProdut_Click);
+            this.btnfrmLoginDetails.Click += new System.EventHandler(this.btnfrmLoginDetails_Click);
             // 
             // label1
             // 
@@ -378,41 +378,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تاریخ امروز";
             // 
-            // bunifuImageButton1
+            // btnCustomer
             // 
-            this.bunifuImageButton1.ActiveImage = null;
-            this.bunifuImageButton1.AllowAnimations = true;
-            this.bunifuImageButton1.AllowBuffering = false;
-            this.bunifuImageButton1.AllowToggling = false;
-            this.bunifuImageButton1.AllowZooming = true;
-            this.bunifuImageButton1.AllowZoomingOnFocus = false;
-            this.bunifuImageButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bunifuImageButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.bunifuImageButton1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ErrorImage")));
-            this.bunifuImageButton1.FadeWhenInactive = false;
-            this.bunifuImageButton1.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.bunifuImageButton1.Image = global::Accounting.Properties.Resources.icons8_budget_160px;
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.ImageLocation = "";
-            this.bunifuImageButton1.ImageMargin = 10;
-            this.bunifuImageButton1.ImageSize = new System.Drawing.Size(80, 80);
-            this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(90, 90);
-            this.bunifuImageButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
-            this.bunifuImageButton1.Location = new System.Drawing.Point(651, 360);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Rotation = 0;
-            this.bunifuImageButton1.ShowActiveImage = true;
-            this.bunifuImageButton1.ShowCursorChanges = true;
-            this.bunifuImageButton1.ShowImageBorders = true;
-            this.bunifuImageButton1.ShowSizeMarkers = false;
-            this.bunifuImageButton1.Size = new System.Drawing.Size(90, 90);
-            this.bunifuImageButton1.TabIndex = 70;
-            this.bunifuImageButton1.ToolTipText = "";
-            this.bunifuImageButton1.WaitOnLoad = false;
-            this.bunifuImageButton1.Zoom = 10;
-            this.bunifuImageButton1.ZoomSpeed = 10;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.btnProdut_Click);
+            this.btnCustomer.ActiveImage = null;
+            this.btnCustomer.AllowAnimations = true;
+            this.btnCustomer.AllowBuffering = false;
+            this.btnCustomer.AllowToggling = false;
+            this.btnCustomer.AllowZooming = true;
+            this.btnCustomer.AllowZoomingOnFocus = false;
+            this.btnCustomer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCustomer.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCustomer.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.ErrorImage")));
+            this.btnCustomer.FadeWhenInactive = false;
+            this.btnCustomer.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnCustomer.Image = global::Accounting.Properties.Resources.icons8_budget_160px;
+            this.btnCustomer.ImageActive = null;
+            this.btnCustomer.ImageLocation = "";
+            this.btnCustomer.ImageMargin = 10;
+            this.btnCustomer.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnCustomer.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.btnCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCustomer.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.InitialImage")));
+            this.btnCustomer.Location = new System.Drawing.Point(651, 360);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Rotation = 0;
+            this.btnCustomer.ShowActiveImage = true;
+            this.btnCustomer.ShowCursorChanges = true;
+            this.btnCustomer.ShowImageBorders = true;
+            this.btnCustomer.ShowSizeMarkers = false;
+            this.btnCustomer.Size = new System.Drawing.Size(90, 90);
+            this.btnCustomer.TabIndex = 70;
+            this.btnCustomer.ToolTipText = "";
+            this.btnCustomer.WaitOnLoad = false;
+            this.btnCustomer.Zoom = 10;
+            this.btnCustomer.ZoomSpeed = 10;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // lblProducts
             // 
@@ -439,7 +439,7 @@
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnfrmLoginDetails);
-            this.Controls.Add(this.bunifuImageButton1);
+            this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.btnProdut);
             this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.lblRegistration);
@@ -486,7 +486,7 @@
         internal System.Windows.Forms.Label lblDate;
         internal System.Windows.Forms.Label lblText;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton1;
+        private Bunifu.UI.WinForms.BunifuImageButton btnCustomer;
         private System.Windows.Forms.Label lblProducts;
     }
 }

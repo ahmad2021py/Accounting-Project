@@ -10,6 +10,7 @@ using System.Data.OleDb;
 using System.IO;
 using mgh;
 using Accounting.Utilities;
+using Accounting.DataLayer.Entities;
 
 namespace Accounting.GUI.Forms
 {
@@ -93,6 +94,24 @@ namespace Accounting.GUI.Forms
         private void btnProdut_Click(object sender, EventArgs e)
         {
             frmLoginDetails frm = new frmLoginDetails();
+            frm.ShowDialog();
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            frmCustomer frm = new frmCustomer();
+            frm.ShowDialog();
+        }
+
+        private void btnCompany_Click(object sender, EventArgs e)
+        {
+            frmCompany frm = new frmCompany();
+            frm.ShowDialog();
+        }
+
+        private void btnfrmLoginDetails_Click(object sender, EventArgs e)
+        {
+            frmLoginDetails frm=new frmLoginDetails();
             frm.ShowDialog();
         }
     }
