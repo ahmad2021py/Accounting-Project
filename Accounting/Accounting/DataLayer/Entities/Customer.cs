@@ -11,11 +11,20 @@ namespace Accounting.DataLayer.Entities
     {
         [Key]
         public long CustomerId { get; set; }
+        [Required]
+        [MaxLength(255)]
+        public string Name { get; set; }
+        [Required]
+        [MaxLength(400)]
         public string Address { get; set; }
+        [Required]
+        [MaxLength(80)]
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
+        [Required]
         public int Phone { get; set; }
         public string Email { get; set; }
+
     }
 }

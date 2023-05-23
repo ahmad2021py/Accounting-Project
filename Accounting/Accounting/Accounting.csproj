@@ -316,6 +316,10 @@
     <Compile Include="Migrations\202305211149550_ChangeDatatypeOFPricePropTblConfig.designer.cs">
       <DependentUpon>202305211149550_ChangeDatatypeOFPricePropTblConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305230945253_UpdateCustomerEntity.cs" />
+    <Compile Include="Migrations\202305230945253_UpdateCustomerEntity.designer.cs">
+      <DependentUpon>202305230945253_UpdateCustomerEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305211149550_ChangeDatatypeOFPricePropTblConfig.resx">
       <DependentUpon>202305211149550_ChangeDatatypeOFPricePropTblConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305230945253_UpdateCustomerEntity.resx">
+      <DependentUpon>202305230945253_UpdateCustomerEntity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
