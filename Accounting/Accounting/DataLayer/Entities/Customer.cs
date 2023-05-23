@@ -10,21 +10,26 @@ namespace Accounting.DataLayer.Entities
     public class Customer
     {
         [Key]
-        public long CustomerId { get; set; }
+        public int id { get; set; }
+        public long NationalCode { get; set; }
         [Required]
-        [MaxLength(255)]
+        [MaxLength(20)]
         public string Name { get; set; }
         [Required]
-        [MaxLength(400)]
+        [MaxLength(255)]
         public string Address { get; set; }
         [Required]
         [MaxLength(80)]
         public string City { get; set; }
-        public string State { get; set; }
-        public int ZipCode { get; set; }
         [Required]
-        public int Phone { get; set; }
+        [MaxLength(80)]
+        public string State { get; set; }
+        [Required]
+        public string ZipCode { get; set; }
+        [Required]
+        public string Phone { get; set; }
         public string Email { get; set; }
+       
 
     }
 }

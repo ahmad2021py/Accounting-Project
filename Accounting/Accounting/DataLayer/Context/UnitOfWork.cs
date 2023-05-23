@@ -20,6 +20,7 @@ namespace Accounting.DataLayer.Context
         private ICategoryRepository _CategoryRepository;
         private IProductRepository _ProductRepository;
         private IConfigRepository _ConfigRepository;
+        private ICustomerRepository _CustomerRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -101,6 +102,20 @@ namespace Accounting.DataLayer.Context
         }
 
 
+        public ICustomerRepository CustomerRepository
+        {
+            get
+            {
+                if (_CustomerRepository == null)
+                {
+                    _CustomerRepository = new CustomerRepository(db);
+                }
+
+                return _CustomerRepository;
+            }
+        }
+
+
         //---------Methods-----------------
         public void Save()
         {
@@ -116,6 +131,8 @@ namespace Accounting.DataLayer.Context
             _CompanyRepository = null;
             _CategoryRepository = null;
             _ProductRepository = null;
+            _ConfigRepository = null;
+            _CustomerRepository = null;
 
         }
 

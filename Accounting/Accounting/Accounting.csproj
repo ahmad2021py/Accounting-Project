@@ -200,12 +200,14 @@
     <Compile Include="DataLayer\Interfaces\ICategoryRepository.cs" />
     <Compile Include="DataLayer\Interfaces\ICompanyRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IConfigRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\ICustomerRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IProductRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRegistrationRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
     <Compile Include="DataLayer\Services\CategoryRepository.cs" />
     <Compile Include="DataLayer\Services\CompanyRepository.cs" />
     <Compile Include="DataLayer\Services\ConfigRepository.cs" />
+    <Compile Include="DataLayer\Services\CustomerRepository.cs" />
     <Compile Include="DataLayer\Services\ProductRepository.cs" />
     <Compile Include="DataLayer\Services\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\UserRepository.cs" />
@@ -250,6 +252,18 @@
     </Compile>
     <Compile Include="GUI\Forms\frmConfigRecords.Designer.cs">
       <DependentUpon>frmConfigRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCustomerRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCustomerRecords.Designer.cs">
+      <DependentUpon>frmCustomerRecords.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmLoginDetails.cs">
       <SubType>Form</SubType>
@@ -300,25 +314,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202304221714285_initialize.cs" />
-    <Compile Include="Migrations\202304221714285_initialize.designer.cs">
-      <DependentUpon>202304221714285_initialize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304280721305_FixProductEntity.cs" />
-    <Compile Include="Migrations\202304280721305_FixProductEntity.designer.cs">
-      <DependentUpon>202304280721305_FixProductEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305211144254_updateConfigEntity.cs" />
-    <Compile Include="Migrations\202305211144254_updateConfigEntity.designer.cs">
-      <DependentUpon>202305211144254_updateConfigEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305211149550_ChangeDatatypeOFPricePropTblConfig.cs" />
-    <Compile Include="Migrations\202305211149550_ChangeDatatypeOFPricePropTblConfig.designer.cs">
-      <DependentUpon>202305211149550_ChangeDatatypeOFPricePropTblConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305230945253_UpdateCustomerEntity.cs" />
-    <Compile Include="Migrations\202305230945253_UpdateCustomerEntity.designer.cs">
-      <DependentUpon>202305230945253_UpdateCustomerEntity.cs</DependentUpon>
+    <Compile Include="Migrations\202305231345549_InitDb.cs" />
+    <Compile Include="Migrations\202305231345549_InitDb.designer.cs">
+      <DependentUpon>202305231345549_InitDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -326,6 +324,7 @@
     <Compile Include="Utilities\EmailPacket.cs" />
     <Compile Include="Utilities\Encryption.cs" />
     <Compile Include="Utilities\GlobalVariables.cs" />
+    <Compile Include="Utilities\NationalCode.cs" />
     <Compile Include="Utilities\ShamsiDay.cs" />
     <Compile Include="Utilities\WorkWithEmail.cs" />
     <Compile Include="Utilities\WorkWithImage.cs" />
@@ -349,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmConfigRecords.resx">
       <DependentUpon>frmConfigRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmCustomerRecords.resx">
+      <DependentUpon>frmCustomerRecords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmLoginDetails.resx">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
@@ -374,20 +379,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304221714285_initialize.resx">
-      <DependentUpon>202304221714285_initialize.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304280721305_FixProductEntity.resx">
-      <DependentUpon>202304280721305_FixProductEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305211144254_updateConfigEntity.resx">
-      <DependentUpon>202305211144254_updateConfigEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305211149550_ChangeDatatypeOFPricePropTblConfig.resx">
-      <DependentUpon>202305211149550_ChangeDatatypeOFPricePropTblConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305230945253_UpdateCustomerEntity.resx">
-      <DependentUpon>202305230945253_UpdateCustomerEntity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305231345549_InitDb.resx">
+      <DependentUpon>202305231345549_InitDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

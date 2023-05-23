@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialize : DbMigration
+    public partial class InitDb : DbMigration
     {
         public override void Up()
         {
@@ -32,7 +32,8 @@
                         ConfigId = c.Int(nullable: false, identity: true),
                         ProductName = c.String(),
                         Features = c.String(),
-                        Price = c.Single(nullable: false),
+                        Price = c.Double(nullable: false),
+                        Picture = c.Binary(),
                     })
                 .PrimaryKey(t => t.ConfigId);
             
@@ -40,15 +41,17 @@
                 "dbo.Customers",
                 c => new
                     {
-                        CustomerId = c.Long(nullable: false, identity: true),
-                        Address = c.String(),
-                        City = c.String(),
-                        State = c.String(),
-                        ZipCode = c.Int(nullable: false),
-                        Phone = c.Int(nullable: false),
+                        id = c.Int(nullable: false, identity: true),
+                        NationalCode = c.Long(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 20),
+                        Address = c.String(nullable: false, maxLength: 255),
+                        City = c.String(nullable: false, maxLength: 80),
+                        State = c.String(nullable: false, maxLength: 80),
+                        ZipCode = c.String(nullable: false),
+                        Phone = c.String(nullable: false),
                         Email = c.String(),
                     })
-                .PrimaryKey(t => t.CustomerId);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.Products",
@@ -56,7 +59,7 @@
                     {
                         ProductId = c.Int(nullable: false, identity: true),
                         ProductName = c.String(),
-                        Category = c.Int(nullable: false),
+                        Category = c.String(),
                         Company = c.String(),
                     })
                 .PrimaryKey(t => t.ProductId);
