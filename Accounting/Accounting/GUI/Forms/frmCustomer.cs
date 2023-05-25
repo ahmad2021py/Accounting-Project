@@ -26,7 +26,7 @@ namespace Accounting.GUI.Forms
             if (
                 txtCustomerName.Text == "" ||
                 txtCustomerPhone.Text == "" ||
-                txtCustomerState.Text == "" ||
+                cbStates.Text == "" ||
                 txtCustomerAddress.Text == "" ||
                 txtCustomerZipCode.Text == "" ||
                 txtCustomerCity.Text == ""
@@ -46,7 +46,7 @@ namespace Accounting.GUI.Forms
             txtCustomerName.Text = "";
             txtCustomerPhone.Text = "";
             txtCustomerEmail.Text = "";
-            txtCustomerState.Text = "";
+            cbStates.Text = "";
             txtCustomerCity.Text = "";
             txtCustomerZipCode.Text = "";
             txtCustomerAddress.Text = "";
@@ -61,7 +61,7 @@ namespace Accounting.GUI.Forms
             CustomerRecord.NationalCode = long.Parse(txtNationalCode.Text);
             CustomerRecord.Name = txtCustomerName.Text;
             CustomerRecord.Phone = txtCustomerPhone.Text;
-            CustomerRecord.State = txtCustomerState.Text;
+            CustomerRecord.State = cbStates.Text;
             CustomerRecord.ZipCode = txtCustomerZipCode.Text;
             CustomerRecord.Email = txtCustomerEmail.Text;
             CustomerRecord.City = txtCustomerCity.Text;
@@ -108,6 +108,7 @@ namespace Accounting.GUI.Forms
         private void btnNew_Click(object sender, EventArgs e)
         {
             Reset();
+           
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
@@ -227,6 +228,23 @@ namespace Accounting.GUI.Forms
                 MessageBox.Show("خطایی رخ داده است");
             }
         }
+
+        private void frmCustomer_Load(object sender, EventArgs e)
+        {
+
+            var list = AccountingEnums.GetIranStatesList();
+            foreach (string n in list)
+            {
+                cbStates.Items.Add(n);
+            }
+
+
+
+
+
+        }
+
+        
 
 
 

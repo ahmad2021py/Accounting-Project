@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Services;
 using Accounting.Utilities;
 using System;
 using System.Collections.Generic;
@@ -101,7 +102,7 @@ namespace Accounting.GUI.Forms
         {
 
 
-
+            
             productRecord.ProductId = Convert.ToInt32(txtProductCode.Text);
             productRecord.ProductName = txtProductName.Text;
             productRecord.Price = Convert.ToDouble(txtPrice.Text);
@@ -114,17 +115,36 @@ namespace Accounting.GUI.Forms
 
 
         }
+        private void FillControlersWithProductDbRecord(Product dbProductRecord)
+        {
+            try
+            {
 
+
+                txtProductCode.Text = dbProductRecord.ProductId.ToString();
+                txtProductName.Text = dbProductRecord.ProductName;
+                txtPrice.Text = dbProductRecord.Price.ToString();
+                cbCompany.Text = dbProductRecord.Company;
+                cbCategory.Text = dbProductRecord.Category;
+                txtFeatures.Text = dbProductRecord.Features;
+                PboxProductPicture.Image = WorkWithImage.byteArrayToImage(dbProductRecord.Picture);
+            }
+            catch
+            {
+                MessageBox.Show("خطایی رخ داده است");
+            }
+          
+
+
+
+        }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
             Reset();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            Reset();
-        }
+
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
@@ -136,26 +156,26 @@ namespace Accounting.GUI.Forms
                     IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
                     if (!IsNull())
                     {
-                        bool Result = await _ProductRepository.ProductExist(Int32.Parse(txtProductCode.Text));
+                        int productCode = Int32.Parse(txtProductCode.Text);
+                        bool Result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.ProductId== productCode);
                         if (!Result)
                         {
-                            //using (UnitOfWork _unitOfWork = new UnitOfWork())
-                            //{
-                            Product ProductRecord = new Product();
-                            ProductRecord = Fill__ProductRecord(ProductRecord);
+                           
+                                Product ProductRecord = new Product();
+                                ProductRecord = Fill__ProductRecord(ProductRecord);
 
-                            if (_ProductRepository.InsertToProduct(ProductRecord))
-                            {
-                                MessageBox.Show("رکورد با موفقیت ثبت شد");
+                                if (_ProductRepository.Add<Product>(ProductRecord))
+                                {
+                                    MessageBox.Show("رکورد با موفقیت ثبت شد");
 
-                                _UnitOfWork.Save();
-                                Reset();
+                                    _UnitOfWork.Save();
+                                    Reset();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("خطایی رخ داده است");
+                                }
                             }
-                            else
-                            {
-                                MessageBox.Show("خطایی رخ داده است");
-                            }
-                        }
                         else
                         {
                             MessageBox.Show("این محصول از قبل وجود دارد");
@@ -175,30 +195,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                OpenFileDialog OFD = new OpenFileDialog();
-
-                OFD.Filter = ("Image Files |*.png; *.bmp; *.jpg;*.jpeg; *.gif;");
-                OFD.FilterIndex = 4;
-                //Reset the file name
-                OFD.FileName = "";
-
-                if (OFD.ShowDialog() == DialogResult.OK)
-                {
-                    PboxProductPicture.Image = Image.FromFile(OFD.FileName);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+    
 
 
         private async void btnDelete_Click(object sender, EventArgs e)
@@ -209,13 +206,17 @@ namespace Accounting.GUI.Forms
                 {
                     using (UnitOfWork _unitOfWork = new UnitOfWork())
                     {
-                        IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
 
-                        bool result = await _ProductRepository.ProductExist(Int32.Parse(txtProductCode.Text));
+                        IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
+                   
+                       
+                        int ProductCode = Convert.ToInt32(txtProductCode.Text);
+                        bool result = /*await*/ _ProductRepository.IsExist<Product>(N=>N.ProductId== ProductCode);
                         if (result)
                         {
-                            if (_ProductRepository.DeleteProductRecord(Int32.Parse(txtProductCode.Text)))
-                                MessageBox.Show("رکورد با موفقیت حذف شد");
+                          bool DeleteResult= await _ProductRepository.DeleteByCondition<Product>(n => n.ProductId == ProductCode);
+                            if (DeleteResult)
+                            MessageBox.Show("رکورد با موفقیت حذف شد");
                             _unitOfWork.Save();
                             Reset();
 
@@ -252,7 +253,8 @@ namespace Accounting.GUI.Forms
                         IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
                         Product Instance = new Product();
                         Instance = Fill__ProductRecord(Instance);
-                        if (_ProductRepository.UpdateRecord(Instance))
+                        int ProductCode = Convert.ToInt32(txtProductCode.Text);
+                        if (_ProductRepository.UpdateProduct(Instance,n=>n.ProductId== Instance.ProductId))
                         {
                             MessageBox.Show("رکورد با موفقیت  بروز شد");
                             _unitOfWork.Save();
@@ -278,7 +280,7 @@ namespace Accounting.GUI.Forms
 
         private void btnGetData_Click(object sender, EventArgs e)
         {
-            frmProductRecords frm = new frmProductRecords();
+            frmProductRecords frm = new frmProductRecords(this);
             frm.ShowDialog();
             this.Hide();
         }
@@ -293,6 +295,74 @@ namespace Accounting.GUI.Forms
             FillCombo();
             txtProductName.Focus();
         }
+
+        private async void btnGetDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                using (UnitOfWork _unitOfWork = new UnitOfWork())
+                {
+                    IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
+                    int ProductCode = Int32.Parse(txtProductCode.Text);
+                    bool result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.ProductId== ProductCode);
+                    if (result)
+                    {
+                        Product record = _ProductRepository.GetEntity<Product>(n=>n.ProductId== ProductCode);
+                        FillControlersWithProductDbRecord(record);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("محصولی با این کد وجود ندارد");
+                        Reset();
+                    }
+
+
+
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                MessageBox.Show("خطایی رخ داده است");
+            }
+        }
+
+    
+
+        private void txtProductCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog OFD = new OpenFileDialog();
+
+                OFD.Filter = ("Image Files |*.png; *.bmp; *.jpg;*.jpeg; *.gif;");
+                OFD.FilterIndex = 4;
+                //Reset the file name
+                OFD.FileName = "";
+
+                if (OFD.ShowDialog() == DialogResult.OK)
+                {
+                    PboxProductPicture.Image = Image.FromFile(OFD.FileName);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
 
 

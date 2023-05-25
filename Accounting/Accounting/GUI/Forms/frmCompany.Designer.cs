@@ -100,6 +100,7 @@ namespace Accounting.GUI.Forms
             this.txtCompanyName.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtCompanyName.PlaceholderText = "نام شرکت را وارد کنید";
             this.txtCompanyName.ReadOnly = false;
+            this.txtCompanyName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtCompanyName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtCompanyName.SelectedText = "";
             this.txtCompanyName.SelectionLength = 0;

@@ -188,6 +188,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtUserName.PlaceholderText = "نام کاربری خود را وارد کنید";
             this.txtUserName.ReadOnly = false;
+            this.txtUserName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtUserName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtUserName.SelectedText = "";
             this.txtUserName.SelectionLength = 0;
@@ -259,9 +260,10 @@ namespace Accounting.GUI.Forms
             this.txtPassword.OnIdleState = stateProperties8;
             this.txtPassword.Padding = new System.Windows.Forms.Padding(3);
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtPassword.PlaceholderText = "کلمه عبور خود را وارد کنید";
+            this.txtPassword.PlaceholderForeColor = System.Drawing.Color.DarkOrange;
+            this.txtPassword.PlaceholderText = "";
             this.txtPassword.ReadOnly = false;
+            this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtPassword.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtPassword.SelectedText = "";
             this.txtPassword.SelectionLength = 0;
@@ -274,7 +276,7 @@ namespace Accounting.GUI.Forms
             this.txtPassword.TextMarginBottom = 0;
             this.txtPassword.TextMarginLeft = 3;
             this.txtPassword.TextMarginTop = 0;
-            this.txtPassword.TextPlaceholder = "کلمه عبور خود را وارد کنید";
+            this.txtPassword.TextPlaceholder = "";
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WordWrap = true;
             // 

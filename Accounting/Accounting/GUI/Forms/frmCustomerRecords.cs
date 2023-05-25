@@ -109,7 +109,7 @@ namespace Accounting.GUI.Forms
                 obj.txtNationalCode.Text = dr.Cells["NationalCode"].Value.ToString();
                 obj.txtCustomerName.Text = dr.Cells["Name"].Value.ToString();
                 obj.txtCustomerPhone.Text = dr.Cells["Phone"].Value.ToString();
-                obj.txtCustomerState.Text = dr.Cells["State"].Value.ToString();
+                obj.cbStates.Text = dr.Cells["State"].Value.ToString();
                 obj.txtCustomerEmail.Text = dr.Cells["Email"].Value.ToString();
                 obj.txtCustomerCity.Text = dr.Cells["City"].Value.ToString();
                 obj.txtCustomerZipCode.Text = dr.Cells["ZipCode"].Value.ToString();

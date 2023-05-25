@@ -115,6 +115,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtUserName.PlaceholderText = "نام کاربری خود را وارد کنید";
             this.txtUserName.ReadOnly = false;
+            this.txtUserName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtUserName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtUserName.SelectedText = "";
             this.txtUserName.SelectionLength = 0;
@@ -237,6 +238,7 @@ namespace Accounting.GUI.Forms
             this.txtOldPass.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtOldPass.PlaceholderText = "رمز عبور قبلی خود را وارد کنید";
             this.txtOldPass.ReadOnly = false;
+            this.txtOldPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtOldPass.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtOldPass.SelectedText = "";
             this.txtOldPass.SelectionLength = 0;
@@ -311,6 +313,7 @@ namespace Accounting.GUI.Forms
             this.txtNewPass.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtNewPass.PlaceholderText = "رمز عبور جدید خود را وارد کنید";
             this.txtNewPass.ReadOnly = false;
+            this.txtNewPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtNewPass.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNewPass.SelectedText = "";
             this.txtNewPass.SelectionLength = 0;
@@ -385,6 +388,7 @@ namespace Accounting.GUI.Forms
             this.txtRepeatNewPass.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtRepeatNewPass.PlaceholderText = "تکرار رمز عبور جدید";
             this.txtRepeatNewPass.ReadOnly = false;
+            this.txtRepeatNewPass.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtRepeatNewPass.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtRepeatNewPass.SelectedText = "";
             this.txtRepeatNewPass.SelectionLength = 0;

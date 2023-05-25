@@ -41,104 +41,141 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Utilities\AccountingDLL.dll</HintPath>
     </Reference>
+    <Reference Include="BPersianCalender, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\BPersianCalender.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.Licensing.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuFormDock, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGauge, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGroupBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuGroupBox.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGroupBox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuImageButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuRating, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuRating.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuRating.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSeparator, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuShapes, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuShapes.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuShapes.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSlider, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSnackbar, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuTextBox.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuTextBox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuToggleSwitch, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuToggleSwitch.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuToggleSwitch.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuToolTip, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTransition, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuUserControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.Deprecated, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.UI.WinForms.5.0.3\lib\Bunifu.UI.WinForms.Deprecated.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.Deprecated.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -189,6 +226,7 @@
     <Compile Include="DataLayer\Context\UnitOfWork.cs" />
     <Compile Include="DataLayer\Entities\Categories.cs" />
     <Compile Include="DataLayer\Entities\Company.cs" />
+    <Compile Include="DataLayer\Entities\Generics\BaseEntity.cs" />
     <Compile Include="DataLayer\Entities\Product.cs" />
     <Compile Include="DataLayer\Entities\Customer.cs" />
     <Compile Include="DataLayer\Entities\ProductSold.cs" />
@@ -201,12 +239,16 @@
     <Compile Include="DataLayer\Interfaces\IProductRepository.cs" />
     <Compile Include="DataLayer\Interfaces\ICustomerRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRegistrationRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\IStockRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\IEntityGenericRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IUserRepository.cs" />
     <Compile Include="DataLayer\Services\CategoryRepository.cs" />
     <Compile Include="DataLayer\Services\CompanyRepository.cs" />
+    <Compile Include="DataLayer\Services\IEntity.cs" />
     <Compile Include="DataLayer\Services\ProductRepository.cs" />
     <Compile Include="DataLayer\Services\CustomerRepository.cs" />
     <Compile Include="DataLayer\Services\RegistrationRepository.cs" />
+    <Compile Include="DataLayer\Services\EntityGenericRepository.cs" />
     <Compile Include="DataLayer\Services\UserRepository.cs" />
     <Compile Include="GUI\Forms\frmCategory.cs">
       <SubType>Form</SubType>
@@ -274,6 +316,18 @@
     <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmStock.Designer.cs">
+      <DependentUpon>frmStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmStockRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmStockRecords.Designer.cs">
+      <DependentUpon>frmStockRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmUserReords.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,11 +358,13 @@
       <DependentUpon>202305231911345_initDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\EmailPacket.cs" />
     <Compile Include="Utilities\Encryption.cs" />
     <Compile Include="Utilities\GlobalVariables.cs" />
+    <Compile Include="Utilities\IranStates.cs" />
     <Compile Include="Utilities\NationalCode.cs" />
     <Compile Include="Utilities\ShamsiDay.cs" />
     <Compile Include="Utilities\WorkWithEmail.cs" />
@@ -345,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmStock.resx">
+      <DependentUpon>frmStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmUserReords.resx">
       <DependentUpon>frmUserReords.cs</DependentUpon>
@@ -469,6 +528,78 @@
     <Content Include="bin\Debug\Stimulsoft.Report.dll" />
     <Content Include="bin\Debug\Stimulsoft.Report.Web.dll" />
     <Content Include="bin\Debug\Stimulsoft.Report.Win.dll" />
+    <Content Include="Utilities\BPersianCalender.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\CHANGELOG.txt" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\Icon.png" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\LICENSE.txt" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.Licensing.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.1.5.3.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.1.5.3.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuButton.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuButton.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuCheckBox.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuCheckBox.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuCircleProgress.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuCircleProgress.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuColorTransition.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuColorTransition.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDataGridView.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDataGridView.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDatePicker.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDatePicker.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDropdown.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuDropdown.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuFormDock.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuFormDock.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGauge.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGauge.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGradientPanel.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGradientPanel.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGroupBox.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuGroupBox.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuImageButton.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuImageButton.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuLabel.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuLabel.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPages.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPages.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPanel.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPanel.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPictureBox.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuPictureBox.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuProgressBar.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuProgressBar.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuRadioButton.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuRadioButton.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuRating.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuRating.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuScrollBar.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuScrollBar.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSeparator.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSeparator.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuShadowPanel.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuShadowPanel.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuShapes.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuShapes.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSlider.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSlider.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSnackbar.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuSnackbar.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuTextBox.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuTextBox.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuToggleSwitch.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuToggleSwitch.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuToolTip.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuToolTip.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuTransition.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuTransition.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuUserControl.dll" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.BunifuUserControl.xml" />
+    <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Bunifu.UI.WinForms.Deprecated.dll" />
+    <Content Include="Utilities\StimulsoftWinDlls\Stimulsoft.Base.dll" />
+    <Content Include="Utilities\StimulsoftWinDlls\Stimulsoft.Report.dll" />
+    <Content Include="Utilities\StimulsoftWinDlls\Stimulsoft.Report.Web.dll" />
+    <Content Include="Utilities\StimulsoftWinDlls\Stimulsoft.Report.Win.dll" />
     <None Include="GUI\Resourses\icons8_budget_1.ico" />
     <None Include="GUI\Resourses\icons8_budget_160px.png" />
     <Content Include="Utilities\mgh.dll" />
@@ -492,7 +623,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="GUI\Forms\Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

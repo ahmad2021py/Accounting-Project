@@ -1,29 +1,25 @@
 ﻿using Accounting.DataLayer.Entities;
+using Accounting.DataLayer.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository : IEntityGenericRepository
     {
-        Task<bool> ProductExist(int productId);
-        bool InsertToProduct(Product record);
 
-        bool DeleteProductRecord(int productId);
 
-        bool UpdateRecord(Product record);
 
-        List<Product> GetProductList();
+         bool UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter);
 
-        List<Product> GetProductListByProductNameFilter(string ProductName);
-        List<Product> GetProductListByCompanyFilter(string Company);
-       
-        List<Product> GetProductListByCategoryFilter(string Category);
-       
-      
+
+
+
+
 
 
 

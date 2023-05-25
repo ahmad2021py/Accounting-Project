@@ -1,4 +1,5 @@
 ﻿using Accounting.DataLayer.Context;
+using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
 using AccountingDLL;
 using System;
@@ -13,9 +14,11 @@ namespace Accounting.GUI.Forms
         //------------Fields----------------
 
         //-------Methods--------------------------
-        public frmProductRecords()
+        public frmProductRecords(Form parent)
         {
             InitializeComponent();
+            this.Owner = parent;
+
         }
         void LoadData()
         {
@@ -25,7 +28,7 @@ namespace Accounting.GUI.Forms
                 try
                 {
                     //--------
-                    DGV1.DataSource = _ProductRepository.GetProductList();
+                    DGV1.DataSource = _ProductRepository.GetAll<Product>(n=>n==n);
                     DGV1.Columns["ProductId"].HeaderText = " کد محصول";
                     DGV1.Columns["ProductName"].HeaderText = " نام محصول";
                     DGV1.Columns["Features"].HeaderText = " ویژگی";
@@ -44,10 +47,15 @@ namespace Accounting.GUI.Forms
                 }
             }
         }
-        
+
         private void frmConfigRecords_Load(object sender, EventArgs e)
         {
+
+
             LoadData();
+
+
+
         }
 
         private void txtProductName_TextChanged(object sender, EventArgs e)
@@ -63,7 +71,8 @@ namespace Accounting.GUI.Forms
                     IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
                     try
                     {
-                        DGV1.DataSource = _ProductRepository.GetProductListByProductNameFilter(txtProductName.Text);
+                        string productName = txtProductName.Text;
+                        DGV1.DataSource = _ProductRepository.GetAll<Product>(n=>n.ProductName.Contains(productName));
 
                     }
                     catch
@@ -86,25 +95,51 @@ namespace Accounting.GUI.Forms
             {
                 DataGridViewRow dr = DGV1.SelectedRows[0];
                 this.Hide();
-                frmProduct obj = new frmProduct();
-                
-                obj.Show();
-                obj.txtProductCode.Text = dr.Cells["ProductId"].Value.ToString();
-                obj.txtProductName.Text = dr.Cells["ProductName"].Value.ToString();
-                obj.txtFeatures.Text = dr.Cells["Features"].Value.ToString();
-                obj.txtPrice.Text = dr.Cells["Price"].Value.ToString();
-                obj.cbCategory.Text = dr.Cells["Category"].Value.ToString();
-                obj.cbCompany.Text = dr.Cells["Company"].Value.ToString();
-                byte[] data = (byte[])dr.Cells["Picture"].Value;
-                MemoryStream ms = new MemoryStream(data);
-                obj.PboxProductPicture.Image = Image.FromStream(ms);
-                obj.txtProductCode.Focus();
+                if (this.Owner.Name == "frmProduct")
+                {
+                    frmProduct obj = new frmProduct();
+
+
+                    obj.txtProductCode.Text = dr.Cells["ProductId"].Value.ToString();
+                    obj.txtProductName.Text = dr.Cells["ProductName"].Value.ToString();
+                    obj.txtFeatures.Text = dr.Cells["Features"].Value.ToString();
+                    obj.txtPrice.Text = dr.Cells["Price"].Value.ToString();
+                    obj.cbCategory.Text = dr.Cells["Category"].Value.ToString();
+                    obj.cbCompany.Text = dr.Cells["Company"].Value.ToString();
+                    byte[] data = (byte[])dr.Cells["Picture"].Value;
+                    MemoryStream ms = new MemoryStream(data);
+                    obj.PboxProductPicture.Image = Image.FromStream(ms);
+                    obj.Show();
+                    obj.txtProductCode.Focus();
+                    this.Close();
+                }
+                else if (this.Owner.Name == "frmStock")
+                {
+
+                    frmStock obj = new frmStock();
+
+
+                    obj.txtProductCode.Text = dr.Cells["ProductId"].Value.ToString();
+                    obj.label16.Text = dr.Cells["Category"].Value.ToString();
+                    obj.label17.Text = dr.Cells["ProductName"].Value.ToString();
+                    obj.label18.Text = dr.Cells["Company"].Value.ToString();
+                    obj.label19.Text = dr.Cells["Features"].Value.ToString();
+                    obj.label20.Text = dr.Cells["Category"].Value.ToString();
+                    obj.label21.Text = dr.Cells["Price"].Value.ToString();
+                    obj.Show();
+                    obj.txtProductCode.Focus();
+                    this.Close();
+                }
+
+
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            //-------------------------------------------------------
+
         }
 
         private void txtCompany_TextChanged(object sender, EventArgs e)
@@ -120,13 +155,15 @@ namespace Accounting.GUI.Forms
                     IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
                     try
                     {
-                        DGV1.DataSource = _ProductRepository.GetProductListByCompanyFilter(txtCompany.Text);
+                        string Company = txtCompany.Text;
+                        DGV1.DataSource = _ProductRepository.GetAll<Product>(n => n.Company.Contains(Company));
 
                     }
                     catch
                     {
                         MessageBox.Show(" خطایی رخ داده است");
                     }
+
                 }
             }
         }
@@ -144,17 +181,25 @@ namespace Accounting.GUI.Forms
                     IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
                     try
                     {
-                        DGV1.DataSource = _ProductRepository.GetProductListByCategoryFilter(txtCategory.Text);
+                        string category = txtCategory.Text;
+                        DGV1.DataSource = _ProductRepository.GetAll<Product>(n => n.Category.Contains(category));
 
                     }
                     catch
                     {
                         MessageBox.Show(" خطایی رخ داده است");
                     }
+
                 }
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Owner.Show();
+        }
+
+       
 
 
 

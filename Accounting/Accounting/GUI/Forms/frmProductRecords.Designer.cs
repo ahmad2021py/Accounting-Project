@@ -405,6 +405,7 @@ namespace Accounting.GUI.Forms
             this.txtProductName.TextPlaceholder = "نام محصول را وارد کنید";
             this.txtProductName.UseSystemPasswordChar = false;
             this.txtProductName.WordWrap = true;
+            this.txtProductName.TextChanged += new System.EventHandler(this.txtProductName_TextChanged);
             // 
             // frmProductRecords
             // 

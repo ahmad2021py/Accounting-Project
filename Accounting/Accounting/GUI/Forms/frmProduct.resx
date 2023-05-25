@@ -118,12 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGetDetails.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAQgAAAAoCAYAAAACLWR9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABKSURBVHhe7cNBDQAgEAMwpM8Zp4zxxgJpky4AAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgG2eyO6nqO70tSVfdfmI1kAAAAABJRU5ErkJg
-        gg==
+        iVBORw0KGgoAAAANSUhEUgAAAIoAAAAsCAYAAAC6wiCXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAJ3SURBVHhe7ZzNS1RhFIf7i9q1adeqVW0KgmhRLSQwMAIj
+        IqJFRCGhLkaIDIM+TCxGDBKRYgqHYkJNJJwE7XMEtegSLqQWJ37v3Lk6M3fsrOc+D/xgYObO5n2Y97x3
+        zrl7oigyQv4XRCGuIApxBVGIK4hCXEEU4squoqz92LCnM1N2Pn/LTj68Ygdvd9renmOkTaL11LqefXLD
+        hksT9n19NdUDpaUokwvT4Yu6x/tsYrFo775+sEq0btA+aD21ri+WSnb5eS6st4RJ86FJFFl1cbzfzoxe
+        t43NX/FXQhb4vbUZhOkYuWbLq1/qvKgTRZIcGeq2sYVCfClkkemVOTt+/5KVvy2ni6JfEiQBoS1J9UuT
+        KKpJtN0A1Oh7/cgGXo1si6LTjQoZahLYydbfP3b03gWb/1yuiqJKV0UMQCN3347Zzamhqig6R+uIBNBI
+        ee1TOOAEUQ7d6bKVn5X4LYBttP3s6z1RFWV//6lwhgZIQ3dxgyh6AdAKRAEXiAIuEAVcIAq4QBRwgSjg
+        AlHABaKAC0QBF4gCLhJR9KeP/vwBSCMRRU1LdNhDKxJR1HWthlqARtR+ojaUIEqu8Dj0RwI0omZ7Nd0H
+        UdSWf3jwHHUKNNGV77Fn7wtVUZTelw9soDgavw1gYUJU48TyIxFFnfia45ivLMUfgyyjiQztMrV55EQU
+        RW35as+nfzbbSJLTw1etsFhK3KgTRSl+nA1d14Nv8vFlkCU0jaFfkp2SKE2iKNqGNMshq1T1MhjW3qix
+        XvWInlyh0Z20x1+kilKLrNLR6ECuI9x0Ie0ZTWGoaNWzcNI8UHYVhZBaEIW4gijEFUQhriAKcSSyfxsk
+        CkNse4WcAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="txtProductName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
