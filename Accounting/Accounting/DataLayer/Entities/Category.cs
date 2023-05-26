@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Entities
 {
-    public class Categories : IBaseDbSet
+    [Table("Categories")]
+    public class Category : IBaseDbSet
     {
 
         [Key] // set this Column Primary Key

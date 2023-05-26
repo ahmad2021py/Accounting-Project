@@ -28,7 +28,7 @@ namespace Accounting.GUI.Forms
                 ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
                 try
                 {
-                    DGV1.DataSource = _CategoryRepository.GetAll<Categories>(n=>n==n);
+                    DGV1.DataSource = _CategoryRepository.GetAll<Category>(n=>n==n);
                     DGV1.Columns[0].HeaderText = " کد دسته بندی";
                     DGV1.Columns[1].HeaderText = " نام دسته بندی";
                 }

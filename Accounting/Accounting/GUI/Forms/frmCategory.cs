@@ -52,15 +52,15 @@ namespace Accounting.GUI.Forms
                 {
                     ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
 
-                    if (_CategoryRepository.IsExist<Categories>(n => n.CategoryName == txtCategoryName.Text))
+                    if (_CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text))
                     {
                         MessageBox.Show("این دسته بندی از قبل وجود دارد");
                     }
                     else
                     {
-                        Categories Record = new Categories();
+                        Category Record = new Category();
                         Record.CategoryName = txtCategoryName.Text;
-                        if (_CategoryRepository.Add<Categories>(Record))
+                        if (_CategoryRepository.Add<Category>(Record))
                         {
                             MessageBox.Show("شرکت با موفقیت اضافه شد");
                             txtCategoryName.Text = "";
@@ -82,9 +82,9 @@ namespace Accounting.GUI.Forms
                     ICategoryRepository _CategoryRepository = _unitOfWork.CategoryRepository;
 
 
-                    if (_CategoryRepository.IsExist<Categories>(n=>n.CategoryName== txtCategoryName.Text))
+                    if (_CategoryRepository.IsExist<Category>(n=>n.CategoryName== txtCategoryName.Text))
                     {
-                        bool result = await _CategoryRepository.DeleteByCondition<Categories>(n => n.CategoryName == txtCategoryName.Text);
+                        bool result = await _CategoryRepository.DeleteByCondition<Category>(n => n.CategoryName == txtCategoryName.Text);
                         if (result)
                         {
 

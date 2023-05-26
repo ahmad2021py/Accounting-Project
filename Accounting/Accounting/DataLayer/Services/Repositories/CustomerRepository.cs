@@ -33,8 +33,8 @@ namespace Accounting.DataLayer.Services
             try
             {
 
-                Customer dbRecord = db.Customer.Where(n => n.NationalCode == record.NationalCode).Select(n => n).First();
-                db.Customer.Attach(dbRecord);
+                Customer dbRecord = db.Customers.Where(n => n.NationalCode == record.NationalCode).Select(n => n).First();
+                db.Customers.Attach(dbRecord);
                 db.Entry(dbRecord).Entity.Name = record.Name;
                 db.Entry(dbRecord).Entity.NationalCode = record.NationalCode;
                 db.Entry(dbRecord).Entity.Phone = record.Phone;

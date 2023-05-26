@@ -36,8 +36,8 @@ namespace Accounting.DataLayer.Services
             try
             {
 
-                User query = db.User.Where(n => n.UserName == user.UserName && n.Password == user.Password).Select(n => n).First();
-                db.User.Attach(query);
+                User query = db.Users.Where(n => n.UserName == user.UserName && n.Password == user.Password).Select(n => n).First();
+                db.Users.Attach(query);
                 db.Entry(query).Entity.Password = newUserPassword;
                 //SAVE change
                 db.SaveChanges();

@@ -29,11 +29,10 @@ namespace Accounting.GUI.Forms
                 {
                     //--------
                     DGV1.DataSource = _ProductRepository.GetAll<Product>(n=>n==n);
-                    DGV1.Columns["ProductId"].HeaderText = " کد محصول";
+                    DGV1.Columns["id"].HeaderText = " کد محصول";
                     DGV1.Columns["ProductName"].HeaderText = " نام محصول";
                     DGV1.Columns["Features"].HeaderText = " ویژگی";
-                    DGV1.Columns["Price"].HeaderText = " قیمت";
-                    DGV1.Columns["Price"].HeaderText = " قیمت";
+                    DGV1.Columns["Price"].HeaderText = " قیمت";  
                     DGV1.Columns["Company"].HeaderText = " قیمت";
                     DGV1.Columns["Category"].HeaderText = " قیمت";
                     DGV1.Columns["Picture"].Visible = false;//Picture Column
@@ -100,7 +99,7 @@ namespace Accounting.GUI.Forms
                     frmProduct obj = new frmProduct();
 
 
-                    obj.txtProductCode.Text = dr.Cells["ProductId"].Value.ToString();
+                    obj.txtProductCode.Text = dr.Cells["id"].Value.ToString();
                     obj.txtProductName.Text = dr.Cells["ProductName"].Value.ToString();
                     obj.txtFeatures.Text = dr.Cells["Features"].Value.ToString();
                     obj.txtPrice.Text = dr.Cells["Price"].Value.ToString();
@@ -119,15 +118,15 @@ namespace Accounting.GUI.Forms
                     frmStock obj = new frmStock();
 
 
-                    obj.txtProductCode.Text = dr.Cells["ProductId"].Value.ToString();
-                    obj.label16.Text = dr.Cells["Category"].Value.ToString();
-                    obj.label17.Text = dr.Cells["ProductName"].Value.ToString();
-                    obj.label18.Text = dr.Cells["Company"].Value.ToString();
-                    obj.label19.Text = dr.Cells["Features"].Value.ToString();
-                    obj.label20.Text = dr.Cells["Category"].Value.ToString();
-                    obj.label21.Text = dr.Cells["Price"].Value.ToString();
+                    obj.txtProductId.Text = dr.Cells["id"].Value.ToString();
+                    obj.lblDescription.Text = dr.Cells["Category"].Value.ToString();
+                    obj.lblProductName.Text = dr.Cells["ProductName"].Value.ToString();
+                    obj.lblCompany.Text = dr.Cells["Company"].Value.ToString();
+                    obj.lblFeatures.Text = dr.Cells["Features"].Value.ToString();
+                    obj.lblCategory.Text = dr.Cells["Category"].Value.ToString();
+                    obj.lblPrice.Text = dr.Cells["Price"].Value.ToString();
                     obj.Show();
-                    obj.txtProductCode.Focus();
+                    obj.txtProductId.Focus();
                     this.Close();
                 }
 

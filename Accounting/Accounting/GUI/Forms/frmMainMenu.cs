@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.IO;
-using mgh;
 using Accounting.Utilities;
-using Accounting.DataLayer.Entities;
 
 namespace Accounting.GUI.Forms
 {
@@ -26,13 +16,18 @@ namespace Accounting.GUI.Forms
         {
 
             //------GetNowDate
+            WorkWithDate workWithDate1 = new WorkWithDate();
             string shamsiDate="";
-            FarsiDate.MiladiToShamsi(DateTime.Now,ref shamsiDate);
+            shamsiDate= workWithDate1.MiladiToShamsi(DateTime.Now);
+           
+          
             lblDate.Text = shamsiDate;
 
             //--------GetNowDay
-            string ThisDay =ShamsiDay.GetThisTimeShamsiDay(DateTime.Now);
-            lblThisDay.Text =ThisDay;
+            WorkWithDate workWithDate = new WorkWithDate();
+            string ThisShamsiDay = workWithDate.GetShamsiDayNameByMiladiDate(DateTime.Now);
+            lblThisDay.Text = ThisShamsiDay;
+          
 
            
         }

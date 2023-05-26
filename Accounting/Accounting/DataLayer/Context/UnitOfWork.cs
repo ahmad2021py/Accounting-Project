@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
 using Accounting.DataLayer.Services;
+using Accounting.DataLayer.Services.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Accounting.DataLayer.Context
         private ICategoryRepository _CategoryRepository;
         private IProductRepository _ProductRepository;
         private ICustomerRepository _CustomerRepository;
+        private IStockRepository _stockRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -104,11 +106,51 @@ namespace Accounting.DataLayer.Context
         }
 
 
+        public IStockRepository StockRepository
+        {
+            get
+            {
+                if (_stockRepository == null)
+                {
+                    _stockRepository = new StockRepository(db);
+                }
+
+                return _stockRepository;
+            }
+        }
+
+
         //---------Methods-----------------
         public void Save()
         {
             db.SaveChanges();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public void Dispose()
         {

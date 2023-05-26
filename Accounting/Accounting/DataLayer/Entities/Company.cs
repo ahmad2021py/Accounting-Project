@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Entities
 {
-  public  class Company: IBaseDbSet
+    [Table("Companies")]
+    public  class Company: IBaseDbSet
     {
         [Key] // set this Column Primary Key
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 

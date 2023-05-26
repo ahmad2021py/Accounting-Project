@@ -183,10 +183,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="mgh, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Utilities\mgh.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -224,13 +220,13 @@
   <ItemGroup>
     <Compile Include="DataLayer\Context\Accounting_DbContext.cs" />
     <Compile Include="DataLayer\Context\UnitOfWork.cs" />
-    <Compile Include="DataLayer\Entities\Categories.cs" />
+    <Compile Include="DataLayer\Entities\Category.cs" />
     <Compile Include="DataLayer\Entities\Company.cs" />
     <Compile Include="DataLayer\Entities\Product.cs" />
     <Compile Include="DataLayer\Entities\Customer.cs" />
     <Compile Include="DataLayer\Entities\ProductSold.cs" />
     <Compile Include="DataLayer\Entities\Registration.cs" />
-    <Compile Include="DataLayer\Entities\Sales.cs" />
+    <Compile Include="DataLayer\Entities\Sale.cs" />
     <Compile Include="DataLayer\Entities\Stock.cs" />
     <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\ICategoryRepository.cs" />
@@ -248,6 +244,7 @@
     <Compile Include="DataLayer\Services\Repositories\CustomerRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\EntityGenericRepository.cs" />
+    <Compile Include="DataLayer\Services\Repositories\StockRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\UserRepository.cs" />
     <Compile Include="GUI\Forms\frmCategory.cs">
       <SubType>Form</SubType>
@@ -352,9 +349,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202305261008365_initdb.cs" />
-    <Compile Include="Migrations\202305261008365_initdb.designer.cs">
-      <DependentUpon>202305261008365_initdb.cs</DependentUpon>
+    <Compile Include="Migrations\202305261626586_initDb.cs" />
+    <Compile Include="Migrations\202305261626586_initDb.designer.cs">
+      <DependentUpon>202305261626586_initDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
@@ -365,7 +362,7 @@
     <Compile Include="Utilities\GlobalVariables.cs" />
     <Compile Include="Utilities\IranStates.cs" />
     <Compile Include="Utilities\NationalCode.cs" />
-    <Compile Include="Utilities\ShamsiDay.cs" />
+    <Compile Include="Utilities\WorkWithDate.cs" />
     <Compile Include="Utilities\WorkWithEmail.cs" />
     <Compile Include="Utilities\WorkWithImage.cs" />
     <EmbeddedResource Include="GUI\Forms\frmCategory.resx">
@@ -416,8 +413,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305261008365_initdb.resx">
-      <DependentUpon>202305261008365_initdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305261626586_initDb.resx">
+      <DependentUpon>202305261626586_initDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -603,7 +600,6 @@
     <Content Include="Utilities\StimulsoftWinDlls\Stimulsoft.Report.Win.dll" />
     <None Include="GUI\Resourses\icons8_budget_1.ico" />
     <None Include="GUI\Resourses\icons8_budget_160px.png" />
-    <Content Include="Utilities\mgh.dll" />
     <None Include="GUI\Resourses\main_background.png" />
     <None Include="GUI\Resourses\exit.png" />
     <None Include="GUI\Resourses\Company-256.png" />

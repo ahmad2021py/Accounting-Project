@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,22 +12,71 @@ namespace Accounting.DataLayer.Context
    public class Accounting_DbContext : DbContext 
 
     {
+
+     
         public Accounting_DbContext() : base("name=AccountingConnectionString")
         {
-
+            
+          
+         
         }
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Company> Company { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Customer> Customer { get; set; }
-        public virtual DbSet<Stock> Stock { get; set; }
-        public virtual DbSet<Sales> Sales { get; set; }
-        public virtual DbSet<Registration> Registration { get; set; }
-        public virtual DbSet<ProductSold> ProductSold { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<Registration> Registrations { get; set; }
+        public virtual DbSet<ProductSold> ProductSolds { get; set; }
 
 
+
+        //--------Seed data--------
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //---------------------------------------
+
+    }
 
 
     }
-}

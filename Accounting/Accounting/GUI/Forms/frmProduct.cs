@@ -46,7 +46,7 @@ namespace Accounting.GUI.Forms
                             cbCompany.Items.Add(n.CompanyName);
                         }
 
-                        foreach (var n in _CategoryRepository.GetAll<Categories> (n=>n==n))
+                        foreach (var n in _CategoryRepository.GetAll<Category> (n=>n==n))
                         {
                             cbCategory.Items.Add(n.CategoryName);
                         }

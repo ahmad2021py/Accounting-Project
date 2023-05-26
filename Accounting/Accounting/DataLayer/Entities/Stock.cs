@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Entities
 {
+    [Table("Stocks")]
     public class Stock : IBaseDbSet
     {
         [Key] // set this Column Primary Key
@@ -19,6 +20,50 @@ namespace Accounting.DataLayer.Entities
         public int Quantity { get; set; }
 
         public int TotalPrice { get; set; }
-        public Product ProductId { get; set; }
+        //  public Product Product { get; set; }
+        public string Description { get; set; }
+
+        //------relationship----------
+        //---- Foreign key to Product----------
+        [ForeignKey("Product")]//----This is fk name
+        [Required()]
+        public long FKProductId { get; set; } 
+        public Product Product { get; set; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //-----------------------------------------------------
     }
 }

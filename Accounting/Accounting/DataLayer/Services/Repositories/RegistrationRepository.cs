@@ -34,7 +34,7 @@ namespace Accounting.DataLayer.Services
             {
 
                 IQueryable<Registration> query;
-                query = db.Registration.Where(n => n.Email == email && n.UserName == username).Select(n => n);
+                query = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n);
                 return true;
 
 
@@ -58,7 +58,7 @@ namespace Accounting.DataLayer.Services
             {
 
                 string Password;
-                Password = db.Registration.Where(n => n.Email == email && n.UserName == username).Select(n => n.Password).ToString();
+                Password = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n.Password).ToString();
                 return Password;
             }
             catch
@@ -82,8 +82,8 @@ namespace Accounting.DataLayer.Services
             try
             {
 
-                Registration _dbRecord = db.Registration.Where(n => n.UserName == record.UserName).Select(n => n).First();
-                db.Registration.Attach(_dbRecord);
+                Registration _dbRecord = db.Registrations.Where(n => n.UserName == record.UserName).Select(n => n).First();
+                db.Registrations.Attach(_dbRecord);
                 db.Entry(_dbRecord).Entity.Password = record.Password;
                 db.Entry(_dbRecord).Entity.Role = record.Role;
                 db.Entry(_dbRecord).Entity.ContactNumber = record.ContactNumber;
