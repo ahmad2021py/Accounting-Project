@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Services
 {
-    public class RegistrationRepository : IRegistrationRepository
+    public class RegistrationRepository : EntityGenericRepository<Registration>, IRegistrationRepository , IEntityGenericRepository
     {
 
         #region فیلد های کلاس
@@ -19,7 +19,7 @@ namespace Accounting.DataLayer.Services
 
         //-------------------------------------
         #region متد سازنده کلاس 
-        public RegistrationRepository(Accounting_DbContext context)
+        public RegistrationRepository(Accounting_DbContext context) :base (context)
         {
             db = context;
         }
@@ -58,7 +58,7 @@ namespace Accounting.DataLayer.Services
             {
 
                 string Password;
-                Password = db.Registration.Where(n => n.Email == email && n.UserName == username).Select(n => n.User_Password).ToString();
+                Password = db.Registration.Where(n => n.Email == email && n.UserName == username).Select(n => n.Password).ToString();
                 return Password;
             }
             catch
@@ -70,42 +70,9 @@ namespace Accounting.DataLayer.Services
         }
         #endregion
         //----------------
-        #region متد اضافه کردن رکورد به جدول ثبت نام
-
-        public bool InsertToRegistration(Registration record)
-        {
-            try
-            {
-                db.Registration.Add(record);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        #endregion
+     
         //------------
-        #region Delete Registration Record
-
-        public bool DeleteRecord(string _username)
-        {
-            try
-            {
-                Registration record = db.Registration.Where(n => n.UserName == _username).Select(n => n).First();
-                db.Registration.Remove(record);
-                db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-
-        }
-
-        #endregion
+  
 
         #region Update Record
 
@@ -117,10 +84,10 @@ namespace Accounting.DataLayer.Services
 
                 Registration _dbRecord = db.Registration.Where(n => n.UserName == record.UserName).Select(n => n).First();
                 db.Registration.Attach(_dbRecord);
-                db.Entry(_dbRecord).Entity.User_Password = record.User_Password;
+                db.Entry(_dbRecord).Entity.Password = record.Password;
                 db.Entry(_dbRecord).Entity.Role = record.Role;
-                db.Entry(_dbRecord).Entity.ContactNo = record.ContactNo;
-                db.Entry(_dbRecord).Entity.NameOfUser = record.NameOfUser;
+                db.Entry(_dbRecord).Entity.ContactNumber = record.ContactNumber;
+                db.Entry(_dbRecord).Entity.UserName = record.UserName;
                 db.Entry(_dbRecord).Entity.Email = record.Email;
                 //SAVE change
                 db.SaveChanges();
@@ -143,29 +110,16 @@ namespace Accounting.DataLayer.Services
 
 
 
-        #region
-     public   Registration GetRecord(string UserName)
-        {
-
-            try
-            {
-                Registration Db_Record = db.Registration.Where(n => n.UserName == UserName).Select(n => n).FirstOrDefault();
-                return Db_Record;
-            }
-
-            catch
-            {
-                throw new Exception();
-            }
 
 
 
 
 
 
-        }
 
 
-        #endregion
+
+
+        //----------------------------------
     }
 }

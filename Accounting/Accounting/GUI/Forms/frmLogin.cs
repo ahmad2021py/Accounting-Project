@@ -83,7 +83,7 @@ namespace Accounting.GUI.Forms
             this.Close();
         }
 
-        private async void btnOK_Click(object sender, EventArgs e)
+        private  void btnOK_Click(object sender, EventArgs e)
         {
 
 
@@ -109,13 +109,13 @@ namespace Accounting.GUI.Forms
             else
             {
                 UserTemp.UserName = txtUserName.Text.Trim();
-                UserTemp.User_Password = Encryption.EncryptPassword(txtPassword.Text.Trim());
+                UserTemp.Password = Encryption.EncryptPassword(txtPassword.Text.Trim());
                 UserTemp.Role = cbRole.Text;
 
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     IUserRepository IUserRepository = _UnitOfWork.UserRepository;
-                    bool Result =await IUserRepository.UserExist(UserTemp);
+                    bool Result = IUserRepository.IsExist<User>(n=>n.UserName== UserTemp.UserName&&n.Password==UserTemp.Password &&n.Role==UserTemp.Role);
                     if (Result)
                     {
                         frmMainInitialize();

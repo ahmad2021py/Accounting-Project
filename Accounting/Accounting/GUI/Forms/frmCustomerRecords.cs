@@ -1,4 +1,5 @@
 ﻿using Accounting.DataLayer.Context;
+using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
 using AccountingDLL;
 using Stimulsoft.Report;
@@ -40,7 +41,7 @@ namespace Accounting.GUI.Forms
                 try
                 {
                     //--------
-                    DGV1.DataSource = customerRepository.GetCustomerList();
+                    DGV1.DataSource = customerRepository.GetAll<Customer>(n=>n==n);
                     DGV1.Columns["NationalCode"].HeaderText = " کد ملی";
                     DGV1.Columns["Name"].HeaderText = " نام";
                     DGV1.Columns["Phone"].HeaderText = " تلفن";
@@ -85,7 +86,8 @@ namespace Accounting.GUI.Forms
                     ICustomerRepository _customerRepository = _UnitOfWork.CustomerRepository;
                     try
                     {
-                        DGV1.DataSource = _customerRepository.GetCustomerListByNationalCodeFilter(long.Parse(txtNationalCode.Text));
+                        long nationalCode= long.Parse(txtNationalCode.Text);
+                        DGV1.DataSource = _customerRepository.GetAll<Customer>(n=>n.NationalCode== nationalCode);
 
                     }
                     catch

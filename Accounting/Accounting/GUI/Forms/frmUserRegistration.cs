@@ -46,7 +46,7 @@ namespace Accounting.GUI.Forms
                 return true;
             }
 
-            else if (WorkWithTextboxes.TextBoxisNull(txtName.Text))
+            else if (WorkWithTextboxes.TextBoxisNull(txtFamily.Text))
             {
                 MessageBox.Show("لطفا فیلد نام  را پر کنید");
                 return true;
@@ -68,9 +68,10 @@ namespace Accounting.GUI.Forms
             txtUserName.Text = "";
             txtUserPass.Text = "";
             txtContactNo.Text = "";
-            txtName.Text = "";
+            txtFamily.Text = "";
             txtMail.Text = "";
-           
+            PboxProductPicture.Image = Properties.Resources.icons8_user_100px;
+
             txtUserName.Focus();
         }
         #endregion
@@ -81,11 +82,12 @@ namespace Accounting.GUI.Forms
 
             RegistrationRecord.Role = cbRole.Text;
             RegistrationRecord.UserName = txtUserName.Text;
-            RegistrationRecord.User_Password = Encryption.EncryptPassword(txtUserPass.Text);
-            RegistrationRecord.NameOfUser = txtName.Text;
+            RegistrationRecord.Password = Encryption.EncryptPassword(txtUserPass.Text);
+            RegistrationRecord.Family = txtFamily.Text;
             RegistrationRecord.Email = txtMail.Text;
-            RegistrationRecord.ContactNo = txtContactNo.Text;
+            RegistrationRecord.ContactNumber = txtContactNo.Text;
             RegistrationRecord.JoiningDate = DateTime.Now;
+            RegistrationRecord.Avatar = WorkWithImage.imageToByteArray(PboxProductPicture.Image);
             return RegistrationRecord;
         }
         #endregion
@@ -96,7 +98,7 @@ namespace Accounting.GUI.Forms
 
             UserRecord.Role = cbRole.Text;
             UserRecord.UserName = txtUserName.Text;
-            UserRecord.User_Password = Encryption.EncryptPassword(txtUserPass.Text);
+            UserRecord.Password = Encryption.EncryptPassword(txtUserPass.Text);
 
             return UserRecord;
         }
@@ -119,7 +121,7 @@ namespace Accounting.GUI.Forms
                 IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
                 if (!TxtNull())
                 {
-                    if (!_IUserRepository.UserExist(txtUserName.Text))
+                    if (!_IUserRepository.IsExist<User>(n=>n.UserName==txtUserName.Text))
                     {
                         using (UnitOfWork _unitOfWork = new UnitOfWork())
                         {
@@ -131,21 +133,24 @@ namespace Accounting.GUI.Forms
                             IRegistrationRepository _RegistrationRepository = _unitOfWork.RegistrationRepository;
                             IUserRepository _UserRepository = _unitOfWork.UserRepository;
 
-                            if (_RegistrationRepository.InsertToRegistration(RegistrationRecord) && _UserRepository.InsertToUsers(UserRecord))
+                            if (_RegistrationRepository.Add<Registration>(RegistrationRecord) && _UserRepository.Add<User>(UserRecord))
                             {
                                 MessageBox.Show("رکورد با موفقیت ثبت شد");
+
                                 _unitOfWork.Save();
                                 Reset();
                             }
                             else
                             {
                                 MessageBox.Show("خطایی رخ داده است");
+                                Reset();
                             }
                         }
                     }
                     else
                     {
                         MessageBox.Show("این نام کاربری از قبل وجود دارد");
+                        Reset();
                         txtUserName.Text = "";
                         txtUserName.Focus();
                     }
@@ -166,8 +171,9 @@ namespace Accounting.GUI.Forms
                 {
                     IRegistrationRepository _RegistrationRepository = _unitOfWork.RegistrationRepository;
                     IUserRepository _UserRepository = _unitOfWork.UserRepository;
+                    string userName = txtUserName.Text;
 
-                    if (_RegistrationRepository.DeleteRecord(txtUserName.Text) && _UserRepository.DeleteUser(txtUserName.Text))
+                    if (_RegistrationRepository.DeleteByCondition<Registration>(n=>n.UserName== userName).Result && _UserRepository.DeleteByCondition<User>(n=>n.UserName==txtUserName.Text).Result)
                     {
                         MessageBox.Show("رکورد با موفقیت حذف شد");
                         Reset();
@@ -176,6 +182,7 @@ namespace Accounting.GUI.Forms
                     else
                     {
                         MessageBox.Show("خطایی رخ داده است");
+                        Reset();
                     }
 
 
@@ -199,36 +206,49 @@ namespace Accounting.GUI.Forms
                 if (_registrationRepository.UpdateRecord(record))
                 {
                     MessageBox.Show("رکورد با موفقیت  بروز شد");
+                    Reset();
                 }
                 else
                 {
                     MessageBox.Show("خطایی رخ داده است");
+                    Reset();
                 }
 
             }
         }
 
-        private void txtUserName_TextChanged(object sender, EventArgs e)
-        {
-            using (UnitOfWork _unitOfWork = new UnitOfWork())
-            {
-                IUserRepository _UserRepository = _unitOfWork.UserRepository;
-                IRegistrationRepository _registrationRepository = _unitOfWork.RegistrationRepository;
-                if (_UserRepository.UserExist(txtUserName.Text))
-                {
-                    Registration ResultRecord = _registrationRepository.GetRecord(txtUserName.Text);
-                    txtName.Text = ResultRecord.NameOfUser;
-                    txtMail.Text = ResultRecord.Email;
-                    txtContactNo.Text = ResultRecord.ContactNo;
-                    txtUserPass.Text = ResultRecord.User_Password;
-                }
-
-
-
-            }
-        }
+       
 
         private void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog OFD = new OpenFileDialog();
+
+                OFD.Filter = ("Image Files |*.png; *.bmp; *.jpg;*.jpeg; *.gif;");
+                OFD.FilterIndex = 4;
+                //Reset the file name
+                OFD.FileName = "";
+
+                if (OFD.ShowDialog() == DialogResult.OK)
+                {
+                    PboxProductPicture.Image = Image.FromFile(OFD.FileName);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+            }
+        }
+
+        private void frmUserRegistration_Load(object sender, EventArgs e)
         {
             Reset();
         }

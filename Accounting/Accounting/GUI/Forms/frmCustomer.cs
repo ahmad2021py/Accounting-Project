@@ -118,14 +118,14 @@ namespace Accounting.GUI.Forms
                 ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
                 if (!IsNull())
                 {
-                    string nationalCode = NationalCode.NationalCodeValidation(txtNationalCode.Text);
-                    if (nationalCode == "NotValid")
+                    string nationalCodeValidation = NationalCode.NationalCodeValidation(txtNationalCode.Text);
+                    if (nationalCodeValidation == "NotValid")
                     {
                         MessageBox.Show("کد ملی نامعتبر است");
                         return;
                     }
-
-                    bool Result = await _CustomerRepository.CustomerExist(long.Parse(nationalCode));
+                    long nationalCode = long.Parse(txtNationalCode.Text);
+                    bool Result =  _CustomerRepository.IsExist<Customer>(n=>n.NationalCode== nationalCode);
                     if (!Result)
                     {
                         using (UnitOfWork _unitOfWork = new UnitOfWork())
@@ -133,7 +133,7 @@ namespace Accounting.GUI.Forms
                             Customer CustomerRecord = new Customer();
                             CustomerRecord = Fill__CustomerRecord(CustomerRecord);
 
-                            if (_CustomerRepository.InsertToCustomer(CustomerRecord))
+                            if (_CustomerRepository.Add<Customer>(CustomerRecord))
                             {
                                 MessageBox.Show("رکورد با موفقیت ثبت شد");
 
@@ -180,22 +180,23 @@ namespace Accounting.GUI.Forms
             {
                 if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    string nationalCode = NationalCode.NationalCodeValidation(txtNationalCode.Text);
-                    if (nationalCode == "NotValid")
+                    string nationalCodeValidation = NationalCode.NationalCodeValidation(txtNationalCode.Text);
+                    if (nationalCodeValidation == "NotValid")
                     {
                         MessageBox.Show("کد ملی نامعتبر است");
                         return;
                     }
-
+                    long nationalCode = long.Parse(txtNationalCode.Text);
                     using (UnitOfWork _unitOfWork = new UnitOfWork())
                     {
 
                         ICustomerRepository _CustomerRepository = _unitOfWork.CustomerRepository;
-
-                        bool Result = await _CustomerRepository.CustomerExist(long.Parse(txtNationalCode.Text));
+                     
+                        bool Result =  _CustomerRepository.IsExist<Customer>(n=>n.NationalCode==nationalCode);
                         if (Result)
                         {
-                            if (_CustomerRepository.DeleteCustomerRecord(long.Parse(txtNationalCode.Text)))
+                            bool DeleteResult =await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == nationalCode);
+                            if (DeleteResult)
                             {
                                 MessageBox.Show("رکورد با موفقیت حذف شد");
                                 _unitOfWork.Save();

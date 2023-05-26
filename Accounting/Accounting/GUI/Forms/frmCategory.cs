@@ -51,7 +51,8 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-                    if (_CategoryRepository.CategoryExist(txtCategoryName.Text))
+
+                    if (_CategoryRepository.IsExist<Categories>(n => n.CategoryName == txtCategoryName.Text))
                     {
                         MessageBox.Show("این دسته بندی از قبل وجود دارد");
                     }
@@ -59,10 +60,11 @@ namespace Accounting.GUI.Forms
                     {
                         Categories Record = new Categories();
                         Record.CategoryName = txtCategoryName.Text;
-                        if (_CategoryRepository.InsertToCategory(Record))
+                        if (_CategoryRepository.Add<Categories>(Record))
                         {
                             MessageBox.Show("شرکت با موفقیت اضافه شد");
                             txtCategoryName.Text = "";
+                            _UnitOfWork.Save();
 
                         }
 
@@ -71,7 +73,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
@@ -80,16 +82,22 @@ namespace Accounting.GUI.Forms
                     ICategoryRepository _CategoryRepository = _unitOfWork.CategoryRepository;
 
 
-                    if (_CategoryRepository.CategoryExist(txtCategoryName.Text))
+                    if (_CategoryRepository.IsExist<Categories>(n=>n.CategoryName== txtCategoryName.Text))
                     {
-                        if (_CategoryRepository.DeleteCategory(txtCategoryName.Text))
+                        bool result = await _CategoryRepository.DeleteByCondition<Categories>(n => n.CategoryName == txtCategoryName.Text);
+                        if (result)
+                        {
+
                             MessageBox.Show("رکورد با موفقیت حذف شد");
-                        Reset();
+                            _unitOfWork.Save();
+                            Reset();
+                        }
 
                     }
                     else
                     {
                         MessageBox.Show("خطایی رخ داده است");
+                        Reset();
                     }
 
 

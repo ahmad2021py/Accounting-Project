@@ -37,11 +37,11 @@ namespace Accounting.GUI.Forms
                if( WorkWithPassword.PassIsValid(txtOldPass.Text, txtNewPass.Text,txtRepeatNewPass.Text))
                  {
                     _user.UserName = txtUserName.Text;
-                    _user.User_Password = Encryption.EncryptPassword( txtOldPass.Text);
+                    _user.Password = Encryption.EncryptPassword( txtOldPass.Text);
                     using (UnitOfWork _UnitOfWork = new UnitOfWork())
                     {
                         IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
-                        if (_IUserRepository.UserExist(_user.UserName,_user.User_Password))
+                        if (_IUserRepository.IsExist<User>(n=>n.UserName==_user.UserName&&n.Password==_user.Password))
                         if (_IUserRepository.ChangeUserPassword(_user, Encryption.EncryptPassword( txtNewPass.Text)))
                         {
                             MessageBox.Show("رمز عبور باموفقیت تغییر یافت", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);

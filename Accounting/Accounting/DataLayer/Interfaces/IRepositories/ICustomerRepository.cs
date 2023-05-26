@@ -7,18 +7,11 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Interfaces
 {
-   public interface ICustomerRepository
+   public interface ICustomerRepository : IEntityGenericRepository
     {
-        Task<bool> CustomerExist(long nationalCode);
-        bool InsertToCustomer(Customer record);
-
-        bool DeleteCustomerRecord(long nationalCode);
+      
 
         bool UpdateRecord(Customer record);
-
-        List<Customer> GetCustomerList();
-
-        List<Customer> GetCustomerListByNationalCodeFilter(long nationalCode);
 
 
 

@@ -32,7 +32,7 @@ namespace Accounting.GUI.Forms
         }
 
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
@@ -41,11 +41,16 @@ namespace Accounting.GUI.Forms
                     ICompanyRepository _CompanyRepository = _unitOfWork.CompanyRepository;
 
 
-                    if (_CompanyRepository.ComapnyExist(txtCompanyName.Text))
+                    if (_CompanyRepository.IsExist<Company>(n => n.CompanyName == txtCompanyName.Text))
                     {
-                        if (_CompanyRepository.DeleteCompany(txtCompanyName.Text))
+                        bool result = await _CompanyRepository.DeleteByCondition<Company>(n => n.CompanyName == txtCompanyName.Text);
+                        if (result)
+                        {
+
                             MessageBox.Show("رکورد با موفقیت حذف شد");
-                        Reset();
+                            _unitOfWork.Save();
+                            Reset();
+                        }
 
                     }
                     else
@@ -84,7 +89,7 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
-                    if (_CompanyRepository.ComapnyExist(txtCompanyName.Text))
+                    if (_CompanyRepository.IsExist<Company> (n => n.CompanyName == txtCompanyName.Text))
                     {
                         MessageBox.Show("این شرکت از قبل وجود دارد");
                     }
@@ -92,10 +97,11 @@ namespace Accounting.GUI.Forms
                     {
                         Company Record = new Company();
                         Record.CompanyName = txtCompanyName.Text;
-                        if (_CompanyRepository.InsertToCompany(Record))
+                        if (_CompanyRepository.Add<Company>(Record))
                         {
                             MessageBox.Show("شرکت با موفقیت اضافه شد");
                             txtCompanyName.Text = "";
+                            _UnitOfWork.Save();
 
                         }
 

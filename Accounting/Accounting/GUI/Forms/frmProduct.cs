@@ -41,12 +41,12 @@ namespace Accounting.GUI.Forms
                     try
                     {
 
-                        foreach (var n in _CompanyRepository.GetCompanyList())
+                        foreach (var n in _CompanyRepository.GetAll<Company>(n=>n==n))
                         {
                             cbCompany.Items.Add(n.CompanyName);
                         }
 
-                        foreach (var n in _CategoryRepository.GetCategoryList())
+                        foreach (var n in _CategoryRepository.GetAll<Categories> (n=>n==n))
                         {
                             cbCategory.Items.Add(n.CategoryName);
                         }
@@ -103,7 +103,7 @@ namespace Accounting.GUI.Forms
 
 
             
-            productRecord.ProductId = Convert.ToInt32(txtProductCode.Text);
+            productRecord.id = Convert.ToInt32(txtProductCode.Text);
             productRecord.ProductName = txtProductName.Text;
             productRecord.Price = Convert.ToDouble(txtPrice.Text);
             productRecord.Company = cbCompany.Text;
@@ -121,7 +121,7 @@ namespace Accounting.GUI.Forms
             {
 
 
-                txtProductCode.Text = dbProductRecord.ProductId.ToString();
+                txtProductCode.Text = dbProductRecord.id.ToString();
                 txtProductName.Text = dbProductRecord.ProductName;
                 txtPrice.Text = dbProductRecord.Price.ToString();
                 cbCompany.Text = dbProductRecord.Company;
@@ -157,7 +157,7 @@ namespace Accounting.GUI.Forms
                     if (!IsNull())
                     {
                         int productCode = Int32.Parse(txtProductCode.Text);
-                        bool Result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.ProductId== productCode);
+                        bool Result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.id== productCode);
                         if (!Result)
                         {
                            
@@ -211,10 +211,10 @@ namespace Accounting.GUI.Forms
                    
                        
                         int ProductCode = Convert.ToInt32(txtProductCode.Text);
-                        bool result = /*await*/ _ProductRepository.IsExist<Product>(N=>N.ProductId== ProductCode);
+                        bool result = /*await*/ _ProductRepository.IsExist<Product>(N=>N.id== ProductCode);
                         if (result)
                         {
-                          bool DeleteResult= await _ProductRepository.DeleteByCondition<Product>(n => n.ProductId == ProductCode);
+                          bool DeleteResult= await _ProductRepository.DeleteByCondition<Product>(n => n.id == ProductCode);
                             if (DeleteResult)
                             MessageBox.Show("رکورد با موفقیت حذف شد");
                             _unitOfWork.Save();
@@ -254,7 +254,7 @@ namespace Accounting.GUI.Forms
                         Product Instance = new Product();
                         Instance = Fill__ProductRecord(Instance);
                         int ProductCode = Convert.ToInt32(txtProductCode.Text);
-                        if (_ProductRepository.UpdateProduct(Instance,n=>n.ProductId== Instance.ProductId))
+                        if (_ProductRepository.UpdateProduct(Instance,n=>n.id== Instance.id))
                         {
                             MessageBox.Show("رکورد با موفقیت  بروز شد");
                             _unitOfWork.Save();
@@ -305,10 +305,10 @@ namespace Accounting.GUI.Forms
                 {
                     IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
                     int ProductCode = Int32.Parse(txtProductCode.Text);
-                    bool result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.ProductId== ProductCode);
+                    bool result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.id== ProductCode);
                     if (result)
                     {
-                        Product record = _ProductRepository.GetEntity<Product>(n=>n.ProductId== ProductCode);
+                        Product record = _ProductRepository.GetEntity<Product>(n=>n.id== ProductCode);
                         FillControlersWithProductDbRecord(record);
 
                     }

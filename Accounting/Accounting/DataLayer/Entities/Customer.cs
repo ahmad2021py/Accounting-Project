@@ -1,16 +1,21 @@
-﻿using System;
+﻿using Accounting.DataLayer.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Entities
 {
-    public class Customer
+    public class Customer : IBaseDbSet
     {
-        [Key]
-        public int id { get; set; }
+        [Key] // set this Column Primary Key
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
+        public long id { get; set; }
+        [Required]
+
         public long NationalCode { get; set; }
         [Required]
         [MaxLength(20)]
@@ -29,7 +34,7 @@ namespace Accounting.DataLayer.Entities
         [Required]
         public string Phone { get; set; }
         public string Email { get; set; }
-       
+
 
     }
 }

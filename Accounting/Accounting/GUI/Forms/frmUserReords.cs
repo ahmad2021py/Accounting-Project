@@ -1,4 +1,5 @@
 ﻿using Accounting.DataLayer.Context;
+using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
 using AccountingDLL;
 using System;
@@ -25,7 +26,7 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository IUserRepository = _UnitOfWork.UserRepository;
-                DGV1.DataSource = IUserRepository.GetUserList();
+                DGV1.DataSource = IUserRepository.GetAll<User>(n=>n==n);
                 DGV1.Columns[0].HeaderText = " نقش";
                 DGV1.Columns[1].HeaderText = "آیدی";
                 DGV1.Columns[2].HeaderText = " نام کاربری";
@@ -61,7 +62,8 @@ namespace Accounting.GUI.Forms
                     IUserRepository _UserRepository = _UnitOfWork.UserRepository;
                     try
                     {
-                        DGV1.DataSource = _UserRepository.GetUserListByUserIDFilter(Convert.ToInt32(txtUserID.Text));
+                        int id = Convert.ToInt32(txtUserID.Text);
+                        DGV1.DataSource = _UserRepository.GetAll<User>(n=>n.id==id);
 
                     }
                     catch
@@ -85,7 +87,8 @@ namespace Accounting.GUI.Forms
                     IUserRepository _UserRepository = _UnitOfWork.UserRepository;
                     try
                     {
-                        DGV1.DataSource = _UserRepository.GetUserListByUserNameFilter(txtUserName.Text);
+                      
+                        DGV1.DataSource = _UserRepository.GetAll<User>(n=>n.UserName==txtUserName.Text);
 
                     }
                     catch
@@ -109,7 +112,7 @@ namespace Accounting.GUI.Forms
                     IUserRepository _UserRepository = _UnitOfWork.UserRepository;
                     try
                     {
-                        DGV1.DataSource = _UserRepository.GetUserListByUserRoleFilter(txtRole.Text);
+                        DGV1.DataSource = _UserRepository.GetAll<User>(n=>n.Role==txtRole.Text);
 
                     }
                     catch

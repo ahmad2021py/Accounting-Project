@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initDb : DbMigration
+    public partial class initdb : DbMigration
     {
         public override void Up()
         {
@@ -11,25 +11,25 @@
                 "dbo.Categories",
                 c => new
                     {
-                        CategoryId = c.Int(nullable: false, identity: true),
+                        id = c.Long(nullable: false, identity: true),
                         CategoryName = c.String(),
                     })
-                .PrimaryKey(t => t.CategoryId);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.Companies",
                 c => new
                     {
-                        CompanyId = c.Int(nullable: false, identity: true),
+                        id = c.Long(nullable: false, identity: true),
                         CompanyName = c.String(),
                     })
-                .PrimaryKey(t => t.CompanyId);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.Customers",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
+                        id = c.Long(nullable: false, identity: true),
                         NationalCode = c.Long(nullable: false),
                         Name = c.String(nullable: false, maxLength: 20),
                         Address = c.String(nullable: false, maxLength: 255),
@@ -46,7 +46,6 @@
                 c => new
                     {
                         id = c.Long(nullable: false, identity: true),
-                        ProductId = c.Int(nullable: false),
                         ProductName = c.String(nullable: false),
                         Features = c.String(nullable: false),
                         Price = c.Double(nullable: false),
@@ -60,35 +59,39 @@
                 "dbo.ProductSolds",
                 c => new
                     {
-                        ProductId = c.Long(nullable: false, identity: true),
+                        id = c.Long(nullable: false, identity: true),
                         Invoice = c.String(),
-                        ConfigId = c.Int(nullable: false),
                         Quantity = c.Int(nullable: false),
                         Price = c.Int(nullable: false),
                         TotalAmount = c.Int(nullable: false),
+                        ProductId_id = c.Long(),
                     })
-                .PrimaryKey(t => t.ProductId);
+                .PrimaryKey(t => t.id)
+                .ForeignKey("dbo.Products", t => t.ProductId_id)
+                .Index(t => t.ProductId_id);
             
             CreateTable(
                 "dbo.Registrations",
                 c => new
                     {
-                        RegistrationId = c.Int(nullable: false, identity: true),
-                        NameOfUser = c.String(),
+                        id = c.Long(nullable: false, identity: true),
                         Role = c.String(),
                         UserName = c.String(),
-                        User_Password = c.String(),
-                        ContactNo = c.String(),
+                        Password = c.String(),
+                        Name = c.String(),
+                        Family = c.String(),
+                        ContactNumber = c.String(),
                         Email = c.String(),
                         JoiningDate = c.DateTime(nullable: false),
+                        Avatar = c.Binary(),
                     })
-                .PrimaryKey(t => t.RegistrationId);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.Sales",
                 c => new
                     {
-                        SalesId = c.Int(nullable: false, identity: true),
+                        id = c.Long(nullable: false, identity: true),
                         NameOfUser = c.String(),
                         Role = c.String(),
                         UserName = c.String(),
@@ -97,35 +100,41 @@
                         Email = c.String(),
                         JoiningDate = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.SalesId);
+                .PrimaryKey(t => t.id);
             
             CreateTable(
                 "dbo.Stocks",
                 c => new
                     {
-                        StockId = c.Long(nullable: false, identity: true),
-                        ConfigId = c.Int(nullable: false),
+                        id = c.Long(nullable: false, identity: true),
                         StockDate = c.DateTime(nullable: false),
                         Quantity = c.Int(nullable: false),
                         TotalPrice = c.Int(nullable: false),
+                        ProductId_id = c.Long(),
                     })
-                .PrimaryKey(t => t.StockId);
+                .PrimaryKey(t => t.id)
+                .ForeignKey("dbo.Products", t => t.ProductId_id)
+                .Index(t => t.ProductId_id);
             
             CreateTable(
                 "dbo.Users",
                 c => new
                     {
-                        UserId = c.Int(nullable: false, identity: true),
+                        id = c.Long(nullable: false, identity: true),
                         Role = c.String(),
-                        UserName = c.String(),
-                        User_Password = c.String(),
+                        UserName = c.String(maxLength: 50),
+                        Password = c.String(),
                     })
-                .PrimaryKey(t => t.UserId);
+                .PrimaryKey(t => t.id);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Stocks", "ProductId_id", "dbo.Products");
+            DropForeignKey("dbo.ProductSolds", "ProductId_id", "dbo.Products");
+            DropIndex("dbo.Stocks", new[] { "ProductId_id" });
+            DropIndex("dbo.ProductSolds", new[] { "ProductId_id" });
             DropTable("dbo.Users");
             DropTable("dbo.Stocks");
             DropTable("dbo.Sales");
