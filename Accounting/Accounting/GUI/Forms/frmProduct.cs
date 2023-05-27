@@ -148,29 +148,36 @@ namespace Accounting.GUI.Forms
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            bunifuCircleProgress2.Value = 0;
+            bunifuCircleProgress2.Value += 10;
             try
             {
-
+                bunifuCircleProgress2.Value += 10;
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
+                    bunifuCircleProgress2.Value += 10;
                     IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
                     if (!IsNull())
                     {
+                        bunifuCircleProgress2.Value += 10;
                         int productCode = Int32.Parse(txtProductCode.Text);
                         bool Result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.id== productCode);
+                        bunifuCircleProgress2.Value += 10;
                         if (!Result)
                         {
-                           
-                                Product ProductRecord = new Product();
+                            bunifuCircleProgress2.Value += 10;
+                            Product ProductRecord = new Product();
                                 ProductRecord = Fill__ProductRecord(ProductRecord);
-
-                                if (_ProductRepository.Add<Product>(ProductRecord))
+                            bunifuCircleProgress2.Value += 10;
+                            if (_ProductRepository.Add<Product>(ProductRecord))
                                 {
-                                    MessageBox.Show("رکورد با موفقیت ثبت شد");
-
-                                    _UnitOfWork.Save();
-                                    Reset();
-                                }
+                                bunifuCircleProgress2.Value += 10;
+                                MessageBox.Show("رکورد با موفقیت ثبت شد");
+                                bunifuCircleProgress2.Value += 10;
+                                _UnitOfWork.Save();
+                                Reset();
+                                bunifuCircleProgress2.Value += 10;
+                            }
                                 else
                                 {
                                     MessageBox.Show("خطایی رخ داده است");
@@ -299,18 +306,28 @@ namespace Accounting.GUI.Forms
 
         private async void btnGetDetails_Click(object sender, EventArgs e)
         {
-            try
+            bunifuCircleProgress1.Value = 0;
+            bunifuCircleProgress1.Value += 10;
+            bunifuCircleProgress1.Value += 10;
+            try 
             {
-
+                bunifuCircleProgress1.Value += 10;
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
                 {
+                    bunifuCircleProgress1.Value += 10;
                     IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
+                    bunifuCircleProgress1.Value += 10;
                     int ProductCode = Int32.Parse(txtProductCode.Text);
+                    bunifuCircleProgress1.Value += 10;
                     bool result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.id== ProductCode);
+                    bunifuCircleProgress1.Value += 10;
                     if (result)
                     {
+                        bunifuCircleProgress1.Value += 10;
                         Product record = _ProductRepository.GetEntity<Product>(n=>n.id== ProductCode);
                         FillControlersWithProductDbRecord(record);
+                        bunifuCircleProgress1.Value += 20;
+
 
                     }
                     else
@@ -371,6 +388,11 @@ namespace Accounting.GUI.Forms
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFormDock1_FormDragging(object sender, Bunifu.UI.WinForms.BunifuFormDock.FormDraggingEventArgs e)
         {
 
         }
