@@ -50,9 +50,11 @@ namespace Accounting.GUI.Forms
             this.btnExport = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
             this.btnSearchByDate = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV1
@@ -120,7 +122,7 @@ namespace Accounting.GUI.Forms
             this.groupBox3.AutoSize = true;
             this.groupBox3.Controls.Add(this.txtProductId);
             this.groupBox3.ForeColor = System.Drawing.Color.Chocolate;
-            this.groupBox3.Location = new System.Drawing.Point(12, 170);
+            this.groupBox3.Location = new System.Drawing.Point(28, 170);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(278, 101);
             this.groupBox3.TabIndex = 84;
@@ -207,7 +209,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.txtStockId);
             this.groupBox1.ForeColor = System.Drawing.Color.Chocolate;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(28, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(278, 110);
             this.groupBox1.TabIndex = 86;
@@ -300,31 +302,32 @@ namespace Accounting.GUI.Forms
             this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
             this.btnExport.ButtonText = "خروجی اکسل";
             this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExport.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnExport.IdleBorderThickness = 1;
             this.btnExport.IdleCornerRadius = 20;
             this.btnExport.IdleFillColor = System.Drawing.Color.White;
             this.btnExport.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnExport.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnExport.Location = new System.Drawing.Point(95, 458);
+            this.btnExport.Location = new System.Drawing.Point(16, 473);
             this.btnExport.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(178, 74);
+            this.btnExport.Size = new System.Drawing.Size(104, 50);
             this.btnExport.TabIndex = 83;
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // bPersianCalenderTextBox1
             // 
-            this.bPersianCalenderTextBox1.Location = new System.Drawing.Point(31, 426);
+            this.bPersianCalenderTextBox1.Location = new System.Drawing.Point(13, 37);
             this.bPersianCalenderTextBox1.Miladi = new System.DateTime(((long)(0)));
+            this.bPersianCalenderTextBox1.Multiline = true;
             this.bPersianCalenderTextBox1.Name = "bPersianCalenderTextBox1";
             this.bPersianCalenderTextBox1.NowDateSelected = false;
             this.bPersianCalenderTextBox1.ReadOnly = true;
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
-            this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(278, 22);
+            this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(278, 32);
             this.bPersianCalenderTextBox1.TabIndex = 87;
             // 
             // btnSearchByDate
@@ -345,21 +348,33 @@ namespace Accounting.GUI.Forms
             this.btnSearchByDate.IdleFillColor = System.Drawing.Color.White;
             this.btnSearchByDate.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnSearchByDate.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearchByDate.Location = new System.Drawing.Point(133, 341);
+            this.btnSearchByDate.Location = new System.Drawing.Point(218, 67);
             this.btnSearchByDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnSearchByDate.Name = "btnSearchByDate";
-            this.btnSearchByDate.Size = new System.Drawing.Size(121, 65);
+            this.btnSearchByDate.Size = new System.Drawing.Size(73, 49);
             this.btnSearchByDate.TabIndex = 94;
             this.btnSearchByDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSearchByDate.Click += new System.EventHandler(this.btnSearchByDate_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.bPersianCalenderTextBox1);
+            this.groupBox2.Controls.Add(this.btnSearchByDate);
+            this.groupBox2.ForeColor = System.Drawing.Color.Chocolate;
+            this.groupBox2.Location = new System.Drawing.Point(9, 292);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(299, 139);
+            this.groupBox2.TabIndex = 95;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "جستجو با تاریخ ورود به انبار";
             // 
             // frmStockRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 539);
-            this.Controls.Add(this.btnSearchByDate);
-            this.Controls.Add(this.bPersianCalenderTextBox1);
+            this.ClientSize = new System.Drawing.Size(1160, 539);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExport);
@@ -372,6 +387,8 @@ namespace Accounting.GUI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +404,6 @@ namespace Accounting.GUI.Forms
         private Bunifu.Framework.UI.BunifuThinButton2 btnExport;
         private BPersianCalender.BPersianCalenderTextBox bPersianCalenderTextBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSearchByDate;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

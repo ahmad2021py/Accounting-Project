@@ -68,9 +68,11 @@ namespace Accounting.GUI.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
+            this.performanceCounter = new System.Diagnostics.PerformanceCounter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -719,6 +721,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).EndInit();
+         
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -748,5 +751,6 @@ namespace Accounting.GUI.Forms
         public Bunifu.Framework.UI.BunifuThinButton2 btnGetDetails;
         private Bunifu.Framework.UI.BunifuThinButton2 btnBrowse;
         public Bunifu.UI.WinForms.BunifuPictureBox PboxProductPicture;
+        private System.Diagnostics.PerformanceCounter performanceCounter;
     }
 }
