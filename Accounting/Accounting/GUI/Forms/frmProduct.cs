@@ -78,6 +78,8 @@ namespace Accounting.GUI.Forms
             cbCompany.Text = "";
             PboxProductPicture.Image = null;
             PboxProductPicture.Image = Properties.Resources.icons8_product_128px_2;
+            bunifuCircleProgress1.Value = 0;
+            bunifuCircleProgress2.Value = 0;
             txtProductName.Focus();
         }
 
