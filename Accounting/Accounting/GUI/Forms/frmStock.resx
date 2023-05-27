@@ -136,12 +136,14 @@
   </data>
   <data name="txtDescription.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAfAAAABtCAYAAABeIzPPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADySURBVHhe7cMBDQAgDAMwpM8ZV8bQQWiTLgAAAAAAAAAA
+        iVBORw0KGgoAAAANSUhEUgAAAfAAAACeCAYAAADNJVh4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFRSURBVHhe7cMBDQAgDAMwpM8ZV8bQQWiTLgAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAPjNmexOqqq+Mr2hsEg6cRheqAAAAABJRU5ErkJggg==
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgM2eyO6mq
+        +sr0Ah2/SDqA5bxEAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -269,15 +271,6 @@
         QcZUPr5zi5XHX+fDt6m0hEXn+ATvB8Z0IWNw68aadFwROKHh6lDJDHuv8fzNFLJuo/3eLXr/xCLvDa4I
         HMGP5Xrdl2pN8gYLznHAmlkqxRpiDkTW+DFCJhghE4yQCUbI3k9gfwHh4RneA/lbwAAAAABJRU5ErkJg
         gg==
-</value>
-  </data>
-  <data name="txtTotalPrice.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAQgAAAAeCAYAAADQDoDNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACbSURBVHhe7dTBCcJQAAXBX7p4sS3FMizDe2ISviDiWsEM
-        vMsrYAfAX8v98livp9XMbN/ehJmHMY4T4G1rwsyDQABfBAJIAgEkgQCSQABJIIAkEEASCCAJBJAEAkgC
-        ASSBAJJAAEkggCQQQBIIIAkEkAQCSAIBJIEAkkAASSCAJBBAEgggCQSQPgOx3M7PIxJmZtv2Jsw8APwy
-        xgt0d4gnAVMIGgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="txtBuyPrice.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

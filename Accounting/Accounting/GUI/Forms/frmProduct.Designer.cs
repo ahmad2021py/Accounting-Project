@@ -59,6 +59,8 @@ namespace Accounting.GUI.Forms
             this.btnDelete = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnSave = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnNew = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnBrowse = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.PboxProductPicture = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrice = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -66,8 +68,6 @@ namespace Accounting.GUI.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
-            this.PboxProductPicture = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.btnBrowse = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).BeginInit();
@@ -100,6 +100,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ویرایش و ثبت محصول ";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnGetDetails
             // 
@@ -452,6 +453,48 @@ namespace Accounting.GUI.Forms
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.ActiveBorderThickness = 1;
+            this.btnBrowse.ActiveCornerRadius = 20;
+            this.btnBrowse.ActiveFillColor = System.Drawing.Color.Red;
+            this.btnBrowse.ActiveForecolor = System.Drawing.Color.White;
+            this.btnBrowse.ActiveLineColor = System.Drawing.Color.Red;
+            this.btnBrowse.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBrowse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBrowse.BackgroundImage")));
+            this.btnBrowse.ButtonText = "انتخاب تصویر";
+            this.btnBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBrowse.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnBrowse.IdleBorderThickness = 1;
+            this.btnBrowse.IdleCornerRadius = 20;
+            this.btnBrowse.IdleFillColor = System.Drawing.Color.White;
+            this.btnBrowse.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnBrowse.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnBrowse.Location = new System.Drawing.Point(241, 419);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(117, 55);
+            this.btnBrowse.TabIndex = 7;
+            this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // PboxProductPicture
+            // 
+            this.PboxProductPicture.AllowFocused = false;
+            this.PboxProductPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PboxProductPicture.AutoSizeHeight = true;
+            this.PboxProductPicture.BorderRadius = 113;
+            this.PboxProductPicture.Image = ((System.Drawing.Image)(resources.GetObject("PboxProductPicture.Image")));
+            this.PboxProductPicture.IsCircle = true;
+            this.PboxProductPicture.Location = new System.Drawing.Point(201, 166);
+            this.PboxProductPicture.Name = "PboxProductPicture";
+            this.PboxProductPicture.Size = new System.Drawing.Size(227, 227);
+            this.PboxProductPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PboxProductPicture.TabIndex = 82;
+            this.PboxProductPicture.TabStop = false;
+            this.PboxProductPicture.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -661,48 +704,6 @@ namespace Accounting.GUI.Forms
             this.PasswordLabel.TabIndex = 78;
             this.PasswordLabel.Text = "نام محصول :";
             this.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // PboxProductPicture
-            // 
-            this.PboxProductPicture.AllowFocused = false;
-            this.PboxProductPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PboxProductPicture.AutoSizeHeight = true;
-            this.PboxProductPicture.BorderRadius = 113;
-            this.PboxProductPicture.Image = ((System.Drawing.Image)(resources.GetObject("PboxProductPicture.Image")));
-            this.PboxProductPicture.IsCircle = true;
-            this.PboxProductPicture.Location = new System.Drawing.Point(201, 166);
-            this.PboxProductPicture.Name = "PboxProductPicture";
-            this.PboxProductPicture.Size = new System.Drawing.Size(227, 227);
-            this.PboxProductPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PboxProductPicture.TabIndex = 82;
-            this.PboxProductPicture.TabStop = false;
-            this.PboxProductPicture.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.ActiveBorderThickness = 1;
-            this.btnBrowse.ActiveCornerRadius = 20;
-            this.btnBrowse.ActiveFillColor = System.Drawing.Color.Red;
-            this.btnBrowse.ActiveForecolor = System.Drawing.Color.White;
-            this.btnBrowse.ActiveLineColor = System.Drawing.Color.Red;
-            this.btnBrowse.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBrowse.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBrowse.BackgroundImage")));
-            this.btnBrowse.ButtonText = "انتخاب تصویر";
-            this.btnBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowse.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowse.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnBrowse.IdleBorderThickness = 1;
-            this.btnBrowse.IdleCornerRadius = 20;
-            this.btnBrowse.IdleFillColor = System.Drawing.Color.White;
-            this.btnBrowse.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnBrowse.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnBrowse.Location = new System.Drawing.Point(241, 419);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(5);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(117, 55);
-            this.btnBrowse.TabIndex = 7;
-            this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // frmProduct
             // 

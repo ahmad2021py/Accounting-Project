@@ -48,7 +48,7 @@
                         id = c.Long(nullable: false, identity: true),
                         ProductName = c.String(nullable: false),
                         Features = c.String(nullable: false),
-                        Price = c.Double(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Picture = c.Binary(nullable: false),
                         Category = c.String(nullable: false),
                         Company = c.String(nullable: false),
@@ -62,8 +62,8 @@
                         id = c.Long(nullable: false, identity: true),
                         Invoice = c.String(),
                         Quantity = c.Int(nullable: false),
-                        Price = c.Int(nullable: false),
-                        TotalAmount = c.Int(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        TotalAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ProductId_id = c.Long(),
                     })
                 .PrimaryKey(t => t.id)
@@ -109,8 +109,8 @@
                         id = c.Long(nullable: false, identity: true),
                         StockDate = c.DateTime(nullable: false),
                         Quantity = c.Int(nullable: false),
-                        TotalPrice = c.Int(nullable: false),
                         Description = c.String(),
+                        BuyPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                         FKProductId = c.Long(nullable: false),
                     })
                 .PrimaryKey(t => t.id)

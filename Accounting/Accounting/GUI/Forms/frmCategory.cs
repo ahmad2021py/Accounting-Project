@@ -120,5 +120,7 @@ namespace Accounting.GUI.Forms
             frmCategoryRecords frm = new frmCategoryRecords();
             frm.ShowDialog();
         }
+
+      
     }
 }

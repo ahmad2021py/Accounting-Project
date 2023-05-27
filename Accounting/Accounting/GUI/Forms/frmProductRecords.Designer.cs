@@ -135,7 +135,7 @@ namespace Accounting.GUI.Forms
             this.DGV1.HeaderBackColor = System.Drawing.Color.DodgerBlue;
             this.DGV1.HeaderBgColor = System.Drawing.Color.Empty;
             this.DGV1.HeaderForeColor = System.Drawing.Color.White;
-            this.DGV1.Location = new System.Drawing.Point(362, 8);
+            this.DGV1.Location = new System.Drawing.Point(391, 8);
             this.DGV1.Name = "DGV1";
             this.DGV1.RowHeadersVisible = false;
             this.DGV1.RowHeadersWidth = 51;

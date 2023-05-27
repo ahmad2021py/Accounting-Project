@@ -349,9 +349,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202305261626586_initDb.cs" />
-    <Compile Include="Migrations\202305261626586_initDb.designer.cs">
-      <DependentUpon>202305261626586_initDb.cs</DependentUpon>
+    <Compile Include="Migrations\202305271430438_initDb.cs" />
+    <Compile Include="Migrations\202305271430438_initDb.designer.cs">
+      <DependentUpon>202305271430438_initDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
@@ -365,6 +365,7 @@
     <Compile Include="Utilities\WorkWithDate.cs" />
     <Compile Include="Utilities\WorkWithEmail.cs" />
     <Compile Include="Utilities\WorkWithImage.cs" />
+    <Compile Include="Utilities\WorkWithStrings.cs" />
     <EmbeddedResource Include="GUI\Forms\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +402,9 @@
     <EmbeddedResource Include="GUI\Forms\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmStockRecords.resx">
+      <DependentUpon>frmStockRecords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmUserReords.resx">
       <DependentUpon>frmUserReords.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,8 +417,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305261626586_initDb.resx">
-      <DependentUpon>202305261626586_initDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305271430438_initDb.resx">
+      <DependentUpon>202305271430438_initDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

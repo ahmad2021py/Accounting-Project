@@ -47,12 +47,7 @@ namespace Accounting.GUI.Forms
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.label2 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,20 +55,16 @@ namespace Accounting.GUI.Forms
             this.txtProductId = new Bunifu.UI.WinForms.BunifuTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblGetDateTime = new System.Windows.Forms.Label();
-            this.lblSellPrice = new System.Windows.Forms.Label();
             this.lblBuyPrice = new System.Windows.Forms.Label();
             this.lblCount = new System.Windows.Forms.Label();
-            this.lblTotalPrice = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblFeatures = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblStockId = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -91,7 +82,6 @@ namespace Accounting.GUI.Forms
             this.btnGetProductDetails = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
             this.btnShowFrmProduct = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.txtTotalPrice = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtBuyPrice = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnSelect = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label14 = new System.Windows.Forms.Label();
@@ -103,25 +93,13 @@ namespace Accounting.GUI.Forms
             // 
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label2.Location = new System.Drawing.Point(1025, 379);
+            this.label2.Location = new System.Drawing.Point(1025, 315);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 28);
             this.label2.TabIndex = 80;
             this.label2.Text = "توضیحات";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label29
-            // 
-            this.label29.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label29.Location = new System.Drawing.Point(885, 295);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(252, 28);
-            this.label29.TabIndex = 78;
-            this.label29.Text = "قیمت کل : ";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label30
             // 
@@ -233,6 +211,7 @@ namespace Accounting.GUI.Forms
             this.txtProductQuantity.TextPlaceholder = "تعداد را وارد کنید ";
             this.txtProductQuantity.UseSystemPasswordChar = false;
             this.txtProductQuantity.WordWrap = true;
+            this.txtProductQuantity.TextChanged += new System.EventHandler(this.txtProductQuantity_TextChanged);
             // 
             // txtProductId
             // 
@@ -308,24 +287,21 @@ namespace Accounting.GUI.Forms
             this.txtProductId.TextPlaceholder = "کد محصول را وارد کنید";
             this.txtProductId.UseSystemPasswordChar = false;
             this.txtProductId.WordWrap = true;
+            this.txtProductId.TextChanged += new System.EventHandler(this.txtProductId_TextChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblGetDateTime);
-            this.groupBox2.Controls.Add(this.lblSellPrice);
             this.groupBox2.Controls.Add(this.lblBuyPrice);
             this.groupBox2.Controls.Add(this.lblCount);
-            this.groupBox2.Controls.Add(this.lblTotalPrice);
             this.groupBox2.Controls.Add(this.lblPrice);
             this.groupBox2.Controls.Add(this.lblCategory);
             this.groupBox2.Controls.Add(this.lblFeatures);
             this.groupBox2.Controls.Add(this.lblCompany);
             this.groupBox2.Controls.Add(this.lblProductName);
-            this.groupBox2.Controls.Add(this.lblDescription);
+            this.groupBox2.Controls.Add(this.lblStockId);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label6);
@@ -345,29 +321,18 @@ namespace Accounting.GUI.Forms
             // 
             this.lblGetDateTime.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGetDateTime.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblGetDateTime.Location = new System.Drawing.Point(33, 539);
+            this.lblGetDateTime.Location = new System.Drawing.Point(33, 455);
             this.lblGetDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGetDateTime.Name = "lblGetDateTime";
             this.lblGetDateTime.Size = new System.Drawing.Size(182, 28);
             this.lblGetDateTime.TabIndex = 109;
             this.lblGetDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblSellPrice
-            // 
-            this.lblSellPrice.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSellPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblSellPrice.Location = new System.Drawing.Point(7, 485);
-            this.lblSellPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSellPrice.Name = "lblSellPrice";
-            this.lblSellPrice.Size = new System.Drawing.Size(182, 28);
-            this.lblSellPrice.TabIndex = 108;
-            this.lblSellPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lblBuyPrice
             // 
             this.lblBuyPrice.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuyPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblBuyPrice.Location = new System.Drawing.Point(10, 427);
+            this.lblBuyPrice.Location = new System.Drawing.Point(10, 384);
             this.lblBuyPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBuyPrice.Name = "lblBuyPrice";
             this.lblBuyPrice.Size = new System.Drawing.Size(153, 28);
@@ -378,23 +343,12 @@ namespace Accounting.GUI.Forms
             // 
             this.lblCount.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblCount.Location = new System.Drawing.Point(46, 380);
+            this.lblCount.Location = new System.Drawing.Point(46, 329);
             this.lblCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(182, 28);
             this.lblCount.TabIndex = 106;
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTotalPrice
-            // 
-            this.lblTotalPrice.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblTotalPrice.Location = new System.Drawing.Point(46, 312);
-            this.lblTotalPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(182, 28);
-            this.lblTotalPrice.TabIndex = 105;
-            this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPrice
             // 
@@ -411,7 +365,7 @@ namespace Accounting.GUI.Forms
             // 
             this.lblCategory.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblCategory.Location = new System.Drawing.Point(46, 215);
+            this.lblCategory.Location = new System.Drawing.Point(63, 215);
             this.lblCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(182, 28);
@@ -451,22 +405,22 @@ namespace Accounting.GUI.Forms
             this.lblProductName.TabIndex = 100;
             this.lblProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblDescription
+            // lblStockId
             // 
-            this.lblDescription.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblDescription.Location = new System.Drawing.Point(63, 9);
-            this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(182, 28);
-            this.lblDescription.TabIndex = 99;
-            this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblStockId.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockId.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblStockId.Location = new System.Drawing.Point(69, 513);
+            this.lblStockId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStockId.Name = "lblStockId";
+            this.lblStockId.Size = new System.Drawing.Size(182, 28);
+            this.lblStockId.TabIndex = 99;
+            this.lblStockId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label15.Location = new System.Drawing.Point(194, 539);
+            this.label15.Location = new System.Drawing.Point(194, 455);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(177, 28);
@@ -486,35 +440,11 @@ namespace Accounting.GUI.Forms
             this.label13.Text = "دسته بندی : ";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label12.Location = new System.Drawing.Point(278, 312);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 28);
-            this.label12.TabIndex = 97;
-            this.label12.Text = "قیمت کل : ";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label10.Location = new System.Drawing.Point(171, 485);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(222, 28);
-            this.label10.TabIndex = 91;
-            this.label10.Text = "قیمت فروش (هر واحد) : ";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label11.Location = new System.Drawing.Point(205, 427);
+            this.label11.Location = new System.Drawing.Point(205, 384);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(181, 28);
@@ -526,7 +456,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(271, 370);
+            this.label1.Location = new System.Drawing.Point(271, 327);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 28);
@@ -574,12 +504,12 @@ namespace Accounting.GUI.Forms
             // 
             this.label27.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label27.Location = new System.Drawing.Point(279, 13);
+            this.label27.Location = new System.Drawing.Point(259, 513);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(94, 28);
             this.label27.TabIndex = 93;
-            this.label27.Text = "دسته بندی : ";
+            this.label27.Text = "کد انبار : ";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -621,7 +551,7 @@ namespace Accounting.GUI.Forms
             this.txtDescription.IconRight = null;
             this.txtDescription.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDescription.Lines = new string[0];
-            this.txtDescription.Location = new System.Drawing.Point(622, 413);
+            this.txtDescription.Location = new System.Drawing.Point(622, 349);
             this.txtDescription.MaxLength = 32767;
             this.txtDescription.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtDescription.Modified = false;
@@ -658,7 +588,7 @@ namespace Accounting.GUI.Forms
             this.txtDescription.SelectionLength = 0;
             this.txtDescription.SelectionStart = 0;
             this.txtDescription.ShortcutsEnabled = true;
-            this.txtDescription.Size = new System.Drawing.Size(496, 109);
+            this.txtDescription.Size = new System.Drawing.Size(496, 158);
             this.txtDescription.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
             this.txtDescription.TabIndex = 5;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -680,7 +610,6 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.btnGetProductDetails);
             this.groupBox1.Controls.Add(this.bPersianCalenderTextBox1);
             this.groupBox1.Controls.Add(this.btnShowFrmProduct);
-            this.groupBox1.Controls.Add(this.txtTotalPrice);
             this.groupBox1.Controls.Add(this.txtBuyPrice);
             this.groupBox1.Controls.Add(this.btnSelect);
             this.groupBox1.Controls.Add(this.txtProductQuantity);
@@ -690,7 +619,6 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label30);
             this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.ForeColor = System.Drawing.Color.SlateBlue;
@@ -802,6 +730,7 @@ namespace Accounting.GUI.Forms
             this.btnUpdate.Size = new System.Drawing.Size(109, 69);
             this.btnUpdate.TabIndex = 94;
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnShowFrmStockRecords
             // 
@@ -853,10 +782,11 @@ namespace Accounting.GUI.Forms
             this.btnGetProductDetails.Size = new System.Drawing.Size(157, 86);
             this.btnGetProductDetails.TabIndex = 92;
             this.btnGetProductDetails.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnGetProductDetails.Click += new System.EventHandler(this.btnGetProductDetails_Click);
             // 
             // bPersianCalenderTextBox1
             // 
-            this.bPersianCalenderTextBox1.Location = new System.Drawing.Point(618, 347);
+            this.bPersianCalenderTextBox1.Location = new System.Drawing.Point(618, 283);
             this.bPersianCalenderTextBox1.Miladi = new System.DateTime(((long)(0)));
             this.bPersianCalenderTextBox1.Name = "bPersianCalenderTextBox1";
             this.bPersianCalenderTextBox1.NowDateSelected = false;
@@ -875,7 +805,7 @@ namespace Accounting.GUI.Forms
             this.btnShowFrmProduct.ActiveLineColor = System.Drawing.Color.Red;
             this.btnShowFrmProduct.BackColor = System.Drawing.SystemColors.Control;
             this.btnShowFrmProduct.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowFrmProduct.BackgroundImage")));
-            this.btnShowFrmProduct.ButtonText = "ویرایش مشخصات";
+            this.btnShowFrmProduct.ButtonText = "ویرایش مشخصات محصول : ";
             this.btnShowFrmProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowFrmProduct.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowFrmProduct.ForeColor = System.Drawing.Color.SeaGreen;
@@ -891,81 +821,6 @@ namespace Accounting.GUI.Forms
             this.btnShowFrmProduct.TabIndex = 90;
             this.btnShowFrmProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnShowFrmProduct.Click += new System.EventHandler(this.btnShowFrmProduct_Click);
-            // 
-            // txtTotalPrice
-            // 
-            this.txtTotalPrice.AcceptsReturn = false;
-            this.txtTotalPrice.AcceptsTab = false;
-            this.txtTotalPrice.AnimationSpeed = 200;
-            this.txtTotalPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtTotalPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtTotalPrice.BackColor = System.Drawing.Color.Transparent;
-            this.txtTotalPrice.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtTotalPrice.BackgroundImage")));
-            this.txtTotalPrice.BorderColorActive = System.Drawing.Color.Red;
-            this.txtTotalPrice.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtTotalPrice.BorderColorHover = System.Drawing.Color.Yellow;
-            this.txtTotalPrice.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.txtTotalPrice.BorderRadius = 1;
-            this.txtTotalPrice.BorderThickness = 1;
-            this.txtTotalPrice.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtTotalPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTotalPrice.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.txtTotalPrice.DefaultText = "";
-            this.txtTotalPrice.FillColor = System.Drawing.Color.White;
-            this.txtTotalPrice.HideSelection = true;
-            this.txtTotalPrice.IconLeft = null;
-            this.txtTotalPrice.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTotalPrice.IconPadding = 10;
-            this.txtTotalPrice.IconRight = null;
-            this.txtTotalPrice.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTotalPrice.Lines = new string[0];
-            this.txtTotalPrice.Location = new System.Drawing.Point(618, 295);
-            this.txtTotalPrice.MaxLength = 32767;
-            this.txtTotalPrice.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtTotalPrice.Modified = false;
-            this.txtTotalPrice.Multiline = false;
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            stateProperties13.BorderColor = System.Drawing.Color.Red;
-            stateProperties13.FillColor = System.Drawing.Color.Empty;
-            stateProperties13.ForeColor = System.Drawing.Color.Empty;
-            stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtTotalPrice.OnActiveState = stateProperties13;
-            stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties14.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtTotalPrice.OnDisabledState = stateProperties14;
-            stateProperties15.BorderColor = System.Drawing.Color.Blue;
-            stateProperties15.FillColor = System.Drawing.Color.Empty;
-            stateProperties15.ForeColor = System.Drawing.Color.Empty;
-            stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtTotalPrice.OnHoverState = stateProperties15;
-            stateProperties16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            stateProperties16.FillColor = System.Drawing.Color.White;
-            stateProperties16.ForeColor = System.Drawing.Color.Empty;
-            stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtTotalPrice.OnIdleState = stateProperties16;
-            this.txtTotalPrice.Padding = new System.Windows.Forms.Padding(3);
-            this.txtTotalPrice.PasswordChar = '\0';
-            this.txtTotalPrice.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtTotalPrice.PlaceholderText = "قیمت کل را وارد کنید";
-            this.txtTotalPrice.ReadOnly = false;
-            this.txtTotalPrice.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtTotalPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTotalPrice.SelectedText = "";
-            this.txtTotalPrice.SelectionLength = 0;
-            this.txtTotalPrice.SelectionStart = 0;
-            this.txtTotalPrice.ShortcutsEnabled = true;
-            this.txtTotalPrice.Size = new System.Drawing.Size(264, 30);
-            this.txtTotalPrice.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txtTotalPrice.TabIndex = 87;
-            this.txtTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTotalPrice.TextMarginBottom = 0;
-            this.txtTotalPrice.TextMarginLeft = 3;
-            this.txtTotalPrice.TextMarginTop = 0;
-            this.txtTotalPrice.TextPlaceholder = "قیمت کل را وارد کنید";
-            this.txtTotalPrice.UseSystemPasswordChar = false;
-            this.txtTotalPrice.WordWrap = true;
             // 
             // txtBuyPrice
             // 
@@ -1000,26 +855,26 @@ namespace Accounting.GUI.Forms
             this.txtBuyPrice.Modified = false;
             this.txtBuyPrice.Multiline = false;
             this.txtBuyPrice.Name = "txtBuyPrice";
-            stateProperties17.BorderColor = System.Drawing.Color.Red;
-            stateProperties17.FillColor = System.Drawing.Color.Empty;
-            stateProperties17.ForeColor = System.Drawing.Color.Empty;
-            stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtBuyPrice.OnActiveState = stateProperties17;
-            stateProperties18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties18.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties18.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtBuyPrice.OnDisabledState = stateProperties18;
-            stateProperties19.BorderColor = System.Drawing.Color.Blue;
-            stateProperties19.FillColor = System.Drawing.Color.Empty;
-            stateProperties19.ForeColor = System.Drawing.Color.Empty;
-            stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtBuyPrice.OnHoverState = stateProperties19;
-            stateProperties20.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            stateProperties20.FillColor = System.Drawing.Color.White;
-            stateProperties20.ForeColor = System.Drawing.Color.Empty;
-            stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtBuyPrice.OnIdleState = stateProperties20;
+            stateProperties13.BorderColor = System.Drawing.Color.Red;
+            stateProperties13.FillColor = System.Drawing.Color.Empty;
+            stateProperties13.ForeColor = System.Drawing.Color.Empty;
+            stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtBuyPrice.OnActiveState = stateProperties13;
+            stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties14.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtBuyPrice.OnDisabledState = stateProperties14;
+            stateProperties15.BorderColor = System.Drawing.Color.Blue;
+            stateProperties15.FillColor = System.Drawing.Color.Empty;
+            stateProperties15.ForeColor = System.Drawing.Color.Empty;
+            stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtBuyPrice.OnHoverState = stateProperties15;
+            stateProperties16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            stateProperties16.FillColor = System.Drawing.Color.White;
+            stateProperties16.ForeColor = System.Drawing.Color.Empty;
+            stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtBuyPrice.OnIdleState = stateProperties16;
             this.txtBuyPrice.Padding = new System.Windows.Forms.Padding(3);
             this.txtBuyPrice.PasswordChar = '\0';
             this.txtBuyPrice.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -1041,6 +896,7 @@ namespace Accounting.GUI.Forms
             this.txtBuyPrice.TextPlaceholder = "قیمت خرید هر واحد ";
             this.txtBuyPrice.UseSystemPasswordChar = false;
             this.txtBuyPrice.WordWrap = true;
+            this.txtBuyPrice.TextChanged += new System.EventHandler(this.txtBuyPrice_TextChanged);
             // 
             // btnSelect
             // 
@@ -1072,7 +928,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label14.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label14.Location = new System.Drawing.Point(943, 342);
+            this.label14.Location = new System.Drawing.Point(943, 278);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(194, 28);
@@ -1101,7 +957,6 @@ namespace Accounting.GUI.Forms
 
         #endregion
         internal System.Windows.Forms.Label label2;
-        internal System.Windows.Forms.Label label29;
         internal System.Windows.Forms.Label label30;
         internal System.Windows.Forms.Label label28;
         internal System.Windows.Forms.Label label3;
@@ -1112,27 +967,22 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSelect;
         public Bunifu.UI.WinForms.BunifuTextBox txtBuyPrice;
-        public Bunifu.UI.WinForms.BunifuTextBox txtTotalPrice;
         internal System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuThinButton2 btnShowFrmProduct;
-        internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label label6;
         internal System.Windows.Forms.Label label7;
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.Label label27;
-        internal System.Windows.Forms.Label label12;
         internal System.Windows.Forms.Label label13;
         internal System.Windows.Forms.Label label14;
         internal System.Windows.Forms.Label label15;
-        internal System.Windows.Forms.Label lblDescription;
+        internal System.Windows.Forms.Label lblStockId;
         internal System.Windows.Forms.Label lblProductName;
         internal System.Windows.Forms.Label lblGetDateTime;
-        internal System.Windows.Forms.Label lblSellPrice;
         internal System.Windows.Forms.Label lblBuyPrice;
         internal System.Windows.Forms.Label lblCount;
-        internal System.Windows.Forms.Label lblTotalPrice;
         internal System.Windows.Forms.Label lblPrice;
         internal System.Windows.Forms.Label lblCategory;
         internal System.Windows.Forms.Label lblFeatures;

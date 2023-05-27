@@ -75,6 +75,7 @@ namespace Accounting.GUI.Forms
 
         private void txtNationalCode_TextChanged(object sender, EventArgs e)
         {
+           
             if (txtNationalCode.Text == "")
             {
                 LoadData();

@@ -105,7 +105,7 @@ namespace Accounting.GUI.Forms
             
             productRecord.id = Convert.ToInt32(txtProductCode.Text);
             productRecord.ProductName = txtProductName.Text;
-            productRecord.Price = Convert.ToDouble(txtPrice.Text);
+            productRecord.Price = Convert.ToDecimal(txtPrice.Text);
             productRecord.Company = cbCompany.Text;
             productRecord.Category = cbCategory.Text;
             productRecord.Features = txtFeatures.Text;
@@ -292,6 +292,7 @@ namespace Accounting.GUI.Forms
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
+            Reset();
             FillCombo();
             txtProductName.Focus();
         }
@@ -337,7 +338,13 @@ namespace Accounting.GUI.Forms
 
         private void txtProductCode_TextChanged(object sender, EventArgs e)
         {
-
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductCode.Text);
+            if (!ValidationResult)
+            {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtProductCode.Text = "";
+                return;
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -361,6 +368,11 @@ namespace Accounting.GUI.Forms
             {
                 MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
 

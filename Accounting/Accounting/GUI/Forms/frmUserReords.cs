@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.Utilities;
 using AccountingDLL;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,13 @@ namespace Accounting.GUI.Forms
 
         private void txtProductName_TextChanged(object sender, EventArgs e)
         {
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtUserID.Text);
+            if (!ValidationResult)
+            {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtUserID.Text = "";
+                return;
+            }
             if (txtUserID.Text == "")
             {
                 LoadData();

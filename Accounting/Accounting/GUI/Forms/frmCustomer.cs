@@ -79,6 +79,11 @@ namespace Accounting.GUI.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (!WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text))
+            {
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
+            }
             try {
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
                 {
@@ -113,6 +118,11 @@ namespace Accounting.GUI.Forms
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            if (!WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text))
+            {
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
+            }
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
@@ -176,6 +186,11 @@ namespace Accounting.GUI.Forms
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text))
+            {
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
+            }
             try
             {
                 if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)

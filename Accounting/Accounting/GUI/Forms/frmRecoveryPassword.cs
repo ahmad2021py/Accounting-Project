@@ -26,11 +26,12 @@ namespace Accounting.GUI.Forms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (WorkWithTextboxes.TextBoxisNull(txtEmail.Text))
+            if (!WorkWithEmail.IsValidateEmail(txtEmail.Text))
             {
-                MessageBox.Show("لطفا ایمیل خود را وارد کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEmail.Focus();
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
             }
+            
             else
             {
                 Cursor = Cursors.WaitCursor;

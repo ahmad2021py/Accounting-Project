@@ -177,7 +177,6 @@ namespace Accounting.GUI.Forms
             this.txtUserName.TextPlaceholder = "نام کاربری را وارد کنید";
             this.txtUserName.UseSystemPasswordChar = false;
             this.txtUserName.WordWrap = true;
-        
             // 
             // cbRole
             // 
@@ -416,6 +415,7 @@ namespace Accounting.GUI.Forms
             this.txtContactNo.TextPlaceholder = "شماره را وارد کنید";
             this.txtContactNo.UseSystemPasswordChar = false;
             this.txtContactNo.WordWrap = true;
+            this.txtContactNo.TextChanged += new System.EventHandler(this.txtContactNo_TextChanged);
             // 
             // txtMail
             // 
@@ -491,6 +491,7 @@ namespace Accounting.GUI.Forms
             this.txtMail.TextPlaceholder = "ایمیل را وارد کنید";
             this.txtMail.UseSystemPasswordChar = false;
             this.txtMail.WordWrap = true;
+            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
             // 
             // label1
             // 

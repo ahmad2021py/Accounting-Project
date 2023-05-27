@@ -119,7 +119,7 @@ namespace Accounting.GUI.Forms
 
 
                     obj.txtProductId.Text = dr.Cells["id"].Value.ToString();
-                    obj.lblDescription.Text = dr.Cells["Category"].Value.ToString();
+                    obj.lblStockId.Text = dr.Cells["Category"].Value.ToString();
                     obj.lblProductName.Text = dr.Cells["ProductName"].Value.ToString();
                     obj.lblCompany.Text = dr.Cells["Company"].Value.ToString();
                     obj.lblFeatures.Text = dr.Cells["Features"].Value.ToString();

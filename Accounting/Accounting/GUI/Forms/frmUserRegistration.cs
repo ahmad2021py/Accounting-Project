@@ -116,7 +116,12 @@ namespace Accounting.GUI.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            if (!WorkWithEmail.IsValidateEmail(txtMail.Text))
+            {
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
+            }
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
                 if (!TxtNull())
@@ -165,6 +170,11 @@ namespace Accounting.GUI.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!WorkWithEmail.IsValidateEmail(txtMail.Text))
+            {
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
+            }
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
@@ -198,6 +208,11 @@ namespace Accounting.GUI.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (!WorkWithEmail.IsValidateEmail(txtMail.Text))
+            {
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
+            }
             using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
                 IRegistrationRepository _registrationRepository = _unitOfWork.RegistrationRepository;
@@ -251,6 +266,22 @@ namespace Accounting.GUI.Forms
         private void frmUserRegistration_Load(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void txtMail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContactNo_TextChanged(object sender, EventArgs e)
+        {
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtContactNo.Text);
+            if (!ValidationResult)
+            {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtContactNo.Text = "";
+                return;
+            }
         }
     }
 
