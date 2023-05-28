@@ -312,11 +312,11 @@
     <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Forms\frmSale.cs">
+    <Compile Include="GUI\Forms\frmSaleAndBuy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Forms\frmSale.Designer.cs">
-      <DependentUpon>frmSale.cs</DependentUpon>
+    <Compile Include="GUI\Forms\frmSaleAndBuy.Designer.cs">
+      <DependentUpon>frmSaleAndBuy.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmStock.cs">
       <SubType>Form</SubType>
@@ -404,8 +404,8 @@
     <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmSale.resx">
-      <DependentUpon>frmSale.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Forms\frmSaleAndBuy.resx">
+      <DependentUpon>frmSaleAndBuy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>

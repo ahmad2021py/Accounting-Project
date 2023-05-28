@@ -123,9 +123,9 @@
             this.lblRegistration.BackColor = System.Drawing.Color.Transparent;
             this.lblRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistration.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblRegistration.Location = new System.Drawing.Point(129, 152);
+            this.lblRegistration.Location = new System.Drawing.Point(127, 155);
             this.lblRegistration.Name = "lblRegistration";
-            this.lblRegistration.Size = new System.Drawing.Size(141, 41);
+            this.lblRegistration.Size = new System.Drawing.Size(141, 39);
             this.lblRegistration.TabIndex = 68;
             this.lblRegistration.Text = "مدیریت کاربران";
             // 
@@ -150,7 +150,7 @@
             this.btnCompany.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnCompany.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCompany.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCompany.InitialImage")));
-            this.btnCompany.Location = new System.Drawing.Point(277, 54);
+            this.btnCompany.Location = new System.Drawing.Point(42, 216);
             this.btnCompany.Name = "btnCompany";
             this.btnCompany.Rotation = 0;
             this.btnCompany.ShowActiveImage = true;
@@ -170,9 +170,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(274, 151);
+            this.label3.Location = new System.Drawing.Point(39, 326);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 41);
+            this.label3.Size = new System.Drawing.Size(93, 36);
             this.label3.TabIndex = 72;
             this.label3.Text = "شرکت ها";
             // 
@@ -197,7 +197,7 @@
             this.btnProdut.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnProdut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnProdut.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnProdut.InitialImage")));
-            this.btnProdut.Location = new System.Drawing.Point(406, 54);
+            this.btnProdut.Location = new System.Drawing.Point(278, 56);
             this.btnProdut.Name = "btnProdut";
             this.btnProdut.Rotation = 0;
             this.btnProdut.ShowActiveImage = true;
@@ -217,7 +217,7 @@
             this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomer.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblCustomer.Location = new System.Drawing.Point(555, 152);
+            this.lblCustomer.Location = new System.Drawing.Point(419, 156);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(76, 27);
             this.lblCustomer.TabIndex = 72;
@@ -264,7 +264,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(8, 152);
+            this.label1.Location = new System.Drawing.Point(8, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 41);
             this.label1.TabIndex = 72;
@@ -356,7 +356,7 @@
             this.btnCustomer.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCustomer.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.InitialImage")));
-            this.btnCustomer.Location = new System.Drawing.Point(542, 54);
+            this.btnCustomer.Location = new System.Drawing.Point(414, 58);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Rotation = 0;
             this.btnCustomer.ShowActiveImage = true;
@@ -376,7 +376,7 @@
             this.lblProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProducts.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblProducts.Location = new System.Drawing.Point(411, 152);
+            this.lblProducts.Location = new System.Drawing.Point(275, 156);
             this.lblProducts.Name = "lblProducts";
             this.lblProducts.Size = new System.Drawing.Size(94, 27);
             this.lblProducts.TabIndex = 78;
@@ -403,7 +403,7 @@
             this.btnStock.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnStock.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnStock.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnStock.InitialImage")));
-            this.btnStock.Location = new System.Drawing.Point(665, 54);
+            this.btnStock.Location = new System.Drawing.Point(537, 59);
             this.btnStock.Name = "btnStock";
             this.btnStock.Rotation = 0;
             this.btnStock.ShowActiveImage = true;
@@ -423,7 +423,7 @@
             this.lblStock.BackColor = System.Drawing.Color.Transparent;
             this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStock.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblStock.Location = new System.Drawing.Point(690, 150);
+            this.lblStock.Location = new System.Drawing.Point(554, 155);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(57, 27);
             this.lblStock.TabIndex = 81;
@@ -434,7 +434,7 @@
             this.lblCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblCategory.Location = new System.Drawing.Point(778, 149);
+            this.lblCategory.Location = new System.Drawing.Point(783, 158);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(175, 27);
             this.lblCategory.TabIndex = 83;
@@ -461,7 +461,7 @@
             this.btnCategory.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnCategory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCategory.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCategory.InitialImage")));
-            this.btnCategory.Location = new System.Drawing.Point(823, 52);
+            this.btnCategory.Location = new System.Drawing.Point(830, 58);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Rotation = 0;
             this.btnCategory.ShowActiveImage = true;
@@ -497,7 +497,7 @@
             this.btnSaleAndBuy.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnSaleAndBuy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSaleAndBuy.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnSaleAndBuy.InitialImage")));
-            this.btnSaleAndBuy.Location = new System.Drawing.Point(18, 207);
+            this.btnSaleAndBuy.Location = new System.Drawing.Point(668, 57);
             this.btnSaleAndBuy.Name = "btnSaleAndBuy";
             this.btnSaleAndBuy.Rotation = 0;
             this.btnSaleAndBuy.ShowActiveImage = true;
@@ -517,7 +517,7 @@
             this.lblSaleAndBuy.BackColor = System.Drawing.Color.Transparent;
             this.lblSaleAndBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSaleAndBuy.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblSaleAndBuy.Location = new System.Drawing.Point(7, 314);
+            this.lblSaleAndBuy.Location = new System.Drawing.Point(652, 155);
             this.lblSaleAndBuy.Name = "lblSaleAndBuy";
             this.lblSaleAndBuy.Size = new System.Drawing.Size(125, 27);
             this.lblSaleAndBuy.TabIndex = 86;

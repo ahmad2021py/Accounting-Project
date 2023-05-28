@@ -129,7 +129,7 @@ namespace Accounting.GUI.Forms
 
         private void btnSaleAndBuy_Click(object sender, EventArgs e)
         {
-            frmSale frm = new frmSale();
+            frmSaleAndBuy frm = new frmSaleAndBuy();
             frm.ShowDialog();
             this.Hide();
         }

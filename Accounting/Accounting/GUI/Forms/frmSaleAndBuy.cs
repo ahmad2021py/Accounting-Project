@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
 {
-    public partial class frmSale : Form
+    public partial class frmSaleAndBuy : Form
     {
-        public frmSale()
+        public frmSaleAndBuy()
         {
             InitializeComponent();
         }
