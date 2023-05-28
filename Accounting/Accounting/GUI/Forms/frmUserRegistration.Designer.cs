@@ -74,6 +74,7 @@ namespace Accounting.GUI.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnShowUserRecords = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -772,11 +773,38 @@ namespace Accounting.GUI.Forms
             this.label2.Text = "نقش : ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnShowUserRecords
+            // 
+            this.btnShowUserRecords.ActiveBorderThickness = 1;
+            this.btnShowUserRecords.ActiveCornerRadius = 20;
+            this.btnShowUserRecords.ActiveFillColor = System.Drawing.Color.Red;
+            this.btnShowUserRecords.ActiveForecolor = System.Drawing.Color.White;
+            this.btnShowUserRecords.ActiveLineColor = System.Drawing.Color.Red;
+            this.btnShowUserRecords.BackColor = System.Drawing.SystemColors.Control;
+            this.btnShowUserRecords.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowUserRecords.BackgroundImage")));
+            this.btnShowUserRecords.ButtonText = "لیست";
+            this.btnShowUserRecords.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShowUserRecords.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowUserRecords.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnShowUserRecords.IdleBorderThickness = 1;
+            this.btnShowUserRecords.IdleCornerRadius = 20;
+            this.btnShowUserRecords.IdleFillColor = System.Drawing.Color.White;
+            this.btnShowUserRecords.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnShowUserRecords.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnShowUserRecords.Location = new System.Drawing.Point(505, 492);
+            this.btnShowUserRecords.Margin = new System.Windows.Forms.Padding(5);
+            this.btnShowUserRecords.Name = "btnShowUserRecords";
+            this.btnShowUserRecords.Size = new System.Drawing.Size(108, 69);
+            this.btnShowUserRecords.TabIndex = 89;
+            this.btnShowUserRecords.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnShowUserRecords.Click += new System.EventHandler(this.btnShowUserRecords_Click);
+            // 
             // frmUserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 575);
+            this.Controls.Add(this.btnShowUserRecords);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
@@ -803,6 +831,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "مدیریت کاربران";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUserRegistration_FormClosed);
             this.Load += new System.EventHandler(this.frmUserRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).EndInit();
             this.ResumeLayout(false);
@@ -831,5 +860,6 @@ namespace Accounting.GUI.Forms
         internal System.Windows.Forms.Label label7;
         internal System.Windows.Forms.Label label5;
         internal System.Windows.Forms.Label label2;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnShowUserRecords;
     }
 }

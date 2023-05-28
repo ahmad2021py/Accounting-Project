@@ -279,6 +279,18 @@ namespace Accounting.GUI.Forms
         {
            
         }
+
+        private void frmUserRegistration_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WorkWithGlobalForms.frmMainMenu.Show();
+            this.Close();
+        }
+
+        private void btnShowUserRecords_Click(object sender, EventArgs e)
+        {
+            frmUserReords frm = new frmUserReords();
+            frm.ShowDialog();
+        }
     }
 
 }

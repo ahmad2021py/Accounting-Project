@@ -947,6 +947,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "انبار";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmStock_FormClosed);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

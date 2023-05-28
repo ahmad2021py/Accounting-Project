@@ -260,7 +260,14 @@ namespace Accounting.GUI.Forms
 
         }
 
-        
+        private void frmCustomer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+            WorkWithGlobalForms.frmMainMenu.Show();
+            this.Close();
+        }
+
+
 
 
 

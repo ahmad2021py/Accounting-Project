@@ -63,6 +63,16 @@ namespace Accounting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Category {
+            get {
+                object obj = ResourceManager.GetObject("Category", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Company_256 {
             get {
                 object obj = ResourceManager.GetObject("Company_256", resourceCulture);
@@ -256,6 +266,16 @@ namespace Accounting.Properties {
         internal static System.Drawing.Bitmap main_background {
             get {
                 object obj = ResourceManager.GetObject("main_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SaleAndBuy {
+            get {
+                object obj = ResourceManager.GetObject("SaleAndBuy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

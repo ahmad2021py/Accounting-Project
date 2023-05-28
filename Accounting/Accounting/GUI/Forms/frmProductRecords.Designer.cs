@@ -417,6 +417,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DGV1);
             this.Controls.Add(this.btnExport);
+            this.MaximizeBox = false;
             this.Name = "frmProductRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

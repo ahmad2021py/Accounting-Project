@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.Utilities;
 using AccountingDLL;
 using System;
 using System.Collections.Generic;
@@ -121,6 +122,10 @@ namespace Accounting.GUI.Forms
             frm.ShowDialog();
         }
 
-      
+        private void frmCategory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WorkWithGlobalForms.frmMainMenu.Show();
+            this.Close();
+        }
     }
 }

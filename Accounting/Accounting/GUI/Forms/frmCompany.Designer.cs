@@ -251,6 +251,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "شرکت ها";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCompany_FormClosed);
             this.Load += new System.EventHandler(this.frmCompany_Load);
             this.ResumeLayout(false);
 

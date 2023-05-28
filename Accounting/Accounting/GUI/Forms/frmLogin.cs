@@ -28,6 +28,7 @@ namespace Accounting.GUI.Forms
         {
             this.Hide();
             frmMainMenu frm = new frmMainMenu();
+            WorkWithGlobalForms.frmMainMenu= frm;
             frm.Show();
             //frm.lblUser.Text = cbRole.Text;
             //frm.toolStripStatusLabel3.Text = UserTemp.UserName;
@@ -41,9 +42,7 @@ namespace Accounting.GUI.Forms
                 frm.btnRegistration.Visible = false;
                 frm.lblRegistration.Visible = false;
                 // Hide btnUsers
-                frm.btnUsers.Enabled = false;
-                frm.btnUsers.Visible = false;
-                frm.lblUsers.Visible = false;
+           
             }
             else if (cbRole.Text == "Employee")
             {
@@ -52,10 +51,7 @@ namespace Accounting.GUI.Forms
                 frm.btnRegistration.Visible = false;
                 frm.lblRegistration.Visible = false;
                 // Hide btnUsers
-                frm.btnUsers.Enabled = false;
-                frm.btnUsers.Visible = false;
-                frm.lblUsers.Visible = false;
-
+             
                 //  frm.btnModify.Enabled = false;
                 // btnInvoiceRpt.Enabled = false;
                 //  frm.butonInvoice.Enabled = false;

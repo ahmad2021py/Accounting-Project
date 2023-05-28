@@ -90,12 +90,15 @@ namespace Accounting.GUI.Forms
         {
             frmProduct frm = new frmProduct();
             frm.ShowDialog();
+            this.Hide();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             frmCustomer frm = new frmCustomer();
             frm.ShowDialog();
+            this.Hide();
+
         }
 
         private void btnCompany_Click(object sender, EventArgs e)
@@ -114,6 +117,21 @@ namespace Accounting.GUI.Forms
         {
             frmStock frm = new frmStock();
             frm.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            frmCategory frm = new frmCategory();
+            frm.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnSaleAndBuy_Click(object sender, EventArgs e)
+        {
+            frmSale frm = new frmSale();
+            frm.ShowDialog();
+            this.Hide();
         }
     }
 }

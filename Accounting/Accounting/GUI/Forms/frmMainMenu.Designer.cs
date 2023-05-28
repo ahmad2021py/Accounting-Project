@@ -33,8 +33,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.خروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnUsers = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.lblUsers = new System.Windows.Forms.Label();
             this.btnRegistration = new Bunifu.UI.WinForms.BunifuImageButton();
             this.lblRegistration = new System.Windows.Forms.Label();
             this.btnCompany = new Bunifu.UI.WinForms.BunifuImageButton();
@@ -52,6 +50,10 @@
             this.lblProducts = new System.Windows.Forms.Label();
             this.btnStock = new Bunifu.UI.WinForms.BunifuImageButton();
             this.lblStock = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.btnCategory = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.btnSaleAndBuy = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.lblSaleAndBuy = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -80,53 +82,6 @@
             this.خروجToolStripMenuItem.Text = "خروج";
             this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
-            // btnUsers
-            // 
-            this.btnUsers.ActiveImage = null;
-            this.btnUsers.AllowAnimations = true;
-            this.btnUsers.AllowBuffering = false;
-            this.btnUsers.AllowToggling = false;
-            this.btnUsers.AllowZooming = true;
-            this.btnUsers.AllowZoomingOnFocus = false;
-            this.btnUsers.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnUsers.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnUsers.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnUsers.ErrorImage")));
-            this.btnUsers.FadeWhenInactive = false;
-            this.btnUsers.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.btnUsers.Image = global::Accounting.Properties.Resources.icons8_team_48px;
-            this.btnUsers.ImageActive = null;
-            this.btnUsers.ImageLocation = "";
-            this.btnUsers.ImageMargin = 10;
-            this.btnUsers.ImageSize = new System.Drawing.Size(80, 80);
-            this.btnUsers.ImageZoomSize = new System.Drawing.Size(90, 90);
-            this.btnUsers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnUsers.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnUsers.InitialImage")));
-            this.btnUsers.Location = new System.Drawing.Point(124, 360);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Rotation = 0;
-            this.btnUsers.ShowActiveImage = true;
-            this.btnUsers.ShowCursorChanges = true;
-            this.btnUsers.ShowImageBorders = true;
-            this.btnUsers.ShowSizeMarkers = false;
-            this.btnUsers.Size = new System.Drawing.Size(90, 90);
-            this.btnUsers.TabIndex = 67;
-            this.btnUsers.ToolTipText = "";
-            this.btnUsers.WaitOnLoad = false;
-            this.btnUsers.Zoom = 10;
-            this.btnUsers.ZoomSpeed = 10;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
-            // 
-            // lblUsers
-            // 
-            this.lblUsers.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsers.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblUsers.Location = new System.Drawing.Point(129, 458);
-            this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(80, 41);
-            this.lblUsers.TabIndex = 68;
-            this.lblUsers.Text = "کاربران";
-            // 
             // btnRegistration
             // 
             this.btnRegistration.ActiveImage = null;
@@ -148,7 +103,7 @@
             this.btnRegistration.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnRegistration.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnRegistration.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnRegistration.InitialImage")));
-            this.btnRegistration.Location = new System.Drawing.Point(255, 360);
+            this.btnRegistration.Location = new System.Drawing.Point(146, 54);
             this.btnRegistration.Name = "btnRegistration";
             this.btnRegistration.Rotation = 0;
             this.btnRegistration.ShowActiveImage = true;
@@ -168,9 +123,9 @@
             this.lblRegistration.BackColor = System.Drawing.Color.Transparent;
             this.lblRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistration.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblRegistration.Location = new System.Drawing.Point(229, 458);
+            this.lblRegistration.Location = new System.Drawing.Point(129, 152);
             this.lblRegistration.Name = "lblRegistration";
-            this.lblRegistration.Size = new System.Drawing.Size(146, 41);
+            this.lblRegistration.Size = new System.Drawing.Size(141, 41);
             this.lblRegistration.TabIndex = 68;
             this.lblRegistration.Text = "مدیریت کاربران";
             // 
@@ -195,7 +150,7 @@
             this.btnCompany.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnCompany.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCompany.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCompany.InitialImage")));
-            this.btnCompany.Location = new System.Drawing.Point(379, 360);
+            this.btnCompany.Location = new System.Drawing.Point(277, 54);
             this.btnCompany.Name = "btnCompany";
             this.btnCompany.Rotation = 0;
             this.btnCompany.ShowActiveImage = true;
@@ -215,7 +170,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(376, 457);
+            this.label3.Location = new System.Drawing.Point(274, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 41);
             this.label3.TabIndex = 72;
@@ -242,7 +197,7 @@
             this.btnProdut.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnProdut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnProdut.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnProdut.InitialImage")));
-            this.btnProdut.Location = new System.Drawing.Point(515, 360);
+            this.btnProdut.Location = new System.Drawing.Point(406, 54);
             this.btnProdut.Name = "btnProdut";
             this.btnProdut.Rotation = 0;
             this.btnProdut.ShowActiveImage = true;
@@ -262,7 +217,7 @@
             this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomer.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblCustomer.Location = new System.Drawing.Point(664, 458);
+            this.lblCustomer.Location = new System.Drawing.Point(555, 152);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(76, 27);
             this.lblCustomer.TabIndex = 72;
@@ -289,7 +244,7 @@
             this.btnfrmLoginDetails.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnfrmLoginDetails.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnfrmLoginDetails.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnfrmLoginDetails.InitialImage")));
-            this.btnfrmLoginDetails.Location = new System.Drawing.Point(12, 360);
+            this.btnfrmLoginDetails.Location = new System.Drawing.Point(18, 54);
             this.btnfrmLoginDetails.Name = "btnfrmLoginDetails";
             this.btnfrmLoginDetails.Rotation = 0;
             this.btnfrmLoginDetails.ShowActiveImage = true;
@@ -309,7 +264,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label1.Location = new System.Drawing.Point(2, 458);
+            this.label1.Location = new System.Drawing.Point(8, 152);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 41);
             this.label1.TabIndex = 72;
@@ -401,7 +356,7 @@
             this.btnCustomer.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnCustomer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnCustomer.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.InitialImage")));
-            this.btnCustomer.Location = new System.Drawing.Point(651, 360);
+            this.btnCustomer.Location = new System.Drawing.Point(542, 54);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Rotation = 0;
             this.btnCustomer.ShowActiveImage = true;
@@ -421,7 +376,7 @@
             this.lblProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProducts.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblProducts.Location = new System.Drawing.Point(520, 458);
+            this.lblProducts.Location = new System.Drawing.Point(411, 152);
             this.lblProducts.Name = "lblProducts";
             this.lblProducts.Size = new System.Drawing.Size(94, 27);
             this.lblProducts.TabIndex = 78;
@@ -448,7 +403,7 @@
             this.btnStock.ImageZoomSize = new System.Drawing.Size(90, 90);
             this.btnStock.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnStock.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnStock.InitialImage")));
-            this.btnStock.Location = new System.Drawing.Point(774, 360);
+            this.btnStock.Location = new System.Drawing.Point(665, 54);
             this.btnStock.Name = "btnStock";
             this.btnStock.Rotation = 0;
             this.btnStock.ShowActiveImage = true;
@@ -468,11 +423,105 @@
             this.lblStock.BackColor = System.Drawing.Color.Transparent;
             this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStock.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblStock.Location = new System.Drawing.Point(799, 462);
+            this.lblStock.Location = new System.Drawing.Point(690, 150);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(57, 27);
             this.lblStock.TabIndex = 81;
             this.lblStock.Text = "انبار";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.BackColor = System.Drawing.Color.Transparent;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblCategory.Location = new System.Drawing.Point(778, 149);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(175, 27);
+            this.lblCategory.TabIndex = 83;
+            this.lblCategory.Text = "دسته بندی محصولات";
+            // 
+            // btnCategory
+            // 
+            this.btnCategory.ActiveImage = null;
+            this.btnCategory.AllowAnimations = true;
+            this.btnCategory.AllowBuffering = false;
+            this.btnCategory.AllowToggling = false;
+            this.btnCategory.AllowZooming = true;
+            this.btnCategory.AllowZoomingOnFocus = false;
+            this.btnCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCategory.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCategory.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnCategory.ErrorImage")));
+            this.btnCategory.FadeWhenInactive = false;
+            this.btnCategory.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnCategory.Image = global::Accounting.Properties.Resources.Category;
+            this.btnCategory.ImageActive = null;
+            this.btnCategory.ImageLocation = "";
+            this.btnCategory.ImageMargin = 10;
+            this.btnCategory.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnCategory.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.btnCategory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCategory.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCategory.InitialImage")));
+            this.btnCategory.Location = new System.Drawing.Point(823, 52);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Rotation = 0;
+            this.btnCategory.ShowActiveImage = true;
+            this.btnCategory.ShowCursorChanges = true;
+            this.btnCategory.ShowImageBorders = true;
+            this.btnCategory.ShowSizeMarkers = false;
+            this.btnCategory.Size = new System.Drawing.Size(90, 90);
+            this.btnCategory.TabIndex = 84;
+            this.btnCategory.ToolTipText = "";
+            this.btnCategory.WaitOnLoad = false;
+            this.btnCategory.Zoom = 10;
+            this.btnCategory.ZoomSpeed = 10;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
+            // 
+            // btnSaleAndBuy
+            // 
+            this.btnSaleAndBuy.ActiveImage = null;
+            this.btnSaleAndBuy.AllowAnimations = true;
+            this.btnSaleAndBuy.AllowBuffering = false;
+            this.btnSaleAndBuy.AllowToggling = false;
+            this.btnSaleAndBuy.AllowZooming = true;
+            this.btnSaleAndBuy.AllowZoomingOnFocus = false;
+            this.btnSaleAndBuy.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSaleAndBuy.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSaleAndBuy.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnSaleAndBuy.ErrorImage")));
+            this.btnSaleAndBuy.FadeWhenInactive = false;
+            this.btnSaleAndBuy.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnSaleAndBuy.Image = global::Accounting.Properties.Resources.SaleAndBuy;
+            this.btnSaleAndBuy.ImageActive = null;
+            this.btnSaleAndBuy.ImageLocation = "";
+            this.btnSaleAndBuy.ImageMargin = 10;
+            this.btnSaleAndBuy.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnSaleAndBuy.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.btnSaleAndBuy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSaleAndBuy.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnSaleAndBuy.InitialImage")));
+            this.btnSaleAndBuy.Location = new System.Drawing.Point(18, 207);
+            this.btnSaleAndBuy.Name = "btnSaleAndBuy";
+            this.btnSaleAndBuy.Rotation = 0;
+            this.btnSaleAndBuy.ShowActiveImage = true;
+            this.btnSaleAndBuy.ShowCursorChanges = true;
+            this.btnSaleAndBuy.ShowImageBorders = true;
+            this.btnSaleAndBuy.ShowSizeMarkers = false;
+            this.btnSaleAndBuy.Size = new System.Drawing.Size(90, 90);
+            this.btnSaleAndBuy.TabIndex = 87;
+            this.btnSaleAndBuy.ToolTipText = "";
+            this.btnSaleAndBuy.WaitOnLoad = false;
+            this.btnSaleAndBuy.Zoom = 10;
+            this.btnSaleAndBuy.ZoomSpeed = 10;
+            this.btnSaleAndBuy.Click += new System.EventHandler(this.btnSaleAndBuy_Click);
+            // 
+            // lblSaleAndBuy
+            // 
+            this.lblSaleAndBuy.BackColor = System.Drawing.Color.Transparent;
+            this.lblSaleAndBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaleAndBuy.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblSaleAndBuy.Location = new System.Drawing.Point(7, 314);
+            this.lblSaleAndBuy.Name = "lblSaleAndBuy";
+            this.lblSaleAndBuy.Size = new System.Drawing.Size(125, 27);
+            this.lblSaleAndBuy.TabIndex = 86;
+            this.lblSaleAndBuy.Text = "خرید و فروش";
             // 
             // frmMainMenu
             // 
@@ -482,6 +531,10 @@
             this.BackgroundImage = global::Accounting.Properties.Resources.main_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 555);
+            this.Controls.Add(this.btnSaleAndBuy);
+            this.Controls.Add(this.lblSaleAndBuy);
+            this.Controls.Add(this.btnCategory);
+            this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.lblProducts);
@@ -494,9 +547,7 @@
             this.Controls.Add(this.btnProdut);
             this.Controls.Add(this.btnCompany);
             this.Controls.Add(this.lblRegistration);
-            this.Controls.Add(this.lblUsers);
             this.Controls.Add(this.btnRegistration);
-            this.Controls.Add(this.btnUsers);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -524,10 +575,8 @@
         private System.Windows.Forms.ToolStripMenuItem خروجToolStripMenuItem;
         private Bunifu.UI.WinForms.BunifuImageButton btnCompany;
         private System.Windows.Forms.Label label3;
-        public Bunifu.UI.WinForms.BunifuImageButton btnUsers;
         public Bunifu.UI.WinForms.BunifuImageButton btnRegistration;
         public System.Windows.Forms.Label lblRegistration;
-        public System.Windows.Forms.Label lblUsers;
         private Bunifu.UI.WinForms.BunifuImageButton btnProdut;
         private System.Windows.Forms.Label lblCustomer;
         private Bunifu.UI.WinForms.BunifuImageButton btnfrmLoginDetails;
@@ -541,5 +590,9 @@
         private System.Windows.Forms.Label lblProducts;
         private Bunifu.UI.WinForms.BunifuImageButton btnStock;
         private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.Label lblCategory;
+        private Bunifu.UI.WinForms.BunifuImageButton btnCategory;
+        private Bunifu.UI.WinForms.BunifuImageButton btnSaleAndBuy;
+        private System.Windows.Forms.Label lblSaleAndBuy;
     }
 }

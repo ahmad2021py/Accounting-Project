@@ -310,7 +310,7 @@ namespace Accounting.GUI.Forms
             this.btnExport.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnExport.IdleLineColor = System.Drawing.Color.SeaGreen;
             this.btnExport.Location = new System.Drawing.Point(16, 473);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(7);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(104, 50);
             this.btnExport.TabIndex = 83;
@@ -379,6 +379,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.DGV1);
+            this.MaximizeBox = false;
             this.Name = "frmStockRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

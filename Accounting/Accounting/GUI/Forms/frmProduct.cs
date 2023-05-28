@@ -445,6 +445,15 @@ namespace Accounting.GUI.Forms
 
         }
 
+        private void frmProduct_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            WorkWithGlobalForms.frmMainMenu.Show();
+            this.Close();
+
+
+        }
+
 
 
 
