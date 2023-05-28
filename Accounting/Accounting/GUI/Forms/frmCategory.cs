@@ -62,7 +62,7 @@ namespace Accounting.GUI.Forms
                         Record.CategoryName = txtCategoryName.Text;
                         if (_CategoryRepository.Add<Category>(Record))
                         {
-                            MessageBox.Show("شرکت با موفقیت اضافه شد");
+                            MessageBox.Show("دسته بندی  با موفقیت اضافه شد");
                             txtCategoryName.Text = "";
                             _UnitOfWork.Save();
 

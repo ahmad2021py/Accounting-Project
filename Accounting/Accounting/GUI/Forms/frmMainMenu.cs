@@ -88,7 +88,7 @@ namespace Accounting.GUI.Forms
 
         private void btnProdut_Click(object sender, EventArgs e)
         {
-            frmLoginDetails frm = new frmLoginDetails();
+            frmProduct frm = new frmProduct();
             frm.ShowDialog();
         }
 
@@ -107,6 +107,12 @@ namespace Accounting.GUI.Forms
         private void btnfrmLoginDetails_Click(object sender, EventArgs e)
         {
             frmLoginDetails frm=new frmLoginDetails();
+            frm.ShowDialog();
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            frmStock frm = new frmStock();
             frm.ShowDialog();
         }
     }

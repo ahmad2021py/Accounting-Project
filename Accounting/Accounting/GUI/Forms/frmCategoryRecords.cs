@@ -1,6 +1,8 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.Utilities;
+using AccountingDLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,24 +22,136 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
-        private  void frmCategoryRecords_Load(object sender, EventArgs e)
+        void LoadData()
         {
-           
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
                 try
                 {
-                    DGV1.DataSource = _CategoryRepository.GetAll<Category>(n=>n==n);
-                    DGV1.Columns[0].HeaderText = " کد دسته بندی";
-                    DGV1.Columns[1].HeaderText = " نام دسته بندی";
+                    //--------
+                    DGV1.DataSource = _CategoryRepository.GetAll<Category>(n => n == n);
+                    DGV1.Columns["id"].HeaderText = " کد دسته";
+                    DGV1.Columns["CategoryName"].HeaderText = " نام دسنه";
+                    //----------------------------------
+
+
                 }
                 catch
                 {
                     MessageBox.Show(" خطایی رخ داده است");
                 }
-
             }
         }
+
+
+        private  void frmCategoryRecords_Load(object sender, EventArgs e)
+        {
+
+            LoadData();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            WorkWithExcel.ExportExcel(DGV1);
+        }
+
+ 
+           
+
+        private void txtCategoryId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCategoryId.Text == "")
+            {
+                LoadData();
+                return;
+            }
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtCategoryId.Text);
+            if (!ValidationResult)
+            {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtCategoryId.Text = "";
+                return;
+            }
+     
+
+
+         
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                {
+                    ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
+                    try
+                    {
+
+
+                        long CategoryId = long.Parse(txtCategoryId.Text);
+                        DGV1.DataSource = _CategoryRepository.GetAll<Category>(n => n.id.ToString().Contains(CategoryId.ToString()) );
+                       
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" خطایی رخ داده است");
+                    }
+
+                
+            }
+        }
+
+        private void txtCategoryName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCategoryName.Text == "")
+            {
+                LoadData();
+            }
+
+
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                {
+                    ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
+                    try
+                    {
+
+
+                      
+                        DGV1.DataSource = _CategoryRepository.GetAll<Category>(n => n.CategoryName.Contains(txtCategoryName.Text) );
+
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" خطایی رخ داده است");
+                    }
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //------------------------------------------
     }
 }

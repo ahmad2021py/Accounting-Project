@@ -50,6 +50,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCustomer = new Bunifu.UI.WinForms.BunifuImageButton();
             this.lblProducts = new System.Windows.Forms.Label();
+            this.btnStock = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.lblStock = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -425,6 +427,53 @@
             this.lblProducts.TabIndex = 78;
             this.lblProducts.Text = "محصولات";
             // 
+            // btnStock
+            // 
+            this.btnStock.ActiveImage = null;
+            this.btnStock.AllowAnimations = true;
+            this.btnStock.AllowBuffering = false;
+            this.btnStock.AllowToggling = false;
+            this.btnStock.AllowZooming = true;
+            this.btnStock.AllowZoomingOnFocus = false;
+            this.btnStock.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnStock.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnStock.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnStock.ErrorImage")));
+            this.btnStock.FadeWhenInactive = false;
+            this.btnStock.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnStock.Image = global::Accounting.Properties.Resources.Stock_Pic;
+            this.btnStock.ImageActive = null;
+            this.btnStock.ImageLocation = "";
+            this.btnStock.ImageMargin = 10;
+            this.btnStock.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnStock.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.btnStock.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnStock.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnStock.InitialImage")));
+            this.btnStock.Location = new System.Drawing.Point(774, 360);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Rotation = 0;
+            this.btnStock.ShowActiveImage = true;
+            this.btnStock.ShowCursorChanges = true;
+            this.btnStock.ShowImageBorders = true;
+            this.btnStock.ShowSizeMarkers = false;
+            this.btnStock.Size = new System.Drawing.Size(90, 90);
+            this.btnStock.TabIndex = 80;
+            this.btnStock.ToolTipText = "";
+            this.btnStock.WaitOnLoad = false;
+            this.btnStock.Zoom = 10;
+            this.btnStock.ZoomSpeed = 10;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            // 
+            // lblStock
+            // 
+            this.lblStock.BackColor = System.Drawing.Color.Transparent;
+            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblStock.Location = new System.Drawing.Point(799, 462);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(57, 27);
+            this.lblStock.TabIndex = 81;
+            this.lblStock.Text = "انبار";
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -433,6 +482,8 @@
             this.BackgroundImage = global::Accounting.Properties.Resources.main_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(969, 555);
+            this.Controls.Add(this.lblStock);
+            this.Controls.Add(this.btnStock);
             this.Controls.Add(this.lblProducts);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -488,5 +539,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.UI.WinForms.BunifuImageButton btnCustomer;
         private System.Windows.Forms.Label lblProducts;
+        private Bunifu.UI.WinForms.BunifuImageButton btnStock;
+        private System.Windows.Forms.Label lblStock;
     }
 }

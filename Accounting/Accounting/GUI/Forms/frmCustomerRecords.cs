@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.Utilities;
 using AccountingDLL;
 using Stimulsoft.Report;
 using System;
@@ -80,8 +81,14 @@ namespace Accounting.GUI.Forms
             {
                 LoadData();
             }
-            else
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtNationalCode.Text);
+            if (!ValidationResult)
             {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtNationalCode.Text = "";
+                return;
+            }
+          
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     ICustomerRepository _customerRepository = _UnitOfWork.CustomerRepository;
@@ -96,7 +103,7 @@ namespace Accounting.GUI.Forms
                         MessageBox.Show(" خطایی رخ داده است");
                     }
 
-                }
+                
             }
         }
 
@@ -140,6 +147,37 @@ namespace Accounting.GUI.Forms
             stiReport1["ZipCode"] = "u";
             //Show
             stiReport1.Show();
+        }
+
+        private void txtCustomerName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCustomerName.Text == "")
+            {
+                LoadData();
+            }
+
+
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                {
+                    ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
+                    try
+                    {
+
+
+
+                        DGV1.DataSource = _CustomerRepository.GetAll<Customer>(n => n.Name.Contains(txtCustomerName.Text));
+
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show(" خطایی رخ داده است");
+                    }
+
+                }
+            }
         }
 
 

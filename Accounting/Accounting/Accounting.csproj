@@ -312,6 +312,12 @@
     <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmSale.Designer.cs">
+      <DependentUpon>frmSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmSale.resx">
+      <DependentUpon>frmSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
@@ -530,6 +539,8 @@
     <Content Include="bin\Debug\Stimulsoft.Report.Web.dll" />
     <Content Include="bin\Debug\Stimulsoft.Report.Win.dll" />
     <None Include="GUI\Resourses\icons8_user_100px.png" />
+    <None Include="GUI\Resourses\Stock.ico" />
+    <None Include="GUI\Resourses\Stock_Pic.png" />
     <Content Include="Utilities\BPersianCalender.dll" />
     <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\CHANGELOG.txt" />
     <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\Icon.png" />

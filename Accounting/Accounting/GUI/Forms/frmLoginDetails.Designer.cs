@@ -47,7 +47,7 @@ namespace Accounting.GUI.Forms
             this.lblRegistration.Name = "lblRegistration";
             this.lblRegistration.Size = new System.Drawing.Size(146, 41);
             this.lblRegistration.TabIndex = 69;
-            this.lblRegistration.Text = "نام کاربری";
+            this.lblRegistration.Text = "نام کاربری : ";
             // 
             // label1
             // 
@@ -58,7 +58,7 @@ namespace Accounting.GUI.Forms
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 41);
             this.label1.TabIndex = 69;
-            this.label1.Text = "سطح دسترسی";
+            this.label1.Text = "سطح دسترسی : ";
             // 
             // label2
             // 
@@ -69,16 +69,16 @@ namespace Accounting.GUI.Forms
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 41);
             this.label2.TabIndex = 69;
-            this.label2.Text = "زمان ورود";
+            this.label2.Text = "زمان ورود : ";
             // 
             // lblUserLoginTime
             // 
             this.lblUserLoginTime.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserLoginTime.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblUserLoginTime.Location = new System.Drawing.Point(245, 178);
+            this.lblUserLoginTime.Location = new System.Drawing.Point(228, 178);
             this.lblUserLoginTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserLoginTime.Name = "lblUserLoginTime";
-            this.lblUserLoginTime.Size = new System.Drawing.Size(407, 28);
+            this.lblUserLoginTime.Size = new System.Drawing.Size(323, 28);
             this.lblUserLoginTime.TabIndex = 71;
             this.lblUserLoginTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -86,10 +86,10 @@ namespace Accounting.GUI.Forms
             // 
             this.lblUserRole.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserRole.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblUserRole.Location = new System.Drawing.Point(245, 96);
+            this.lblUserRole.Location = new System.Drawing.Point(235, 95);
             this.lblUserRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserRole.Name = "lblUserRole";
-            this.lblUserRole.Size = new System.Drawing.Size(407, 28);
+            this.lblUserRole.Size = new System.Drawing.Size(316, 28);
             this.lblUserRole.TabIndex = 72;
             this.lblUserRole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -97,10 +97,10 @@ namespace Accounting.GUI.Forms
             // 
             this.lblUserName.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblUserName.Location = new System.Drawing.Point(245, 17);
+            this.lblUserName.Location = new System.Drawing.Point(259, 17);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(407, 28);
+            this.lblUserName.Size = new System.Drawing.Size(271, 28);
             this.lblUserName.TabIndex = 73;
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -108,7 +108,7 @@ namespace Accounting.GUI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 255);
+            this.ClientSize = new System.Drawing.Size(577, 255);
             this.Controls.Add(this.lblUserLoginTime);
             this.Controls.Add(this.lblUserRole);
             this.Controls.Add(this.lblUserName);

@@ -69,7 +69,7 @@ namespace Accounting.GUI.Forms
             this.txtCompanyName.IconRight = null;
             this.txtCompanyName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCompanyName.Lines = new string[0];
-            this.txtCompanyName.Location = new System.Drawing.Point(198, 110);
+            this.txtCompanyName.Location = new System.Drawing.Point(138, 144);
             this.txtCompanyName.MaxLength = 32767;
             this.txtCompanyName.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtCompanyName.Modified = false;
@@ -135,7 +135,7 @@ namespace Accounting.GUI.Forms
             this.btnSave.IdleFillColor = System.Drawing.Color.White;
             this.btnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.Location = new System.Drawing.Point(389, 261);
+            this.btnSave.Location = new System.Drawing.Point(506, 105);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 69);
@@ -147,12 +147,12 @@ namespace Accounting.GUI.Forms
             // 
             this.UsernameLabel.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLabel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.UsernameLabel.Location = new System.Drawing.Point(52, 115);
+            this.UsernameLabel.Location = new System.Drawing.Point(30, 152);
             this.UsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(81, 28);
+            this.UsernameLabel.Size = new System.Drawing.Size(101, 28);
             this.UsernameLabel.TabIndex = 62;
-            this.UsernameLabel.Text = "نام شرکت";
+            this.UsernameLabel.Text = "نام شرکت : ";
             this.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnNew
@@ -173,10 +173,10 @@ namespace Accounting.GUI.Forms
             this.btnNew.IdleFillColor = System.Drawing.Color.White;
             this.btnNew.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnNew.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnNew.Location = new System.Drawing.Point(138, 261);
+            this.btnNew.Location = new System.Drawing.Point(507, 26);
             this.btnNew.Margin = new System.Windows.Forms.Padding(5);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(109, 69);
+            this.btnNew.Size = new System.Drawing.Size(99, 69);
             this.btnNew.TabIndex = 8;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -199,7 +199,7 @@ namespace Accounting.GUI.Forms
             this.btnDelete.IdleFillColor = System.Drawing.Color.White;
             this.btnDelete.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnDelete.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnDelete.Location = new System.Drawing.Point(265, 261);
+            this.btnDelete.Location = new System.Drawing.Point(507, 184);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 69);
@@ -225,7 +225,7 @@ namespace Accounting.GUI.Forms
             this.btnGetData.IdleFillColor = System.Drawing.Color.White;
             this.btnGetData.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnGetData.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnGetData.Location = new System.Drawing.Point(16, 261);
+            this.btnGetData.Location = new System.Drawing.Point(505, 265);
             this.btnGetData.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.btnGetData.Name = "btnGetData";
             this.btnGetData.Size = new System.Drawing.Size(101, 69);
@@ -238,7 +238,7 @@ namespace Accounting.GUI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(503, 472);
+            this.ClientSize = new System.Drawing.Size(617, 346);
             this.Controls.Add(this.btnGetData);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.btnDelete);

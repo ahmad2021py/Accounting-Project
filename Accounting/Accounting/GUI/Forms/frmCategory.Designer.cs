@@ -60,7 +60,7 @@ namespace Accounting.GUI.Forms
             this.btnGetData.IdleFillColor = System.Drawing.Color.White;
             this.btnGetData.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnGetData.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnGetData.Location = new System.Drawing.Point(23, 280);
+            this.btnGetData.Location = new System.Drawing.Point(537, 265);
             this.btnGetData.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.btnGetData.Name = "btnGetData";
             this.btnGetData.Size = new System.Drawing.Size(101, 69);
@@ -77,7 +77,7 @@ namespace Accounting.GUI.Forms
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(126, 28);
             this.UsernameLabel.TabIndex = 68;
-            this.UsernameLabel.Text = "نام دسته بندی";
+            this.UsernameLabel.Text = "نام دسته بندی :";
             this.UsernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnDelete
@@ -98,7 +98,7 @@ namespace Accounting.GUI.Forms
             this.btnDelete.IdleFillColor = System.Drawing.Color.White;
             this.btnDelete.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnDelete.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnDelete.Location = new System.Drawing.Point(272, 280);
+            this.btnDelete.Location = new System.Drawing.Point(539, 180);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(99, 69);
@@ -124,10 +124,10 @@ namespace Accounting.GUI.Forms
             this.btnNew.IdleFillColor = System.Drawing.Color.White;
             this.btnNew.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnNew.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnNew.Location = new System.Drawing.Point(145, 280);
+            this.btnNew.Location = new System.Drawing.Point(539, 22);
             this.btnNew.Margin = new System.Windows.Forms.Padding(5);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(109, 69);
+            this.btnNew.Size = new System.Drawing.Size(100, 69);
             this.btnNew.TabIndex = 66;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -150,7 +150,7 @@ namespace Accounting.GUI.Forms
             this.btnSave.IdleFillColor = System.Drawing.Color.White;
             this.btnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.Location = new System.Drawing.Point(396, 280);
+            this.btnSave.Location = new System.Drawing.Point(539, 101);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 69);
@@ -238,7 +238,7 @@ namespace Accounting.GUI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(529, 417);
+            this.ClientSize = new System.Drawing.Size(648, 360);
             this.Controls.Add(this.btnGetData);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.btnDelete);
