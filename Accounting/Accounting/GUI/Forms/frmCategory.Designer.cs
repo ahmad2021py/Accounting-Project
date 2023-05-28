@@ -250,6 +250,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmCategory";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "دسته بندی";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCategory_FormClosed);
             this.ResumeLayout(false);

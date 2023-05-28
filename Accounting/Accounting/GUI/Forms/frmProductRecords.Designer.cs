@@ -417,10 +417,12 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DGV1);
             this.Controls.Add(this.btnExport);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmProductRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست محصولات";
             this.Load += new System.EventHandler(this.frmConfigRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();

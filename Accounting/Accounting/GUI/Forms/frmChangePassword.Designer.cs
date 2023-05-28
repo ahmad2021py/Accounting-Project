@@ -450,6 +450,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmChangePassword";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تغییر رمز عبور";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmChangePassword_FormClosing);
             this.ResumeLayout(false);

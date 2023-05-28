@@ -120,6 +120,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmLoginDetails";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "جزئیات ورود";
             this.Load += new System.EventHandler(this.frmLoginDetails_Load);
             this.ResumeLayout(false);

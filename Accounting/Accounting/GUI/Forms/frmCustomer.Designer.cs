@@ -897,6 +897,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmCustomer";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "مشتری";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCustomer_FormClosed);
             this.Load += new System.EventHandler(this.frmCustomer_Load);

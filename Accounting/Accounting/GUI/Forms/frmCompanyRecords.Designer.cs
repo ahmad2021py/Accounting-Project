@@ -325,6 +325,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmCompanyRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست شرکت ها";
             this.Load += new System.EventHandler(this.frmCompanyRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();

@@ -379,10 +379,12 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.DGV1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmStockRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "انبار";
             this.Load += new System.EventHandler(this.frmStockRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();

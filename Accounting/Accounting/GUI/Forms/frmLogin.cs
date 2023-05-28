@@ -145,5 +145,10 @@ namespace Accounting.GUI.Forms
             Frm.ShowDialog();
 
         }
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -422,6 +422,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmUserReords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "کاربران";
             this.Load += new System.EventHandler(this.frmLoginDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();

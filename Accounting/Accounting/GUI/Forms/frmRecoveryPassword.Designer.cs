@@ -231,7 +231,6 @@ namespace Accounting.GUI.Forms
             this.txtUserName.TextPlaceholder = "نام کاربری خود را وارد کنید";
             this.txtUserName.UseSystemPasswordChar = false;
             this.txtUserName.WordWrap = true;
-        
             // 
             // label1
             // 
@@ -262,6 +261,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmRecoveryPassword";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "بازیابی پسورد";
             this.ResumeLayout(false);
 

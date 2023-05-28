@@ -638,7 +638,7 @@ namespace Accounting.GUI.Forms
             this.PboxProductPicture.AllowFocused = false;
             this.PboxProductPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PboxProductPicture.AutoSizeHeight = true;
-            this.PboxProductPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(182)))));
+            this.PboxProductPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(157)))));
             this.PboxProductPicture.BorderRadius = 113;
             this.PboxProductPicture.Image = ((System.Drawing.Image)(resources.GetObject("PboxProductPicture.Image")));
             this.PboxProductPicture.IsCircle = true;
@@ -891,10 +891,12 @@ namespace Accounting.GUI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 561);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmProduct";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ویرایش و ثبت محصول";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProduct_FormClosed);
             this.Load += new System.EventHandler(this.frmProduct_Load);

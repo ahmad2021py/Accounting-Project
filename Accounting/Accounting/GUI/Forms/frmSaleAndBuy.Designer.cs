@@ -1040,6 +1040,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmSaleAndBuy";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "خرید و فروش";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSaleAndBuy_FormClosed);
             this.Load += new System.EventHandler(this.frmSale_Load);

@@ -135,18 +135,18 @@ namespace Accounting.GUI.Forms
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-           //Load File
-            stiReport1.Load(Application.StartupPath + "/Reports/Customer.mrt");
-            stiReport1.Compile();
-            //Set Variables
-            stiReport1["Name"] = "ahmad";
-            stiReport1["Email"] = "gmail.com";
-            stiReport1["Address"] = "شوشتر";
-            stiReport1["id"] = 4; 
-            stiReport1["NationalCode"] = 5558818125;
-            stiReport1["ZipCode"] = "u";
-            //Show
-            stiReport1.Show();
+           ////Load File
+           // stiReport1.Load(Application.StartupPath + "/Reports/Customer.mrt");
+           // stiReport1.Compile();
+           // //Set Variables
+           // stiReport1["Name"] = "ahmad";
+           // stiReport1["Email"] = "gmail.com";
+           // stiReport1["Address"] = "شوشتر";
+           // stiReport1["id"] = 4; 
+           // stiReport1["NationalCode"] = 5558818125;
+           // stiReport1["ZipCode"] = "u";
+           // //Show
+           // stiReport1.Show();
            
         }
 

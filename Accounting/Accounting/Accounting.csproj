@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Application.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AccountingDLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -459,6 +462,7 @@
     <None Include="GUI\Resourses\icons8_user_100px.png" />
     <None Include="GUI\Resourses\Stock.ico" />
     <None Include="GUI\Resourses\Stock_Pic.png" />
+    <Content Include="Application.ico" />
     <Content Include="bin\Debug\Accounting.exe" />
     <Content Include="bin\Debug\Accounting.pdb" />
     <Content Include="bin\Debug\AccountingDLL.dll" />

@@ -368,6 +368,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmCustomerRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست مشتریان";
             this.Load += new System.EventHandler(this.frmCustomerRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();

@@ -830,6 +830,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmUserRegistration";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "مدیریت کاربران";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUserRegistration_FormClosed);
             this.Load += new System.EventHandler(this.frmUserRegistration_Load);

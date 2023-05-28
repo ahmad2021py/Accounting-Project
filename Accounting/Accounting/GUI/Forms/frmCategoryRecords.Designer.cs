@@ -328,6 +328,7 @@ namespace Accounting.GUI.Forms
             this.Name = "frmCategoryRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست دسته بندی ها";
             this.Load += new System.EventHandler(this.frmCategoryRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
