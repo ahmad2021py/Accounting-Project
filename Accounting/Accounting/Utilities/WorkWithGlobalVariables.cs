@@ -17,7 +17,10 @@ namespace Accounting.Utilities
 
     public static class WorkWithGlobalForms
     {
-        public static frmMainMenu frmMainMenu;
+        public static  frmMainMenu frmMainMenu=null;
+        public static  frmCategory frmCategory = null;
+        public static  frmSaleAndBuy frmSaleAndBuy = null;
+
         public static string LoginedUserRole;
         public static DateTime LoginedUserTime;
     }

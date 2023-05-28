@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accounting.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,14 @@ namespace Accounting.GUI.Forms
 
         private void frmSale_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void frmSaleAndBuy_FormClosed(object sender, FormClosedEventArgs e)
+        {
+          
+            WorkWithGlobalForms.frmMainMenu.Show();
+            this.Hide();
 
         }
     }

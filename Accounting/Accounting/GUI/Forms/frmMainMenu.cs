@@ -50,16 +50,13 @@ namespace Accounting.GUI.Forms
 
      
 
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-            frmUserReords frm = new frmUserReords();
-            frm.ShowDialog();
-        }
+     
 
         private void btnRegistration_Click(object sender, EventArgs e)
         {
             frmUserRegistration frm = new frmUserRegistration();
-            frm.ShowDialog();
+            frm.Show();
+            this.Hide();
         }
 
         private void StatusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -82,21 +79,22 @@ namespace Accounting.GUI.Forms
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             frmCompany frm = new frmCompany();
-            frm.ShowDialog();
+            frm.Show();
+            this.Close();
 
         }
 
         private void btnProdut_Click(object sender, EventArgs e)
         {
             frmProduct frm = new frmProduct();
-            frm.ShowDialog();
+            frm.Show();
             this.Hide();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             frmCustomer frm = new frmCustomer();
-            frm.ShowDialog();
+            frm.Show();
             this.Hide();
 
         }
@@ -104,7 +102,8 @@ namespace Accounting.GUI.Forms
         private void btnCompany_Click(object sender, EventArgs e)
         {
             frmCompany frm = new frmCompany();
-            frm.ShowDialog();
+            frm.Show();
+            this.Hide();
         }
 
         private void btnfrmLoginDetails_Click(object sender, EventArgs e)
@@ -116,21 +115,22 @@ namespace Accounting.GUI.Forms
         private void btnStock_Click(object sender, EventArgs e)
         {
             frmStock frm = new frmStock();
-            frm.ShowDialog();
+            frm.Show();
             this.Hide();
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
             frmCategory frm = new frmCategory();
-            frm.ShowDialog();
+            frm.Show();
             this.Hide();
         }
 
         private void btnSaleAndBuy_Click(object sender, EventArgs e)
         {
             frmSaleAndBuy frm = new frmSaleAndBuy();
-            frm.ShowDialog();
+            WorkWithGlobalForms.frmSaleAndBuy = frm;
+            frm.Show();
             this.Hide();
         }
     }

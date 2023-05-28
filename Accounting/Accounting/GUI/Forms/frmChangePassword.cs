@@ -64,5 +64,13 @@ namespace Accounting.GUI.Forms
                 }
             }
         }
+
+        private void frmChangePassword_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+
+            frm.Show();
+            this.Hide();
+        }
     }
 }

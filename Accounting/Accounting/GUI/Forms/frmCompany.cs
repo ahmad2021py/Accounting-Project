@@ -128,7 +128,7 @@ namespace Accounting.GUI.Forms
         private void frmCompany_FormClosed(object sender, FormClosedEventArgs e)
         {
             WorkWithGlobalForms.frmMainMenu.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

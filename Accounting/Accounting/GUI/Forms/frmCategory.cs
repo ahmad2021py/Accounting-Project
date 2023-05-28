@@ -118,14 +118,17 @@ namespace Accounting.GUI.Forms
 
         private void btnGetData_Click(object sender, EventArgs e)
         {
+            txtCategoryName.Text = "";
             frmCategoryRecords frm = new frmCategoryRecords();
             frm.ShowDialog();
         }
 
         private void frmCategory_FormClosed(object sender, FormClosedEventArgs e)
         {
+         
+          
             WorkWithGlobalForms.frmMainMenu.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }

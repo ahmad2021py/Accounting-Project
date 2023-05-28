@@ -264,7 +264,7 @@ namespace Accounting.GUI.Forms
         {
            
             WorkWithGlobalForms.frmMainMenu.Show();
-            this.Close();
+            this.Hide();
         }
 
 

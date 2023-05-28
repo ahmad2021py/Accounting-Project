@@ -26,7 +26,7 @@ namespace Accounting.GUI.Forms
         #region frmMainInitialize Method
         void frmMainInitialize()
         {
-            this.Hide();
+          
             frmMainMenu frm = new frmMainMenu();
             WorkWithGlobalForms.frmMainMenu= frm;
             frm.Show();
@@ -57,6 +57,7 @@ namespace Accounting.GUI.Forms
                 //  frm.butonInvoice.Enabled = false;
                 // frm.btnInvoice.Enabled = false;
             }
+            this.Hide();
         }
         #endregion
 

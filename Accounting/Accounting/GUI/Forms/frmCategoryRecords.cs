@@ -129,6 +129,29 @@ namespace Accounting.GUI.Forms
             }
         }
 
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow dr = new DataGridViewRow();
+
+
+                frmCategory obj = new frmCategory();
+
+
+                obj.txtCategoryName.Text = dr.Cells["CategoryName"].Value.ToString();
+
+                obj.Show();
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("خطایی رخ داده");
+            }
+
+        }
+
+
 
 
 
