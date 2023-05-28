@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Accounting.Utilities
 {
-  public static  class AccountingEnums
+  public static  class WorkWithEnums
     {
 
 

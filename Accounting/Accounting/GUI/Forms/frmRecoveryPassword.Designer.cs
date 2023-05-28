@@ -231,7 +231,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.TextPlaceholder = "نام کاربری خود را وارد کنید";
             this.txtUserName.UseSystemPasswordChar = false;
             this.txtUserName.WordWrap = true;
-            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
+        
             // 
             // label1
             // 

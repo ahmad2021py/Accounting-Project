@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Utilities
 {
-    public static class Encryption
+    public static class WorkWithEncryption
     {
 
         

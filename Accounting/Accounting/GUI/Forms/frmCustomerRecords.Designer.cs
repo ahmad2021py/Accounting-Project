@@ -48,9 +48,11 @@ namespace Accounting.GUI.Forms
             this.btnPrint = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCustomerName = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV1
@@ -123,19 +125,19 @@ namespace Accounting.GUI.Forms
             this.btnExport.ActiveLineColor = System.Drawing.Color.Red;
             this.btnExport.BackColor = System.Drawing.SystemColors.Control;
             this.btnExport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExport.BackgroundImage")));
-            this.btnExport.ButtonText = "خروجی اکسل";
+            this.btnExport.ButtonText = "فایل اکسل";
             this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExport.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExport.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnExport.IdleBorderThickness = 1;
             this.btnExport.IdleCornerRadius = 20;
             this.btnExport.IdleFillColor = System.Drawing.Color.White;
             this.btnExport.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnExport.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnExport.Location = new System.Drawing.Point(140, 477);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnExport.Location = new System.Drawing.Point(109, 25);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(7);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(146, 68);
+            this.btnExport.Size = new System.Drawing.Size(97, 41);
             this.btnExport.TabIndex = 80;
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
@@ -238,17 +240,17 @@ namespace Accounting.GUI.Forms
             this.btnPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrint.BackgroundImage")));
             this.btnPrint.ButtonText = "چاپ";
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnPrint.IdleBorderThickness = 1;
             this.btnPrint.IdleCornerRadius = 20;
             this.btnPrint.IdleFillColor = System.Drawing.Color.White;
             this.btnPrint.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnPrint.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnPrint.Location = new System.Drawing.Point(4, 477);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.btnPrint.Location = new System.Drawing.Point(217, 24);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(129, 68);
+            this.btnPrint.Size = new System.Drawing.Size(69, 42);
             this.btnPrint.TabIndex = 80;
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPrint.Click += new System.EventHandler(this.btnReport_Click);
@@ -340,15 +342,26 @@ namespace Accounting.GUI.Forms
             this.txtCustomerName.WordWrap = true;
             this.txtCustomerName.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnPrint);
+            this.groupBox3.Controls.Add(this.btnExport);
+            this.groupBox3.ForeColor = System.Drawing.Color.OrangeRed;
+            this.groupBox3.Location = new System.Drawing.Point(10, 421);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(293, 122);
+            this.groupBox3.TabIndex = 82;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "خروجی گرفتن";
+            // 
             // frmCustomerRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 555);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.DGV1);
-            this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -360,6 +373,7 @@ namespace Accounting.GUI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +388,6 @@ namespace Accounting.GUI.Forms
         private Bunifu.Framework.UI.BunifuThinButton2 btnPrint;
         private System.Windows.Forms.GroupBox groupBox2;
         public Bunifu.UI.WinForms.BunifuTextBox txtCustomerName;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

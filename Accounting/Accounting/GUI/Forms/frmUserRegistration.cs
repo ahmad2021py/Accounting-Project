@@ -65,9 +65,11 @@ namespace Accounting.GUI.Forms
         #region Method For Reset textBoxes and other
         void Reset()
         {
+            cbRole.Text = "";
             txtUserName.Text = "";
             txtUserPass.Text = "";
             txtContactNo.Text = "";
+            txtName.Text = "";
             txtFamily.Text = "";
             txtMail.Text = "";
             PboxProductPicture.Image = Properties.Resources.icons8_user_100px;
@@ -82,7 +84,7 @@ namespace Accounting.GUI.Forms
 
             RegistrationRecord.Role = cbRole.Text;
             RegistrationRecord.UserName = txtUserName.Text;
-            RegistrationRecord.Password = Encryption.EncryptPassword(txtUserPass.Text);
+            RegistrationRecord.Password = WorkWithEncryption.EncryptPassword(txtUserPass.Text);
             RegistrationRecord.Family = txtFamily.Text;
             RegistrationRecord.Email = txtMail.Text;
             RegistrationRecord.ContactNumber = txtContactNo.Text;
@@ -98,7 +100,7 @@ namespace Accounting.GUI.Forms
 
             UserRecord.Role = cbRole.Text;
             UserRecord.UserName = txtUserName.Text;
-            UserRecord.Password = Encryption.EncryptPassword(txtUserPass.Text);
+            UserRecord.Password = WorkWithEncryption.EncryptPassword(txtUserPass.Text);
 
             return UserRecord;
         }
@@ -156,8 +158,8 @@ namespace Accounting.GUI.Forms
                     {
                         MessageBox.Show("این نام کاربری از قبل وجود دارد");
                         Reset();
-                        txtUserName.Text = "";
-                        txtUserName.Focus();
+                      
+                      
                     }
                 }
 
@@ -275,13 +277,7 @@ namespace Accounting.GUI.Forms
 
         private void txtContactNo_TextChanged(object sender, EventArgs e)
         {
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtContactNo.Text);
-            if (!ValidationResult)
-            {
-                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtContactNo.Text = "";
-                return;
-            }
+           
         }
     }
 

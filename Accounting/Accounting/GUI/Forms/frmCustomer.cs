@@ -128,7 +128,7 @@ namespace Accounting.GUI.Forms
                 ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
                 if (!IsNull())
                 {
-                    string nationalCodeValidation = NationalCode.NationalCodeValidation(txtNationalCode.Text);
+                    string nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
                     if (nationalCodeValidation == "NotValid")
                     {
                         MessageBox.Show("کد ملی نامعتبر است");
@@ -195,7 +195,7 @@ namespace Accounting.GUI.Forms
             {
                 if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    string nationalCodeValidation = NationalCode.NationalCodeValidation(txtNationalCode.Text);
+                    string nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
                     if (nationalCodeValidation == "NotValid")
                     {
                         MessageBox.Show("کد ملی نامعتبر است");
@@ -248,7 +248,7 @@ namespace Accounting.GUI.Forms
         private void frmCustomer_Load(object sender, EventArgs e)
         {
 
-            var list = AccountingEnums.GetIranStatesList();
+            var list = WorkWithEnums.GetIranStatesList();
             foreach (string n in list)
             {
                 cbStates.Items.Add(n);

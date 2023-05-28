@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Utilities
 {
-    public static class GlobalVariables
+    public static class WorkWithGlobalVariables
     {
         public static string LoginedUserName;
         public static string LoginedUserRole;

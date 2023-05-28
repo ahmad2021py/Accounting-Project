@@ -33,9 +33,10 @@ namespace Accounting.DataLayer.Services
             try
             {
 
-                IQueryable<Registration> query;
-                query = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n);
-                return true;
+               
+               var query = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n).ToList();
+                if (query.Count>0)
+                    return true;
 
 
 
@@ -44,7 +45,7 @@ namespace Accounting.DataLayer.Services
             {
                 return false;
             }
-
+            return false;
 
         }
         #endregion
@@ -53,20 +54,9 @@ namespace Accounting.DataLayer.Services
         public string GetUserPassword(string username, string email)
         {
 
-
-            try
-            {
-
-                string Password;
-                Password = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n.Password).ToString();
+                string Password = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n.Password).Single();
                 return Password;
-            }
-            catch
-            {
-                return "Error";
-            }
-
-
+     
         }
         #endregion
         //----------------

@@ -31,9 +31,9 @@ namespace Accounting.GUI.Forms
             frm.Show();
             //frm.lblUser.Text = cbRole.Text;
             //frm.toolStripStatusLabel3.Text = UserTemp.UserName;
-            GlobalVariables.LoginedUserName = UserTemp.UserName;
-            GlobalVariables.LoginedUserRole = cbRole.Text;
-            GlobalVariables.LoginedUserTime = DateTime.Now;
+            WorkWithGlobalVariables.LoginedUserName = UserTemp.UserName;
+            WorkWithGlobalVariables.LoginedUserRole = cbRole.Text;
+            WorkWithGlobalVariables.LoginedUserTime = DateTime.Now;
             if (cbRole.Text == "Manager")
             {
                 //Hide btnRegistration 
@@ -109,7 +109,7 @@ namespace Accounting.GUI.Forms
             else
             {
                 UserTemp.UserName = txtUserName.Text.Trim();
-                UserTemp.Password = Encryption.EncryptPassword(txtPassword.Text.Trim());
+                UserTemp.Password = WorkWithEncryption.EncryptPassword(txtPassword.Text.Trim());
                 UserTemp.Role = cbRole.Text;
 
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Utilities
 {
-    public static class NationalCode
+    public static class WorkWithNationalCode
     {
        public static string NationalCodeValidation(string nationalCode)
         {

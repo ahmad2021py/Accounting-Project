@@ -20,9 +20,9 @@ namespace Accounting.GUI.Forms
 
         private void frmLoginDetails_Load(object sender, EventArgs e)
         {
-            lblUserName.Text=  GlobalVariables.LoginedUserName;
-            lblUserRole.Text = GlobalVariables.LoginedUserRole;
-            lblUserLoginTime.Text = GlobalVariables.LoginedUserTime.ToString();
+            lblUserName.Text=  WorkWithGlobalVariables.LoginedUserName;
+            lblUserRole.Text = WorkWithGlobalVariables.LoginedUserRole;
+            lblUserLoginTime.Text = WorkWithGlobalVariables.LoginedUserTime.ToString();
         }
     }
 }

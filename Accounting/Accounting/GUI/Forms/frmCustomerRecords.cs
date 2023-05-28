@@ -147,6 +147,7 @@ namespace Accounting.GUI.Forms
             stiReport1["ZipCode"] = "u";
             //Show
             stiReport1.Show();
+           
         }
 
         private void txtCustomerName_TextChanged(object sender, EventArgs e)
