@@ -77,7 +77,7 @@ namespace Accounting.GUI.Forms
             this.btnExport.IdleFillColor = System.Drawing.Color.White;
             this.btnExport.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnExport.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnExport.Location = new System.Drawing.Point(60, 477);
+            this.btnExport.Location = new System.Drawing.Point(77, 477);
             this.btnExport.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(178, 74);

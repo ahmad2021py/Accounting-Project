@@ -77,6 +77,15 @@ namespace Accounting.GUI.Forms
             {
 
                 frmCustomerRecords.Close();
+                txtNationalCode.Text = frmCustomerRecords._NationalCode;
+                txtCustomerAddress.Text = frmCustomerRecords._Address;
+                txtCustomerCity.Text = frmCustomerRecords._City;
+                txtCustomerEmail.Text = frmCustomerRecords._Email;
+                txtCustomerName.Text = frmCustomerRecords._Name;
+                txtCustomerPhone.Text = frmCustomerRecords._Phone;
+                cbStates.Text = frmCustomerRecords._State;
+                txtCustomerZipCode.Text = frmCustomerRecords._ZipCode;
+
                 frmCustomerRecords = null;
 
             }
@@ -274,13 +283,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmCustomer_FormClosed(object sender, FormClosedEventArgs e)
-        {
 
-            frmMainMenu frm = new frmMainMenu();
-            frm.Show();
-            this.Hide();
-        }
 
         private void frmCustomer_FormClosing(object sender, FormClosingEventArgs e)
         {

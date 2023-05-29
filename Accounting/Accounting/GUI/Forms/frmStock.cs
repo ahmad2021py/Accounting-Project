@@ -44,7 +44,8 @@ namespace Accounting.GUI.Forms
             lblPrice.Text = "";
             lblProductName.Text = "";
 
-
+            bunifuCircleProgress1.Value = 0;
+            bunifuCircleProgress4.Value = 0;
 
         }
 
@@ -136,6 +137,7 @@ namespace Accounting.GUI.Forms
 
                 formProductRecords.Close();
                 this.lblCategory.Text = formProductRecords._Category;
+                this.txtProductId.Text = formProductRecords._id;
                 this.lblCompany.Text = formProductRecords._Company;
                 this.lblFeatures.Text = formProductRecords._Features;
                 this.lblPrice.Text = formProductRecords._Price;
@@ -276,9 +278,59 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+     async   private void btnUpdate_Click(object sender, EventArgs e)
         {
+            bunifuCircleProgress1.Value += 10;
+            try
+            {
+                bunifuCircleProgress1.Value += 10;
+                if (!IsNull())
+                {
+                    bunifuCircleProgress1.Value += 10;
+                    using (UnitOfWork _unitOfWork = new UnitOfWork())
+                    {
+                        bunifuCircleProgress1.Value += 10;
+                        IStockRepository _StockRepository = _unitOfWork.StockRepository;
+                        bunifuCircleProgress1.Value += 10;
+                        Stock Instance = new Stock();
+                        Instance = Fill__StockRecord(Instance);
+                        int ProductCode = Convert.ToInt32(txtProductId.Text);
+                        bunifuCircleProgress1.Value += 10;
+                        bool UpdateProductResult = await _StockRepository.UpdateStock(Instance, n => n.FKProductId == Instance.FKProductId);
+                        if (UpdateProductResult)
+                        {
+                            bunifuCircleProgress1.Value += 10;
+                            MessageBox.Show("رکورد با موفقیت  بروز شد");
+                            bunifuCircleProgress1.Value += 10;
+                            _unitOfWork.Save();
+                            bunifuCircleProgress1.Value += 10;
+                            Reset();
+                        }
+                        else
+                        {
+                            bunifuCircleProgress1.ProgressColor = Color.Red;
+                            MessageBox.Show("خطایی رخ داده است");
+                            bunifuCircleProgress1.Value = 0;
+                            return;
+                        }
 
+                    }
+                }
+                else
+                {
+                    bunifuCircleProgress1.ProgressColor = Color.Red;
+                    MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
+                    bunifuCircleProgress1.Value = 0;
+                    return;
+                }
+            }
+            catch
+            {
+                bunifuCircleProgress1.ProgressColor = Color.Red;
+                MessageBox.Show("خطایی رخ داده است");
+                bunifuCircleProgress1.Value = 0;
+                return;
+            }
         }
 
         private void txtProductId_TextChanged(object sender, EventArgs e)
@@ -324,17 +376,80 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmStock_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            frmMainMenu frm = new frmMainMenu();
-            frm.Show();
-            this.Hide();
-
-        }
+     
 
         private void frmStock_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+      async  private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bunifuCircleProgress4.Value += 10;
+            try
+            {
+                bunifuCircleProgress4.Value += 10;
+                if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    bunifuCircleProgress4.Value += 10;
+                    using (UnitOfWork _unitOfWork = new UnitOfWork())
+                    {
+                        bunifuCircleProgress4.Value += 10;
+
+                        IStockRepository _StockRepository = _unitOfWork.StockRepository;
+
+                        bunifuCircleProgress4.Value += 10;
+                        int ProductCode = Convert.ToInt32(txtProductId.Text);
+                        bunifuCircleProgress4.Value += 10;
+                        bool result = await _StockRepository.IsExist<Stock>(N => N.FKProductId == ProductCode);
+                        if (result)
+                        {
+                            bunifuCircleProgress4.Value += 10;
+                            bool DeleteResult = await _StockRepository.DeleteByCondition<Stock>(n => n.FKProductId == ProductCode);
+                            bunifuCircleProgress4.Value += 10;
+                            if (DeleteResult)
+                                MessageBox.Show("رکورد با موفقیت حذف شد");
+                            bunifuCircleProgress4.Value += 10;
+                            _unitOfWork.Save();
+                            bunifuCircleProgress4.Value += 10;
+                            Reset();
+
+
+                        }
+                        else
+                        {
+                            bunifuCircleProgress4.ProgressColor = Color.Red;
+                            MessageBox.Show("خطایی رخ داده است");
+                            bunifuCircleProgress4.Value = 0;
+                            return;
+                        }
+
+
+
+
+
+
+                    }
+
+                }
+            }
+            catch
+            {
+                bunifuCircleProgress4.ProgressColor = Color.Red;
+                MessageBox.Show("خطایی رخ داده است");
+                bunifuCircleProgress4.Value = 0;
+                return;
+            }
+        }
+
+        private void frmStock_Load(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 }

@@ -212,10 +212,6 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Owner.Show();
-        }
 
         private void frmProductRecords_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -34,7 +34,17 @@ namespace Accounting.GUI.Forms
             //Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
         }
 
-      async  void LoadData()
+        public string _Address;
+        public string _ZipCode;
+        public string _City;
+        public string _Email;
+        public string _State;
+        public string _Phone;
+        public string _Name;
+        public string _NationalCode;
+
+
+        async  void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -116,19 +126,15 @@ namespace Accounting.GUI.Forms
             try
             {
                 DataGridViewRow dr = DGV1.SelectedRows[0];
-                this.Hide();
-                frmCustomer obj = new frmCustomer();
-
-                obj.Show();
-                obj.txtNationalCode.Text = dr.Cells["NationalCode"].Value.ToString();
-                obj.txtCustomerName.Text = dr.Cells["Name"].Value.ToString();
-                obj.txtCustomerPhone.Text = dr.Cells["Phone"].Value.ToString();
-                obj.cbStates.Text = dr.Cells["State"].Value.ToString();
-                obj.txtCustomerEmail.Text = dr.Cells["Email"].Value.ToString();
-                obj.txtCustomerCity.Text = dr.Cells["City"].Value.ToString();
-                obj.txtCustomerZipCode.Text = dr.Cells["ZipCode"].Value.ToString();
-                obj.txtCustomerAddress.Text = dr.Cells["Address"].Value.ToString();
-                obj.txtCustomerName.Focus();
+                _NationalCode= dr.Cells["NationalCode"].Value.ToString();
+               _Name= dr.Cells["Name"].Value.ToString();
+                _Phone = dr.Cells["Phone"].Value.ToString();
+                _State = dr.Cells["State"].Value.ToString();
+               _Email= dr.Cells["Email"].Value.ToString();
+               _City = dr.Cells["City"].Value.ToString();
+                _ZipCode = dr.Cells["ZipCode"].Value.ToString();
+               _Address = dr.Cells["Address"].Value.ToString();
+                this.DialogResult = DialogResult.OK;
             }
 
             catch (Exception ex)
@@ -185,14 +191,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmCustomerRecords_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        
-            this.Hide();
-
-
-        }
+   
 
         private void frmCustomerRecords_FormClosing(object sender, FormClosingEventArgs e)
         {

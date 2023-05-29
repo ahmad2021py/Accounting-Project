@@ -118,6 +118,7 @@ namespace Accounting.GUI.Forms
             this.DGV1.Size = new System.Drawing.Size(547, 537);
             this.DGV1.TabIndex = 1;
             this.DGV1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
             // 
             // btnExport
             // 

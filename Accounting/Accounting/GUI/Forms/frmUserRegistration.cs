@@ -292,17 +292,21 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmUserRegistration_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            frmMainMenu frm = new frmMainMenu();
-            frm.Show();
-            this.Hide();
-        }
-
+    
         private void btnShowUserRecords_Click(object sender, EventArgs e)
         {
-            frmUserReords frm = new frmUserReords();
-            frm.ShowDialog();
+            frmUserReords frmUserReords = new frmUserReords();
+            if (frmUserReords.ShowDialog() == DialogResult.OK)
+            {
+                frmUserReords.Close();
+                this.cbRole.Text = frmUserReords._Role;
+                this.txtUserName.Text = frmUserReords._UserName;
+                this.txtUserPass.Text = frmUserReords._Password;
+                frmUserReords = null;
+
+
+
+            }
         }
 
         private void frmUserRegistration_FormClosing(object sender, FormClosingEventArgs e)

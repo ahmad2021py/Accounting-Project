@@ -126,6 +126,7 @@ namespace Accounting.GUI.Forms
             {
 
                 frmCompanyRecords.Close();
+                txtCompanyName.Text = frmCompanyRecords._CompanyName;
                 frmCompanyRecords = null;
 
             }
@@ -133,13 +134,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmCompany_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            frmMainMenu frm = new frmMainMenu();
-            frm.Show();
-            this.Hide();
-        }
-
+   
         private void frmCompany_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;

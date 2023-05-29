@@ -18,19 +18,7 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
-        private void frmSale_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmSaleAndBuy_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            frmMainMenu frm = new frmMainMenu();
-            frm.Show();
-            this.Hide();
-
-        }
+  
 
         private void frmSaleAndBuy_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -21,7 +21,7 @@ namespace Accounting.GUI.Forms
         {
             InitializeComponent();
         }
-
+        public string _CategoryName;
      async   void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
@@ -134,16 +134,10 @@ namespace Accounting.GUI.Forms
         {
             try
             {
-                DataGridViewRow dr = new DataGridViewRow();
+                DataGridViewRow dr = DGV1.SelectedRows[0];
 
-
-                frmCategory obj = new frmCategory();
-
-
-                obj.txtCategoryName.Text = dr.Cells["CategoryName"].Value.ToString();
-
-                obj.Show();
-                this.Close();
+                _CategoryName = dr.Cells["CategoryName"].Value.ToString();
+                this.DialogResult = DialogResult.OK;
             }
             catch
             {
@@ -152,16 +146,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmCategoryRecords_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           
-            this.Hide();
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void frmCategoryRecords_FormClosing(object sender, FormClosingEventArgs e)
         {

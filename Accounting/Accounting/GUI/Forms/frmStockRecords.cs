@@ -237,11 +237,6 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void frmStockRecords_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            this.Hide();
-        }
 
         private void frmStockRecords_FormClosing(object sender, FormClosingEventArgs e)
         {

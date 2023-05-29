@@ -23,7 +23,7 @@ namespace Accounting.GUI.Forms
         }
 
 
-
+        public string _CompanyName;
         private async void LoadData()
         {
 
@@ -98,11 +98,6 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void frmCompanyRecords_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            this.Hide();
-        }
 
       async  private void txtCompanyName_TextChanged(object sender, EventArgs e)
         {
@@ -136,6 +131,22 @@ namespace Accounting.GUI.Forms
         private void frmCompanyRecords_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //try
+            //{
+                DataGridViewRow dr = DGV1.SelectedRows[0];
+
+            _CompanyName = dr.Cells["CompanyName"].Value.ToString();
+                this.DialogResult = DialogResult.OK;
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("خطایی رخ داده");
+            //}
+
         }
     }
 }

@@ -22,6 +22,10 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
+        public string _id;
+        public string _Role;
+        public string _UserName;
+        public string _Password;
         async void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
@@ -141,16 +145,32 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmUserReords_FormClosed(object sender, FormClosedEventArgs e)
-        {
-          
-            this.Hide();
-        }
+      
 
         private void frmUserReords_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow dr = DGV1.SelectedRows[0];
+                _Role = dr.Cells["Role"].Value.ToString();
+                _UserName = dr.Cells["UserName"].Value.ToString();
+                _Password = dr.Cells["Password"].Value.ToString();
+                
+                this.DialogResult = DialogResult.OK;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+    
 
 
 

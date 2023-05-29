@@ -192,6 +192,7 @@ namespace Accounting.GUI.Forms
                                 bunifuCircleProgress2.ProgressColor = Color.Red;
                                 MessageBox.Show("خطایی رخ داده است");
                                 bunifuCircleProgress2.Value = 0;
+                                return;
                             }
                         }
                         else
@@ -200,6 +201,7 @@ namespace Accounting.GUI.Forms
                             MessageBox.Show("این محصول از قبل وجود دارد");
                             bunifuCircleProgress2.Value = 0;
                             Reset();
+                            return;
                         }
                     }
                     else
@@ -207,6 +209,7 @@ namespace Accounting.GUI.Forms
                         bunifuCircleProgress2.ProgressColor = Color.Red;
                         MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
                         bunifuCircleProgress2.Value = 0;
+                        return;
 
                     }
                 }
@@ -216,6 +219,7 @@ namespace Accounting.GUI.Forms
                 bunifuCircleProgress2.ProgressColor = Color.Red;
                 MessageBox.Show("خطایی رخ داده است");
                 bunifuCircleProgress2.Value = 0;
+                return;
             }
         }
 
@@ -312,6 +316,7 @@ namespace Accounting.GUI.Forms
                             bunifuCircleProgress3.ProgressColor = Color.Red;
                             MessageBox.Show("خطایی رخ داده است");
                             bunifuCircleProgress3.Value = 0;
+                            return;
                         }
 
                     }
@@ -321,6 +326,7 @@ namespace Accounting.GUI.Forms
                     bunifuCircleProgress3.ProgressColor = Color.Red;
                     MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
                     bunifuCircleProgress3.Value = 0;
+                    return;
                 }
             }
             catch
@@ -328,6 +334,7 @@ namespace Accounting.GUI.Forms
                 bunifuCircleProgress3.ProgressColor = Color.Red;
                 MessageBox.Show("خطایی رخ داده است");
                 bunifuCircleProgress3.Value = 0;
+                return;
             }
         }
 

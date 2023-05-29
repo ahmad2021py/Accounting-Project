@@ -120,12 +120,13 @@ namespace Accounting.GUI.Forms
         private void btnGetData_Click(object sender, EventArgs e)
         {
             txtCategoryName.Text = "";
-            frmCategory frmCategory = new frmCategory();
-            if (frmCategory.ShowDialog() == DialogResult.OK)
+            frmCategoryRecords frmCategoryRecords = new frmCategoryRecords();
+            if (frmCategoryRecords.ShowDialog() == DialogResult.OK)
             {
 
-                frmCategory.Close();
-                frmCategory = null;
+                frmCategoryRecords.Close();
+                txtCategoryName.Text = frmCategoryRecords._CategoryName;
+                frmCategoryRecords = null;
 
             }
         }

@@ -237,7 +237,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.TabIndex = 84;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو با کد دسته بندی";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+      
             // 
             // txtCategoryId
             // 

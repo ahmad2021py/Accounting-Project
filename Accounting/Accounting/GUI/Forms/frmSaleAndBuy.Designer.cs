@@ -1043,7 +1043,7 @@ namespace Accounting.GUI.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "خرید و فروش";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSaleAndBuy_FormClosing);
-            this.Load += new System.EventHandler(this.frmSale_Load);
+
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

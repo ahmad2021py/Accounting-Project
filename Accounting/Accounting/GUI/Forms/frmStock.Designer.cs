@@ -74,6 +74,8 @@ namespace Accounting.GUI.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.txtDescription = new Bunifu.UI.WinForms.BunifuTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bunifuCircleProgress4 = new Bunifu.UI.WinForms.BunifuCircleProgress();
+            this.bunifuCircleProgress1 = new Bunifu.UI.WinForms.BunifuCircleProgress();
             this.btnSave = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnNew = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnDelete = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -588,7 +590,7 @@ namespace Accounting.GUI.Forms
             this.txtDescription.SelectionLength = 0;
             this.txtDescription.SelectionStart = 0;
             this.txtDescription.ShortcutsEnabled = true;
-            this.txtDescription.Size = new System.Drawing.Size(496, 158);
+            this.txtDescription.Size = new System.Drawing.Size(510, 134);
             this.txtDescription.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
             this.txtDescription.TabIndex = 5;
             this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -602,6 +604,8 @@ namespace Accounting.GUI.Forms
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.bunifuCircleProgress4);
+            this.groupBox1.Controls.Add(this.bunifuCircleProgress1);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnNew);
             this.groupBox1.Controls.Add(this.btnDelete);
@@ -629,6 +633,78 @@ namespace Accounting.GUI.Forms
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "موجودی";
+            // 
+            // bunifuCircleProgress4
+            // 
+            this.bunifuCircleProgress4.Animated = false;
+            this.bunifuCircleProgress4.AnimationInterval = 1;
+            this.bunifuCircleProgress4.AnimationSpeed = 1;
+            this.bunifuCircleProgress4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCircleProgress4.CircleMargin = 10;
+            this.bunifuCircleProgress4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCircleProgress4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCircleProgress4.IsPercentage = false;
+            this.bunifuCircleProgress4.LineProgressThickness = 10;
+            this.bunifuCircleProgress4.LineThickness = 10;
+            this.bunifuCircleProgress4.Location = new System.Drawing.Point(789, 490);
+            this.bunifuCircleProgress4.Name = "bunifuCircleProgress4";
+            this.bunifuCircleProgress4.ProgressAnimationSpeed = 200;
+            this.bunifuCircleProgress4.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.bunifuCircleProgress4.ProgressColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuCircleProgress4.ProgressColor2 = System.Drawing.Color.DodgerBlue;
+            this.bunifuCircleProgress4.ProgressEndCap = Bunifu.UI.WinForms.BunifuCircleProgress.CapStyles.Round;
+            this.bunifuCircleProgress4.ProgressFillStyle = Bunifu.UI.WinForms.BunifuCircleProgress.FillStyles.Solid;
+            this.bunifuCircleProgress4.ProgressStartCap = Bunifu.UI.WinForms.BunifuCircleProgress.CapStyles.Round;
+            this.bunifuCircleProgress4.SecondaryFont = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCircleProgress4.Size = new System.Drawing.Size(45, 45);
+            this.bunifuCircleProgress4.SubScriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.bunifuCircleProgress4.SubScriptMargin = new System.Windows.Forms.Padding(5, -20, 0, 0);
+            this.bunifuCircleProgress4.SubScriptText = "";
+            this.bunifuCircleProgress4.SuperScriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.bunifuCircleProgress4.SuperScriptMargin = new System.Windows.Forms.Padding(5, 20, 0, 0);
+            this.bunifuCircleProgress4.SuperScriptText = "";
+            this.bunifuCircleProgress4.TabIndex = 111;
+            this.bunifuCircleProgress4.Text = "30";
+            this.bunifuCircleProgress4.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.bunifuCircleProgress4.Value = 30;
+            this.bunifuCircleProgress4.ValueByTransition = 30;
+            this.bunifuCircleProgress4.ValueMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            // 
+            // bunifuCircleProgress1
+            // 
+            this.bunifuCircleProgress1.Animated = false;
+            this.bunifuCircleProgress1.AnimationInterval = 1;
+            this.bunifuCircleProgress1.AnimationSpeed = 1;
+            this.bunifuCircleProgress1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCircleProgress1.CircleMargin = 10;
+            this.bunifuCircleProgress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCircleProgress1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bunifuCircleProgress1.IsPercentage = false;
+            this.bunifuCircleProgress1.LineProgressThickness = 10;
+            this.bunifuCircleProgress1.LineThickness = 10;
+            this.bunifuCircleProgress1.Location = new System.Drawing.Point(926, 486);
+            this.bunifuCircleProgress1.Name = "bunifuCircleProgress1";
+            this.bunifuCircleProgress1.ProgressAnimationSpeed = 200;
+            this.bunifuCircleProgress1.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.bunifuCircleProgress1.ProgressColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuCircleProgress1.ProgressColor2 = System.Drawing.Color.DodgerBlue;
+            this.bunifuCircleProgress1.ProgressEndCap = Bunifu.UI.WinForms.BunifuCircleProgress.CapStyles.Round;
+            this.bunifuCircleProgress1.ProgressFillStyle = Bunifu.UI.WinForms.BunifuCircleProgress.FillStyles.Solid;
+            this.bunifuCircleProgress1.ProgressStartCap = Bunifu.UI.WinForms.BunifuCircleProgress.CapStyles.Round;
+            this.bunifuCircleProgress1.SecondaryFont = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCircleProgress1.Size = new System.Drawing.Size(45, 45);
+            this.bunifuCircleProgress1.SubScriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.bunifuCircleProgress1.SubScriptMargin = new System.Windows.Forms.Padding(5, -20, 0, 0);
+            this.bunifuCircleProgress1.SubScriptText = "";
+            this.bunifuCircleProgress1.SuperScriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.bunifuCircleProgress1.SuperScriptMargin = new System.Windows.Forms.Padding(5, 20, 0, 0);
+            this.bunifuCircleProgress1.SuperScriptText = "";
+            this.bunifuCircleProgress1.TabIndex = 110;
+            this.bunifuCircleProgress1.Text = "30";
+            this.bunifuCircleProgress1.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.bunifuCircleProgress1.Value = 30;
+            this.bunifuCircleProgress1.ValueByTransition = 30;
+            this.bunifuCircleProgress1.ValueMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             // 
             // btnSave
             // 
@@ -680,6 +756,7 @@ namespace Accounting.GUI.Forms
             this.btnNew.Size = new System.Drawing.Size(96, 69);
             this.btnNew.TabIndex = 94;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnDelete
             // 
@@ -699,12 +776,13 @@ namespace Accounting.GUI.Forms
             this.btnDelete.IdleFillColor = System.Drawing.Color.White;
             this.btnDelete.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnDelete.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnDelete.Location = new System.Drawing.Point(772, 533);
+            this.btnDelete.Location = new System.Drawing.Point(749, 533);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 69);
+            this.btnDelete.Size = new System.Drawing.Size(116, 69);
             this.btnDelete.TabIndex = 94;
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -724,10 +802,10 @@ namespace Accounting.GUI.Forms
             this.btnUpdate.IdleFillColor = System.Drawing.Color.White;
             this.btnUpdate.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnUpdate.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnUpdate.Location = new System.Drawing.Point(903, 533);
+            this.btnUpdate.Location = new System.Drawing.Point(889, 533);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(5);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(109, 69);
+            this.btnUpdate.Size = new System.Drawing.Size(108, 69);
             this.btnUpdate.TabIndex = 94;
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -950,6 +1028,7 @@ namespace Accounting.GUI.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "انبار";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStock_FormClosing);
+            this.Load += new System.EventHandler(this.frmStock_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -997,5 +1076,7 @@ namespace Accounting.GUI.Forms
         private Bunifu.Framework.UI.BunifuThinButton2 btnDelete;
         private Bunifu.Framework.UI.BunifuThinButton2 btnUpdate;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSave;
+        private Bunifu.UI.WinForms.BunifuCircleProgress bunifuCircleProgress1;
+        private Bunifu.UI.WinForms.BunifuCircleProgress bunifuCircleProgress4;
     }
 }

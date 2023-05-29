@@ -78,11 +78,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void frmRecoveryPassword_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            this.Hide();
-        }
+    
 
         private void frmRecoveryPassword_FormClosing(object sender, FormClosingEventArgs e)
         {
