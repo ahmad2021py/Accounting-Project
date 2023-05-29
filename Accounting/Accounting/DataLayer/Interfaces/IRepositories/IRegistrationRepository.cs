@@ -10,12 +10,12 @@ namespace Accounting.DataLayer.Interfaces
 {
     public interface IRegistrationRepository : IEntityGenericRepository
     {
-         bool RegistrationIsValid(string username, string email);
-        string GetUserPassword(string username, string email);
+        Task<bool>  RegistrationIsValid(string username, string email);
+        Task<string> GetUserPassword(string username, string email);
       
-        bool UpdateRecord(Registration record);
-      
+        Task<bool> UpdateRecord(Registration record);
 
+        Task<bool> UpdatePasswordByUser(string UserName, string NewPassword);
     }
 
 

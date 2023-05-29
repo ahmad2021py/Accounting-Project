@@ -11,7 +11,7 @@ namespace Accounting.DataLayer.Interfaces
     {
       
 
-        bool UpdateRecord(Customer record);
+       Task< bool> UpdateRecord(Customer record);
 
 
 

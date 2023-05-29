@@ -81,7 +81,7 @@ namespace Accounting.GUI.Forms
         #region Fill_RegistrationInstance
         Registration Fill_RegistrationInstance(Registration RegistrationRecord)
         {
-
+            RegistrationRecord.Name = txtName.Text;
             RegistrationRecord.Role = cbRole.Text;
             RegistrationRecord.UserName = txtUserName.Text;
             RegistrationRecord.Password = WorkWithEncryption.EncryptPassword(txtUserPass.Text);
@@ -116,19 +116,21 @@ namespace Accounting.GUI.Forms
         }
 
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private async void btnRegister_Click(object sender, EventArgs e)
         {
-            if (!WorkWithEmail.IsValidateEmail(txtMail.Text))
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtMail.Text);
+            if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
             }
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
                 if (!TxtNull())
                 {
-                    if (!_IUserRepository.IsExist<User>(n=>n.UserName==txtUserName.Text))
+                    bool result = await _IUserRepository.IsExist<User>(n => n.UserName == txtUserName.Text);
+                    if (!result)
                     {
                         using (UnitOfWork _unitOfWork = new UnitOfWork())
                         {
@@ -140,7 +142,8 @@ namespace Accounting.GUI.Forms
                             IRegistrationRepository _RegistrationRepository = _unitOfWork.RegistrationRepository;
                             IUserRepository _UserRepository = _unitOfWork.UserRepository;
 
-                            if (_RegistrationRepository.Add<Registration>(RegistrationRecord) && _UserRepository.Add<User>(UserRecord))
+
+                            if (await _RegistrationRepository.Add<Registration>(RegistrationRecord) && await _UserRepository.Add<User>(UserRecord))
                             {
                                 MessageBox.Show("رکورد با موفقیت ثبت شد");
 
@@ -158,8 +161,8 @@ namespace Accounting.GUI.Forms
                     {
                         MessageBox.Show("این نام کاربری از قبل وجود دارد");
                         Reset();
-                      
-                      
+
+
                     }
                 }
 
@@ -170,9 +173,10 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        async private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!WorkWithEmail.IsValidateEmail(txtMail.Text))
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtMail.Text);
+            if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
@@ -185,7 +189,7 @@ namespace Accounting.GUI.Forms
                     IUserRepository _UserRepository = _unitOfWork.UserRepository;
                     string userName = txtUserName.Text;
 
-                    if (_RegistrationRepository.DeleteByCondition<Registration>(n=>n.UserName== userName).Result && _UserRepository.DeleteByCondition<User>(n=>n.UserName==txtUserName.Text).Result)
+                    if (_RegistrationRepository.DeleteByCondition<Registration>(n => n.UserName == userName).Result && _UserRepository.DeleteByCondition<User>(n => n.UserName == txtUserName.Text).Result)
                     {
                         MessageBox.Show("رکورد با موفقیت حذف شد");
                         Reset();
@@ -208,9 +212,10 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        async private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!WorkWithEmail.IsValidateEmail(txtMail.Text))
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtMail.Text);
+            if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
@@ -218,9 +223,16 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
                 IRegistrationRepository _registrationRepository = _unitOfWork.RegistrationRepository;
-                Registration record = new Registration();
-                record = Fill_RegistrationInstance(record);
-                if (_registrationRepository.UpdateRecord(record))
+                IUserRepository _UserRepository = _unitOfWork.UserRepository;
+
+               
+                Registration RegistrationRecord = new Registration();
+                RegistrationRecord = Fill_RegistrationInstance(RegistrationRecord);
+                bool RegistrationUpdateRecordResult = await _registrationRepository.UpdateRecord(RegistrationRecord);
+    
+              
+                bool UserChangeUserPasswordResult = await _UserRepository.ChangeUserPasswordByAdmin(RegistrationRecord.UserName, RegistrationRecord.Password);
+                if (RegistrationUpdateRecordResult && UserChangeUserPasswordResult)
                 {
                     MessageBox.Show("رکورد با موفقیت  بروز شد");
                     Reset();
@@ -234,7 +246,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-       
+
 
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -261,7 +273,7 @@ namespace Accounting.GUI.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               
+
             }
         }
 
@@ -277,12 +289,13 @@ namespace Accounting.GUI.Forms
 
         private void txtContactNo_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void frmUserRegistration_FormClosed(object sender, FormClosedEventArgs e)
         {
-            WorkWithGlobalForms.frmMainMenu.Show();
+            frmMainMenu frm = new frmMainMenu();
+            frm.Show();
             this.Hide();
         }
 
@@ -290,6 +303,11 @@ namespace Accounting.GUI.Forms
         {
             frmUserReords frm = new frmUserReords();
             frm.ShowDialog();
+        }
+
+        private void frmUserRegistration_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 

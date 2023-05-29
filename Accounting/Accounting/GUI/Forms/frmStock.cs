@@ -30,7 +30,7 @@ namespace Accounting.GUI.Forms
             txtDescription.Text = "";
             txtProductId.Text = "";
             txtProductQuantity.Text = "";
-          
+
             bPersianCalenderTextBox1.Text = "";
             txtProductId.Focus();
             ///----labels--------
@@ -43,7 +43,7 @@ namespace Accounting.GUI.Forms
             lblGetDateTime.Text = "";
             lblPrice.Text = "";
             lblProductName.Text = "";
-         
+
 
 
         }
@@ -54,7 +54,7 @@ namespace Accounting.GUI.Forms
                 txtDescription.Text == "" ||
                txtProductId.Text == "" ||
                txtProductQuantity.Text == "" ||
-             
+
                bPersianCalenderTextBox1.Text == "")
 
                 return true;
@@ -75,7 +75,7 @@ namespace Accounting.GUI.Forms
             stockRecord.StockDate = workWithDate.ShamsiToMiladi(ShamsiDate);
             stockRecord.FKProductId = int.Parse(txtProductId.Text);
             stockRecord.Quantity = Convert.ToInt32(txtProductQuantity.Text);
-            
+
             stockRecord.BuyPrice = Int32.Parse(txtBuyPrice.Text);
             stockRecord.Description = txtDescription.Text;
 
@@ -92,13 +92,13 @@ namespace Accounting.GUI.Forms
             {
 
 
-               
+
                 txtProductQuantity.Text = dbStockRecord.Quantity.ToString();
                 WorkWithDate workWithDate = new WorkWithDate();
-               string ShamsiDate =workWithDate.MiladiToShamsi(dbStockRecord.StockDate);
+                string ShamsiDate = workWithDate.MiladiToShamsi(dbStockRecord.StockDate);
                 bPersianCalenderTextBox1.Text = ShamsiDate;
                 txtBuyPrice.Text = dbStockRecord.BuyPrice.ToString();
-             
+
                 txtDescription.Text = dbStockRecord.Description;
                 txtProductId.Text = dbStockRecord.FKProductId.ToString();
                 lblBuyPrice.Text = dbStockRecord.BuyPrice.ToString();
@@ -119,7 +119,7 @@ namespace Accounting.GUI.Forms
 
 
 
-            private void btnShowFrmProduct_Click(object sender, EventArgs e)
+        private void btnShowFrmProduct_Click(object sender, EventArgs e)
         {
             frmProduct frm = new frmProduct();
             frm.txtProductCode.Text = txtProductId.Text;
@@ -130,25 +130,50 @@ namespace Accounting.GUI.Forms
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            frmProductRecords frm = new frmProductRecords(this);
-            frm.Show();
-            this.Hide();
+            frmProductRecords formProductRecords = new frmProductRecords(this);
+            if (formProductRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                formProductRecords.Close();
+                this.lblCategory.Text = formProductRecords._Category;
+                this.lblCompany.Text = formProductRecords._Company;
+                this.lblFeatures.Text = formProductRecords._Features;
+                this.lblPrice.Text = formProductRecords._Price;
+                this.lblProductName.Text = formProductRecords._ProductName;
+                formProductRecords = null;
+
+
+
+            }
+
 
 
         }
 
         private void btnShowFrmStockRecords_Click(object sender, EventArgs e)
         {
-            frmStockRecords frm = new frmStockRecords();
-            frm.ShowDialog();
+            frmStockRecords frmStockRecords = new frmStockRecords();
+            if (frmStockRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmStockRecords.Close();
+                this.txtProductId.Text = frmStockRecords._FKProductId;
+                this.txtBuyPrice.Text = frmStockRecords._BuyPrice;
+                this.txtDescription.Text = frmStockRecords._Description;
+                this.txtProductQuantity.Text = frmStockRecords._Quantity;
+                this.bPersianCalenderTextBox1.Text = frmStockRecords._StockDate;
+                frmStockRecords = null;
+
+
+            }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
             bool IntVlaidationResult = WorkWithStrings.TextToIntVlaidation(txtProductId.Text);
             bool IntVlaidationResult2 = WorkWithStrings.TextToIntVlaidation(txtProductQuantity.Text);
             bool DecimalVlaidationResult = WorkWithStrings.TextToDecimalVlaidation(txtBuyPrice.Text);
-           
+
             if (!IntVlaidationResult || !IntVlaidationResult2 || !DecimalVlaidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
@@ -161,52 +186,52 @@ namespace Accounting.GUI.Forms
             {
 
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
-            {
-                IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-                if (!IsNull())
                 {
-
-                    int productId = Int32.Parse(txtProductId.Text);
-                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-
-                    bool StockResult = _StockRepository.IsExist<Stock>(n => n.FKProductId == productId);
-                    bool ProductResult = _ProductRepository.IsExist<Product>(n => n.id == productId);
-                    if (!ProductResult)
-                    {
-                        MessageBox.Show("محصولی با این کد وجود ندارد");
-                        return;
-                    }
-                    if (!StockResult)
+                    IStockRepository _StockRepository = _UnitOfWork.StockRepository;
+                    if (!IsNull())
                     {
 
-                        Stock StockRecord = new Stock();
-                        StockRecord = Fill__StockRecord(StockRecord);
+                        int productId = Int32.Parse(txtProductId.Text);
+                        IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
 
-
-                        if (_StockRepository.Add<Stock>(StockRecord))
+                        bool StockResult = await _StockRepository.IsExist<Stock>(n => n.FKProductId == productId);
+                        bool ProductResult = await _ProductRepository.IsExist<Product>(n => n.id == productId);
+                        if (!ProductResult)
                         {
-                            MessageBox.Show("رکورد با موفقیت ثبت شد");
+                            MessageBox.Show("محصولی با این کد وجود ندارد");
+                            return;
+                        }
+                        if (!StockResult)
+                        {
 
-                            _UnitOfWork.Save();
-                            Reset();
+                            Stock StockRecord = new Stock();
+                            StockRecord = Fill__StockRecord(StockRecord);
+                            bool AddResult = await _StockRepository.Add<Stock>(StockRecord);
+
+                            if (AddResult)
+                            {
+                                MessageBox.Show("رکورد با موفقیت ثبت شد");
+
+                                _UnitOfWork.Save();
+                                Reset();
+                            }
+                            else
+                            {
+                                MessageBox.Show("خطایی رخ داده است");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("خطایی رخ داده است");
+                            MessageBox.Show("این محصول از قبل وجود دارد");
+                            Reset();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("این محصول از قبل وجود دارد");
-                        Reset();
+                        MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
+
                     }
                 }
-                else
-                {
-                    MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
-
-                }
-            }
             }
             catch
             {
@@ -214,7 +239,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnGetProductDetails_Click(object sender, EventArgs e)
+        private async void btnGetProductDetails_Click(object sender, EventArgs e)
         {
             try
             {
@@ -223,10 +248,10 @@ namespace Accounting.GUI.Forms
                 {
                     IStockRepository _StockRepository = _unitOfWork.StockRepository;
                     int ProductId = Int32.Parse(txtProductId.Text);
-                    bool result = /*await*/ _StockRepository.IsExist<Stock>(n => n.FKProductId == ProductId);
+                    bool result = await _StockRepository.IsExist<Stock>(n => n.FKProductId == ProductId);
                     if (result)
                     {
-                        Stock record = _StockRepository.GetEntity<Stock>(n => n.FKProductId == ProductId);
+                        Stock record = await _StockRepository.GetEntity<Stock>(n => n.FKProductId == ProductId);
                         FillControlersWithStockDbRecord(record);
 
                     }
@@ -259,9 +284,9 @@ namespace Accounting.GUI.Forms
         private void txtProductId_TextChanged(object sender, EventArgs e)
         {
             bool IntVlaidationResult = WorkWithStrings.TextToIntVlaidation(txtProductId.Text);
-          
 
-            if (!IntVlaidationResult )
+
+            if (!IntVlaidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
                 txtProductId.Text = "";
@@ -272,9 +297,9 @@ namespace Accounting.GUI.Forms
 
         private void txtProductQuantity_TextChanged(object sender, EventArgs e)
         {
-            
+
             bool IntVlaidationResult = WorkWithStrings.TextToIntVlaidation(txtProductQuantity.Text);
-         
+
 
             if (!IntVlaidationResult)
             {
@@ -287,7 +312,7 @@ namespace Accounting.GUI.Forms
 
         private void txtBuyPrice_TextChanged(object sender, EventArgs e)
         {
-           
+
             bool DecimalVlaidationResult = WorkWithStrings.TextToDecimalVlaidation(txtBuyPrice.Text);
 
             if (!DecimalVlaidationResult)
@@ -301,9 +326,15 @@ namespace Accounting.GUI.Forms
 
         private void frmStock_FormClosed(object sender, FormClosedEventArgs e)
         {
-            WorkWithGlobalForms.frmMainMenu.Show();
+            frmMainMenu frm = new frmMainMenu();
+            frm.Show();
             this.Hide();
 
+        }
+
+        private void frmStock_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

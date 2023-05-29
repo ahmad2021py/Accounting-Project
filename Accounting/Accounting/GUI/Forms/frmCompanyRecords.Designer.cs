@@ -284,6 +284,7 @@ namespace Accounting.GUI.Forms
             this.txtCompanyName.TextPlaceholder = "نام محصول را وارد کنید";
             this.txtCompanyName.UseSystemPasswordChar = false;
             this.txtCompanyName.WordWrap = true;
+            this.txtCompanyName.TextChanged += new System.EventHandler(this.txtCompanyName_TextChanged);
             // 
             // btnExport
             // 
@@ -327,6 +328,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست شرکت ها";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCompanyRecords_FormClosing);
             this.Load += new System.EventHandler(this.frmCompanyRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox2.ResumeLayout(false);

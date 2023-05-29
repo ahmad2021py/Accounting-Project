@@ -424,6 +424,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست محصولات";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProductRecords_FormClosing);
             this.Load += new System.EventHandler(this.frmConfigRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox3.ResumeLayout(false);

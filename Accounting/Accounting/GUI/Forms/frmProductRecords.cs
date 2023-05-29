@@ -1,8 +1,11 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.Utilities;
 using AccountingDLL;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -20,7 +23,17 @@ namespace Accounting.GUI.Forms
             this.Owner = parent;
 
         }
-        void LoadData()
+
+        public string _id;
+        public string _ProductName;
+        public string _Features;
+        public string _Price;
+        public string _Company;
+        public string _Category;
+        public Image _Picture;
+
+
+        async void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -28,15 +41,17 @@ namespace Accounting.GUI.Forms
                 try
                 {
                     //--------
-                    DGV1.DataSource = _ProductRepository.GetAll<Product>(n=>n==n);
+
+                    IEnumerable<Product> DbEnabrableRecords = await _ProductRepository.GetAll<Product>(n => n == n);
+                    DGV1.DataSource = DbEnabrableRecords;
                     DGV1.Columns["id"].HeaderText = " کد محصول";
                     DGV1.Columns["ProductName"].HeaderText = " نام محصول";
                     DGV1.Columns["Features"].HeaderText = " ویژگی";
-                    DGV1.Columns["Price"].HeaderText = " قیمت";  
-                    DGV1.Columns["Company"].HeaderText = " قیمت";
-                    DGV1.Columns["Category"].HeaderText = " قیمت";
+                    DGV1.Columns["Price"].HeaderText = " قیمت";
+                    DGV1.Columns["Company"].HeaderText = " شرکت";
+                    DGV1.Columns["Category"].HeaderText = " دسته بندی";
                     DGV1.Columns["Picture"].Visible = false;//Picture Column
-                    //----------------------------------
+                                                            //----------------------------------
 
 
                 }
@@ -57,30 +72,31 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void txtProductName_TextChanged(object sender, EventArgs e)
+        private async void txtProductName_TextChanged(object sender, EventArgs e)
         {
             if (txtProductName.Text == "")
             {
                 LoadData();
+                return;
             }
-            else
-            {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                    try
-                    {
-                        string productName = txtProductName.Text;
-                        DGV1.DataSource = _ProductRepository.GetAll<Product>(n=>n.ProductName.Contains(productName));
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+                try
+                {
+                    string productName = txtProductName.Text;
+                    IEnumerable<Product> IEnamrableProductDbRecords = await _ProductRepository.GetAll<Product>(n => n.ProductName.Contains(productName));
+                    DGV1.DataSource = IEnamrableProductDbRecords;
 
                 }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
             }
+
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -90,44 +106,46 @@ namespace Accounting.GUI.Forms
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
             try
             {
                 DataGridViewRow dr = DGV1.SelectedRows[0];
-                this.Hide();
+                //this.Hide();
                 if (this.Owner.Name == "frmProduct")
                 {
-                    frmProduct obj = new frmProduct();
 
 
-                    obj.txtProductCode.Text = dr.Cells["id"].Value.ToString();
-                    obj.txtProductName.Text = dr.Cells["ProductName"].Value.ToString();
-                    obj.txtFeatures.Text = dr.Cells["Features"].Value.ToString();
-                    obj.txtPrice.Text = dr.Cells["Price"].Value.ToString();
-                    obj.cbCategory.Text = dr.Cells["Category"].Value.ToString();
-                    obj.cbCompany.Text = dr.Cells["Company"].Value.ToString();
+
+
+
+
+
+
+
+
+
+                    _id = dr.Cells["id"].Value.ToString();
+                    _ProductName = dr.Cells["ProductName"].Value.ToString();
+                    _Features = dr.Cells["Features"].Value.ToString();
+                    _Price = dr.Cells["Price"].Value.ToString();
+                    _Category = dr.Cells["Category"].Value.ToString();
+                    _Company = dr.Cells["Company"].Value.ToString();
                     byte[] data = (byte[])dr.Cells["Picture"].Value;
                     MemoryStream ms = new MemoryStream(data);
-                    obj.PboxProductPicture.Image = Image.FromStream(ms);
-                    obj.Show();
-                    obj.txtProductCode.Focus();
-                    this.Close();
+                    _Picture = Image.FromStream(ms);
+                    this.DialogResult = DialogResult.OK;
                 }
                 else if (this.Owner.Name == "frmStock")
                 {
 
-                    frmStock obj = new frmStock();
+                    _id = dr.Cells["id"].Value.ToString();
+                    _ProductName = dr.Cells["ProductName"].Value.ToString();
+                    _Category = dr.Cells["Category"].Value.ToString();
+                    _Company = dr.Cells["Company"].Value.ToString();
+                    _Features = dr.Cells["Features"].Value.ToString();
+                    _Price = dr.Cells["Price"].Value.ToString();
+                    this.DialogResult = DialogResult.OK;
 
-
-                    obj.txtProductId.Text = dr.Cells["id"].Value.ToString();
-                    obj.lblStockId.Text = dr.Cells["Category"].Value.ToString();
-                    obj.lblProductName.Text = dr.Cells["ProductName"].Value.ToString();
-                    obj.lblCompany.Text = dr.Cells["Company"].Value.ToString();
-                    obj.lblFeatures.Text = dr.Cells["Features"].Value.ToString();
-                    obj.lblCategory.Text = dr.Cells["Category"].Value.ToString();
-                    obj.lblPrice.Text = dr.Cells["Price"].Value.ToString();
-                    obj.Show();
-                    obj.txtProductId.Focus();
-                    this.Close();
                 }
 
 
@@ -137,60 +155,61 @@ namespace Accounting.GUI.Forms
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //-------------------------------------------------------
-
+            ////-------------------------------------------------------
         }
 
-        private void txtCompany_TextChanged(object sender, EventArgs e)
+        private async void txtCompany_TextChanged(object sender, EventArgs e)
         {
             if (txtCompany.Text == "")
             {
                 LoadData();
+                return;
             }
-            else
-            {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                    try
-                    {
-                        string Company = txtCompany.Text;
-                        DGV1.DataSource = _ProductRepository.GetAll<Product>(n => n.Company.Contains(Company));
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+                try
+                {
+                    string Company = txtCompany.Text;
+                    IEnumerable<Product> EnamrableProductDbRecords = await _ProductRepository.GetAll<Product>(n => n.Company.Contains(Company));
+                    DGV1.DataSource = EnamrableProductDbRecords;
 
                 }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
             }
+
         }
 
-        private void txtCategory_TextChanged(object sender, EventArgs e)
+        private async void txtCategory_TextChanged(object sender, EventArgs e)
         {
             if (txtCategory.Text == "")
             {
                 LoadData();
+                return;
             }
-            else
-            {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                    try
-                    {
-                        string category = txtCategory.Text;
-                        DGV1.DataSource = _ProductRepository.GetAll<Product>(n => n.Category.Contains(category));
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+                try
+                {
+                    string category = txtCategory.Text;
+                    IEnumerable<Product> IEnamerableProductDbRecords = await _ProductRepository.GetAll<Product>(n => n.Category.Contains(category));
+                    DGV1.DataSource = IEnamerableProductDbRecords;
 
                 }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -198,7 +217,13 @@ namespace Accounting.GUI.Forms
             Owner.Show();
         }
 
-       
+        private void frmProductRecords_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+
+
 
 
 

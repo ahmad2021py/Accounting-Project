@@ -28,12 +28,14 @@ namespace Accounting.DataLayer.Services
 
 
       
-        #region ChangeUserPassword Method
+        #region ChangeUserPassword By User Method
 
-        public bool ChangeUserPassword(User user, string newUserPassword)
+      async public Task<bool> ChangeUserPasswordByUser(User user, string newUserPassword)
         {
+            return await Task.Run(() =>
+            {
 
-            try
+                try
             {
 
                 User query = db.Users.Where(n => n.UserName == user.UserName && n.Password == user.Password).Select(n => n).First();
@@ -48,7 +50,7 @@ namespace Accounting.DataLayer.Services
                 return false;
             }
 
-
+            });
 
 
 
@@ -63,7 +65,37 @@ namespace Accounting.DataLayer.Services
 
 
 
+        #region ChangeUserPassword By Admin Method
 
+        async public Task<bool> ChangeUserPasswordByAdmin(string userName, string newUserPassword)
+        {
+            return await Task.Run(() =>
+            {
+
+                try
+                {
+
+                    User query = db.Users.Where(n => n.UserName == userName).Select(n => n).First();
+                    db.Users.Attach(query);
+                    db.Entry(query).Entity.Password = newUserPassword;
+                    //SAVE change
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+
+            });
+
+
+
+
+        }
+
+
+        #endregion
 
 
 

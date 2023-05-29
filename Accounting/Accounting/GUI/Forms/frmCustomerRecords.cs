@@ -16,13 +16,13 @@ using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
 {
-    public partial class frmCustomerRecords : Form
+    public partial class frmCustomerRecords : Form 
     {
         //-----Fields-------------------
         #region class Fields
         private StiReport stiReport1;
 
-        
+
         #endregion
         //------Methods------------
         public frmCustomerRecords()
@@ -34,7 +34,7 @@ namespace Accounting.GUI.Forms
             //Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
         }
 
-        void LoadData()
+      async  void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -42,7 +42,8 @@ namespace Accounting.GUI.Forms
                 try
                 {
                     //--------
-                    DGV1.DataSource = customerRepository.GetAll<Customer>(n=>n==n);
+                  IEnumerable<Customer> IEnamrableCustomerDbRecords =await customerRepository.GetAll<Customer>(n => n == n);
+                    DGV1.DataSource = IEnamrableCustomerDbRecords;
                     DGV1.Columns["NationalCode"].HeaderText = " کد ملی";
                     DGV1.Columns["Name"].HeaderText = " نام";
                     DGV1.Columns["Phone"].HeaderText = " تلفن";
@@ -64,7 +65,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-            private void btnExport_Click(object sender, EventArgs e)
+        private void btnExport_Click(object sender, EventArgs e)
         {
             WorkWithExcel.ExportExcel(DGV1);
         }
@@ -74,36 +75,39 @@ namespace Accounting.GUI.Forms
             LoadData();
         }
 
-        private void txtNationalCode_TextChanged(object sender, EventArgs e)
+        private async void txtNationalCode_TextChanged(object sender, EventArgs e)
         {
-           
+
             if (txtNationalCode.Text == "")
             {
                 LoadData();
+                return;
             }
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtNationalCode.Text);
+            bool ValidationResult = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
             if (!ValidationResult)
             {
-                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                MessageBox.Show("کد ملی نامعتبر است");
                 txtNationalCode.Text = "";
                 return;
             }
-          
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+
+           string nationalCode =  WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                ICustomerRepository _customerRepository = _UnitOfWork.CustomerRepository;
+                try
                 {
-                    ICustomerRepository _customerRepository = _UnitOfWork.CustomerRepository;
-                    try
-                    {
-                        long nationalCode= long.Parse(txtNationalCode.Text);
-                        DGV1.DataSource = _customerRepository.GetAll<Customer>(n=>n.NationalCode== nationalCode);
+                    long NationalCode = long.Parse(nationalCode);
+                    IEnumerable<Customer> IEnamrableCustomerDbRecords = await _customerRepository.GetAll<Customer>(n => n.NationalCode == NationalCode);
+                    DGV1.DataSource = IEnamrableCustomerDbRecords;
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
 
-                
+
             }
         }
 
@@ -135,50 +139,64 @@ namespace Accounting.GUI.Forms
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-           ////Load File
-           // stiReport1.Load(Application.StartupPath + "/Reports/Customer.mrt");
-           // stiReport1.Compile();
-           // //Set Variables
-           // stiReport1["Name"] = "ahmad";
-           // stiReport1["Email"] = "gmail.com";
-           // stiReport1["Address"] = "شوشتر";
-           // stiReport1["id"] = 4; 
-           // stiReport1["NationalCode"] = 5558818125;
-           // stiReport1["ZipCode"] = "u";
-           // //Show
-           // stiReport1.Show();
-           
+            ////Load File
+            // stiReport1.Load(Application.StartupPath + "/Reports/Customer.mrt");
+            // stiReport1.Compile();
+            // //Set Variables
+            // stiReport1["Name"] = "ahmad";
+            // stiReport1["Email"] = "gmail.com";
+            // stiReport1["Address"] = "شوشتر";
+            // stiReport1["id"] = 4; 
+            // stiReport1["NationalCode"] = 5558818125;
+            // stiReport1["ZipCode"] = "u";
+            // //Show
+            // stiReport1.Show();
+
         }
 
-        private void txtCustomerName_TextChanged(object sender, EventArgs e)
+        private async void txtCustomerName_TextChanged(object sender, EventArgs e)
         {
             if (txtCustomerName.Text == "")
             {
                 LoadData();
+                return;
             }
 
 
-            else
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
+                try
                 {
-                    ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
-                    try
-                    {
 
 
+                    IEnumerable<Customer> IEnamrableCustomerDbRecords = await _CustomerRepository.GetAll<Customer>(n => n.Name.Contains(txtCustomerName.Text));
+                    DGV1.DataSource = IEnamrableCustomerDbRecords;
 
-                        DGV1.DataSource = _CustomerRepository.GetAll<Customer>(n => n.Name.Contains(txtCustomerName.Text));
-
-
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
 
                 }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
             }
+
+        }
+
+        private void frmCustomerRecords_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        
+            this.Hide();
+
+
+        }
+
+        private void frmCustomerRecords_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
 
 

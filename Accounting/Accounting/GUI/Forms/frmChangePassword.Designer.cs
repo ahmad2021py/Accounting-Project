@@ -234,7 +234,7 @@ namespace Accounting.GUI.Forms
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtOldPass.OnIdleState = stateProperties8;
             this.txtOldPass.Padding = new System.Windows.Forms.Padding(3);
-            this.txtOldPass.PasswordChar = '\0';
+            this.txtOldPass.PasswordChar = '●';
             this.txtOldPass.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtOldPass.PlaceholderText = "رمز عبور قبلی خود را وارد کنید";
             this.txtOldPass.ReadOnly = false;
@@ -252,7 +252,7 @@ namespace Accounting.GUI.Forms
             this.txtOldPass.TextMarginLeft = 3;
             this.txtOldPass.TextMarginTop = 0;
             this.txtOldPass.TextPlaceholder = "رمز عبور قبلی خود را وارد کنید";
-            this.txtOldPass.UseSystemPasswordChar = false;
+            this.txtOldPass.UseSystemPasswordChar = true;
             this.txtOldPass.WordWrap = true;
             // 
             // txtNewPass
@@ -309,7 +309,7 @@ namespace Accounting.GUI.Forms
             stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtNewPass.OnIdleState = stateProperties12;
             this.txtNewPass.Padding = new System.Windows.Forms.Padding(3);
-            this.txtNewPass.PasswordChar = '\0';
+            this.txtNewPass.PasswordChar = '●';
             this.txtNewPass.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtNewPass.PlaceholderText = "رمز عبور جدید خود را وارد کنید";
             this.txtNewPass.ReadOnly = false;
@@ -327,7 +327,7 @@ namespace Accounting.GUI.Forms
             this.txtNewPass.TextMarginLeft = 3;
             this.txtNewPass.TextMarginTop = 0;
             this.txtNewPass.TextPlaceholder = "رمز عبور جدید خود را وارد کنید";
-            this.txtNewPass.UseSystemPasswordChar = false;
+            this.txtNewPass.UseSystemPasswordChar = true;
             this.txtNewPass.WordWrap = true;
             // 
             // txtRepeatNewPass
@@ -384,7 +384,7 @@ namespace Accounting.GUI.Forms
             stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtRepeatNewPass.OnIdleState = stateProperties16;
             this.txtRepeatNewPass.Padding = new System.Windows.Forms.Padding(3);
-            this.txtRepeatNewPass.PasswordChar = '\0';
+            this.txtRepeatNewPass.PasswordChar = '●';
             this.txtRepeatNewPass.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtRepeatNewPass.PlaceholderText = "تکرار رمز عبور جدید";
             this.txtRepeatNewPass.ReadOnly = false;
@@ -402,7 +402,7 @@ namespace Accounting.GUI.Forms
             this.txtRepeatNewPass.TextMarginLeft = 3;
             this.txtRepeatNewPass.TextMarginTop = 0;
             this.txtRepeatNewPass.TextPlaceholder = "تکرار رمز عبور جدید";
-            this.txtRepeatNewPass.UseSystemPasswordChar = false;
+            this.txtRepeatNewPass.UseSystemPasswordChar = true;
             this.txtRepeatNewPass.WordWrap = true;
             // 
             // btnOK

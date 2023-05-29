@@ -237,6 +237,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.TabIndex = 84;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو با کد دسته بندی";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtCategoryId
             // 
@@ -330,6 +331,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست دسته بندی ها";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCategoryRecords_FormClosing);
             this.Load += new System.EventHandler(this.frmCategoryRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox1.ResumeLayout(false);

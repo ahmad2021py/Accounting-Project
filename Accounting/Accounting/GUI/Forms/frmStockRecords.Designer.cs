@@ -116,6 +116,7 @@ namespace Accounting.GUI.Forms
             this.DGV1.Size = new System.Drawing.Size(746, 506);
             this.DGV1.TabIndex = 82;
             this.DGV1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
             // 
             // groupBox3
             // 
@@ -386,6 +387,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "انبار";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStockRecords_FormClosing);
             this.Load += new System.EventHandler(this.frmStockRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox3.ResumeLayout(false);

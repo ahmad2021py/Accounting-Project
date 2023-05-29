@@ -110,7 +110,6 @@ namespace Accounting.GUI.Forms
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ویرایش و ثبت محصول ";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // bunifuCircleProgress4
             // 
@@ -638,7 +637,7 @@ namespace Accounting.GUI.Forms
             this.PboxProductPicture.AllowFocused = false;
             this.PboxProductPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PboxProductPicture.AutoSizeHeight = true;
-            this.PboxProductPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(0)))), ((int)(((byte)(157)))));
+            this.PboxProductPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(0)))), ((int)(((byte)(129)))));
             this.PboxProductPicture.BorderRadius = 113;
             this.PboxProductPicture.Image = ((System.Drawing.Image)(resources.GetObject("PboxProductPicture.Image")));
             this.PboxProductPicture.IsCircle = true;
@@ -898,7 +897,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ویرایش و ثبت محصول";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProduct_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProduct_FormClosing);
             this.Load += new System.EventHandler(this.frmProduct_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

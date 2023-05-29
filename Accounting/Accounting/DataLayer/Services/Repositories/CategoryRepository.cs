@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Services
 {
-   public class CategoryRepository:EntityGenericRepository<Category> ,ICategoryRepository 
+   public class CategoryRepository:EntityGenericRepository<Category> ,ICategoryRepository,IEntityGenericRepository
     {
         //-----Fields-------------
         private Accounting_DbContext db;

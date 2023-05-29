@@ -38,7 +38,7 @@ namespace Accounting.GUI.Forms
 
 
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
             if (WorkWithTextboxes.TextBoxisNull(txtCategoryName.Text))
             {
@@ -52,8 +52,8 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-
-                    if (_CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text))
+                    bool result = await _CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text);
+                    if (result)
                     {
                         MessageBox.Show("این دسته بندی از قبل وجود دارد");
                     }
@@ -61,7 +61,8 @@ namespace Accounting.GUI.Forms
                     {
                         Category Record = new Category();
                         Record.CategoryName = txtCategoryName.Text;
-                        if (_CategoryRepository.Add<Category>(Record))
+                        bool AddRresult = await _CategoryRepository.Add<Category>(Record);
+                        if (AddRresult)
                         {
                             MessageBox.Show("دسته بندی  با موفقیت اضافه شد");
                             txtCategoryName.Text = "";
@@ -82,8 +83,8 @@ namespace Accounting.GUI.Forms
                 {
                     ICategoryRepository _CategoryRepository = _unitOfWork.CategoryRepository;
 
-
-                    if (_CategoryRepository.IsExist<Category>(n=>n.CategoryName== txtCategoryName.Text))
+                    bool Result = await _CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text);
+                    if (Result)
                     {
                         bool result = await _CategoryRepository.DeleteByCondition<Category>(n => n.CategoryName == txtCategoryName.Text);
                         if (result)
@@ -119,16 +120,19 @@ namespace Accounting.GUI.Forms
         private void btnGetData_Click(object sender, EventArgs e)
         {
             txtCategoryName.Text = "";
-            frmCategoryRecords frm = new frmCategoryRecords();
-            frm.ShowDialog();
+            frmCategory frmCategory = new frmCategory();
+            if (frmCategory.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCategory.Close();
+                frmCategory = null;
+
+            }
         }
 
-        private void frmCategory_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmCategory_FormClosing(object sender, FormClosingEventArgs e)
         {
-         
-          
-            WorkWithGlobalForms.frmMainMenu.Show();
-            this.Hide();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

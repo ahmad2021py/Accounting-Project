@@ -26,11 +26,12 @@ namespace Accounting.DataLayer.Services
         #endregion
         //---------
         #region متد بررسی وجود ایمیل و پسورد در دیتابیس ، برای بازیابی پسورد
-        public bool RegistrationIsValid(string username, string email)
+        async   public Task< bool> RegistrationIsValid(string username, string email)
         {
 
-
-            try
+            return await Task.Run(() =>
+            {
+                try
             {
 
                
@@ -46,18 +47,21 @@ namespace Accounting.DataLayer.Services
                 return false;
             }
             return false;
+            });
 
         }
         #endregion
         //------------------------------------------------
         #region متد دریافت رمز با نام کاربری و ایمیل
-        public string GetUserPassword(string username, string email)
+         async  public Task<string> GetUserPassword(string username, string email)
         {
-
+            return await Task.Run(() =>
+            {
                 string Password = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n.Password).Single();
                 return Password;
-     
+            });
         }
+
         #endregion
         //----------------
      
@@ -66,8 +70,10 @@ namespace Accounting.DataLayer.Services
 
         #region Update Record
 
-        public bool UpdateRecord(Registration record)
+      async  public Task<bool> UpdateRecord(Registration record)
         {
+            return await Task.Run(() =>
+            {
 
             try
             {
@@ -79,17 +85,18 @@ namespace Accounting.DataLayer.Services
                 db.Entry(_dbRecord).Entity.ContactNumber = record.ContactNumber;
                 db.Entry(_dbRecord).Entity.UserName = record.UserName;
                 db.Entry(_dbRecord).Entity.Email = record.Email;
+                db.Entry(_dbRecord).Entity.Name = record.Name;
                 //SAVE change
                 db.SaveChanges();
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+                }
+                catch
+                {
+                    return false;
+                }
 
 
-
+            });
 
 
 
@@ -100,7 +107,38 @@ namespace Accounting.DataLayer.Services
 
 
 
+        #region Update Password By USER Method
 
+        async public Task<bool> UpdatePasswordByUser(string UserName,string NewPassword)
+        {
+            return await Task.Run(() =>
+            {
+
+                try
+                {
+
+                    Registration _dbRecord = db.Registrations.Where(n => n.UserName == UserName).Select(n => n).First();
+                    db.Registrations.Attach(_dbRecord);
+                    db.Entry(_dbRecord).Entity.Password = NewPassword;
+                   
+                    //SAVE change
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+
+
+            });
+
+
+
+        }
+
+
+        #endregion
 
 
 

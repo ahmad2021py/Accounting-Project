@@ -263,6 +263,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "بازیابی پسورد";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRecoveryPassword_FormClosing);
             this.ResumeLayout(false);
 
         }

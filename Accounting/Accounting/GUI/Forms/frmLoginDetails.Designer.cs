@@ -122,6 +122,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "جزئیات ورود";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLoginDetails_FormClosing);
             this.Load += new System.EventHandler(this.frmLoginDetails_Load);
             this.ResumeLayout(false);
 

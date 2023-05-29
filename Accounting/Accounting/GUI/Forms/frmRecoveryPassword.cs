@@ -21,12 +21,13 @@ namespace Accounting.GUI.Forms
         public frmRecoveryPassword()
         {
             InitializeComponent();
-            
+
         }
 
-        private void btnSend_Click(object sender, EventArgs e)
+        async private void btnSend_Click(object sender, EventArgs e)
         {
-            if (!WorkWithEmail.IsValidateEmail(txtEmail.Text))
+         bool IsValidateEmailResult =   await WorkWithEmail.IsValidateEmail(txtEmail.Text);
+            if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
@@ -36,15 +37,17 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IRegistrationRepository IRegistrationRepository = _UnitOfWork.RegistrationRepository;
-                if (!IRegistrationRepository.RegistrationIsValid(txtUserName.Text, txtEmail.Text))
+                bool RegistrationIsValidResult = await IRegistrationRepository.RegistrationIsValid(txtUserName.Text, txtEmail.Text);
+                if (!RegistrationIsValidResult)
                 {
                     MessageBox.Show("کاربری با این مشخصات یافت نشد ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string Password="";
+                string Password = "";
                 try
                 {
-                     Password = IRegistrationRepository.GetUserPassword(txtUserName.Text, txtEmail.Text);
+                    Password =await IRegistrationRepository.GetUserPassword(txtUserName.Text, txtEmail.Text);
+
                     Password = WorkWithEncryption.DecryptPassword(Password);
                 }
 
@@ -52,9 +55,9 @@ namespace Accounting.GUI.Forms
                 {
                     MessageBox.Show("خطایی در دریافت اطلاعات به وجود آمد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                 _emailPacket = new WorkWithEmail.SupportEmailPacket(txtEmail.Text,txtUserName.Text, Password);
-             
-                if (WorkWithEmail.SendRecoveryMail(_emailPacket))
+                _emailPacket = new WorkWithEmail.SupportEmailPacket(txtEmail.Text, txtUserName.Text, Password);
+                bool Result = await WorkWithEmail.SendRecoveryMail(_emailPacket);
+                if (Result)
                 {
                     MessageBox.Show("پسورد به ایمیل شما ارسال شد", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
                     this.Hide();
@@ -73,6 +76,17 @@ namespace Accounting.GUI.Forms
             }
 
 
+        }
+
+        private void frmRecoveryPassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            this.Hide();
+        }
+
+        private void frmRecoveryPassword_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
 
 

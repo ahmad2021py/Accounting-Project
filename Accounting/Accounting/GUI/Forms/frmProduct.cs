@@ -28,7 +28,7 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
-        void FillCombo()
+        async void FillCombo()
         {
             try
             {
@@ -41,12 +41,14 @@ namespace Accounting.GUI.Forms
                     try
                     {
 
-                        foreach (var n in _CompanyRepository.GetAll<Company>(n=>n==n))
+                        var CompanyDbList = await _CompanyRepository.GetAll<Company>(n => n == n);
+                        var CategoryDbList = await _CategoryRepository.GetAll<Category>(n => n == n);
+                        foreach (var n in CompanyDbList)
                         {
                             cbCompany.Items.Add(n.CompanyName);
                         }
 
-                        foreach (var n in _CategoryRepository.GetAll<Category> (n=>n==n))
+                        foreach (var n in CategoryDbList)
                         {
                             cbCategory.Items.Add(n.CategoryName);
                         }
@@ -107,7 +109,7 @@ namespace Accounting.GUI.Forms
         {
 
 
-            
+
             productRecord.id = Convert.ToInt32(txtProductCode.Text);
             productRecord.ProductName = txtProductName.Text;
             productRecord.Price = Convert.ToDecimal(txtPrice.Text);
@@ -138,7 +140,7 @@ namespace Accounting.GUI.Forms
             {
                 MessageBox.Show("خطایی رخ داده است");
             }
-          
+
 
 
 
@@ -166,16 +168,17 @@ namespace Accounting.GUI.Forms
                     {
                         bunifuCircleProgress2.Value += 10;
                         int productCode = Int32.Parse(txtProductCode.Text);
-                        bool Result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.id== productCode);
+                        bool Result = await _ProductRepository.IsExist<Product>(n => n.id == productCode);
                         bunifuCircleProgress2.Value += 10;
                         if (!Result)
                         {
                             bunifuCircleProgress2.Value += 10;
                             Product ProductRecord = new Product();
-                                ProductRecord = Fill__ProductRecord(ProductRecord);
+                            ProductRecord = Fill__ProductRecord(ProductRecord);
                             bunifuCircleProgress2.Value += 10;
-                            if (_ProductRepository.Add<Product>(ProductRecord))
-                                {
+                            bool AddResult = await _ProductRepository.Add<Product>(ProductRecord);
+                            if (AddResult)
+                            {
                                 bunifuCircleProgress2.Value += 10;
                                 MessageBox.Show("رکورد با موفقیت ثبت شد");
                                 bunifuCircleProgress2.Value += 10;
@@ -184,13 +187,13 @@ namespace Accounting.GUI.Forms
                                 Reset();
 
                             }
-                                else
-                                {
+                            else
+                            {
                                 bunifuCircleProgress2.ProgressColor = Color.Red;
                                 MessageBox.Show("خطایی رخ داده است");
                                 bunifuCircleProgress2.Value = 0;
                             }
-                            }
+                        }
                         else
                         {
                             bunifuCircleProgress2.ProgressColor = Color.Red;
@@ -216,7 +219,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-    
+
 
 
         private async void btnDelete_Click(object sender, EventArgs e)
@@ -237,14 +240,14 @@ namespace Accounting.GUI.Forms
                         bunifuCircleProgress4.Value += 10;
                         int ProductCode = Convert.ToInt32(txtProductCode.Text);
                         bunifuCircleProgress4.Value += 10;
-                        bool result = /*await*/ _ProductRepository.IsExist<Product>(N=>N.id== ProductCode);
+                        bool result = await _ProductRepository.IsExist<Product>(N => N.id == ProductCode);
                         if (result)
                         {
                             bunifuCircleProgress4.Value += 10;
-                            bool DeleteResult= await _ProductRepository.DeleteByCondition<Product>(n => n.id == ProductCode);
+                            bool DeleteResult = await _ProductRepository.DeleteByCondition<Product>(n => n.id == ProductCode);
                             bunifuCircleProgress4.Value += 10;
                             if (DeleteResult)
-                            MessageBox.Show("رکورد با موفقیت حذف شد");
+                                MessageBox.Show("رکورد با موفقیت حذف شد");
                             bunifuCircleProgress4.Value += 10;
                             _unitOfWork.Save();
                             bunifuCircleProgress4.Value += 10;
@@ -276,7 +279,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+       async private void btnUpdate_Click(object sender, EventArgs e)
         {
             bunifuCircleProgress3.Value += 10;
             try
@@ -294,7 +297,8 @@ namespace Accounting.GUI.Forms
                         Instance = Fill__ProductRecord(Instance);
                         int ProductCode = Convert.ToInt32(txtProductCode.Text);
                         bunifuCircleProgress3.Value += 10;
-                        if (_ProductRepository.UpdateProduct(Instance,n=>n.id== Instance.id))
+                        bool UpdateProductResult = await _ProductRepository.UpdateProduct(Instance, n => n.id == Instance.id);
+                        if (UpdateProductResult)
                         {
                             bunifuCircleProgress3.Value += 10;
                             MessageBox.Show("رکورد با موفقیت  بروز شد");
@@ -329,9 +333,23 @@ namespace Accounting.GUI.Forms
 
         private void btnGetData_Click(object sender, EventArgs e)
         {
-            frmProductRecords frm = new frmProductRecords(this);
-            frm.ShowDialog();
-            this.Hide();
+            frmProductRecords formProductRecords = new frmProductRecords(this);
+            if (formProductRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                  formProductRecords.Close();
+                this.cbCategory.Text = formProductRecords._Category;
+                this.cbCompany.Text = formProductRecords._Company;
+                this.txtFeatures.Text = formProductRecords._Features;
+                this.txtProductCode.Text = formProductRecords._id;
+                this.PboxProductPicture.Image = formProductRecords._Picture;
+                this.txtPrice.Text = formProductRecords._Price;
+                this.txtProductName.Text = formProductRecords._ProductName;
+                formProductRecords = null;
+
+
+
+            }
         }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -351,7 +369,7 @@ namespace Accounting.GUI.Forms
             bunifuCircleProgress1.Value = 0;
             bunifuCircleProgress1.Value += 10;
             bunifuCircleProgress1.Value += 10;
-            try 
+            try
             {
                 bunifuCircleProgress1.Value += 10;
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
@@ -361,12 +379,12 @@ namespace Accounting.GUI.Forms
                     bunifuCircleProgress1.Value += 10;
                     int ProductCode = Int32.Parse(txtProductCode.Text);
                     bunifuCircleProgress1.Value += 10;
-                    bool result = /*await*/ _ProductRepository.IsExist<Product>(n=>n.id== ProductCode);
+                    bool result = await _ProductRepository.IsExist<Product>(n => n.id == ProductCode);
                     bunifuCircleProgress1.Value += 10;
                     if (result)
                     {
                         bunifuCircleProgress1.Value += 10;
-                        Product record = _ProductRepository.GetEntity<Product>(n=>n.id== ProductCode);
+                        Product record = await _ProductRepository.GetEntity<Product>(n => n.id == ProductCode);
                         FillControlersWithProductDbRecord(record);
                         bunifuCircleProgress1.Value += 20;
                         bunifuCircleProgress1.Value = 0;
@@ -395,11 +413,11 @@ namespace Accounting.GUI.Forms
                 bunifuCircleProgress1.ProgressColor = Color.Red;
                 MessageBox.Show("خطایی رخ داده است");
                 bunifuCircleProgress1.Value = 0;
-              
+
             }
         }
 
-    
+
 
         private void txtProductCode_TextChanged(object sender, EventArgs e)
         {
@@ -435,24 +453,15 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void frmProduct_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            this.DialogResult = DialogResult.OK;
         }
 
-        private void bunifuFormDock1_FormDragging(object sender, Bunifu.UI.WinForms.BunifuFormDock.FormDraggingEventArgs e)
-        {
-
-        }
-
-        private void frmProduct_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            WorkWithGlobalForms.frmMainMenu.Show();
-            this.Hide();
 
 
-        }
+
+
 
 
 

@@ -334,7 +334,7 @@ namespace Accounting.GUI.Forms
             this.txtFamily.Size = new System.Drawing.Size(246, 44);
             this.txtFamily.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtFamily.TabIndex = 4;
-            this.txtFamily.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtFamily.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtFamily.TextMarginBottom = 0;
             this.txtFamily.TextMarginLeft = 3;
             this.txtFamily.TextMarginTop = 0;
@@ -409,7 +409,7 @@ namespace Accounting.GUI.Forms
             this.txtContactNo.Size = new System.Drawing.Size(246, 44);
             this.txtContactNo.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtContactNo.TabIndex = 5;
-            this.txtContactNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtContactNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtContactNo.TextMarginBottom = 0;
             this.txtContactNo.TextMarginLeft = 3;
             this.txtContactNo.TextMarginTop = 0;
@@ -485,7 +485,7 @@ namespace Accounting.GUI.Forms
             this.txtMail.Size = new System.Drawing.Size(246, 44);
             this.txtMail.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtMail.TabIndex = 6;
-            this.txtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtMail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtMail.TextMarginBottom = 0;
             this.txtMail.TextMarginLeft = 3;
             this.txtMail.TextMarginTop = 0;
@@ -717,7 +717,7 @@ namespace Accounting.GUI.Forms
             this.txtName.Size = new System.Drawing.Size(246, 44);
             this.txtName.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtName.TabIndex = 4;
-            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtName.TextMarginBottom = 0;
             this.txtName.TextMarginLeft = 3;
             this.txtName.TextMarginTop = 0;
@@ -832,7 +832,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "مدیریت کاربران";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUserRegistration_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUserRegistration_FormClosing);
             this.Load += new System.EventHandler(this.frmUserRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).EndInit();
             this.ResumeLayout(false);

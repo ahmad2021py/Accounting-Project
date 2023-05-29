@@ -41,8 +41,8 @@ namespace Accounting.GUI.Forms
                 {
                     ICompanyRepository _CompanyRepository = _unitOfWork.CompanyRepository;
 
-
-                    if (_CompanyRepository.IsExist<Company>(n => n.CompanyName == txtCompanyName.Text))
+                    bool Result = await _CompanyRepository.IsExist<Company>(n => n.CompanyName == txtCompanyName.Text);
+                    if (Result)
                     {
                         bool result = await _CompanyRepository.DeleteByCondition<Company>(n => n.CompanyName == txtCompanyName.Text);
                         if (result)
@@ -76,7 +76,7 @@ namespace Accounting.GUI.Forms
 
 
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
             if (WorkWithTextboxes.TextBoxisNull(txtCompanyName.Text))
             {
@@ -90,7 +90,8 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
-                    if (_CompanyRepository.IsExist<Company> (n => n.CompanyName == txtCompanyName.Text))
+                    bool result = await _CompanyRepository.IsExist<Company>(n => n.CompanyName == txtCompanyName.Text);
+                    if (result)
                     {
                         MessageBox.Show("این شرکت از قبل وجود دارد");
                     }
@@ -98,7 +99,8 @@ namespace Accounting.GUI.Forms
                     {
                         Company Record = new Company();
                         Record.CompanyName = txtCompanyName.Text;
-                        if (_CompanyRepository.Add<Company>(Record))
+                        bool AddResult =await _CompanyRepository.Add<Company>(Record);
+                        if (AddResult)
                         {
                             MessageBox.Show("شرکت با موفقیت اضافه شد");
                             txtCompanyName.Text = "";
@@ -119,16 +121,28 @@ namespace Accounting.GUI.Forms
         private void btnGetData_Click(object sender, EventArgs e)
         {
 
-            frmCompanyRecords frm = new frmCompanyRecords();
-            frm.ShowDialog();
-               
-            
+            frmCompanyRecords frmCompanyRecords = new frmCompanyRecords();
+            if (frmCompanyRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCompanyRecords.Close();
+                frmCompanyRecords = null;
+
+            }
+
+
         }
 
         private void frmCompany_FormClosed(object sender, FormClosedEventArgs e)
         {
-            WorkWithGlobalForms.frmMainMenu.Show();
+            frmMainMenu frm = new frmMainMenu();
+            frm.Show();
             this.Hide();
+        }
+
+        private void frmCompany_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

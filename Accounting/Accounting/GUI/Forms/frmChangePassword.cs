@@ -26,26 +26,37 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private async void btnOK_Click(object sender, EventArgs e)
         {
-            if(WorkWithTextboxes.TextBoxisNull(txtUserName.Text, txtOldPass.Text, txtNewPass.Text, txtRepeatNewPass.Text)){
+            if (WorkWithTextboxes.TextBoxisNull(txtUserName.Text, txtOldPass.Text, txtNewPass.Text, txtRepeatNewPass.Text))
+            {
                 MessageBox.Show("لطفا تمام فیلد ها را پر کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else
             {
-               if( WorkWithPassword.PassIsValid(txtOldPass.Text, txtNewPass.Text,txtRepeatNewPass.Text))
-                 {
+                if (WorkWithPassword.PassIsValid(txtOldPass.Text, txtNewPass.Text, txtRepeatNewPass.Text))
+                {
                     _user.UserName = txtUserName.Text;
-                    _user.Password = WorkWithEncryption.EncryptPassword( txtOldPass.Text);
+                    _user.Password = WorkWithEncryption.EncryptPassword(txtOldPass.Text);
                     using (UnitOfWork _UnitOfWork = new UnitOfWork())
                     {
                         IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
-                        if (_IUserRepository.IsExist<User>(n=>n.UserName==_user.UserName&&n.Password==_user.Password))
-                        if (_IUserRepository.ChangeUserPassword(_user, WorkWithEncryption.EncryptPassword( txtNewPass.Text)))
+                        IRegistrationRepository _registrationRepository = _UnitOfWork.RegistrationRepository;
+                        bool result = await _IUserRepository.IsExist<User>(n => n.UserName == _user.UserName && n.Password == _user.Password);
+                        if (!result)
+                        {
+                            MessageBox.Show(" کاربری با این مشخصات وجود ندارد");
+                            return;
+                        }
+                        bool ChangeUserPasswordResult = await _IUserRepository.ChangeUserPasswordByUser(_user, WorkWithEncryption.EncryptPassword(txtNewPass.Text));
+                        bool registrationUpdatePasswordByUserResult = await _registrationRepository.UpdatePasswordByUser(txtUserName.Text, WorkWithEncryption.EncryptPassword(txtNewPass.Text));
+
+
+                        if (ChangeUserPasswordResult && registrationUpdatePasswordByUserResult)
                         {
                             MessageBox.Show("رمز عبور باموفقیت تغییر یافت", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                this.Close();
+                            this.Close();
                         }
                         else
                         {
@@ -67,10 +78,8 @@ namespace Accounting.GUI.Forms
 
         private void frmChangePassword_FormClosing(object sender, FormClosingEventArgs e)
         {
-            frmLogin frm = new frmLogin();
 
-            frm.Show();
-            this.Hide();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

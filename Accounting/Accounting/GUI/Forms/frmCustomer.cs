@@ -72,14 +72,21 @@ namespace Accounting.GUI.Forms
 
         private void btnGetData_Click(object sender, EventArgs e)
         {
-            frmCustomerRecords frm = new frmCustomerRecords();
-            frm.ShowDialog();
-            this.Hide();
+            frmCustomerRecords frmCustomerRecords = new frmCustomerRecords();
+            if (frmCustomerRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCustomerRecords.Close();
+                frmCustomerRecords = null;
+
+            }
+
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+     async   private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text))
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
+            if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
@@ -90,7 +97,8 @@ namespace Accounting.GUI.Forms
                     ICustomerRepository _customerRepository = _unitOfWork.CustomerRepository;
                     Customer Instance = new Customer();
                     Instance = Fill__CustomerRecord(Instance);
-                    if (_customerRepository.UpdateRecord(Instance))
+                    bool UpdateRecordResult = await _customerRepository.UpdateRecord(Instance);
+                    if (UpdateRecordResult)
                     {
                         MessageBox.Show("رکورد با موفقیت  بروز شد");
                         _unitOfWork.Save();
@@ -118,7 +126,8 @@ namespace Accounting.GUI.Forms
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (!WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text))
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
+            if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
@@ -128,22 +137,24 @@ namespace Accounting.GUI.Forms
                 ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
                 if (!IsNull())
                 {
-                    string nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
-                    if (nationalCodeValidation == "NotValid")
+                    bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
+
+                    if (!nationalCodeValidation)
                     {
                         MessageBox.Show("کد ملی نامعتبر است");
                         return;
                     }
-                    long nationalCode = long.Parse(txtNationalCode.Text);
-                    bool Result =  _CustomerRepository.IsExist<Customer>(n=>n.NationalCode== nationalCode);
+                    string nationalCode= WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
+                    long NationalCode = long.Parse(nationalCode);
+                    bool Result =await  _CustomerRepository.IsExist<Customer>(n=>n.NationalCode== NationalCode);
                     if (!Result)
                     {
                         using (UnitOfWork _unitOfWork = new UnitOfWork())
                         {
                             Customer CustomerRecord = new Customer();
                             CustomerRecord = Fill__CustomerRecord(CustomerRecord);
-
-                            if (_CustomerRepository.Add<Customer>(CustomerRecord))
+                            bool AddResult = await _CustomerRepository.Add<Customer>(CustomerRecord);
+                            if (AddResult)
                             {
                                 MessageBox.Show("رکورد با موفقیت ثبت شد");
 
@@ -186,7 +197,8 @@ namespace Accounting.GUI.Forms
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text))
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
+            if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
@@ -195,22 +207,24 @@ namespace Accounting.GUI.Forms
             {
                 if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    string nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
-                    if (nationalCodeValidation == "NotValid")
+                    bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
+
+                    if (!nationalCodeValidation)
                     {
                         MessageBox.Show("کد ملی نامعتبر است");
                         return;
                     }
-                    long nationalCode = long.Parse(txtNationalCode.Text);
+                    string nationalCode = WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
+                    long NationalCode = long.Parse(nationalCode);
                     using (UnitOfWork _unitOfWork = new UnitOfWork())
                     {
 
                         ICustomerRepository _CustomerRepository = _unitOfWork.CustomerRepository;
                      
-                        bool Result =  _CustomerRepository.IsExist<Customer>(n=>n.NationalCode==nationalCode);
+                        bool Result = await _CustomerRepository.IsExist<Customer>(n=>n.NationalCode== NationalCode);
                         if (Result)
                         {
-                            bool DeleteResult =await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == nationalCode);
+                            bool DeleteResult =await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == NationalCode);
                             if (DeleteResult)
                             {
                                 MessageBox.Show("رکورد با موفقیت حذف شد");
@@ -262,9 +276,15 @@ namespace Accounting.GUI.Forms
 
         private void frmCustomer_FormClosed(object sender, FormClosedEventArgs e)
         {
-           
-            WorkWithGlobalForms.frmMainMenu.Show();
+
+            frmMainMenu frm = new frmMainMenu();
+            frm.Show();
             this.Hide();
+        }
+
+        private void frmCustomer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
 
 

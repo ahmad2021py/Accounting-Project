@@ -31,10 +31,12 @@ namespace Accounting.DataLayer.Services
 
 
         #region Update Generic-Method
-        public bool UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter) 
+       async public Task<bool> UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter) 
 
         {
-            try
+            return await Task.Run(() =>
+            {
+                try
             {
                 var dbRecord = db.Set<Product>().FirstOrDefault(currentEntityFilter);
                 Obj.id = dbRecord.id;
@@ -47,6 +49,7 @@ namespace Accounting.DataLayer.Services
             {
                 return false;
             }
+            });
 
         }
 

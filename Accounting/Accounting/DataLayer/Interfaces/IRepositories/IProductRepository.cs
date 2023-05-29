@@ -14,7 +14,7 @@ namespace Accounting.DataLayer.Interfaces
 
 
 
-         bool UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter);
+         Task<bool> UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter);
 
 
 

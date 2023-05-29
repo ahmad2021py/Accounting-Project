@@ -17,46 +17,51 @@ namespace Accounting.GUI.Forms
 
             //------GetNowDate
             WorkWithDate workWithDate1 = new WorkWithDate();
-            string shamsiDate="";
-            shamsiDate= workWithDate1.MiladiToShamsi(DateTime.Now);
-           
-          
+            string shamsiDate = "";
+            shamsiDate = workWithDate1.MiladiToShamsi(DateTime.Now);
+
+
             lblDate.Text = shamsiDate;
 
             //--------GetNowDay
             WorkWithDate workWithDate = new WorkWithDate();
             string ThisShamsiDay = workWithDate.GetShamsiDayNameByMiladiDate(DateTime.Now);
             lblThisDay.Text = ThisShamsiDay;
-          
 
-           
+
+
         }
-    
 
-    
+
+
 
         private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             this.Hide();
-            frmLogin frm = new frmLogin();
-            frm.txtUserName.Text = "";
-            frm.txtPassword.Text = "";
-            frm.txtUserName.Focus();
-            frm.Show();
+            WorkWithGlobalForms.frmLogin = new frmLogin();
+            WorkWithGlobalForms.frmLogin.txtUserName.Text = "";
+            WorkWithGlobalForms.frmLogin.txtPassword.Text = "";
+            WorkWithGlobalForms.frmLogin.txtUserName.Focus();
+            WorkWithGlobalForms.frmLogin.Show();
         }
 
-       
 
-     
 
-     
+
+
+
 
         private void btnRegistration_Click(object sender, EventArgs e)
         {
-            frmUserRegistration frm = new frmUserRegistration();
-            frm.Show();
-            this.Hide();
+            frmUserRegistration frmUserRegistration = new frmUserRegistration();
+            if (frmUserRegistration.ShowDialog() == DialogResult.OK)
+            {
+
+                frmUserRegistration.Close();
+                frmUserRegistration = null;
+
+            }
         }
 
         private void StatusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -66,8 +71,8 @@ namespace Accounting.GUI.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-         
-            
+
+
             lblTime.Text = DateTime.Now.Hour.ToString("0#");
             lblTime.Text += " : ";
             lblTime.Text += DateTime.Now.Minute.ToString("0#");
@@ -86,50 +91,94 @@ namespace Accounting.GUI.Forms
 
         private void btnProdut_Click(object sender, EventArgs e)
         {
-            frmProduct frm = new frmProduct();
-            frm.Show();
-            this.Hide();
+        
+            frmProduct formProduct = new frmProduct();
+            if (formProduct.ShowDialog() == DialogResult.OK)
+            {
+
+                formProduct.Close();
+
+            }
+
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            frmCustomer frm = new frmCustomer();
-            frm.Show();
-            this.Hide();
+            frmCustomer frmCustomer = new frmCustomer();
+            if (frmCustomer.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCustomer.Close();
+                frmCustomer = null;
+
+            }
 
         }
 
         private void btnCompany_Click(object sender, EventArgs e)
         {
-            frmCompany frm = new frmCompany();
-            frm.Show();
-            this.Hide();
+            frmCompany frmCompany = new frmCompany();
+            if (frmCompany.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCompany.Close();
+                frmCompany = null;
+
+            }
         }
 
         private void btnfrmLoginDetails_Click(object sender, EventArgs e)
         {
-            frmLoginDetails frm=new frmLoginDetails();
-            frm.ShowDialog();
+            frmLoginDetails frmLoginDetails = new frmLoginDetails();
+            if (frmLoginDetails.ShowDialog() == DialogResult.OK)
+            {
+
+                frmLoginDetails.Close();
+                frmLoginDetails = null;
+
+            }
         }
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            frmStock frm = new frmStock();
-            frm.Show();
-            this.Hide();
+            frmStock frmStock = new frmStock();
+            if (frmStock.ShowDialog() == DialogResult.OK)
+            {
+
+                frmStock.Close();
+                frmStock = null;
+
+            }
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            frmCategory frm = new frmCategory();
-            frm.Show();
-            this.Hide();
+            frmCategory frmCategory = new frmCategory();
+            if (frmCategory.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCategory.Close();
+                frmCategory = null;
+
+            }
         }
 
         private void btnSaleAndBuy_Click(object sender, EventArgs e)
         {
-            frmSaleAndBuy frm = new frmSaleAndBuy();
-            WorkWithGlobalForms.frmSaleAndBuy = frm;
+            frmSaleAndBuy frmSaleAndBuy = new frmSaleAndBuy();
+            if (frmSaleAndBuy.ShowDialog() == DialogResult.OK)
+            {
+
+                frmSaleAndBuy.Close();
+                frmSaleAndBuy = null;
+
+            }
+
+        }
+
+        private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin frm = new frmLogin();
             frm.Show();
             this.Hide();
         }

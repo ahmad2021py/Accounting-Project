@@ -12,9 +12,11 @@ namespace Accounting.Utilities
     public static class WorkWithEmail
     {
         #region SendRecoveryMail Method
-        public static bool SendRecoveryMail(SupportEmailPacket supportEmailPacket )
+        public async static Task<bool> SendRecoveryMail(SupportEmailPacket supportEmailPacket )
         {
-            try
+            return await Task.Run(() =>
+            {
+                try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                 client.EnableSsl = true;
@@ -33,6 +35,7 @@ namespace Accounting.Utilities
             {
                 return false;
             }
+            });
         }
         #endregion
 
@@ -43,9 +46,11 @@ namespace Accounting.Utilities
         /// <summary>
         /// Validates the email input
         /// </summary>
-        public static bool IsValidateEmail(string _emailAddress)
+      async  public static Task<bool> IsValidateEmail(string _emailAddress)
         {
-            string email = _emailAddress.Trim();
+            return await Task.Run(() =>
+            {
+                string email = _emailAddress.Trim();
             string _regexPattern = @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
                     + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
                     + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
@@ -54,6 +59,7 @@ namespace Accounting.Utilities
             return (string.IsNullOrEmpty(email) == false && System.Text.RegularExpressions.Regex.IsMatch(email, _regexPattern))
                 ? true
                 : false;
+            });
         }
 
 

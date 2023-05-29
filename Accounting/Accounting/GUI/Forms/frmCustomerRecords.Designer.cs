@@ -370,6 +370,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "لیست مشتریان";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomerRecords_FormClosing);
             this.Load += new System.EventHandler(this.frmCustomerRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -20,7 +20,14 @@ namespace Accounting.GUI.Forms
         }
 
 
-        void LoadData()
+        public string _id;
+        public string _FKProductId;
+        public string _BuyPrice;
+        public string _StockDate;
+        public string _Quantity;
+        public string _Description;
+      
+        async void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -29,13 +36,14 @@ namespace Accounting.GUI.Forms
                 {
 
                     //---------Get List Of Stock Table Records-----------
-                    var list = StockRepository.GetAll<Stock>(n => n == n);
+                    IEnumerable<Stock> EnumerableStocklist = await StockRepository.GetAll<Stock>(n => n == n);
+                    List<Stock> DbStocklist = new List<Stock>(EnumerableStocklist);
                     //-----
                     //--------------An Instanse to Store MildadiDates------------
                     List<DateTime> MiladiDates = new List<DateTime>();
                     //-----
                     //-------Get MiladiDateTime List and Convert To ShamsiDate--------- 
-                    foreach (var n in list)
+                    foreach (var n in DbStocklist)
                     {
                         MiladiDates.Add(n.StockDate);
                     }
@@ -64,15 +72,15 @@ namespace Accounting.GUI.Forms
                     dataTable.Columns["FKProductId"].Caption = " کد کالا";
                     //-----
                     //-------------seed data to dataTable---------
-                    for (int i = 0; i < list.Count; i++)
+                    for (int i = 0; i < DbStocklist.Count; i++)
                     {
                         DataRow dataRow = dataTable.NewRow();
-                        dataRow["id"] = list[i].id;
-                        dataRow["Description"] = list[i].Description;
-                        dataRow["Quantity"] = list[i].Quantity;
+                        dataRow["id"] = DbStocklist[i].id;
+                        dataRow["Description"] = DbStocklist[i].Description;
+                        dataRow["Quantity"] = DbStocklist[i].Quantity;
                         dataRow["StockDate"] = ShamsiDates[i];
-                        dataRow["BuyPrice"] = list[i].BuyPrice;
-                        dataRow["FKProductId"] = list[i].FKProductId;
+                        dataRow["BuyPrice"] = DbStocklist[i].BuyPrice;
+                        dataRow["FKProductId"] = DbStocklist[i].FKProductId;
                         dataTable.Rows.Add(dataRow);
 
                     }
@@ -111,9 +119,14 @@ namespace Accounting.GUI.Forms
             WorkWithExcel.ExportExcel(DGV1);
         }
 
-        private void txtStockId_TextChanged(object sender, EventArgs e)
+        private async void txtStockId_TextChanged(object sender, EventArgs e)
         {
-           
+            if (txtStockId.Text == "")
+            {
+                LoadData();
+                return;
+            }
+
             bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtStockId.Text);
             if (!ValidationResult)
             {
@@ -121,38 +134,33 @@ namespace Accounting.GUI.Forms
                 txtStockId.Text = "";
                 return;
             }
-            if (txtStockId.Text == "")
-            {
-                LoadData();
-            }
 
 
-            else
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                IStockRepository _StockRepository = _UnitOfWork.StockRepository;
+                try
                 {
-                    IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-                    try
-                    {
 
 
-                        long StockId = long.Parse(txtStockId.Text);
-                        DGV1.DataSource = _StockRepository.GetAll<Stock>(n => n.id == StockId);
-                        DGV1.Columns["Product"].Visible = false;
-
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
+                    long StockId = long.Parse(txtStockId.Text);
+                    IEnumerable<Stock> DbSearchResult = await _StockRepository.GetAll<Stock>(n => n.id == StockId);
+                    DGV1.DataSource = DbSearchResult;
+                    DGV1.Columns["Product"].Visible = false;
 
                 }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
             }
+
         }
 
         private void txtProductId_TextChanged(object sender, EventArgs e)
         {
-          
+
 
             bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductId.Text);
             if (!ValidationResult)
@@ -208,7 +216,7 @@ namespace Accounting.GUI.Forms
                     //{
 
 
-                    
+
 
                     string ShamsiDate = bPersianCalenderTextBox1.Text;
                     WorkWithDate workWithDate = new WorkWithDate();
@@ -226,6 +234,40 @@ namespace Accounting.GUI.Forms
                     //}
 
                 }
+            }
+        }
+
+        private void frmStockRecords_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            this.Hide();
+        }
+
+        private void frmStockRecords_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+                DataGridViewRow dr = DGV1.SelectedRows[0];
+
+                     _FKProductId = dr.Cells["id"].Value.ToString();
+                    _Quantity = dr.Cells["Quantity"].Value.ToString();
+                    _Description = dr.Cells["Description"].Value.ToString();
+                    _BuyPrice = dr.Cells["BuyPrice"].Value.ToString();
+                    _StockDate = dr.Cells["StockDate"].Value.ToString();
+                    
+                    this.DialogResult = DialogResult.OK;
+                }
+              
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

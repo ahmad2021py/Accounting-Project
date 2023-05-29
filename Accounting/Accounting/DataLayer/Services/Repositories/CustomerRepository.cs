@@ -28,9 +28,11 @@ namespace Accounting.DataLayer.Services
         //------------
 
 
-        public bool UpdateRecord(Customer record)
+       async public Task<bool> UpdateRecord(Customer record)
         {
-            try
+            return await Task.Run(() =>
+            {
+                try
             {
 
                 Customer dbRecord = db.Customers.Where(n => n.NationalCode == record.NationalCode).Select(n => n).First();
@@ -53,7 +55,7 @@ namespace Accounting.DataLayer.Services
             }
 
 
-
+            });
 
         }
 

@@ -24,7 +24,7 @@ namespace Accounting.GUI.Forms
 
 
 
-        private void LoadData()
+        private async void LoadData()
         {
 
 
@@ -33,7 +33,8 @@ namespace Accounting.GUI.Forms
                 ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
                 try
                 {
-                    DGV1.DataSource = _CompanyRepository.GetAll<Company>(n => n == n);
+                    IEnumerable<Company> IenumerableComapnyDbRecords = await _CompanyRepository.GetAll<Company>(n => n == n);
+                    DGV1.DataSource = IenumerableComapnyDbRecords;
                     DGV1.Columns["id"].HeaderText = " کد شرکت";
                     DGV1.Columns["CompanyName"].HeaderText = " نام شرکت";
                 }
@@ -57,7 +58,7 @@ namespace Accounting.GUI.Forms
             WorkWithExcel.ExportExcel(DGV1);
         }
 
-        private void txtCompanyId_TextChanged(object sender, EventArgs e)
+        async private void txtCompanyId_TextChanged(object sender, EventArgs e)
         {
             if (txtCompanyId.Text == "")
             {
@@ -83,7 +84,8 @@ namespace Accounting.GUI.Forms
 
 
                     long CompanyId = long.Parse(txtCompanyId.Text);
-                    DGV1.DataSource = _CompanyRepository.GetAll<Company>(n => n.id.ToString().Contains(CompanyId.ToString()));
+                    IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.id.ToString().Contains(CompanyId.ToString()));
+                    DGV1.DataSource = IenumerableompanyDbRecords;
 
 
                 }
@@ -94,6 +96,46 @@ namespace Accounting.GUI.Forms
 
 
             }
+        }
+
+        private void frmCompanyRecords_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            this.Hide();
+        }
+
+      async  private void txtCompanyName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCompanyName.Text == "")
+            {
+                LoadData();
+                return;
+            }
+          
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
+                try
+                {
+
+                    IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.CompanyName.ToString().Contains(txtCompanyName.Text));
+                    DGV1.DataSource = IenumerableompanyDbRecords;
+
+
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
+
+            }
+        }
+
+        private void frmCompanyRecords_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

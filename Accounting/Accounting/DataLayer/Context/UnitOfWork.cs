@@ -161,7 +161,7 @@ namespace Accounting.DataLayer.Context
             _CompanyRepository = null;
             _CategoryRepository = null;
             _ProductRepository = null;
-           _CustomerRepository = null;
+            _CustomerRepository = null;
 
         }
 

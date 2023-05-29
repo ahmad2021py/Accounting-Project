@@ -22,7 +22,7 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
-        void LoadData()
+     async   void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -30,7 +30,8 @@ namespace Accounting.GUI.Forms
                 try
                 {
                     //--------
-                    DGV1.DataSource = _CategoryRepository.GetAll<Category>(n => n == n);
+                    IEnumerable<Category>IenamrableCategoryDbRecords = await _CategoryRepository.GetAll<Category>(n => n == n);
+                    DGV1.DataSource = IenamrableCategoryDbRecords;
                     DGV1.Columns["id"].HeaderText = " کد دسته";
                     DGV1.Columns["CategoryName"].HeaderText = " نام دسنه";
                     //----------------------------------
@@ -149,6 +150,22 @@ namespace Accounting.GUI.Forms
                 MessageBox.Show("خطایی رخ داده");
             }
 
+        }
+
+        private void frmCategoryRecords_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+            this.Hide();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmCategoryRecords_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
 
 

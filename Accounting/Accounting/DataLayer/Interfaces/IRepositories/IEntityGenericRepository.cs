@@ -11,17 +11,17 @@ namespace Accounting.DataLayer.Interfaces
 {
     public interface IEntityGenericRepository
     {
-        IList<T> GetAll<T>(Expression<Func<T, bool>> predicate) where T : class;
-        T GetEntity<T>(Expression<Func<T, bool>> predicate) where T : class;
+       Task< IEnumerable<T>> GetAll<T>(Expression<Func<T, bool>> predicate) where T : class;
+        Task<T> GetEntity<T>(Expression<Func<T, bool>> predicate) where T : class;
 
-        bool Add<T>(T newItem) where T : class;
-        bool Update<T>(object dto, Expression<Func<T, bool>> currentEntityFilter) where T : class;
+        Task<bool> Add<T>(T newItem) where T : class;
+        Task<bool> Update<T>(object dto, Expression<Func<T, bool>> currentEntityFilter) where T : class;
 
         Task<bool> DeleteByCondition<TDelete>(Expression<Func<TDelete, bool>> expression) where TDelete : class;
 
 
 
-        bool IsExist<TEntity>(Expression<Func<TEntity, bool>> predicate = null) where TEntity : class;
+       Task<bool>  IsExist<TEntity>(Expression<Func<TEntity, bool>> predicate = null) where TEntity : class;
 
 
 

@@ -26,30 +26,33 @@ namespace Accounting.GUI.Forms
         #region frmMainInitialize Method
         void frmMainInitialize()
         {
-          
-            frmMainMenu frm = new frmMainMenu();
-            WorkWithGlobalForms.frmMainMenu= frm;
-            frm.Show();
+
+            WorkWithGlobalForms.frmMainMenu = new frmMainMenu();
+
+            WorkWithGlobalForms.frmMainMenu.Show();
             //frm.lblUser.Text = cbRole.Text;
             //frm.toolStripStatusLabel3.Text = UserTemp.UserName;
             WorkWithGlobalVariables.LoginedUserName = UserTemp.UserName;
             WorkWithGlobalVariables.LoginedUserRole = cbRole.Text;
-            WorkWithGlobalVariables.LoginedUserTime = DateTime.Now;
+            WorkWithDate workWithDate = new WorkWithDate();
+            WorkWithGlobalVariables.LoginedUserTime =  workWithDate.MiladiToShamsi(DateTime.Now);
+            WorkWithGlobalVariables.LoginedUserTime = WorkWithGlobalVariables.LoginedUserTime +" ساعت :  "+ DateTime.Now.Hour+":"+ DateTime.Now.Minute +":"+ DateTime.Now.Second;
+
             if (cbRole.Text == "Manager")
             {
                 //Hide btnRegistration 
-                frm.btnRegistration.Enabled = false;
-                frm.btnRegistration.Visible = false;
-                frm.lblRegistration.Visible = false;
+                WorkWithGlobalForms.frmMainMenu.btnRegistration.Enabled = false;
+                WorkWithGlobalForms.frmMainMenu.btnRegistration.Visible = false;
+                WorkWithGlobalForms.frmMainMenu.lblRegistration.Visible = false;
                 // Hide btnUsers
            
             }
             else if (cbRole.Text == "Employee")
             {
                 //Hide btnRegistration 
-                frm.btnRegistration.Enabled = false;
-                frm.btnRegistration.Visible = false;
-                frm.lblRegistration.Visible = false;
+                WorkWithGlobalForms.frmMainMenu.btnRegistration.Enabled = false;
+                WorkWithGlobalForms.frmMainMenu.btnRegistration.Visible = false;
+                WorkWithGlobalForms.frmMainMenu.lblRegistration.Visible = false;
                 // Hide btnUsers
              
                 //  frm.btnModify.Enabled = false;
@@ -77,12 +80,12 @@ namespace Accounting.GUI.Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
-        private  void btnOK_Click(object sender, EventArgs e)
+        private  async void btnOK_Click(object sender, EventArgs e)
         {
-
+            Cursor = Cursors.WaitCursor;
 
             if (WorkWithTextboxes.TextBoxisNull(cbRole.Text))
             {
@@ -112,16 +115,18 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     IUserRepository IUserRepository = _UnitOfWork.UserRepository;
-                    bool Result = IUserRepository.IsExist<User>(n=>n.UserName== UserTemp.UserName&&n.Password==UserTemp.Password &&n.Role==UserTemp.Role);
+                    bool Result =await IUserRepository.IsExist<User>(n=>n.UserName== UserTemp.UserName&&n.Password==UserTemp.Password &&n.Role==UserTemp.Role);
                     if (Result)
                     {
                         frmMainInitialize();
+                        Cursor = Cursors.Default;
                     }
                     else
                     {
                         MessageBox.Show("کاربری با این مشخصات یافت نشد ");
                         txtPassword.Text = "";
                         txtUserName.Text = "";
+                        Cursor = Cursors.Default;
                     }
 
                 }

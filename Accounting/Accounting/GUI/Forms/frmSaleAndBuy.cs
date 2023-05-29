@@ -25,10 +25,16 @@ namespace Accounting.GUI.Forms
 
         private void frmSaleAndBuy_FormClosed(object sender, FormClosedEventArgs e)
         {
-          
-            WorkWithGlobalForms.frmMainMenu.Show();
+
+            frmMainMenu frm = new frmMainMenu();
+            frm.Show();
             this.Hide();
 
+        }
+
+        private void frmSaleAndBuy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

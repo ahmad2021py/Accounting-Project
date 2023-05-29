@@ -24,5 +24,12 @@ namespace Accounting.GUI.Forms
             lblUserRole.Text = WorkWithGlobalVariables.LoginedUserRole;
             lblUserLoginTime.Text = WorkWithGlobalVariables.LoginedUserTime.ToString();
         }
+
+    
+
+        private void frmLoginDetails_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }
