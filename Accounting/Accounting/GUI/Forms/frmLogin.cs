@@ -41,18 +41,16 @@ namespace Accounting.GUI.Forms
             if (cbRole.Text == "Manager")
             {
                 //Hide btnRegistration 
-                frm.btnRegistration.Enabled = false;
-                frm.btnRegistration.Visible = false;
-                frm.lblRegistration.Visible = false;
+       
+              
                 // Hide btnUsers
            
             }
             else if (cbRole.Text == "Employee")
             {
                 //Hide btnRegistration 
-                frm.btnRegistration.Enabled = false;
-              frm.btnRegistration.Visible = false;
-               frm.lblRegistration.Visible = false;
+          
+     
                 // Hide btnUsers
              
                 //  frm.btnModify.Enabled = false;

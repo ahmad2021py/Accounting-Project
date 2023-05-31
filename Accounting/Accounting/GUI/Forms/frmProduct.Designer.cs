@@ -53,7 +53,7 @@ namespace Accounting.GUI.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
-            this.bunifuColorTransition1 = new Bunifu.UI.WinForms.BunifuColorTransition(this.components);
+         
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -308,28 +308,7 @@ namespace Accounting.GUI.Forms
             // 
             // bunifuColorTransition1
             // 
-            this.bunifuColorTransition1.AutoTransition = true;
-            this.bunifuColorTransition1.ColorArray = new System.Drawing.Color[] {
-        System.Drawing.Color.Purple,
-        System.Drawing.Color.LightBlue,
-        System.Drawing.Color.Orange,
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255))))),
-        System.Drawing.Color.Fuchsia,
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.Lime,
-        System.Drawing.Color.Black,
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))))};
-            this.bunifuColorTransition1.EndColor = System.Drawing.Color.White;
-            this.bunifuColorTransition1.Interval = 50;
-            this.bunifuColorTransition1.ProgessValue = 0;
-            this.bunifuColorTransition1.StartColor = System.Drawing.Color.White;
-            this.bunifuColorTransition1.TransitionControl = null;
+            
             // 
             // frmProduct
             // 
@@ -367,7 +346,6 @@ namespace Accounting.GUI.Forms
         internal System.Windows.Forms.Label label5;
         public System.Windows.Forms.ComboBox cbCategory;
         public System.Windows.Forms.ComboBox cbCompany;
-        private Bunifu.UI.WinForms.BunifuColorTransition bunifuColorTransition1;
         private System.Windows.Forms.Button btnShowfrmProductRecords;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;

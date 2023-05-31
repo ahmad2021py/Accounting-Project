@@ -153,9 +153,10 @@ namespace Accounting.GUI.Forms
             // 
             // PboxProductPicture
             // 
-            this.PboxProductPicture.Location = new System.Drawing.Point(641, 167);
+            this.PboxProductPicture.Location = new System.Drawing.Point(686, 272);
             this.PboxProductPicture.Name = "PboxProductPicture";
-            this.PboxProductPicture.Size = new System.Drawing.Size(245, 254);
+            this.PboxProductPicture.Size = new System.Drawing.Size(151, 156);
+            this.PboxProductPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.PboxProductPicture.TabIndex = 90;
             this.PboxProductPicture.TabStop = false;
             // 
@@ -225,7 +226,7 @@ namespace Accounting.GUI.Forms
             this.btnShowUserRecords.TabIndex = 91;
             this.btnShowUserRecords.Text = "لیست";
             this.btnShowUserRecords.UseVisualStyleBackColor = true;
-            this.btnShowUserRecords.Click += new System.EventHandler(this.btnBrowse_Click);
+            this.btnShowUserRecords.Click += new System.EventHandler(this.btnShowUserRecords_Click);
             // 
             // btnNew
             // 
