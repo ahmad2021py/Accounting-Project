@@ -14,7 +14,12 @@ namespace Accounting.DataLayer.Context
     {
 
         //--------Fields--------------
-        Accounting_DbContext db = new Accounting_DbContext();
+        Accounting_DbContext db = new Accounting_DbContext( );
+        public UnitOfWork()
+        {
+            //db.Configuration.LazyLoadingEnabled = false;
+        }
+       
         private IUserRepository _userRepository;
         private IRegistrationRepository _RegistrationRepository;
         private ICompanyRepository _CompanyRepository;
@@ -152,23 +157,27 @@ namespace Accounting.DataLayer.Context
 
 
 
-        public void Dispose()
+        public void Dispose()//if Using Method Not Use . I Could Call this Method to Dispose all Resources .   
         {
-            db.Dispose();
-            db = null;
-            _userRepository = null;
-            _RegistrationRepository = null;
-            _CompanyRepository = null;
-            _CategoryRepository = null;
-            _ProductRepository = null;
-            _CustomerRepository = null;
+         //   db.Dispose();
+         //   db = null;
+         ////   _userRepository.Dispose();
+         //   _userRepository = null;
+         //   _RegistrationRepository = null;
+         //   _CompanyRepository = null;
+         //   _CategoryRepository = null;
+         //   _ProductRepository = null;
+         //   _CustomerRepository = null;
 
         }
 
 
 
 
-
+        ~UnitOfWork()
+        {
+            Dispose();
+        }
 
 
 

@@ -27,9 +27,9 @@ namespace Accounting.GUI.Forms
         void frmMainInitialize()
         {
 
-            WorkWithGlobalForms.frmMainMenu = new frmMainMenu();
+            frmMainMenu frm = new frmMainMenu();
 
-            WorkWithGlobalForms.frmMainMenu.Show();
+           
             //frm.lblUser.Text = cbRole.Text;
             //frm.toolStripStatusLabel3.Text = UserTemp.UserName;
             WorkWithGlobalVariables.LoginedUserName = UserTemp.UserName;
@@ -41,18 +41,18 @@ namespace Accounting.GUI.Forms
             if (cbRole.Text == "Manager")
             {
                 //Hide btnRegistration 
-                WorkWithGlobalForms.frmMainMenu.btnRegistration.Enabled = false;
-                WorkWithGlobalForms.frmMainMenu.btnRegistration.Visible = false;
-                WorkWithGlobalForms.frmMainMenu.lblRegistration.Visible = false;
+                frm.btnRegistration.Enabled = false;
+                frm.btnRegistration.Visible = false;
+                frm.lblRegistration.Visible = false;
                 // Hide btnUsers
            
             }
             else if (cbRole.Text == "Employee")
             {
                 //Hide btnRegistration 
-                WorkWithGlobalForms.frmMainMenu.btnRegistration.Enabled = false;
-                WorkWithGlobalForms.frmMainMenu.btnRegistration.Visible = false;
-                WorkWithGlobalForms.frmMainMenu.lblRegistration.Visible = false;
+                frm.btnRegistration.Enabled = false;
+              frm.btnRegistration.Visible = false;
+               frm.lblRegistration.Visible = false;
                 // Hide btnUsers
              
                 //  frm.btnModify.Enabled = false;
@@ -60,6 +60,8 @@ namespace Accounting.GUI.Forms
                 //  frm.butonInvoice.Enabled = false;
                 // frm.btnInvoice.Enabled = false;
             }
+           
+            frm.Show();
             this.Hide();
         }
         #endregion
@@ -78,12 +80,25 @@ namespace Accounting.GUI.Forms
             txtUserName.Focus();
         }
 
+       
+
+       
+       
+
+    
+
+
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private  async void btnOK_Click(object sender, EventArgs e)
+     async   private void btnOK_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
 
@@ -115,7 +130,7 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     IUserRepository IUserRepository = _UnitOfWork.UserRepository;
-                    bool Result =await IUserRepository.IsExist<User>(n=>n.UserName== UserTemp.UserName&&n.Password==UserTemp.Password &&n.Role==UserTemp.Role);
+                    bool Result = await IUserRepository.IsExist<User>(n => n.UserName == UserTemp.UserName && n.Password == UserTemp.Password && n.Role == UserTemp.Role);
                     if (Result)
                     {
                         frmMainInitialize();
@@ -137,23 +152,18 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+   
+
+        private void linklblRecoveryPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmRecoveryPassword frm = new frmRecoveryPassword();
             frm.ShowDialog();
-
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblChangePassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmChangePassword Frm = new frmChangePassword();
             Frm.ShowDialog();
-
-        }
-
-        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

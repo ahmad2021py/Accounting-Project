@@ -42,7 +42,7 @@ namespace Accounting.GUI.Forms
             // 
             this.lblRegistration.BackColor = System.Drawing.Color.Transparent;
             this.lblRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistration.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblRegistration.ForeColor = System.Drawing.Color.Black;
             this.lblRegistration.Location = new System.Drawing.Point(46, 17);
             this.lblRegistration.Name = "lblRegistration";
             this.lblRegistration.Size = new System.Drawing.Size(146, 41);
@@ -53,7 +53,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(46, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 41);
@@ -64,7 +64,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(46, 179);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 41);

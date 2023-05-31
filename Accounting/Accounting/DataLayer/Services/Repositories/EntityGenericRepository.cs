@@ -70,15 +70,15 @@ namespace Accounting.DataLayer.Services
             return await Task.Run(() =>
             { 
 
-            try
-            {
+            //try
+            //{
                 db.Set<T>().Add(newItem);
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
             });
         }
 
@@ -88,6 +88,8 @@ namespace Accounting.DataLayer.Services
 
         public async Task<IEnumerable<T>> GetAll<T>(Expression<Func<T, bool>> predicate) where T : class
         {
+           
+
             return await Task.Run(() =>
             {
                 return db.Set<T>().Where(predicate).ToList<T>();
@@ -99,13 +101,26 @@ namespace Accounting.DataLayer.Services
         #endregion
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         #region Delete Generic-Method
         public async Task<bool> DeleteByCondition<TDelete>(Expression<Func<TDelete, bool>> expression) where TDelete : class
         {
             return await Task.Run(() =>
             {
-                try
-                {
+                //try
+                //{
                     var entity = db.Set<TDelete>().Where(expression).FirstOrDefault();
                     if (db.Entry<TDelete>(entity).State == EntityState.Detached)
                     {
@@ -114,11 +129,11 @@ namespace Accounting.DataLayer.Services
 
                     db.Set<TDelete>().Remove(entity);
                     return true;
-                }
-                catch
-                {
-                    return false;
-                }
+                //}
+                //catch
+                //{
+                //    return false;
+                //}
 
             });
         }
@@ -132,19 +147,19 @@ namespace Accounting.DataLayer.Services
         {
             return await Task.Run(() =>
             {
-                try
-            {
+            //    try
+            //{
                 var dbRecord = db.Set<T>().FirstOrDefault(currentEntityFilter);
                 db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
 
                 return true;
-            }
+            //}
 
-            catch
-            {
-                return false;
-            }
+            //catch
+            //{
+            //    return false;
+            //}
             });
 
         }

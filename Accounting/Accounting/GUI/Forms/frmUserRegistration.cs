@@ -255,8 +255,8 @@ namespace Accounting.GUI.Forms
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 OpenFileDialog OFD = new OpenFileDialog();
 
                 OFD.Filter = ("Image Files |*.png; *.bmp; *.jpg;*.jpeg; *.gif;");
@@ -269,12 +269,12 @@ namespace Accounting.GUI.Forms
                     PboxProductPicture.Image = Image.FromFile(OFD.FileName);
                 }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
+            //}
         }
 
         private void frmUserRegistration_Load(object sender, EventArgs e)
@@ -282,15 +282,7 @@ namespace Accounting.GUI.Forms
             Reset();
         }
 
-        private void txtMail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtContactNo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+   
 
     
         private void btnShowUserRecords_Click(object sender, EventArgs e)
@@ -312,6 +304,11 @@ namespace Accounting.GUI.Forms
         private void frmUserRegistration_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 

@@ -16,6 +16,31 @@ namespace Accounting.DataLayer.Interfaces
         Task<bool> UpdateRecord(Registration record);
 
         Task<bool> UpdatePasswordByUser(string UserName, string NewPassword);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //-----------------------------------------
     }
 
 

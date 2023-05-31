@@ -31,17 +31,17 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
-                try
-                {
-                    IEnumerable<Company> IenumerableComapnyDbRecords = await _CompanyRepository.GetAll<Company>(n => n == n);
-                    DGV1.DataSource = IenumerableComapnyDbRecords;
-                    DGV1.Columns["id"].HeaderText = " کد شرکت";
-                    DGV1.Columns["CompanyName"].HeaderText = " نام شرکت";
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+                //try
+                //{
+                IEnumerable<Company> IenumerableComapnyDbRecords = await _CompanyRepository.GetAll<Company>(n => n == n);
+                DGV1.DataSource = IenumerableComapnyDbRecords;
+                DGV1.Columns["id"].HeaderText = " کد شرکت";
+                DGV1.Columns["CompanyName"].HeaderText = " نام شرکت";
+                //}
+                //catch
+                //{
+                //    MessageBox.Show(" خطایی رخ داده است");
+                //}
 
             }
 
@@ -53,10 +53,6 @@ namespace Accounting.GUI.Forms
             LoadData();
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            WorkWithExcel.ExportExcel(DGV1);
-        }
 
         async private void txtCompanyId_TextChanged(object sender, EventArgs e)
         {
@@ -79,50 +75,50 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
-                try
-                {
+                //try
+                //{
 
 
-                    long CompanyId = long.Parse(txtCompanyId.Text);
-                    IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.id.ToString().Contains(CompanyId.ToString()));
-                    DGV1.DataSource = IenumerableompanyDbRecords;
+                long CompanyId = long.Parse(txtCompanyId.Text);
+                IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.id.ToString().Contains(CompanyId.ToString()));
+                DGV1.DataSource = IenumerableompanyDbRecords;
 
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+                //}
+                //catch
+                //{
+                //    MessageBox.Show(" خطایی رخ داده است");
+                //}
 
 
             }
         }
 
 
-      async  private void txtCompanyName_TextChanged(object sender, EventArgs e)
+        async private void txtCompanyName_TextChanged(object sender, EventArgs e)
         {
             if (txtCompanyName.Text == "")
             {
                 LoadData();
                 return;
             }
-          
+
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
-                try
-                {
+                //try
+                //{
 
-                    IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.CompanyName.ToString().Contains(txtCompanyName.Text));
-                    DGV1.DataSource = IenumerableompanyDbRecords;
+                IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.CompanyName.ToString().Contains(txtCompanyName.Text));
+                DGV1.DataSource = IenumerableompanyDbRecords;
 
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+                //}
+                //catch
+                //{
+                //    MessageBox.Show(" خطایی رخ داده است");
+                //}
 
 
             }
@@ -135,18 +131,23 @@ namespace Accounting.GUI.Forms
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //try
-            //{
-                DataGridViewRow dr = DGV1.SelectedRows[0];
 
-            _CompanyName = dr.Cells["CompanyName"].Value.ToString();
-                this.DialogResult = DialogResult.OK;
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("خطایی رخ داده");
-            //}
+            _CompanyName = DGV1.Rows[e.RowIndex].Cells["CompanyName"].Value.ToString();
 
+            this.DialogResult = DialogResult.OK;
+
+
+        }
+
+        private void DGV1_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            _CompanyName = DGV1.Rows[e.RowIndex].Cells["CompanyName"].Value.ToString();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnExcelExport_Click(object sender, EventArgs e)
+        {
+            WorkWithExcel.ExportExcel(DGV1);
         }
     }
 }

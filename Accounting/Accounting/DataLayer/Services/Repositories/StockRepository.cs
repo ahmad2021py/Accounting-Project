@@ -35,20 +35,20 @@ namespace Accounting.DataLayer.Services.Repositories
         {
             return await Task.Run(() =>
             {
-                try
-                {
+                //try
+                //{
                     var dbRecord = db.Set<Stock>().FirstOrDefault(currentEntityFilter);
                     Obj.id = dbRecord.id;
                     
                     db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
                     return true;
-                }
+                //}
 
-                catch
-                {
-                    return false;
-                }
+                //catch
+                //{
+                //    return false;
+                //}
             });
 
         }

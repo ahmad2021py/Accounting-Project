@@ -26,7 +26,14 @@ namespace Accounting.GUI.Forms
 
         async private void btnSend_Click(object sender, EventArgs e)
         {
-         bool IsValidateEmailResult =   await WorkWithEmail.IsValidateEmail(txtEmail.Text);
+            if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrWhiteSpace(txtUserName.Text))
+            {
+
+                MessageBox.Show("ورودی نامعتبر");
+                return;
+            }
+
+            bool IsValidateEmailResult =   await WorkWithEmail.IsValidateEmail(txtEmail.Text);
             if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
@@ -47,25 +54,19 @@ namespace Accounting.GUI.Forms
                 try
                 {
                     Password =await IRegistrationRepository.GetUserPassword(txtUserName.Text, txtEmail.Text);
-
-                    Password = WorkWithEncryption.DecryptPassword(Password);
                 }
 
                 catch
                 {
-                    MessageBox.Show("خطایی در دریافت اطلاعات به وجود آمد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("خطایی در دریافت اطلاعات کاربر به وجود آمده", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                Password = WorkWithEncryption.DecryptPassword(Password);
                 _emailPacket = new WorkWithEmail.SupportEmailPacket(txtEmail.Text, txtUserName.Text, Password);
                 bool Result = await WorkWithEmail.SendRecoveryMail(_emailPacket);
                 if (Result)
                 {
                     MessageBox.Show("پسورد به ایمیل شما ارسال شد", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    this.Hide();
-                    frmLogin frm = new frmLogin();
-                    frm.Show();
-                    frm.txtUserName.Text = "";
-                    frm.txtPassword.Text = "";
-                    frm.txtUserName.Focus();
+                  
                 }
                 else
                 {

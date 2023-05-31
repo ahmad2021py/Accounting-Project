@@ -36,19 +36,19 @@ namespace Accounting.DataLayer.Services
         {
             return await Task.Run(() =>
             {
-                try
-            {
+            //    try
+            //{
                 var dbRecord = db.Set<Product>().FirstOrDefault(currentEntityFilter);
                 Obj.id = dbRecord.id;
                 db.Entry(dbRecord).CurrentValues.SetValues(Obj);
                  
                 return true;
-            }
+            //}
 
-            catch
-            {
-                return false;
-            }
+            //catch
+            //{
+            //    return false;
+            //}
             });
 
         }

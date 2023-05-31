@@ -10,10 +10,7 @@ namespace Accounting.DataLayer.Interfaces
 {
   public  interface ICategoryRepository : IEntityGenericRepository 
     {
-       
       
-
-
 
     }
 }

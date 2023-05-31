@@ -38,12 +38,10 @@ namespace Accounting.GUI.Forms
         private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
-            WorkWithGlobalForms.frmLogin = new frmLogin();
-            WorkWithGlobalForms.frmLogin.txtUserName.Text = "";
-            WorkWithGlobalForms.frmLogin.txtPassword.Text = "";
-            WorkWithGlobalForms.frmLogin.txtUserName.Focus();
-            WorkWithGlobalForms.frmLogin.Show();
+          
+            frmLogin frm = new frmLogin();
+            frm.Show();
+            this.Close();
         }
 
 
@@ -181,6 +179,179 @@ namespace Accounting.GUI.Forms
             frmLogin frm = new frmLogin();
             frm.Show();
             this.Hide();
+        }
+
+        private void مدیریتکاربرانToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserRegistration frmUserRegistration = new frmUserRegistration();
+            if (frmUserRegistration.ShowDialog() == DialogResult.OK)
+            {
+
+                frmUserRegistration.Close();
+                frmUserRegistration = null;
+
+            }
+        }
+
+        private void لیستکاربرانToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserReords frmUserReords = new frmUserReords();
+            if (frmUserReords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmUserReords.Close();
+                frmUserReords = null;
+
+            }
+        }
+
+        private void ویرایشوثبتمحصولToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProduct formProduct = new frmProduct();
+            if (formProduct.ShowDialog() == DialogResult.OK)
+            {
+
+                formProduct.Close();
+
+            }
+        }
+
+        private void لیستمحصولاتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductRecords frmProductRecords = new frmProductRecords(this);
+            if (frmProductRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmProductRecords.Close();
+                frmProductRecords = null;
+
+            }
+        }
+
+        private void ویرایشوثبتمشتریToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomer frmCustomer = new frmCustomer();
+            if (frmCustomer.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCustomer.Close();
+                frmCustomer = null;
+
+            }
+
+        }
+
+        private void لیستمشتریانToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomerRecords frmCustomerRecords = new frmCustomerRecords();
+            if (frmCustomerRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCustomerRecords.Close();
+                frmCustomerRecords = null;
+
+            }
+        }
+
+        private void ویرایشوثبتکالاهادرانبارToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStock frmStock = new frmStock();
+            if (frmStock.ShowDialog() == DialogResult.OK)
+            {
+
+                frmStock.Close();
+                frmStock = null;
+
+            }
+        }
+
+        private void لیستکالاهایانبارToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStockRecords frmStockRecords = new frmStockRecords();
+            if (frmStockRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmStockRecords.Close();
+                frmStockRecords = null;
+
+            }
+        }
+
+        private void ثبتخریدوفروشکالاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSaleAndBuy frmSaleAndBuy = new frmSaleAndBuy();
+            if (frmSaleAndBuy.ShowDialog() == DialogResult.OK)
+            {
+
+                frmSaleAndBuy.Close();
+                frmSaleAndBuy = null;
+
+            }
+        }
+
+        private void لیستشرکتهاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void دستهبندیمحصولاتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCompany frmCompany = new frmCompany();
+            if (frmCompany.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCompany.Close();
+                frmCompany = null;
+
+            }
+        }
+
+        private void دستهبندیمحصولاتToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmCategory frmCategory = new frmCategory();
+            if (frmCategory.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCategory.Close();
+                frmCategory = null;
+
+            }
+        }
+
+        private void لیستشرکتهاToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmCompanyRecords frmCompanyRecords = new frmCompanyRecords();
+            if (frmCompanyRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCompanyRecords.Close();
+                frmCompanyRecords = null;
+
+            }
+        }
+
+        private void جزToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLoginDetails frmLoginDetails = new frmLoginDetails();
+            if (frmLoginDetails.ShowDialog() == DialogResult.OK)
+            {
+
+                frmLoginDetails.Close();
+                frmLoginDetails = null;
+
+            }
+        }
+
+        private void جزئیاتورودToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLoginDetails frmLoginDetails = new frmLoginDetails();
+            if (frmLoginDetails.ShowDialog() == DialogResult.OK)
+            {
+
+                frmLoginDetails.Close();
+                frmLoginDetails = null;
+
+            }
         }
     }
 }

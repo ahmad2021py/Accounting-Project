@@ -24,12 +24,14 @@ namespace Accounting.GUI.Forms
         private bool IsNull()
         {
             if (
-                txtCustomerName.Text == "" ||
-                txtCustomerPhone.Text == "" ||
-                cbStates.Text == "" ||
-                txtCustomerAddress.Text == "" ||
-                txtCustomerZipCode.Text == "" ||
-                txtCustomerCity.Text == ""
+                 string.IsNullOrEmpty(txtCustomerAddress.Text) ||
+                  string.IsNullOrEmpty(txtCustomerCity.Text) ||
+                  string.IsNullOrEmpty(txtCustomerEmail.Text) ||
+                  string.IsNullOrEmpty(txtCustomerName.Text) ||
+                  string.IsNullOrWhiteSpace(txtCustomerPhone.Text) ||
+                  string.IsNullOrWhiteSpace(txtCustomerZipCode.Text) ||
+                  string.IsNullOrWhiteSpace(txtNationalCode.Text) ||
+                  string.IsNullOrWhiteSpace(cbStates.Text)
                 )
 
                 return true;
@@ -70,7 +72,46 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void btnGetData_Click(object sender, EventArgs e)
+
+
+
+    
+
+
+
+
+        private void frmCustomer_Load(object sender, EventArgs e)
+        {
+
+            var list = WorkWithEnums.GetIranStatesList();
+            foreach (string n in list)
+            {
+                cbStates.Items.Add(n);
+            }
+
+
+
+
+
+        }
+
+
+
+        private void frmCustomer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void txtNationalCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // این چهار خط کد برای مجور کردن کاربر به وارد کردن فقط عدد است 
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+                e.Handled = true;
+            else if (txtNationalCode.Text.Length == 10 && e.KeyChar != (char)Keys.Back && txtNationalCode.SelectedText.Length == 0)
+                e.Handled = true;
+        }
+
+        private void btnShowfmCustomerRecords_Click(object sender, EventArgs e)
         {
             frmCustomerRecords frmCustomerRecords = new frmCustomerRecords();
             if (frmCustomerRecords.ShowDialog() == DialogResult.OK)
@@ -92,60 +133,129 @@ namespace Accounting.GUI.Forms
 
         }
 
-     async   private void btnUpdate_Click(object sender, EventArgs e)
+        async private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (IsNull())
+            {
+                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
             if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
             }
-            try {
+
+          
+
+            using (UnitOfWork _unitOfWork = new UnitOfWork())
+            {
+                ICustomerRepository _customerRepository = _unitOfWork.CustomerRepository;
+                Customer Instance = new Customer();
+                Instance = Fill__CustomerRecord(Instance);
+                bool UpdateRecordResult = await _customerRepository.UpdateRecord(Instance);
+                if (UpdateRecordResult)
+                {
+                    MessageBox.Show("رکورد با موفقیت  بروز شد");
+                    _unitOfWork.Save();
+                    Reset();
+                }
+                else
+                {
+                    MessageBox.Show("خطایی رخ داده است");
+                }
+
+            }
+
+        }
+
+        async private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (IsNull())
+            {
+                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
+            if (!IsValidateEmailResult)
+            {
+                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
+                return;
+            }
+
+           
+
+            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
+
+                if (!nationalCodeValidation)
+                {
+                    MessageBox.Show("کد ملی نامعتبر است");
+                    return;
+                }
+                string nationalCode = WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
+                long NationalCode = long.Parse(nationalCode);
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
                 {
-                    ICustomerRepository _customerRepository = _unitOfWork.CustomerRepository;
-                    Customer Instance = new Customer();
-                    Instance = Fill__CustomerRecord(Instance);
-                    bool UpdateRecordResult = await _customerRepository.UpdateRecord(Instance);
-                    if (UpdateRecordResult)
+
+                    ICustomerRepository _CustomerRepository = _unitOfWork.CustomerRepository;
+
+                    bool Result = await _CustomerRepository.IsExist<Customer>(n => n.NationalCode == NationalCode);
+                    if (Result)
                     {
-                        MessageBox.Show("رکورد با موفقیت  بروز شد");
-                        _unitOfWork.Save();
-                        Reset();
+                        bool DeleteResult = await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == NationalCode);
+                        if (DeleteResult)
+                        {
+                            MessageBox.Show("رکورد با موفقیت حذف شد");
+                            _unitOfWork.Save();
+                            Reset();
+
+                        }
+
+
                     }
                     else
                     {
                         MessageBox.Show("خطایی رخ داده است");
+                        return;
                     }
 
+
+
+
+
+
                 }
+
             }
 
-            catch
-            {
-                MessageBox.Show("خطایی رخ داده است");
-            }
-            }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            Reset();
-           
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        async private void btnSave_Click(object sender, EventArgs e)
         {
+
+            if (IsNull())
+            {
+                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
             if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
             }
+
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
-                if (!IsNull())
-                {
+               
                     bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
 
                     if (!nationalCodeValidation)
@@ -153,9 +263,9 @@ namespace Accounting.GUI.Forms
                         MessageBox.Show("کد ملی نامعتبر است");
                         return;
                     }
-                    string nationalCode= WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
+                    string nationalCode = WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
                     long NationalCode = long.Parse(nationalCode);
-                    bool Result =await  _CustomerRepository.IsExist<Customer>(n=>n.NationalCode== NationalCode);
+                    bool Result = await _CustomerRepository.IsExist<Customer>(n => n.NationalCode == NationalCode);
                     if (!Result)
                     {
                         using (UnitOfWork _unitOfWork = new UnitOfWork())
@@ -180,115 +290,25 @@ namespace Accounting.GUI.Forms
                     {
                         MessageBox.Show("این مشتری از قبل وجود دارد");
                         Reset();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
-
-                }
-            }
-        }
-
-        private void btnSave_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void txtNationalCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // این چهار خط کد برای مجور کردن کاربر به وارد کردن فقط عدد است 
-            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back))
-                e.Handled = true;
-            else if (txtNationalCode.Text.Length == 10 && e.KeyChar != (char)Keys.Back && txtNationalCode.SelectedText.Length == 0)
-                e.Handled = true;
-        }
-
-        private async void btnDelete_Click(object sender, EventArgs e)
-        {
-            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
-            if (!IsValidateEmailResult)
-            {
-                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
-                return;
-            }
-            try
-            {
-                if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
-
-                    if (!nationalCodeValidation)
-                    {
-                        MessageBox.Show("کد ملی نامعتبر است");
                         return;
                     }
-                    string nationalCode = WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
-                    long NationalCode = long.Parse(nationalCode);
-                    using (UnitOfWork _unitOfWork = new UnitOfWork())
-                    {
-
-                        ICustomerRepository _CustomerRepository = _unitOfWork.CustomerRepository;
-                     
-                        bool Result = await _CustomerRepository.IsExist<Customer>(n=>n.NationalCode== NationalCode);
-                        if (Result)
-                        {
-                            bool DeleteResult =await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == NationalCode);
-                            if (DeleteResult)
-                            {
-                                MessageBox.Show("رکورد با موفقیت حذف شد");
-                                _unitOfWork.Save();
-                                Reset();
-                               
-                            }
-
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("خطایی رخ داده است");
-                            return;
-                        }
-
-
-
-
-
-
-                    }
-
                 }
-            }
-
-
-
-            catch
-            {
-                MessageBox.Show("خطایی رخ داده است");
-            }
+               
+            
         }
 
-        private void frmCustomer_Load(object sender, EventArgs e)
+
+
+        private void btnNew_Click(object sender, EventArgs e)
         {
-
-            var list = WorkWithEnums.GetIranStatesList();
-            foreach (string n in list)
-            {
-                cbStates.Items.Add(n);
-            }
-
-
-
-
-
+            Reset();
         }
 
 
 
-        private void frmCustomer_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
+
+
+
 
 
 

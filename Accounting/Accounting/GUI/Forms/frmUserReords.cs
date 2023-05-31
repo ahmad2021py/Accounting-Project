@@ -46,22 +46,36 @@ namespace Accounting.GUI.Forms
             }
 
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+     
         private void frmLoginDetails_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+     
+      
+
+        
+
+    
+      
+
+        private void frmUserReords_FormClosing(object sender, FormClosingEventArgs e)
         {
-            WorkWithExcel.ExportExcel(DGV1);
+            this.DialogResult = DialogResult.OK;
         }
 
-        private async void txtProductName_TextChanged(object sender, EventArgs e)
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            _Role = DGV1.Rows[e.RowIndex].Cells["Role"].Value.ToString();
+            _UserName = DGV1.Rows[e.RowIndex].Cells["UserName"].Value.ToString();
+            _Password = DGV1.Rows[e.RowIndex].Cells["Password"].Value.ToString();
+
+            this.DialogResult = DialogResult.OK;
+        }
+
+       async private void txtUserID_TextChanged(object sender, EventArgs e)
         {
             if (txtUserID.Text == "")
             {
@@ -80,47 +94,18 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository _UserRepository = _UnitOfWork.UserRepository;
-                try
-                {
-                    int id = Convert.ToInt32(txtUserID.Text);
-                    IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.id == id);
-                    DGV1.DataSource = DbUserSearchRecords;
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+                int id = Convert.ToInt32(txtUserID.Text);
+                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.id == id);
+                DGV1.DataSource = DbUserSearchRecords;
+
             }
 
         }
 
-        private async void txtUserName_TextChanged(object sender, EventArgs e)
-        {
-            if (txtUserName.Text == "")
-            {
-                LoadData();
-                return;
-            }
+     
 
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
-            {
-                IUserRepository _UserRepository = _UnitOfWork.UserRepository;
-                try
-                {
-                    IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserName == txtUserName.Text);
-                    DGV1.DataSource = DbUserSearchRecords;
-
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
-            }
-
-        }
-
-        private async void txtRole_TextChanged(object sender, EventArgs e)
+      async  private void txtUserName_TextChanged(object sender, EventArgs e)
         {
             if (txtRole.Text == "")
             {
@@ -131,46 +116,41 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository _UserRepository = _UnitOfWork.UserRepository;
-                try
-                {
-                    IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.Role == txtRole.Text);
-                    DGV1.DataSource = DbUserSearchRecords;
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserName == txtRole.Text);
+                DGV1.DataSource = DbUserSearchRecords;
+
+
             }
-
         }
 
-      
-
-        private void frmUserReords_FormClosing(object sender, FormClosingEventArgs e)
+       async private void txtRole_TextChanged(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            if (txtRole.Text == "")
+            {
+                LoadData();
+                return;
+            }
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IUserRepository _UserRepository = _UnitOfWork.UserRepository;
+
+                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.Role == txtRole.Text);
+                DGV1.DataSource = DbUserSearchRecords;
+
+
+            }
+
         }
 
-        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnExcelExport_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataGridViewRow dr = DGV1.SelectedRows[0];
-                _Role = dr.Cells["Role"].Value.ToString();
-                _UserName = dr.Cells["UserName"].Value.ToString();
-                _Password = dr.Cells["Password"].Value.ToString();
-                
-                this.DialogResult = DialogResult.OK;
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            WorkWithExcel.ExportExcel(DGV1);
         }
 
-    
+
+
 
 
 

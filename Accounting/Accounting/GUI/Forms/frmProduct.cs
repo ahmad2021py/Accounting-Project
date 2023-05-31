@@ -30,17 +30,15 @@ namespace Accounting.GUI.Forms
 
         async void FillCombo()
         {
-            try
-            {
+            //try
+            //{
 
 
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
                     ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-                    try
-                    {
-
+                   
                         var CompanyDbList = await _CompanyRepository.GetAll<Company>(n => n == n);
                         var CategoryDbList = await _CategoryRepository.GetAll<Category>(n => n == n);
                         foreach (var n in CompanyDbList)
@@ -53,29 +51,22 @@ namespace Accounting.GUI.Forms
                             cbCategory.Items.Add(n.CategoryName);
                         }
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
+                   
                 }
 
 
 
-            }
-            catch
-            {
-                MessageBox.Show("خطایی رخ داده است");
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("خطایی رخ داده است");
+            //}
 
 
         }
         private void Reset()
         {
-            bunifuCircleProgress1.Value = 0;
-            bunifuCircleProgress2.Value = 0;
-            bunifuCircleProgress3.Value = 0;
-            bunifuCircleProgress4.Value = 0;
+          
             txtPrice.Text = "";
             txtFeatures.Text = "";
             txtProductCode.Text = "";
@@ -90,12 +81,19 @@ namespace Accounting.GUI.Forms
 
         private bool IsNull()
         {
-            if (txtPrice.Text == "" ||
-                txtFeatures.Text == "" ||
-               txtProductName.Text == "" ||
-               txtProductCode.Text == "" ||
-               cbCategory.Text == "" ||
-               cbCompany.Text == "")
+            if (
+               string.IsNullOrEmpty(txtFeatures.Text) ||
+                  string.IsNullOrEmpty(txtPrice.Text) ||
+                  string.IsNullOrEmpty(txtProductCode.Text) ||
+                  string.IsNullOrEmpty(txtFeatures.Text) ||
+                  string.IsNullOrWhiteSpace(txtPrice.Text) ||
+                  string.IsNullOrWhiteSpace(cbCategory.Text) ||
+                  string.IsNullOrWhiteSpace(cbCompany.Text) 
+                  )
+
+
+
+               
 
                 return true;
             else
@@ -153,211 +151,61 @@ namespace Accounting.GUI.Forms
 
 
 
-        private async void btnSave_Click(object sender, EventArgs e)
-        {
-            bunifuCircleProgress2.Value = 0;
-            bunifuCircleProgress2.Value += 10;
-            try
-            {
-                bunifuCircleProgress2.Value += 10;
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    bunifuCircleProgress2.Value += 10;
-                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                    if (!IsNull())
-                    {
-                        bunifuCircleProgress2.Value += 10;
-                        int productCode = Int32.Parse(txtProductCode.Text);
-                        bool Result = await _ProductRepository.IsExist<Product>(n => n.id == productCode);
-                        bunifuCircleProgress2.Value += 10;
-                        if (!Result)
-                        {
-                            bunifuCircleProgress2.Value += 10;
-                            Product ProductRecord = new Product();
-                            ProductRecord = Fill__ProductRecord(ProductRecord);
-                            bunifuCircleProgress2.Value += 10;
-                            bool AddResult = await _ProductRepository.Add<Product>(ProductRecord);
-                            if (AddResult)
-                            {
-                                bunifuCircleProgress2.Value += 10;
-                                MessageBox.Show("رکورد با موفقیت ثبت شد");
-                                bunifuCircleProgress2.Value += 10;
-                                _UnitOfWork.Save();
-                                bunifuCircleProgress2.Value += 10;
-                                Reset();
-
-                            }
-                            else
-                            {
-                                bunifuCircleProgress2.ProgressColor = Color.Red;
-                                MessageBox.Show("خطایی رخ داده است");
-                                bunifuCircleProgress2.Value = 0;
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            bunifuCircleProgress2.ProgressColor = Color.Red;
-                            MessageBox.Show("این محصول از قبل وجود دارد");
-                            bunifuCircleProgress2.Value = 0;
-                            Reset();
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        bunifuCircleProgress2.ProgressColor = Color.Red;
-                        MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
-                        bunifuCircleProgress2.Value = 0;
-                        return;
-
-                    }
-                }
-            }
-            catch
-            {
-                bunifuCircleProgress2.ProgressColor = Color.Red;
-                MessageBox.Show("خطایی رخ داده است");
-                bunifuCircleProgress2.Value = 0;
-                return;
-            }
-        }
 
 
 
 
-        private async void btnDelete_Click(object sender, EventArgs e)
-        {
-            bunifuCircleProgress4.Value += 10;
-            try
-            {
-                bunifuCircleProgress4.Value += 10;
-                if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    bunifuCircleProgress4.Value += 10;
-                    using (UnitOfWork _unitOfWork = new UnitOfWork())
-                    {
-                        bunifuCircleProgress4.Value += 10;
-
-                        IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
-
-                        bunifuCircleProgress4.Value += 10;
-                        int ProductCode = Convert.ToInt32(txtProductCode.Text);
-                        bunifuCircleProgress4.Value += 10;
-                        bool result = await _ProductRepository.IsExist<Product>(N => N.id == ProductCode);
-                        if (result)
-                        {
-                            bunifuCircleProgress4.Value += 10;
-                            bool DeleteResult = await _ProductRepository.DeleteByCondition<Product>(n => n.id == ProductCode);
-                            bunifuCircleProgress4.Value += 10;
-                            if (DeleteResult)
-                                MessageBox.Show("رکورد با موفقیت حذف شد");
-                            bunifuCircleProgress4.Value += 10;
-                            _unitOfWork.Save();
-                            bunifuCircleProgress4.Value += 10;
-                            Reset();
-
-
-                        }
-                        else
-                        {
-                            bunifuCircleProgress4.ProgressColor = Color.Red;
-                            MessageBox.Show("خطایی رخ داده است");
-                            bunifuCircleProgress4.Value = 0;
-                        }
-
-
-
-
-
-
-                    }
-
-                }
-            }
-            catch
-            {
-                bunifuCircleProgress4.ProgressColor = Color.Red;
-                MessageBox.Show("خطایی رخ داده است");
-                bunifuCircleProgress4.Value = 0;
-            }
-        }
 
        async private void btnUpdate_Click(object sender, EventArgs e)
         {
-            bunifuCircleProgress3.Value += 10;
-            try
+            if (IsNull())
             {
-                bunifuCircleProgress3.Value += 10;
-                if (!IsNull())
-                {
-                    bunifuCircleProgress3.Value += 10;
+                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
+
                     using (UnitOfWork _unitOfWork = new UnitOfWork())
                     {
-                        bunifuCircleProgress3.Value += 10;
+                     
                         IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
-                        bunifuCircleProgress3.Value += 10;
+                 
                         Product Instance = new Product();
                         Instance = Fill__ProductRecord(Instance);
                         int ProductCode = Convert.ToInt32(txtProductCode.Text);
-                        bunifuCircleProgress3.Value += 10;
+                    
                         bool UpdateProductResult = await _ProductRepository.UpdateProduct(Instance, n => n.id == Instance.id);
                         if (UpdateProductResult)
                         {
-                            bunifuCircleProgress3.Value += 10;
+                           
                             MessageBox.Show("رکورد با موفقیت  بروز شد");
-                            bunifuCircleProgress3.Value += 10;
+                      
                             _unitOfWork.Save();
-                            bunifuCircleProgress3.Value += 10;
+                        
                             Reset();
                         }
                         else
                         {
-                            bunifuCircleProgress3.ProgressColor = Color.Red;
+                   
                             MessageBox.Show("خطایی رخ داده است");
-                            bunifuCircleProgress3.Value = 0;
+                     
                             return;
                         }
 
                     }
-                }
-                else
-                {
-                    bunifuCircleProgress3.ProgressColor = Color.Red;
-                    MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
-                    bunifuCircleProgress3.Value = 0;
-                    return;
-                }
-            }
-            catch
-            {
-                bunifuCircleProgress3.ProgressColor = Color.Red;
-                MessageBox.Show("خطایی رخ داده است");
-                bunifuCircleProgress3.Value = 0;
-                return;
-            }
+              
+            //}
+            //catch
+            //{
+            //    bunifuCircleProgress3.ProgressColor = Color.Red;
+            //    MessageBox.Show("خطایی رخ داده است");
+            //    bunifuCircleProgress3.Value = 0;
+            //    return;
+            //}
         }
 
-        private void btnGetData_Click(object sender, EventArgs e)
-        {
-            frmProductRecords formProductRecords = new frmProductRecords(this);
-            if (formProductRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                  formProductRecords.Close();
-                this.cbCategory.Text = formProductRecords._Category;
-                this.cbCompany.Text = formProductRecords._Company;
-                this.txtFeatures.Text = formProductRecords._Features;
-                this.txtProductCode.Text = formProductRecords._id;
-                this.PboxProductPicture.Image = formProductRecords._Picture;
-                this.txtPrice.Text = formProductRecords._Price;
-                this.txtProductName.Text = formProductRecords._ProductName;
-                formProductRecords = null;
-
-
-
-            }
-        }
+       
+   
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -373,55 +221,47 @@ namespace Accounting.GUI.Forms
 
         private async void btnGetDetails_Click(object sender, EventArgs e)
         {
-            bunifuCircleProgress1.Value = 0;
-            bunifuCircleProgress1.Value += 10;
-            bunifuCircleProgress1.Value += 10;
-            try
+            if (string.IsNullOrEmpty(txtProductCode.Text)|| string.IsNullOrWhiteSpace(txtProductCode.Text))
             {
-                bunifuCircleProgress1.Value += 10;
+                MessageBox.Show("ورودی نامعتبر");
+            }
+                
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
+            {
+
+                IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
+
+                int ProductCode = Int32.Parse(txtProductCode.Text);
+
+                bool result = await _ProductRepository.IsExist<Product>(n => n.id == ProductCode);
+
+                if (result)
                 {
-                    bunifuCircleProgress1.Value += 10;
-                    IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
-                    bunifuCircleProgress1.Value += 10;
-                    int ProductCode = Int32.Parse(txtProductCode.Text);
-                    bunifuCircleProgress1.Value += 10;
-                    bool result = await _ProductRepository.IsExist<Product>(n => n.id == ProductCode);
-                    bunifuCircleProgress1.Value += 10;
-                    if (result)
-                    {
-                        bunifuCircleProgress1.Value += 10;
-                        Product record = await _ProductRepository.GetEntity<Product>(n => n.id == ProductCode);
-                        FillControlersWithProductDbRecord(record);
-                        bunifuCircleProgress1.Value += 20;
-                        bunifuCircleProgress1.Value = 0;
 
-
-                    }
-                    else
-                    {
-                        bunifuCircleProgress1.ProgressColor = Color.Red;
-                        MessageBox.Show("محصولی با این کد وجود ندارد");
-                        Reset();
-
-                    }
-
-
-
+                    Product record = await _ProductRepository.GetEntity<Product>(n => n.id == ProductCode);
+                    FillControlersWithProductDbRecord(record);
 
 
 
                 }
+                else
+                {
+
+                    MessageBox.Show("محصولی با این کد وجود ندارد");
+                    Reset();
+
+                }
+
+
+
+
 
 
             }
-            catch
-            {
-                bunifuCircleProgress1.ProgressColor = Color.Red;
-                MessageBox.Show("خطایی رخ داده است");
-                bunifuCircleProgress1.Value = 0;
 
-            }
+
+          
+
         }
 
 
@@ -439,30 +279,184 @@ namespace Accounting.GUI.Forms
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            try
+            OpenFileDialog OFD = new OpenFileDialog();
+
+            OFD.Filter = ("Image Files |*.png; *.bmp; *.jpg;*.jpeg; *.gif;");
+            OFD.FilterIndex = 4;
+            //Reset the file name
+            OFD.FileName = "";
+
+            if (OFD.ShowDialog() == DialogResult.OK)
             {
-                OpenFileDialog OFD = new OpenFileDialog();
-
-                OFD.Filter = ("Image Files |*.png; *.bmp; *.jpg;*.jpeg; *.gif;");
-                OFD.FilterIndex = 4;
-                //Reset the file name
-                OFD.FileName = "";
-
-                if (OFD.ShowDialog() == DialogResult.OK)
-                {
-                    PboxProductPicture.Image = Image.FromFile(OFD.FileName);
-                }
-
+                PboxProductPicture.Image = Image.FromFile(OFD.FileName);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+
+
         }
 
         private void frmProduct_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+      async  private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (IsNull())
+            {
+                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //try
+            //{
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+
+                IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+               
+                    int productCode = Int32.Parse(txtProductCode.Text);
+                    bool Result = await _ProductRepository.IsExist<Product>(n => n.id == productCode);
+
+                    if (!Result)
+                    {
+
+                        Product ProductRecord = new Product();
+                        ProductRecord = Fill__ProductRecord(ProductRecord);
+
+                        bool AddResult = await _ProductRepository.Add<Product>(ProductRecord);
+                        if (AddResult)
+                        {
+
+                            MessageBox.Show("رکورد با موفقیت ثبت شد");
+
+                            _UnitOfWork.Save();
+
+                            Reset();
+
+                        }
+                        else
+                        {
+
+                            MessageBox.Show("خطایی رخ داده است");
+
+                            return;
+                        }
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("این محصول از قبل وجود دارد");
+
+                        Reset();
+                        return;
+                    }
+                }
+             
+            
+            //}
+            //catch
+            //{
+            //    bunifuCircleProgress2.ProgressColor = Color.Red;
+            //    MessageBox.Show("خطایی رخ داده است");
+            //    bunifuCircleProgress2.Value = 0;
+            ////    return;
+            //}
+        }
+
+      async  private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (IsNull())
+            {
+                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+
+                using (UnitOfWork _unitOfWork = new UnitOfWork())
+                {
+
+
+                    IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
+
+
+                    int ProductCode = Convert.ToInt32(txtProductCode.Text);
+
+                    bool result = await _ProductRepository.IsExist<Product>(N => N.id == ProductCode);
+                    if (result)
+                    {
+
+                        bool DeleteResult = await _ProductRepository.DeleteByCondition<Product>(n => n.id == ProductCode);
+
+                        if (DeleteResult)
+                            MessageBox.Show("رکورد با موفقیت حذف شد");
+
+                        _unitOfWork.Save();
+
+                        Reset();
+
+
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("خطایی رخ داده است");
+
+                    }
+
+
+
+
+
+
+                }
+
+            }
+            //}
+            //catch
+            //{
+            //    bunifuCircleProgress4.ProgressColor = Color.Red;
+            //    MessageBox.Show("خطایی رخ داده است");
+            //    bunifuCircleProgress4.Value = 0;
+            //}
+        }
+
+        private void btnShowfrmProductRecords_Click(object sender, EventArgs e)
+        {
+            frmProductRecords formProductRecords = new frmProductRecords(this);
+            if (formProductRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                formProductRecords.Close();
+                this.cbCategory.Text = formProductRecords._Category;
+                this.cbCompany.Text = formProductRecords._Company;
+                this.txtFeatures.Text = formProductRecords._Features;
+                this.txtProductCode.Text = formProductRecords._id;
+                this.PboxProductPicture.Image = formProductRecords._Picture;
+                this.txtPrice.Text = formProductRecords._Price;
+                this.txtProductName.Text = formProductRecords._ProductName;
+                formProductRecords = null;
+
+
+
+            }
+        }
+
+        private void txtProductName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFeatures_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

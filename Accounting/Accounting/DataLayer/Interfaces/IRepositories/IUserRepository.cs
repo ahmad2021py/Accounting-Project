@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Interfaces
 {
-    public interface IUserRepository:IEntityGenericRepository
+    public interface IUserRepository:IEntityGenericRepository,IDisposable
     {
 
      

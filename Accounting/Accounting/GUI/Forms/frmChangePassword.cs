@@ -23,57 +23,84 @@ namespace Accounting.GUI.Forms
         {
             InitializeComponent();
             _user = new User();
+         
 
         }
 
-        private async void btnOK_Click(object sender, EventArgs e)
+
+
+       void  reset()
         {
-            if (WorkWithTextboxes.TextBoxisNull(txtUserName.Text, txtOldPass.Text, txtNewPass.Text, txtRepeatNewPass.Text))
+            txtNewPass.Text = "";
+            txtOldPass.Text = "";
+            txtRepeatNewPass.Text = "";
+            txtUserName.Text = "";
+
+
+
+        }
+            private async void btnOK_Click(object sender, EventArgs e)
+        {
+            if (
+
+                   string.IsNullOrEmpty(txtUserName.Text) ||
+                   string.IsNullOrEmpty(txtOldPass.Text) ||
+                   string.IsNullOrEmpty(txtNewPass.Text) ||
+                   string.IsNullOrEmpty(txtRepeatNewPass.Text) ||
+                   string.IsNullOrWhiteSpace(txtUserName.Text) ||
+                   string.IsNullOrWhiteSpace(txtOldPass.Text) ||
+                   string.IsNullOrWhiteSpace(txtNewPass.Text) ||
+                   string.IsNullOrWhiteSpace(txtRepeatNewPass.Text)
+
+                )
+
+
             {
-                MessageBox.Show("لطفا تمام فیلد ها را پر کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
 
             }
-            else
+
+            if (WorkWithPassword.PassIsValid(txtOldPass.Text, txtNewPass.Text, txtRepeatNewPass.Text))
             {
-                if (WorkWithPassword.PassIsValid(txtOldPass.Text, txtNewPass.Text, txtRepeatNewPass.Text))
+                _user.UserName = txtUserName.Text;
+                _user.Password = WorkWithEncryption.EncryptPassword(txtOldPass.Text);
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
-                    _user.UserName = txtUserName.Text;
-                    _user.Password = WorkWithEncryption.EncryptPassword(txtOldPass.Text);
-                    using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                    IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
+                    IRegistrationRepository _registrationRepository = _UnitOfWork.RegistrationRepository;
+                    bool result = await _IUserRepository.IsExist<User>(n => n.UserName == _user.UserName && n.Password == _user.Password);
+                    if (!result)
                     {
-                        IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
-                        IRegistrationRepository _registrationRepository = _UnitOfWork.RegistrationRepository;
-                        bool result = await _IUserRepository.IsExist<User>(n => n.UserName == _user.UserName && n.Password == _user.Password);
-                        if (!result)
-                        {
-                            MessageBox.Show(" کاربری با این مشخصات وجود ندارد");
-                            return;
-                        }
-                        bool ChangeUserPasswordResult = await _IUserRepository.ChangeUserPasswordByUser(_user, WorkWithEncryption.EncryptPassword(txtNewPass.Text));
-                        bool registrationUpdatePasswordByUserResult = await _registrationRepository.UpdatePasswordByUser(txtUserName.Text, WorkWithEncryption.EncryptPassword(txtNewPass.Text));
+                        MessageBox.Show(" کاربری با این مشخصات وجود ندارد");
+                        return;
+                    }
+                    bool ChangeUserPasswordResult = await _IUserRepository.ChangeUserPasswordByUser(_user, WorkWithEncryption.EncryptPassword(txtNewPass.Text));
+                    bool registrationUpdatePasswordByUserResult = await _registrationRepository.UpdatePasswordByUser(txtUserName.Text, WorkWithEncryption.EncryptPassword(txtNewPass.Text));
 
 
-                        if (ChangeUserPasswordResult && registrationUpdatePasswordByUserResult)
-                        {
-                            MessageBox.Show("رمز عبور باموفقیت تغییر یافت", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("خطایی رخ داده", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (ChangeUserPasswordResult && registrationUpdatePasswordByUserResult)
+                    {
+                        MessageBox.Show("رمز عبور باموفقیت تغییر یافت", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        return;
+                        reset();
+                    }
+                    else
+                    {
+                        MessageBox.Show("خطایی رخ داده", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        }
                     }
 
                 }
-                else
-                {
-                    MessageBox.Show("رمز عبور نامعتبر است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtOldPass.Text = "";
-                    txtNewPass.Text = "";
-                    txtRepeatNewPass.Text = "";
-                }
             }
+            else
+            {
+                MessageBox.Show("رمز عبور نامعتبر است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtOldPass.Text = "";
+                txtNewPass.Text = "";
+                txtRepeatNewPass.Text = "";
+            }
+
         }
 
         private void frmChangePassword_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,5 +108,20 @@ namespace Accounting.GUI.Forms
 
             this.DialogResult = DialogResult.OK;
         }
+
+    
+
+       
+
+
+
+
+
+
+
+
+
+
+        //--------------
     }
 }

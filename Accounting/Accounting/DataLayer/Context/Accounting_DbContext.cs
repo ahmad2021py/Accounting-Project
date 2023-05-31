@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Linq;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -9,16 +11,19 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Context
 {
-   public class Accounting_DbContext : DbContext 
+    public class Accounting_DbContext : DbContext
 
     {
 
-     
+        
         public Accounting_DbContext() : base("name=AccountingConnectionString")
         {
-            
+
+
           
-         
+          
+
+
         }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
@@ -35,11 +40,11 @@ namespace Accounting.DataLayer.Context
         //--------Seed data--------
 
 
-      
 
 
 
 
+   
 
 
 
@@ -79,4 +84,4 @@ namespace Accounting.DataLayer.Context
     }
 
 
-    }
+}

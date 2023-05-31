@@ -22,46 +22,41 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
         public string _CategoryName;
-     async   void LoadData()
+        async void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-                try
-                {
-                    //--------
-                    IEnumerable<Category>IenamrableCategoryDbRecords = await _CategoryRepository.GetAll<Category>(n => n == n);
-                    DGV1.DataSource = IenamrableCategoryDbRecords;
-                    DGV1.Columns["id"].HeaderText = " کد دسته";
-                    DGV1.Columns["CategoryName"].HeaderText = " نام دسنه";
-                    //----------------------------------
+
+                //--------
+                IEnumerable<Category> IenamrableCategoryDbRecords = await _CategoryRepository.GetAll<Category>(n => n == n);
+                DGV1.DataSource = IenamrableCategoryDbRecords;
+
+                DGV1.Columns["id"].HeaderText = " کد دسته";
+                DGV1.Columns["CategoryName"].HeaderText = " نام دسنه";
+                //----------------------------------
 
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+
+
+
             }
         }
 
 
-        private  void frmCategoryRecords_Load(object sender, EventArgs e)
+        private void frmCategoryRecords_Load(object sender, EventArgs e)
         {
 
             LoadData();
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            WorkWithExcel.ExportExcel(DGV1);
-        }
 
- 
-           
 
-        private void txtCategoryId_TextChanged(object sender, EventArgs e)
+
+
+        async private void txtCategoryId_TextChanged(object sender, EventArgs e)
         {
+
             if (txtCategoryId.Text == "")
             {
                 LoadData();
@@ -74,84 +69,84 @@ namespace Accounting.GUI.Forms
                 txtCategoryId.Text = "";
                 return;
             }
-     
 
 
-         
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
+                try
                 {
-                    ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-                    try
-                    {
 
 
-                        long CategoryId = long.Parse(txtCategoryId.Text);
-                        DGV1.DataSource = _CategoryRepository.GetAll<Category>(n => n.id.ToString().Contains(CategoryId.ToString()) );
-                       
+                    long CategoryId = long.Parse(txtCategoryId.Text);
+                    var CategoriesDbRecords = await _CategoryRepository.GetAll<Category>(n => n.id.ToString().Contains(CategoryId.ToString()));
+                    DGV1.DataSource = CategoriesDbRecords;
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
 
-                
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
+
             }
         }
 
-        private void txtCategoryName_TextChanged(object sender, EventArgs e)
+        async private void txtCategoryName_TextChanged(object sender, EventArgs e)
         {
             if (txtCategoryName.Text == "")
             {
                 LoadData();
+                return;
             }
 
 
-            else
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-                    try
-                    {
+                ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
+                //try
+                //{
 
 
-                      
-                        DGV1.DataSource = _CategoryRepository.GetAll<Category>(n => n.CategoryName.Contains(txtCategoryName.Text) );
+                var CategoriesDbRecords = await _CategoryRepository.GetAll<Category>(n => n.CategoryName.Contains(txtCategoryName.Text));
+                DGV1.DataSource = CategoriesDbRecords;
 
 
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
+                //}
+                //catch
+                //{
+                //    MessageBox.Show(" خطایی رخ داده است");
+                //}
 
-                }
+
             }
         }
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                DataGridViewRow dr = DGV1.SelectedRows[0];
-
-                _CategoryName = dr.Cells["CategoryName"].Value.ToString();
-                this.DialogResult = DialogResult.OK;
-            }
-            catch
-            {
-                MessageBox.Show("خطایی رخ داده");
-            }
-
+            _CategoryName = DGV1.Rows[e.RowIndex].Cells["CategoryName"].Value.ToString();
+            this.DialogResult = DialogResult.OK;
         }
 
-    
+
 
         private void frmCategoryRecords_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void btnExcelExport_Click(object sender, EventArgs e)
+        {
+            WorkWithExcel.ExportExcel(DGV1);
+        }
+
+
+
+
 
 
 

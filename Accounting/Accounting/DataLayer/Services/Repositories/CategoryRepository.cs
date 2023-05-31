@@ -21,9 +21,32 @@ namespace Accounting.DataLayer.Services
             db = context;
         }
         #endregion
+
+
+
+
+
+    
+
        
-      
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //---------------------------------------------
 
     }

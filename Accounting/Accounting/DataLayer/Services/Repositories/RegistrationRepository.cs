@@ -31,8 +31,8 @@ namespace Accounting.DataLayer.Services
 
             return await Task.Run(() =>
             {
-                try
-            {
+            //    try
+            //{
 
                
                var query = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n).ToList();
@@ -41,11 +41,11 @@ namespace Accounting.DataLayer.Services
 
 
 
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
             return false;
             });
 
@@ -75,8 +75,8 @@ namespace Accounting.DataLayer.Services
             return await Task.Run(() =>
             {
 
-            try
-            {
+            //try
+            //{
 
                 Registration _dbRecord = db.Registrations.Where(n => n.UserName == record.UserName).Select(n => n).First();
                 db.Registrations.Attach(_dbRecord);
@@ -89,11 +89,11 @@ namespace Accounting.DataLayer.Services
                 //SAVE change
                 db.SaveChanges();
                 return true;
-                }
-                catch
-                {
-                    return false;
-                }
+                //}
+                //catch
+                //{
+                //    return false;
+                //}
 
 
             });
@@ -114,8 +114,8 @@ namespace Accounting.DataLayer.Services
             return await Task.Run(() =>
             {
 
-                try
-                {
+                //try
+                //{
 
                     Registration _dbRecord = db.Registrations.Where(n => n.UserName == UserName).Select(n => n).First();
                     db.Registrations.Attach(_dbRecord);
@@ -124,11 +124,11 @@ namespace Accounting.DataLayer.Services
                     //SAVE change
                     db.SaveChanges();
                     return true;
-                }
-                catch
-                {
-                    return false;
-                }
+                //}
+                //catch
+                //{
+                //    return false;
+                //}
 
 
             });

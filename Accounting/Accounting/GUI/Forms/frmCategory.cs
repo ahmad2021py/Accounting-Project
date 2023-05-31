@@ -38,78 +38,15 @@ namespace Accounting.GUI.Forms
 
 
 
-        private async void btnSave_Click(object sender, EventArgs e)
+
+
+
+
+
+
+        private void frmCategory_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (WorkWithTextboxes.TextBoxisNull(txtCategoryName.Text))
-            {
-
-                MessageBox.Show("لطفا نام دسته بندی را مشخص کنید");
-
-            }
-            else
-            {
-
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-                    bool result = await _CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text);
-                    if (result)
-                    {
-                        MessageBox.Show("این دسته بندی از قبل وجود دارد");
-                    }
-                    else
-                    {
-                        Category Record = new Category();
-                        Record.CategoryName = txtCategoryName.Text;
-                        bool AddRresult = await _CategoryRepository.Add<Category>(Record);
-                        if (AddRresult)
-                        {
-                            MessageBox.Show("دسته بندی  با موفقیت اضافه شد");
-                            txtCategoryName.Text = "";
-                            _UnitOfWork.Save();
-
-                        }
-
-                    }
-                }
-            }
-        }
-
-        private async void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-            {
-                using (UnitOfWork _unitOfWork = new UnitOfWork())
-                {
-                    ICategoryRepository _CategoryRepository = _unitOfWork.CategoryRepository;
-
-                    bool Result = await _CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text);
-                    if (Result)
-                    {
-                        bool result = await _CategoryRepository.DeleteByCondition<Category>(n => n.CategoryName == txtCategoryName.Text);
-                        if (result)
-                        {
-
-                            MessageBox.Show("رکورد با موفقیت حذف شد");
-                            _unitOfWork.Save();
-                            Reset();
-                        }
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("خطایی رخ داده است");
-                        Reset();
-                    }
-
-
-
-
-
-
-                }
-
-            }
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -117,7 +54,59 @@ namespace Accounting.GUI.Forms
             Reset();
         }
 
-        private void btnGetData_Click(object sender, EventArgs e)
+
+
+        async private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCategoryName.Text) || string.IsNullOrWhiteSpace(txtCategoryName.Text))
+            {
+
+                MessageBox.Show("ورودی نامعتبر");
+                return;
+            }
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
+                bool result = await _CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text);
+                if (result)
+                {
+                    MessageBox.Show("این دسته بندی از قبل وجود دارد");
+                    return;
+                }
+
+                Category Record = new Category();
+                Record.CategoryName = txtCategoryName.Text;
+                bool AddRresult = await _CategoryRepository.Add<Category>(Record);
+                if (!AddRresult)
+                {
+                    MessageBox.Show("در افزودن مورد خطایی رخ داده");
+                    return;
+
+                }
+
+
+                try
+                {
+                    _UnitOfWork.Save();
+
+                }
+
+                catch
+                {
+                    MessageBox.Show("در ذخیره تغییرات خطایی رخ داده است");
+                }
+
+                MessageBox.Show("دسته بندی  با موفقیت اضافه شد");
+                txtCategoryName.Text = "";
+
+
+
+            }
+        }
+
+
+        private void btnShowfrmCategoryRecords_Click(object sender, EventArgs e)
         {
             txtCategoryName.Text = "";
             frmCategoryRecords frmCategoryRecords = new frmCategoryRecords();
@@ -131,9 +120,59 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void frmCategory_FormClosing(object sender, FormClosingEventArgs e)
+        async private void btnDelete_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            if (string.IsNullOrEmpty(txtCategoryName.Text) || string.IsNullOrWhiteSpace(txtCategoryName.Text))
+            {
+
+                MessageBox.Show("ورودی نامعتبر");
+                return;
+            }
+            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                using (UnitOfWork _unitOfWork = new UnitOfWork())
+                {
+                    ICategoryRepository _CategoryRepository = _unitOfWork.CategoryRepository;
+
+                    bool Result = await _CategoryRepository.IsExist<Category>(n => n.CategoryName == txtCategoryName.Text);
+                    if (!Result)
+                    {
+                        MessageBox.Show("دسته بندی با این نام وجود ندارد");
+                        Reset();
+                        return;
+                    }
+                    bool result = await _CategoryRepository.DeleteByCondition<Category>(n => n.CategoryName == txtCategoryName.Text);
+                    if (!result)
+                    {
+                        MessageBox.Show("خطایی هنگام حذف مورد رخ داده است");
+                        return;
+
+                    }
+
+                    MessageBox.Show("رکورد با موفقیت حذف شد");
+                    _unitOfWork.Save();
+                    Reset();
+                }
+
+            }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //-----------------
     }
 }

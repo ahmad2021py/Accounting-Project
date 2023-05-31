@@ -54,6 +54,26 @@
             this.btnCategory = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnSaleAndBuy = new Bunifu.UI.WinForms.BunifuImageButton();
             this.lblSaleAndBuy = new System.Windows.Forms.Label();
+            this.کاربرانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.مدیریتکاربرانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستکاربرانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.محصولاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ویرایشوثبتمحصولToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستمحصولاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.مشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ویرایشوثبتمشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستمشتریانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.انبارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستکالاهایانبارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.خریدوفروشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ثبتخریدوفروشکالاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.دستهبندیوشرکتهاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.دستهبندیمحصولاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.دستهبندیمحصولاتToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستشرکتهاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.دیگرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.جزئیاتورودToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +87,14 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.خروجToolStripMenuItem});
+            this.خروجToolStripMenuItem,
+            this.کاربرانToolStripMenuItem,
+            this.محصولاتToolStripMenuItem,
+            this.مشتریToolStripMenuItem,
+            this.انبارToolStripMenuItem,
+            this.خریدوفروشToolStripMenuItem,
+            this.دستهبندیوشرکتهاToolStripMenuItem,
+            this.دیگرToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(969, 28);
@@ -122,7 +149,7 @@
             // 
             this.lblRegistration.BackColor = System.Drawing.Color.Transparent;
             this.lblRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistration.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblRegistration.ForeColor = System.Drawing.Color.Black;
             this.lblRegistration.Location = new System.Drawing.Point(127, 155);
             this.lblRegistration.Name = "lblRegistration";
             this.lblRegistration.Size = new System.Drawing.Size(141, 39);
@@ -169,7 +196,7 @@
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(39, 326);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 36);
@@ -216,7 +243,7 @@
             // 
             this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomer.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblCustomer.ForeColor = System.Drawing.Color.Black;
             this.lblCustomer.Location = new System.Drawing.Point(419, 156);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(76, 27);
@@ -263,7 +290,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(8, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 41);
@@ -375,7 +402,7 @@
             // 
             this.lblProducts.BackColor = System.Drawing.Color.Transparent;
             this.lblProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProducts.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblProducts.ForeColor = System.Drawing.Color.Black;
             this.lblProducts.Location = new System.Drawing.Point(275, 156);
             this.lblProducts.Name = "lblProducts";
             this.lblProducts.Size = new System.Drawing.Size(94, 27);
@@ -422,7 +449,7 @@
             // 
             this.lblStock.BackColor = System.Drawing.Color.Transparent;
             this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblStock.ForeColor = System.Drawing.Color.Black;
             this.lblStock.Location = new System.Drawing.Point(554, 155);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(57, 27);
@@ -433,7 +460,7 @@
             // 
             this.lblCategory.BackColor = System.Drawing.Color.Transparent;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblCategory.ForeColor = System.Drawing.Color.Black;
             this.lblCategory.Location = new System.Drawing.Point(783, 158);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(175, 27);
@@ -516,12 +543,173 @@
             // 
             this.lblSaleAndBuy.BackColor = System.Drawing.Color.Transparent;
             this.lblSaleAndBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaleAndBuy.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblSaleAndBuy.ForeColor = System.Drawing.Color.Black;
             this.lblSaleAndBuy.Location = new System.Drawing.Point(652, 155);
             this.lblSaleAndBuy.Name = "lblSaleAndBuy";
             this.lblSaleAndBuy.Size = new System.Drawing.Size(125, 27);
             this.lblSaleAndBuy.TabIndex = 86;
             this.lblSaleAndBuy.Text = "خرید و فروش";
+            // 
+            // کاربرانToolStripMenuItem
+            // 
+            this.کاربرانToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.مدیریتکاربرانToolStripMenuItem,
+            this.لیستکاربرانToolStripMenuItem});
+            this.کاربرانToolStripMenuItem.Image = global::Accounting.Properties.Resources.icons8_team_48px;
+            this.کاربرانToolStripMenuItem.Name = "کاربرانToolStripMenuItem";
+            this.کاربرانToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.کاربرانToolStripMenuItem.Text = "کاربران";
+            // 
+            // مدیریتکاربرانToolStripMenuItem
+            // 
+            this.مدیریتکاربرانToolStripMenuItem.Name = "مدیریتکاربرانToolStripMenuItem";
+            this.مدیریتکاربرانToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.مدیریتکاربرانToolStripMenuItem.Text = "مدیریت کاربران";
+            this.مدیریتکاربرانToolStripMenuItem.Click += new System.EventHandler(this.مدیریتکاربرانToolStripMenuItem_Click);
+            // 
+            // لیستکاربرانToolStripMenuItem
+            // 
+            this.لیستکاربرانToolStripMenuItem.Name = "لیستکاربرانToolStripMenuItem";
+            this.لیستکاربرانToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.لیستکاربرانToolStripMenuItem.Text = "لیست کاربران";
+            this.لیستکاربرانToolStripMenuItem.Click += new System.EventHandler(this.لیستکاربرانToolStripMenuItem_Click);
+            // 
+            // محصولاتToolStripMenuItem
+            // 
+            this.محصولاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ویرایشوثبتمحصولToolStripMenuItem,
+            this.لیستمحصولاتToolStripMenuItem,
+            this.دستهبندیمحصولاتToolStripMenuItem1});
+            this.محصولاتToolStripMenuItem.Image = global::Accounting.Properties.Resources.icons8_product_128px_2;
+            this.محصولاتToolStripMenuItem.Name = "محصولاتToolStripMenuItem";
+            this.محصولاتToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.محصولاتToolStripMenuItem.Text = "محصولات";
+            // 
+            // ویرایشوثبتمحصولToolStripMenuItem
+            // 
+            this.ویرایشوثبتمحصولToolStripMenuItem.Name = "ویرایشوثبتمحصولToolStripMenuItem";
+            this.ویرایشوثبتمحصولToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.ویرایشوثبتمحصولToolStripMenuItem.Text = "ویرایش و ثبت محصول";
+            this.ویرایشوثبتمحصولToolStripMenuItem.Click += new System.EventHandler(this.ویرایشوثبتمحصولToolStripMenuItem_Click);
+            // 
+            // لیستمحصولاتToolStripMenuItem
+            // 
+            this.لیستمحصولاتToolStripMenuItem.Name = "لیستمحصولاتToolStripMenuItem";
+            this.لیستمحصولاتToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.لیستمحصولاتToolStripMenuItem.Text = "لیست محصولات";
+            this.لیستمحصولاتToolStripMenuItem.Click += new System.EventHandler(this.لیستمحصولاتToolStripMenuItem_Click);
+            // 
+            // مشتریToolStripMenuItem
+            // 
+            this.مشتریToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ویرایشوثبتمشتریToolStripMenuItem,
+            this.لیستمشتریانToolStripMenuItem});
+            this.مشتریToolStripMenuItem.Image = global::Accounting.Properties.Resources.icons8_budget_160px;
+            this.مشتریToolStripMenuItem.Name = "مشتریToolStripMenuItem";
+            this.مشتریToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.مشتریToolStripMenuItem.Text = "مشتری";
+            // 
+            // ویرایشوثبتمشتریToolStripMenuItem
+            // 
+            this.ویرایشوثبتمشتریToolStripMenuItem.Name = "ویرایشوثبتمشتریToolStripMenuItem";
+            this.ویرایشوثبتمشتریToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.ویرایشوثبتمشتریToolStripMenuItem.Text = "ویرایش و ثبت مشتری";
+            this.ویرایشوثبتمشتریToolStripMenuItem.Click += new System.EventHandler(this.ویرایشوثبتمشتریToolStripMenuItem_Click);
+            // 
+            // لیستمشتریانToolStripMenuItem
+            // 
+            this.لیستمشتریانToolStripMenuItem.Name = "لیستمشتریانToolStripMenuItem";
+            this.لیستمشتریانToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.لیستمشتریانToolStripMenuItem.Text = "لیست مشتریان";
+            this.لیستمشتریانToolStripMenuItem.Click += new System.EventHandler(this.لیستمشتریانToolStripMenuItem_Click);
+            // 
+            // انبارToolStripMenuItem
+            // 
+            this.انبارToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem,
+            this.لیستکالاهایانبارToolStripMenuItem});
+            this.انبارToolStripMenuItem.Image = global::Accounting.Properties.Resources.Stock_Pic;
+            this.انبارToolStripMenuItem.Name = "انبارToolStripMenuItem";
+            this.انبارToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.انبارToolStripMenuItem.Text = "انبار";
+            // 
+            // ویرایشوثبتکالاهادرانبارToolStripMenuItem
+            // 
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Name = "ویرایشوثبتکالاهادرانبارToolStripMenuItem";
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Text = "ویرایش و ثبت کالاها در انبار";
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Click += new System.EventHandler(this.ویرایشوثبتکالاهادرانبارToolStripMenuItem_Click);
+            // 
+            // لیستکالاهایانبارToolStripMenuItem
+            // 
+            this.لیستکالاهایانبارToolStripMenuItem.Name = "لیستکالاهایانبارToolStripMenuItem";
+            this.لیستکالاهایانبارToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
+            this.لیستکالاهایانبارToolStripMenuItem.Text = "لیست کالاهای انبار";
+            this.لیستکالاهایانبارToolStripMenuItem.Click += new System.EventHandler(this.لیستکالاهایانبارToolStripMenuItem_Click);
+            // 
+            // خریدوفروشToolStripMenuItem
+            // 
+            this.خریدوفروشToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ثبتخریدوفروشکالاToolStripMenuItem});
+            this.خریدوفروشToolStripMenuItem.Image = global::Accounting.Properties.Resources.SaleAndBuy;
+            this.خریدوفروشToolStripMenuItem.Name = "خریدوفروشToolStripMenuItem";
+            this.خریدوفروشToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
+            this.خریدوفروشToolStripMenuItem.Text = "خرید و فروش";
+            // 
+            // ثبتخریدوفروشکالاToolStripMenuItem
+            // 
+            this.ثبتخریدوفروشکالاToolStripMenuItem.Name = "ثبتخریدوفروشکالاToolStripMenuItem";
+            this.ثبتخریدوفروشکالاToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.ثبتخریدوفروشکالاToolStripMenuItem.Text = "ثبت خرید و فروش کالا";
+            this.ثبتخریدوفروشکالاToolStripMenuItem.Click += new System.EventHandler(this.ثبتخریدوفروشکالاToolStripMenuItem_Click);
+            // 
+            // دستهبندیوشرکتهاToolStripMenuItem
+            // 
+            this.دستهبندیوشرکتهاToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.دستهبندیمحصولاتToolStripMenuItem,
+            this.لیستشرکتهاToolStripMenuItem});
+            this.دستهبندیوشرکتهاToolStripMenuItem.Image = global::Accounting.Properties.Resources.Company_256;
+            this.دستهبندیوشرکتهاToolStripMenuItem.Name = "دستهبندیوشرکتهاToolStripMenuItem";
+            this.دستهبندیوشرکتهاToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
+            this.دستهبندیوشرکتهاToolStripMenuItem.Text = "شرکت ها ";
+            // 
+            // دستهبندیمحصولاتToolStripMenuItem
+            // 
+            this.دستهبندیمحصولاتToolStripMenuItem.Name = "دستهبندیمحصولاتToolStripMenuItem";
+            this.دستهبندیمحصولاتToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.دستهبندیمحصولاتToolStripMenuItem.Text = "ویرایش و ثبت شرکت";
+            this.دستهبندیمحصولاتToolStripMenuItem.Click += new System.EventHandler(this.دستهبندیمحصولاتToolStripMenuItem_Click);
+            // 
+            // دستهبندیمحصولاتToolStripMenuItem1
+            // 
+            this.دستهبندیمحصولاتToolStripMenuItem1.Image = global::Accounting.Properties.Resources.Category;
+            this.دستهبندیمحصولاتToolStripMenuItem1.Name = "دستهبندیمحصولاتToolStripMenuItem1";
+            this.دستهبندیمحصولاتToolStripMenuItem1.Size = new System.Drawing.Size(233, 26);
+            this.دستهبندیمحصولاتToolStripMenuItem1.Text = "دسته بندی محصولات";
+            this.دستهبندیمحصولاتToolStripMenuItem1.Click += new System.EventHandler(this.دستهبندیمحصولاتToolStripMenuItem1_Click);
+            // 
+            // لیستشرکتهاToolStripMenuItem
+            // 
+            this.لیستشرکتهاToolStripMenuItem.Name = "لیستشرکتهاToolStripMenuItem";
+            this.لیستشرکتهاToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.لیستشرکتهاToolStripMenuItem.Text = "لیست شرکت ها ";
+            this.لیستشرکتهاToolStripMenuItem.Click += new System.EventHandler(this.لیستشرکتهاToolStripMenuItem_Click_1);
+            // 
+            // دیگرToolStripMenuItem
+            // 
+            this.دیگرToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.جزئیاتورودToolStripMenuItem});
+            this.دیگرToolStripMenuItem.Name = "دیگرToolStripMenuItem";
+            this.دیگرToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
+            this.دیگرToolStripMenuItem.Text = "دیگر";
+            // 
+            // جزئیاتورودToolStripMenuItem
+            // 
+            this.جزئیاتورودToolStripMenuItem.Image = global::Accounting.Properties.Resources.icons8_enter_80px;
+            this.جزئیاتورودToolStripMenuItem.Name = "جزئیاتورودToolStripMenuItem";
+            this.جزئیاتورودToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.جزئیاتورودToolStripMenuItem.Text = "جزئیات ورود";
+            this.جزئیاتورودToolStripMenuItem.Click += new System.EventHandler(this.جزئیاتورودToolStripMenuItem_Click);
             // 
             // frmMainMenu
             // 
@@ -595,5 +783,25 @@
         private Bunifu.UI.WinForms.BunifuImageButton btnCategory;
         private Bunifu.UI.WinForms.BunifuImageButton btnSaleAndBuy;
         private System.Windows.Forms.Label lblSaleAndBuy;
+        private System.Windows.Forms.ToolStripMenuItem کاربرانToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem مدیریتکاربرانToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem لیستکاربرانToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem محصولاتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ویرایشوثبتمحصولToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem لیستمحصولاتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem مشتریToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ویرایشوثبتمشتریToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem لیستمشتریانToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem انبارToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ویرایشوثبتکالاهادرانبارToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem لیستکالاهایانبارToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem خریدوفروشToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ثبتخریدوفروشکالاToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem دستهبندیمحصولاتToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem دستهبندیوشرکتهاToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem دستهبندیمحصولاتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem لیستشرکتهاToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem دیگرToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem جزئیاتورودToolStripMenuItem;
     }
 }

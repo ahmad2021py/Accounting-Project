@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Accounting.DataLayer.Services
 {
 
-    public class UserRepository :EntityGenericRepository<User>, IUserRepository,IEntityGenericRepository
+    public class UserRepository :EntityGenericRepository<User>, IUserRepository,IEntityGenericRepository, IDisposable
     {
 
         //------------Fields----------------
@@ -35,8 +35,8 @@ namespace Accounting.DataLayer.Services
             return await Task.Run(() =>
             {
 
-                try
-            {
+            //    try
+            //{
 
                 User query = db.Users.Where(n => n.UserName == user.UserName && n.Password == user.Password).Select(n => n).First();
                 db.Users.Attach(query);
@@ -44,11 +44,11 @@ namespace Accounting.DataLayer.Services
                 //SAVE change
                 db.SaveChanges();
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
 
             });
 
@@ -72,8 +72,8 @@ namespace Accounting.DataLayer.Services
             return await Task.Run(() =>
             {
 
-                try
-                {
+                //try
+                //{
 
                     User query = db.Users.Where(n => n.UserName == userName).Select(n => n).First();
                     db.Users.Attach(query);
@@ -81,17 +81,22 @@ namespace Accounting.DataLayer.Services
                     //SAVE change
                     db.SaveChanges();
                     return true;
-                }
-                catch
-                {
-                    return false;
-                }
+                //}
+                //catch
+                //{
+                //    return false;
+                //}
 
             });
 
 
 
 
+        }
+
+        public void Dispose()
+        {
+           //Not an Object to Dispose
         }
 
 

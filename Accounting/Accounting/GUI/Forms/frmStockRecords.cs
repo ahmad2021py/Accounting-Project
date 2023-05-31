@@ -32,8 +32,7 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IStockRepository StockRepository = _UnitOfWork.StockRepository;
-                try
-                {
+             
 
                     //---------Get List Of Stock Table Records-----------
                     IEnumerable<Stock> EnumerableStocklist = await StockRepository.GetAll<Stock>(n => n == n);
@@ -101,11 +100,7 @@ namespace Accounting.GUI.Forms
 
 
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+               
             }
         }
 
@@ -114,92 +109,9 @@ namespace Accounting.GUI.Forms
             LoadData();
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            WorkWithExcel.ExportExcel(DGV1);
-        }
-
-        private async void txtStockId_TextChanged(object sender, EventArgs e)
-        {
-            if (txtStockId.Text == "")
-            {
-                LoadData();
-                return;
-            }
-
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtStockId.Text);
-            if (!ValidationResult)
-            {
-                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtStockId.Text = "";
-                return;
-            }
-
-
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
-            {
-                IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-                try
-                {
-
-
-                    long StockId = long.Parse(txtStockId.Text);
-                    IEnumerable<Stock> DbSearchResult = await _StockRepository.GetAll<Stock>(n => n.id == StockId);
-                    DGV1.DataSource = DbSearchResult;
-                    DGV1.Columns["Product"].Visible = false;
-
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
-
-            }
-
-        }
-
-        private void txtProductId_TextChanged(object sender, EventArgs e)
-        {
-
-
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductId.Text);
-            if (!ValidationResult)
-            {
-                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtProductId.Text = "";
-                return;
-            }
-            if (txtProductId.Text == "")
-            {
-                LoadData();
-            }
-            else
-            {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                    try
-                    {
-
-
-                        long ProductId = long.Parse(txtProductId.Text);
-                        DGV1.DataSource = _ProductRepository.GetAll<Stock>(n => n.FKProductId == ProductId);
-                        DGV1.Columns["Product"].Visible = false;
-
-                    }
-                    catch
-                    {
-                        MessageBox.Show(" خطایی رخ داده است");
-                    }
-
-                }
-            }
-        }
-
-        private void txtProductName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+  
+       
+    
 
         private void btnSearchByDate_Click(object sender, EventArgs e)
         {
@@ -243,28 +155,87 @@ namespace Accounting.GUI.Forms
             this.DialogResult = DialogResult.OK;
         }
 
-        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+       
+
+        private void txtStockId_TextChanged(object sender, EventArgs e)
         {
 
-            try
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtStockId.Text);
+            if (!ValidationResult)
             {
-                DataGridViewRow dr = DGV1.SelectedRows[0];
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtStockId.Text = "";
+                return;
+            }
+            if (txtStockId.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                {
+                    IStockRepository _StockRepository = _UnitOfWork.StockRepository;
 
-                     _FKProductId = dr.Cells["id"].Value.ToString();
-                    _Quantity = dr.Cells["Quantity"].Value.ToString();
-                    _Description = dr.Cells["Description"].Value.ToString();
-                    _BuyPrice = dr.Cells["BuyPrice"].Value.ToString();
-                    _StockDate = dr.Cells["StockDate"].Value.ToString();
-                    
-                    this.DialogResult = DialogResult.OK;
-                }
+
+                    long StockId = long.Parse(txtStockId.Text);
+                    DGV1.DataSource = _StockRepository.GetAll<Stock>(n => n.id == StockId);
               
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                }
             }
         }
+
+        private void txtProductId_TextChanged(object sender, EventArgs e)
+        {
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductId.Text);
+            if (!ValidationResult)
+            {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtProductId.Text = "";
+                return;
+            }
+            if (txtProductId.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                {
+                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
+
+
+                    long ProductId = long.Parse(txtProductId.Text);
+                    DGV1.DataSource = _ProductRepository.GetAll<Stock>(n => n.FKProductId == ProductId);
+                    //DGV1.Columns["Product"].Visible = false;
+
+
+
+                }
+            }
+        }
+
+        private void btnExcelExport_Click(object sender, EventArgs e)
+        {
+            WorkWithExcel.ExportExcel(DGV1);
+        }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+
+            _FKProductId = DGV1.Rows[e.RowIndex].Cells["FKProductId"].Value.ToString();
+            _Quantity = DGV1.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+            _Description = DGV1.Rows[e.RowIndex].Cells["Description"].Value.ToString();
+            _BuyPrice = DGV1.Rows[e.RowIndex].Cells["BuyPrice"].Value.ToString();
+            _StockDate = DGV1.Rows[e.RowIndex].Cells["StockDate"].Value.ToString();
+
+            this.DialogResult = DialogResult.OK;
+        }
+
 
 
 

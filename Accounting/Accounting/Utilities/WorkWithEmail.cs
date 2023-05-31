@@ -16,8 +16,7 @@ namespace Accounting.Utilities
         {
             return await Task.Run(() =>
             {
-                try
-            {
+            
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                 client.EnableSsl = true;
                 MailAddress from = new MailAddress(supportEmailPacket.SenderMailAddress, supportEmailPacket.SenderDisplayName);
@@ -30,11 +29,7 @@ namespace Accounting.Utilities
                 client.Credentials = myCreds;
                 client.Send(message);
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+         
             });
         }
         #endregion

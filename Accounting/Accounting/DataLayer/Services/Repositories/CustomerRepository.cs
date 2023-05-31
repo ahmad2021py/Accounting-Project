@@ -32,8 +32,7 @@ namespace Accounting.DataLayer.Services
         {
             return await Task.Run(() =>
             {
-                try
-            {
+          
 
                 Customer dbRecord = db.Customers.Where(n => n.NationalCode == record.NationalCode).Select(n => n).First();
                 db.Customers.Attach(dbRecord);
@@ -48,11 +47,7 @@ namespace Accounting.DataLayer.Services
 
              
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+         
 
 
             });

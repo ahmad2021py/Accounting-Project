@@ -38,8 +38,7 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                try
-                {
+               
                     //--------
 
                     IEnumerable<Product> DbEnabrableRecords = await _ProductRepository.GetAll<Product>(n => n == n);
@@ -54,11 +53,6 @@ namespace Accounting.GUI.Forms
                                                             //----------------------------------
 
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
             }
         }
 
@@ -83,17 +77,12 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                try
-                {
+               
                     string productName = txtProductName.Text;
                     IEnumerable<Product> IEnamrableProductDbRecords = await _ProductRepository.GetAll<Product>(n => n.ProductName.Contains(productName));
                     DGV1.DataSource = IEnamrableProductDbRecords;
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+               
 
             }
 
@@ -104,59 +93,7 @@ namespace Accounting.GUI.Forms
             WorkWithExcel.ExportExcel(DGV1);
         }
 
-        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            try
-            {
-                DataGridViewRow dr = DGV1.SelectedRows[0];
-                //this.Hide();
-                if (this.Owner.Name == "frmProduct")
-                {
-
-
-
-
-
-
-
-
-
-
-
-                    _id = dr.Cells["id"].Value.ToString();
-                    _ProductName = dr.Cells["ProductName"].Value.ToString();
-                    _Features = dr.Cells["Features"].Value.ToString();
-                    _Price = dr.Cells["Price"].Value.ToString();
-                    _Category = dr.Cells["Category"].Value.ToString();
-                    _Company = dr.Cells["Company"].Value.ToString();
-                    byte[] data = (byte[])dr.Cells["Picture"].Value;
-                    MemoryStream ms = new MemoryStream(data);
-                    _Picture = Image.FromStream(ms);
-                    this.DialogResult = DialogResult.OK;
-                }
-                else if (this.Owner.Name == "frmStock")
-                {
-
-                    _id = dr.Cells["id"].Value.ToString();
-                    _ProductName = dr.Cells["ProductName"].Value.ToString();
-                    _Category = dr.Cells["Category"].Value.ToString();
-                    _Company = dr.Cells["Company"].Value.ToString();
-                    _Features = dr.Cells["Features"].Value.ToString();
-                    _Price = dr.Cells["Price"].Value.ToString();
-                    this.DialogResult = DialogResult.OK;
-
-                }
-
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            ////-------------------------------------------------------
-        }
+       
 
         private async void txtCompany_TextChanged(object sender, EventArgs e)
         {
@@ -169,17 +106,12 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                try
-                {
-                    string Company = txtCompany.Text;
+               
+                string Company = txtCompany.Text;
                     IEnumerable<Product> EnamrableProductDbRecords = await _ProductRepository.GetAll<Product>(n => n.Company.Contains(Company));
                     DGV1.DataSource = EnamrableProductDbRecords;
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+            
 
             }
 
@@ -196,17 +128,12 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-                try
-                {
+                
                     string category = txtCategory.Text;
                     IEnumerable<Product> IEnamerableProductDbRecords = await _ProductRepository.GetAll<Product>(n => n.Category.Contains(category));
                     DGV1.DataSource = IEnamerableProductDbRecords;
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+           
 
             }
 
@@ -217,6 +144,49 @@ namespace Accounting.GUI.Forms
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            //this.Hide();
+            if (this.Owner.Name == "frmProduct")
+            {
+
+
+
+
+
+
+
+
+
+
+
+                _id = DGV1.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                _ProductName = DGV1.Rows[e.RowIndex].Cells["ProductName"].Value.ToString();
+                _Features = DGV1.Rows[e.RowIndex].Cells["Features"].Value.ToString();
+                _Price = DGV1.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                _Category = DGV1.Rows[e.RowIndex].Cells["Category"].Value.ToString();
+                _Company = DGV1.Rows[e.RowIndex].Cells["Company"].Value.ToString();
+                byte[] data = (byte[])DGV1.Rows[e.RowIndex].Cells["Picture"].Value;
+                MemoryStream ms = new MemoryStream(data);
+                _Picture = Image.FromStream(ms);
+                this.DialogResult = DialogResult.OK;
+            }
+            else if (this.Owner.Name == "frmStock")
+            {
+
+                _id = DGV1.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                _ProductName = DGV1.Rows[e.RowIndex].Cells["ProductName"].Value.ToString();
+                _Category = DGV1.Rows[e.RowIndex].Cells["Category"].Value.ToString();
+                _Company = DGV1.Rows[e.RowIndex].Cells["Company"].Value.ToString();
+                _Features = DGV1.Rows[e.RowIndex].Cells["Features"].Value.ToString();
+                _Price = DGV1.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                this.DialogResult = DialogResult.OK;
+
+            }
+        }
+
 
 
 

@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
 {
-    public partial class frmCustomerRecords : Form 
+    public partial class frmCustomerRecords : Form
     {
         //-----Fields-------------------
         #region class Fields
@@ -44,106 +44,104 @@ namespace Accounting.GUI.Forms
         public string _NationalCode;
 
 
-        async  void LoadData()
+        async void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICustomerRepository customerRepository = _UnitOfWork.CustomerRepository;
-                try
-                {
-                    //--------
-                  IEnumerable<Customer> IEnamrableCustomerDbRecords =await customerRepository.GetAll<Customer>(n => n == n);
-                    DGV1.DataSource = IEnamrableCustomerDbRecords;
-                    DGV1.Columns["NationalCode"].HeaderText = " کد ملی";
-                    DGV1.Columns["Name"].HeaderText = " نام";
-                    DGV1.Columns["Phone"].HeaderText = " تلفن";
-                    DGV1.Columns["State"].HeaderText = " استان";
-                    DGV1.Columns["ZipCode"].HeaderText = " کد پستی";
-                    DGV1.Columns["Email"].HeaderText = " ایمیل";
-                    DGV1.Columns["City"].HeaderText = " شهر";
-                    DGV1.Columns["Address"].HeaderText = " آدرس";
+                //--------
+                IEnumerable<Customer> IEnamrableCustomerDbRecords = await customerRepository.GetAll<Customer>(n => n == n);
+                DGV1.DataSource = IEnamrableCustomerDbRecords;
+                DGV1.Columns["NationalCode"].HeaderText = " کد ملی";
+                DGV1.Columns["Name"].HeaderText = " نام";
+                DGV1.Columns["Phone"].HeaderText = " تلفن";
+                DGV1.Columns["State"].HeaderText = " استان";
+                DGV1.Columns["ZipCode"].HeaderText = " کد پستی";
+                DGV1.Columns["Email"].HeaderText = " ایمیل";
+                DGV1.Columns["City"].HeaderText = " شهر";
+                DGV1.Columns["Address"].HeaderText = " آدرس";
 
 
-                    //----------------------------------
+                //----------------------------------
 
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+
             }
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
-        {
-            WorkWithExcel.ExportExcel(DGV1);
-        }
+     
 
         private void frmCustomerRecords_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private async void txtNationalCode_TextChanged(object sender, EventArgs e)
-        {
 
+
+      
+
+     
+
+
+
+
+        private void frmCustomerRecords_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+     async   private void txtNationalCode_TextChanged(object sender, EventArgs e)
+        {
             if (txtNationalCode.Text == "")
             {
                 LoadData();
                 return;
             }
-            bool ValidationResult = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
-            if (!ValidationResult)
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                MessageBox.Show("کد ملی نامعتبر است");
-                txtNationalCode.Text = "";
+                ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
+
+
+                IEnumerable<Customer> IEnamrableCustomerDbRecords = await _CustomerRepository.GetAll<Customer>(n => n.NationalCode.ToString().Contains(txtNationalCode.Text));
+                DGV1.DataSource = IEnamrableCustomerDbRecords;
+
+
+
+            }
+
+
+
+
+
+        }
+
+        async private void txtCustomerName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCustomerName.Text == "")
+            {
+                LoadData();
                 return;
             }
 
-           string nationalCode =  WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
+
+
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                ICustomerRepository _customerRepository = _UnitOfWork.CustomerRepository;
-                try
-                {
-                    long NationalCode = long.Parse(nationalCode);
-                    IEnumerable<Customer> IEnamrableCustomerDbRecords = await _customerRepository.GetAll<Customer>(n => n.NationalCode == NationalCode);
-                    DGV1.DataSource = IEnamrableCustomerDbRecords;
+                ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
 
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
+
+                IEnumerable<Customer> IEnamrableCustomerDbRecords = await _CustomerRepository.GetAll<Customer>(n => n.Name.Contains(txtCustomerName.Text));
+                DGV1.DataSource = IEnamrableCustomerDbRecords;
+
 
 
             }
+
         }
 
-        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridViewRow dr = DGV1.SelectedRows[0];
-                _NationalCode= dr.Cells["NationalCode"].Value.ToString();
-               _Name= dr.Cells["Name"].Value.ToString();
-                _Phone = dr.Cells["Phone"].Value.ToString();
-                _State = dr.Cells["State"].Value.ToString();
-               _Email= dr.Cells["Email"].Value.ToString();
-               _City = dr.Cells["City"].Value.ToString();
-                _ZipCode = dr.Cells["ZipCode"].Value.ToString();
-               _Address = dr.Cells["Address"].Value.ToString();
-                this.DialogResult = DialogResult.OK;
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
+        private void btnExport_Click(object sender, EventArgs e)
         {
             ////Load File
             // stiReport1.Load(Application.StartupPath + "/Reports/Customer.mrt");
@@ -157,44 +155,32 @@ namespace Accounting.GUI.Forms
             // stiReport1["ZipCode"] = "u";
             // //Show
             // stiReport1.Show();
+        }
+
+       
+      
+
+        private void btnExport_Click_1(object sender, EventArgs e)
+        {
 
         }
 
-        private async void txtCustomerName_TextChanged(object sender, EventArgs e)
+        private void btnExcelExport_Click(object sender, EventArgs e)
         {
-            if (txtCustomerName.Text == "")
-            {
-                LoadData();
-                return;
-            }
-
-
-
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
-            {
-                ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
-                try
-                {
-
-
-                    IEnumerable<Customer> IEnamrableCustomerDbRecords = await _CustomerRepository.GetAll<Customer>(n => n.Name.Contains(txtCustomerName.Text));
-                    DGV1.DataSource = IEnamrableCustomerDbRecords;
-
-
-                }
-                catch
-                {
-                    MessageBox.Show(" خطایی رخ داده است");
-                }
-
-            }
-
+            WorkWithExcel.ExportExcel(DGV1);
         }
 
-   
-
-        private void frmCustomerRecords_FormClosing(object sender, FormClosingEventArgs e)
+        private void DGV1_CellDoubleClick_(object sender, DataGridViewCellEventArgs e)
         {
+
+            _NationalCode = DGV1.Rows[e.RowIndex].Cells["NationalCode"].Value.ToString();
+            _Name = DGV1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+            _Phone = DGV1.Rows[e.RowIndex].Cells["Phone"].Value.ToString();
+            _State = DGV1.Rows[e.RowIndex].Cells["State"].Value.ToString();
+            _Email = DGV1.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            _City = DGV1.Rows[e.RowIndex].Cells["City"].Value.ToString();
+            _ZipCode = DGV1.Rows[e.RowIndex].Cells["ZipCode"].Value.ToString();
+            _Address = DGV1.Rows[e.RowIndex].Cells["Address"].Value.ToString();
             this.DialogResult = DialogResult.OK;
         }
 
