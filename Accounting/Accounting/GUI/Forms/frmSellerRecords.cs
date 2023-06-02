@@ -48,8 +48,6 @@ namespace Accounting.GUI.Forms
                 DGV1.Columns["debtor"].HeaderText = "بدهکار";
                 DGV1.Columns["creditor"].HeaderText = " بستانکار";
 
-
-
                 //----------------------------------
 
 
@@ -115,6 +113,27 @@ namespace Accounting.GUI.Forms
         private void btnExport_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmSellerRecords_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+         
+            _NationalCode = DGV1.Rows[e.RowIndex].Cells["NationalCode"].Value.ToString();
+            _Name = DGV1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+            _Phone = DGV1.Rows[e.RowIndex].Cells["Phone"].Value.ToString();
+            _State = DGV1.Rows[e.RowIndex].Cells["State"].Value.ToString();
+            _Email = DGV1.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+            _City = DGV1.Rows[e.RowIndex].Cells["City"].Value.ToString();
+            _ZipCode = DGV1.Rows[e.RowIndex].Cells["ZipCode"].Value.ToString();
+            _Address = DGV1.Rows[e.RowIndex].Cells["Address"].Value.ToString();
+            _creditor = DGV1.Rows[e.RowIndex].Cells["creditor"].Value.ToString();
+            _debtor = DGV1.Rows[e.RowIndex].Cells["debtor"].Value.ToString();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

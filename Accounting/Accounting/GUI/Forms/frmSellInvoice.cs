@@ -18,7 +18,7 @@ namespace Accounting.GUI.Forms
         private bool IsNull()
         {
             if (
-               string.IsNullOrEmpty(txtInvoiceCode.Text) ||
+               string.IsNullOrEmpty(txtSellInvoiceCode.Text) ||
                   string.IsNullOrEmpty(txtOff.Text) ||
                   string.IsNullOrEmpty(txtSellCount.Text) ||
                   string.IsNullOrEmpty(txtSellPricePerUnit.Text) ||
@@ -27,7 +27,7 @@ namespace Accounting.GUI.Forms
                   string.IsNullOrEmpty(bPersianCalenderTextBox1.Text) ||
 
 
-                  string.IsNullOrWhiteSpace(txtInvoiceCode.Text) ||
+                  string.IsNullOrWhiteSpace(txtSellInvoiceCode.Text) ||
                   string.IsNullOrWhiteSpace(txtOff.Text) ||
                   string.IsNullOrWhiteSpace(txtSellCount.Text) ||
                   string.IsNullOrWhiteSpace(txtSellPricePerUnit.Text) ||
@@ -50,13 +50,13 @@ namespace Accounting.GUI.Forms
 
         private void Reset()
         {
-            txtInvoiceCode.Text = "";
+            txtSellInvoiceCode.Text = "";
             txtOff.Text = "";
             txtSellCount.Text = "";
             txtSellPricePerUnit.Text = "";
             lblCustomerCode.Text = "";
             lblCustomerDebt.Text = "";
-            lblCustomerDebtWithThisInvoice.Text = "";
+            lblCustomerDebtWithThisSellInvoice.Text = "";
             lblInvoiceTotalPrice.Text = "";
             lblStockCode.Text = "";
             lblTotalSellPrice.Text = "";
@@ -88,15 +88,15 @@ namespace Accounting.GUI.Forms
 
 
 
-        private SellInvoice Fill__InvoiceRecord(SellInvoice Invoice)
+        private SellInvoice Fill__SellInvoiceRecord(SellInvoice Invoice)
         {
             Invoice.FKCustomer = long.Parse(lblCustomerCode.Text);
             Invoice.Quantity = int.Parse(txtSellCount.Text);
-            Invoice.TotalAmount = Decimal.Parse(lblTotaSellAmountWithOff.Text);
+            Invoice.TotalSellAmount = Decimal.Parse(lblTotaSellAmountWithOff.Text);
             Invoice.FKStock = int.Parse(lblStockCode.Text);
-            Invoice.InvoiceCode = txtInvoiceCode.Text;
+            Invoice.SellInvoiceCode = txtSellInvoiceCode.Text;
             WorkWithDate date = new WorkWithDate();
-            Invoice.InvoiceDate = date.ShamsiToMiladi(bPersianCalenderTextBox1.Text);
+            Invoice.SellInvoiceDate = date.ShamsiToMiladi(bPersianCalenderTextBox1.Text);
             Invoice.Off = int.Parse(txtOff.Text);
             Invoice.SellPricePerUnit = decimal.Parse(txtSellPricePerUnit.Text);
 
@@ -178,7 +178,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCalculate_Click(object sender, EventArgs e)
         {
             if (IsNull())
             {
@@ -209,41 +209,45 @@ namespace Accounting.GUI.Forms
             decimal TotalPriceWithOff = TotalSellCost - CalculateOff;
             lblTotaSellAmountWithOff.Text = TotalPriceWithOff.ToString();
             decimal CustomerDebt = decimal.Parse(this.lblCustomerDebt.Text);
-            lblCustomerDebtWithThisInvoice.Text = (CustomerDebt + TotalPriceWithOff).ToString();
+            lblCustomerDebtWithThisSellInvoice.Text = (CustomerDebt + TotalPriceWithOff).ToString();
         }
 
         async private void btnCommit_Click(object sender, EventArgs e)
         {
-            IsNull();
+          if (IsNull())
+            {
+                MessageBox.Show("مقادیر نامعتبر");
+                return;
+            }
 
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
 
 
-                IInvoiceRepository _InvoiceRepository = _UnitOfWork.InvoiceRepository;
+                ISelllnvoiceRepository _SellInvoiceRepository = _UnitOfWork.SellInvoiceRepository;
 
-                string InvoiceCode = txtInvoiceCode.Text;
-                bool InvoiceResult = await _InvoiceRepository.IsExist<SellInvoice>(n => n.InvoiceCode == InvoiceCode);
+                string SellInvoiceCode = txtSellInvoiceCode.Text;
+                bool SellInvoiceResult = await _SellInvoiceRepository.IsExist<SellInvoice>(n => n.SellInvoiceCode == SellInvoiceCode);
 
-                if (InvoiceResult)
+                if (SellInvoiceResult)
                 {
                     MessageBox.Show("یک فاکتور با این کد در جدول فروش وجود دارد");
 
                     return;
                 }
 
-                SellInvoice InvoiceRecord = new SellInvoice();
-                InvoiceRecord = Fill__InvoiceRecord(InvoiceRecord);
+                SellInvoice SellInvoiceRecord = new SellInvoice();
+                SellInvoiceRecord = Fill__SellInvoiceRecord(SellInvoiceRecord);
 
-                bool AddResult = await _InvoiceRepository.Add<SellInvoice>(InvoiceRecord);
+                bool AddResult = await _SellInvoiceRepository.Add<SellInvoice>(SellInvoiceRecord);
 
                 if (!AddResult)
                 {
                     MessageBox.Show("در افزودن فاکتور خطایی رخ داه است");
                     return;
                 }
-                ProductSold productSoldRecord = new ProductSold() { FKSellInvoice = InvoiceRecord.InvoiceCode };
+                ProductSold productSoldRecord = new ProductSold() { FKSellInvoice = SellInvoiceRecord.SellInvoiceCode };
                 IProductSoldRepository _ProductSoldRepository = _UnitOfWork.ProductSoldRepository;
                 bool AddToProductSoldResult = await _ProductSoldRepository.Add<ProductSold>(productSoldRecord);
                 if (!AddToProductSoldResult)
@@ -281,6 +285,24 @@ namespace Accounting.GUI.Forms
 
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //-------------------------
 
     }
 }

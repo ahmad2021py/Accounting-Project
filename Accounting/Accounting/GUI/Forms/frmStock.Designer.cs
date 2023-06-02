@@ -153,7 +153,7 @@ namespace Accounting.GUI.Forms
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(826, 314);
+            this.btnSave.Location = new System.Drawing.Point(980, 414);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(92, 49);
             this.btnSave.TabIndex = 99;

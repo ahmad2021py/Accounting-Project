@@ -17,12 +17,9 @@ namespace Accounting.DataLayer.Entities
         public int ProductCode { get; set; } //must be unique for this Table
         [Required]
         public string ProductName { get; set; }
-        public decimal Price { get; set; }
         public string Features { get; set; }
         public byte[] Picture { get; set; }
         public string Category { get; set; }
         public string Company { get; set; }
-
-        public string CountingUnit { get; set; }
     }
 }

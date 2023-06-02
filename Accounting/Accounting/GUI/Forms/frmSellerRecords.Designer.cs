@@ -52,6 +52,7 @@ namespace Accounting.GUI.Forms
             this.DGV1.RowTemplate.Height = 24;
             this.DGV1.Size = new System.Drawing.Size(537, 543);
             this.DGV1.TabIndex = 0;
+            this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
             // 
             // groupBox3
             // 
@@ -143,6 +144,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "لیست فروشندگان";
+            this.Load += new System.EventHandler(this.frmSellerRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

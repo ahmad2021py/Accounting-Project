@@ -25,7 +25,6 @@ namespace Accounting.GUI.Forms
         public string _ProductCode;
         public string _ProductName;
         public string _Features;
-        public string _Price;
         public string _Company;
         public string _Category;
         public Image _Picture;
@@ -45,10 +44,8 @@ namespace Accounting.GUI.Forms
                 DGV1.Columns["ProductCode"].HeaderText = " کد محصول";
                 DGV1.Columns["ProductName"].HeaderText = " نام محصول";
                 DGV1.Columns["Features"].HeaderText = " ویژگی";
-                DGV1.Columns["Price"].HeaderText = " قیمت";
                 DGV1.Columns["Company"].HeaderText = " شرکت";
                 DGV1.Columns["Category"].HeaderText = " دسته بندی";
-                DGV1.Columns["CountingUnit"].HeaderText = " واحد شمارش";
                 DGV1.Columns["Picture"].Visible = false;//Picture Column
                                                         //----------------------------------
 
@@ -165,7 +162,6 @@ namespace Accounting.GUI.Forms
                 _ProductCode = DGV1.Rows[e.RowIndex].Cells["ProductCode"].Value.ToString();
                 _ProductName = DGV1.Rows[e.RowIndex].Cells["ProductName"].Value.ToString();
                 _Features = DGV1.Rows[e.RowIndex].Cells["Features"].Value.ToString();
-                _Price = DGV1.Rows[e.RowIndex].Cells["Price"].Value.ToString();
                 _Category = DGV1.Rows[e.RowIndex].Cells["Category"].Value.ToString();
                 _Company = DGV1.Rows[e.RowIndex].Cells["Company"].Value.ToString();
                 byte[] data = (byte[])DGV1.Rows[e.RowIndex].Cells["Picture"].Value;
@@ -181,7 +177,15 @@ namespace Accounting.GUI.Forms
                 _Category = DGV1.Rows[e.RowIndex].Cells["Category"].Value.ToString();
                 _Company = DGV1.Rows[e.RowIndex].Cells["Company"].Value.ToString();
                 _Features = DGV1.Rows[e.RowIndex].Cells["Features"].Value.ToString();
-                _Price = DGV1.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                this.DialogResult = DialogResult.OK;
+
+            }
+
+
+            else if (this.Owner.Name == "frmBuyInvoice")
+            {
+
+                _ProductCode = DGV1.Rows[e.RowIndex].Cells["ProductCode"].Value.ToString();
                 this.DialogResult = DialogResult.OK;
 
             }

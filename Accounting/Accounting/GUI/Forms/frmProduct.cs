@@ -58,8 +58,6 @@ namespace Accounting.GUI.Forms
         }
         private void Reset()
         {
-
-            txtPrice.Text = "";
             txtFeatures.Text = "";
             txtProductCode.Text = "";
             txtProductName.Text = "";
@@ -74,30 +72,7 @@ namespace Accounting.GUI.Forms
 
 
 
-        private bool Validations()
-
-        {
-
-
-
-            if (!WorkWithStrings.TextToDecimalVlaidation(txtPrice.Text))
-            {
-                // MessageBox.Show("تعداد نامعتبر");
-                return false;
-            }
-            else if (!WorkWithStrings.TextToDecimalVlaidation(txtPrice.Text))
-            {
-
-                // MessageBox.Show("قیمت نامعتبر");
-                return false;
-
-
-            }
-
-
-
-            return true;
-        }
+     
 
 
 
@@ -125,11 +100,9 @@ namespace Accounting.GUI.Forms
         {
             if (
                string.IsNullOrEmpty(txtFeatures.Text) ||
-                  string.IsNullOrEmpty(txtPrice.Text) ||
                   string.IsNullOrEmpty(txtCountingUnit.Text) ||
                   string.IsNullOrEmpty(txtProductCode.Text) ||
                   string.IsNullOrEmpty(txtFeatures.Text) ||
-                  string.IsNullOrWhiteSpace(txtPrice.Text) ||
                   string.IsNullOrWhiteSpace(txtCountingUnit.Text) ||
                   string.IsNullOrWhiteSpace(cbCategory.Text) ||
                   string.IsNullOrWhiteSpace(cbCompany.Text)
@@ -153,9 +126,7 @@ namespace Accounting.GUI.Forms
 
 
             productRecord.ProductCode = Convert.ToInt32(txtProductCode.Text);
-            productRecord.CountingUnit = txtCountingUnit.Text;
             productRecord.ProductName = txtProductName.Text;
-            productRecord.Price = Convert.ToDecimal(txtPrice.Text);
             productRecord.Company = cbCompany.Text;
             productRecord.Category = cbCategory.Text;
             productRecord.Features = txtFeatures.Text;
@@ -173,10 +144,8 @@ namespace Accounting.GUI.Forms
 
 
                 txtProductName.Text = dbProductRecord.ProductName;
-                txtPrice.Text = dbProductRecord.Price.ToString();
                 cbCompany.Text = dbProductRecord.Company;
                 cbCategory.Text = dbProductRecord.Category;
-                txtCountingUnit.Text = dbProductRecord.CountingUnit;
                 txtFeatures.Text = dbProductRecord.Features;
                 PboxProductPicture.Image = WorkWithImage.byteArrayToImage(dbProductRecord.Picture);
             }
@@ -211,12 +180,7 @@ namespace Accounting.GUI.Forms
             }
 
 
-            if (!Validations())
-            {
-                MessageBox.Show("مقادیر ورودی نامعتر");
-                return;
-
-            }
+          
 
             using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
@@ -363,12 +327,7 @@ namespace Accounting.GUI.Forms
             }
             //try
             //{
-            if (!Validations())
-            {
-                MessageBox.Show("مقادیر ورودی نامعتر");
-                return;
-
-            }
+           
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -496,7 +455,6 @@ namespace Accounting.GUI.Forms
                 this.txtFeatures.Text = formProductRecords._Features;
                 this.txtProductCode.Text = formProductRecords._ProductCode;
                 this.PboxProductPicture.Image = formProductRecords._Picture;
-                this.txtPrice.Text = formProductRecords._Price;
                 this.txtProductName.Text = formProductRecords._ProductName;
                 formProductRecords = null;
 

@@ -38,17 +38,17 @@
             this.لیستمحصولاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.دستهبندیمحصولاتToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hihdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.مشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ویرایشوثبتمشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.لیستمشتریانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ویرایشوثبتفروشندهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.لیستفروشندگانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.انبارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ویرایشوثبتکالاهادرانبارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستکالاهایانبارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.دستهبندیوشرکتهاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.دستهبندیمحصولاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستشرکتهاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.مشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ویرایشوثبتمشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستمشتریانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ویرایشوثبتفروشندهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.لیستفروشندگانToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ثبتفاکتورToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.فروشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.خریدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,6 +139,52 @@
             this.hihdToolStripMenuItem.Text = "محصولات فروخته شده";
             this.hihdToolStripMenuItem.Click += new System.EventHandler(this.hihdToolStripMenuItem_Click);
             // 
+            // انبارToolStripMenuItem
+            // 
+            this.انبارToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem,
+            this.لیستکالاهایانبارToolStripMenuItem});
+            this.انبارToolStripMenuItem.Name = "انبارToolStripMenuItem";
+            this.انبارToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.انبارToolStripMenuItem.Text = "انبار";
+            // 
+            // ویرایشوثبتکالاهادرانبارToolStripMenuItem
+            // 
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Name = "ویرایشوثبتکالاهادرانبارToolStripMenuItem";
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Text = "ویرایش و ثبت کالاها در انبار";
+            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Click += new System.EventHandler(this.ویرایشوثبتکالاهادرانبارToolStripMenuItem_Click);
+            // 
+            // لیستکالاهایانبارToolStripMenuItem
+            // 
+            this.لیستکالاهایانبارToolStripMenuItem.Name = "لیستکالاهایانبارToolStripMenuItem";
+            this.لیستکالاهایانبارToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
+            this.لیستکالاهایانبارToolStripMenuItem.Text = "لیست کالاهای انبار";
+            this.لیستکالاهایانبارToolStripMenuItem.Click += new System.EventHandler(this.لیستکالاهایانبارToolStripMenuItem_Click);
+            // 
+            // دستهبندیوشرکتهاToolStripMenuItem
+            // 
+            this.دستهبندیوشرکتهاToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.دستهبندیمحصولاتToolStripMenuItem,
+            this.لیستشرکتهاToolStripMenuItem});
+            this.دستهبندیوشرکتهاToolStripMenuItem.Name = "دستهبندیوشرکتهاToolStripMenuItem";
+            this.دستهبندیوشرکتهاToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.دستهبندیوشرکتهاToolStripMenuItem.Text = "شرکت ها ";
+            // 
+            // دستهبندیمحصولاتToolStripMenuItem
+            // 
+            this.دستهبندیمحصولاتToolStripMenuItem.Name = "دستهبندیمحصولاتToolStripMenuItem";
+            this.دستهبندیمحصولاتToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.دستهبندیمحصولاتToolStripMenuItem.Text = "ویرایش و ثبت شرکت";
+            this.دستهبندیمحصولاتToolStripMenuItem.Click += new System.EventHandler(this.دستهبندیمحصولاتToolStripMenuItem_Click);
+            // 
+            // لیستشرکتهاToolStripMenuItem
+            // 
+            this.لیستشرکتهاToolStripMenuItem.Name = "لیستشرکتهاToolStripMenuItem";
+            this.لیستشرکتهاToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.لیستشرکتهاToolStripMenuItem.Text = "لیست شرکت ها ";
+            this.لیستشرکتهاToolStripMenuItem.Click += new System.EventHandler(this.لیستشرکتهاToolStripMenuItem_Click_1);
+            // 
             // مشتریToolStripMenuItem
             // 
             this.مشتریToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,52 +224,6 @@
             this.لیستفروشندگانToolStripMenuItem.Text = "لیست فروشندگان";
             this.لیستفروشندگانToolStripMenuItem.Click += new System.EventHandler(this.لیستفروشندگانToolStripMenuItem_Click);
             // 
-            // انبارToolStripMenuItem
-            // 
-            this.انبارToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem,
-            this.لیستکالاهایانبارToolStripMenuItem});
-            this.انبارToolStripMenuItem.Name = "انبارToolStripMenuItem";
-            this.انبارToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.انبارToolStripMenuItem.Text = "انبار";
-            // 
-            // ویرایشوثبتکالاهادرانبارToolStripMenuItem
-            // 
-            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Name = "ویرایشوثبتکالاهادرانبارToolStripMenuItem";
-            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
-            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Text = "ویرایش و ثبت کالاها در انبار";
-            this.ویرایشوثبتکالاهادرانبارToolStripMenuItem.Click += new System.EventHandler(this.ویرایشوثبتکالاهادرانبارToolStripMenuItem_Click);
-            // 
-            // لیستکالاهایانبارToolStripMenuItem
-            // 
-            this.لیستکالاهایانبارToolStripMenuItem.Name = "لیستکالاهایانبارToolStripMenuItem";
-            this.لیستکالاهایانبارToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
-            this.لیستکالاهایانبارToolStripMenuItem.Text = "لیست کالاهای انبار";
-            this.لیستکالاهایانبارToolStripMenuItem.Click += new System.EventHandler(this.لیستکالاهایانبارToolStripMenuItem_Click);
-            // 
-            // دستهبندیوشرکتهاToolStripMenuItem
-            // 
-            this.دستهبندیوشرکتهاToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.دستهبندیمحصولاتToolStripMenuItem,
-            this.لیستشرکتهاToolStripMenuItem});
-            this.دستهبندیوشرکتهاToolStripMenuItem.Name = "دستهبندیوشرکتهاToolStripMenuItem";
-            this.دستهبندیوشرکتهاToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
-            this.دستهبندیوشرکتهاToolStripMenuItem.Text = "شرکت ها ";
-            // 
-            // دستهبندیمحصولاتToolStripMenuItem
-            // 
-            this.دستهبندیمحصولاتToolStripMenuItem.Name = "دستهبندیمحصولاتToolStripMenuItem";
-            this.دستهبندیمحصولاتToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.دستهبندیمحصولاتToolStripMenuItem.Text = "ویرایش و ثبت شرکت";
-            this.دستهبندیمحصولاتToolStripMenuItem.Click += new System.EventHandler(this.دستهبندیمحصولاتToolStripMenuItem_Click);
-            // 
-            // لیستشرکتهاToolStripMenuItem
-            // 
-            this.لیستشرکتهاToolStripMenuItem.Name = "لیستشرکتهاToolStripMenuItem";
-            this.لیستشرکتهاToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.لیستشرکتهاToolStripMenuItem.Text = "لیست شرکت ها ";
-            this.لیستشرکتهاToolStripMenuItem.Click += new System.EventHandler(this.لیستشرکتهاToolStripMenuItem_Click_1);
-            // 
             // ثبتفاکتورToolStripMenuItem
             // 
             this.ثبتفاکتورToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -238,26 +238,27 @@
             // فروشToolStripMenuItem
             // 
             this.فروشToolStripMenuItem.Name = "فروشToolStripMenuItem";
-            this.فروشToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.فروشToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.فروشToolStripMenuItem.Text = "فروش";
             this.فروشToolStripMenuItem.Click += new System.EventHandler(this.فروشToolStripMenuItem_Click);
             // 
             // خریدToolStripMenuItem
             // 
             this.خریدToolStripMenuItem.Name = "خریدToolStripMenuItem";
-            this.خریدToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.خریدToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.خریدToolStripMenuItem.Text = "خرید";
+            this.خریدToolStripMenuItem.Click += new System.EventHandler(this.خریدToolStripMenuItem_Click);
             // 
             // بازگشتازخریدToolStripMenuItem
             // 
             this.بازگشتازخریدToolStripMenuItem.Name = "بازگشتازخریدToolStripMenuItem";
-            this.بازگشتازخریدToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.بازگشتازخریدToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.بازگشتازخریدToolStripMenuItem.Text = "بازگشت از فروش";
             // 
             // بازگشتازخریدToolStripMenuItem1
             // 
             this.بازگشتازخریدToolStripMenuItem1.Name = "بازگشتازخریدToolStripMenuItem1";
-            this.بازگشتازخریدToolStripMenuItem1.Size = new System.Drawing.Size(198, 26);
+            this.بازگشتازخریدToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.بازگشتازخریدToolStripMenuItem1.Text = "بازگشت از خرید ";
             // 
             // چکهاToolStripMenuItem

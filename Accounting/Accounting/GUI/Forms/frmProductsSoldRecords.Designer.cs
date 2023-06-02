@@ -32,7 +32,7 @@ namespace Accounting.GUI.Forms
             this.DGV1 = new System.Windows.Forms.DataGridView();
             this.btnExport = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtFKInvoice = new System.Windows.Forms.TextBox();
+            this.txtFKSellInvoice = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtProductSoldCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
@@ -63,24 +63,24 @@ namespace Accounting.GUI.Forms
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.txtFKInvoice);
+            this.groupBox2.Controls.Add(this.txtFKSellInvoice);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(36, 161);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(278, 105);
             this.groupBox2.TabIndex = 90;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "جستجو با کد فاکتور";
+            this.groupBox2.Text = "جستجو با کد فاکتور فروش";
             // 
-            // txtFKInvoice
+            // txtFKSellInvoice
             // 
-            this.txtFKInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFKInvoice.Location = new System.Drawing.Point(17, 39);
-            this.txtFKInvoice.Multiline = true;
-            this.txtFKInvoice.Name = "txtFKInvoice";
-            this.txtFKInvoice.Size = new System.Drawing.Size(255, 36);
-            this.txtFKInvoice.TabIndex = 91;
-            this.txtFKInvoice.TextChanged += new System.EventHandler(this.txtFKInvoice_TextChanged);
+            this.txtFKSellInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFKSellInvoice.Location = new System.Drawing.Point(17, 39);
+            this.txtFKSellInvoice.Multiline = true;
+            this.txtFKSellInvoice.Name = "txtFKSellInvoice";
+            this.txtFKSellInvoice.Size = new System.Drawing.Size(255, 36);
+            this.txtFKSellInvoice.TabIndex = 91;
+            this.txtFKSellInvoice.TextChanged += new System.EventHandler(this.txtFKSellInvoice_TextChanged);
             // 
             // groupBox1
             // 
@@ -135,7 +135,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.DataGridView DGV1;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtFKInvoice;
+        private System.Windows.Forms.TextBox txtFKSellInvoice;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtProductSoldCode;
     }

@@ -27,7 +27,6 @@ namespace Accounting.DataLayer.Entities
 
         public string Description { get; set; }
 
-
         public decimal BuyPrice { get; set; }// This Column Fill only By frmBuyInvoice
         //*********relationship************
         //---- Foreign key to Product----------

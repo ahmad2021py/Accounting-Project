@@ -32,7 +32,7 @@ namespace Accounting.GUI.Forms
             this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtInvoiceCode = new System.Windows.Forms.TextBox();
+            this.txtSellInvoiceCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
@@ -49,10 +49,10 @@ namespace Accounting.GUI.Forms
             this.SelectCustomer = new System.Windows.Forms.Button();
             this.btnCommit = new System.Windows.Forms.Button();
             this.lblCustomerCode = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblCustomerDebt = new System.Windows.Forms.Label();
-            this.lblCustomerDebtWithThisInvoice = new System.Windows.Forms.Label();
+            this.lblCustomerDebtWithThisSellInvoice = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -89,13 +89,13 @@ namespace Accounting.GUI.Forms
             this.label3.TabIndex = 1;
             this.label3.Text = "شماره فاکتور : ";
             // 
-            // txtInvoiceCode
+            // txtSellInvoiceCode
             // 
-            this.txtInvoiceCode.Location = new System.Drawing.Point(142, 30);
-            this.txtInvoiceCode.Multiline = true;
-            this.txtInvoiceCode.Name = "txtInvoiceCode";
-            this.txtInvoiceCode.Size = new System.Drawing.Size(168, 24);
-            this.txtInvoiceCode.TabIndex = 0;
+            this.txtSellInvoiceCode.Location = new System.Drawing.Point(142, 30);
+            this.txtSellInvoiceCode.Multiline = true;
+            this.txtSellInvoiceCode.Name = "txtSellInvoiceCode";
+            this.txtSellInvoiceCode.Size = new System.Drawing.Size(168, 24);
+            this.txtSellInvoiceCode.TabIndex = 0;
             // 
             // label4
             // 
@@ -113,9 +113,9 @@ namespace Accounting.GUI.Forms
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(34, 136);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 24);
+            this.label5.Size = new System.Drawing.Size(86, 24);
             this.label5.TabIndex = 1;
-            this.label5.Text = "کد فروشنده : ";
+            this.label5.Text = "کد مشتری : ";
             // 
             // bPersianCalenderTextBox1
             // 
@@ -253,20 +253,20 @@ namespace Accounting.GUI.Forms
             this.lblCustomerCode.TabIndex = 1;
             this.lblCustomerCode.Text = "کد مشتری";
             // 
-            // button1
+            // btnCalculate
             // 
-            this.button1.Location = new System.Drawing.Point(438, 287);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 39);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "محاسبه";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCalculate.Location = new System.Drawing.Point(438, 287);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(112, 39);
+            this.btnCalculate.TabIndex = 6;
+            this.btnCalculate.Text = "محاسبه";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblCustomerDebt);
-            this.groupBox1.Controls.Add(this.lblCustomerDebtWithThisInvoice);
+            this.groupBox1.Controls.Add(this.lblCustomerDebtWithThisSellInvoice);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
@@ -286,14 +286,14 @@ namespace Accounting.GUI.Forms
             this.lblCustomerDebt.Size = new System.Drawing.Size(0, 17);
             this.lblCustomerDebt.TabIndex = 3;
             // 
-            // lblCustomerDebtWithThisInvoice
+            // lblCustomerDebtWithThisSellInvoice
             // 
-            this.lblCustomerDebtWithThisInvoice.AutoSize = true;
-            this.lblCustomerDebtWithThisInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerDebtWithThisInvoice.Location = new System.Drawing.Point(178, 78);
-            this.lblCustomerDebtWithThisInvoice.Name = "lblCustomerDebtWithThisInvoice";
-            this.lblCustomerDebtWithThisInvoice.Size = new System.Drawing.Size(0, 24);
-            this.lblCustomerDebtWithThisInvoice.TabIndex = 2;
+            this.lblCustomerDebtWithThisSellInvoice.AutoSize = true;
+            this.lblCustomerDebtWithThisSellInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerDebtWithThisSellInvoice.Location = new System.Drawing.Point(178, 78);
+            this.lblCustomerDebtWithThisSellInvoice.Name = "lblCustomerDebtWithThisSellInvoice";
+            this.lblCustomerDebtWithThisSellInvoice.Size = new System.Drawing.Size(0, 24);
+            this.lblCustomerDebtWithThisSellInvoice.TabIndex = 2;
             // 
             // label14
             // 
@@ -406,7 +406,7 @@ namespace Accounting.GUI.Forms
             this.ClientSize = new System.Drawing.Size(962, 490);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnCommit);
             this.Controls.Add(this.SelectCustomer);
             this.Controls.Add(this.btnSelectProductInStock);
@@ -418,7 +418,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.txtOff);
             this.Controls.Add(this.txtSellPricePerUnit);
             this.Controls.Add(this.txtSellCount);
-            this.Controls.Add(this.txtInvoiceCode);
+            this.Controls.Add(this.txtSellInvoiceCode);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -444,7 +444,7 @@ namespace Accounting.GUI.Forms
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtInvoiceCode;
+        private System.Windows.Forms.TextBox txtSellInvoiceCode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private BPersianCalender.BPersianCalenderTextBox bPersianCalenderTextBox1;
@@ -461,7 +461,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.Button SelectCustomer;
         private System.Windows.Forms.Button btnCommit;
         private System.Windows.Forms.Label lblCustomerCode;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblInvoiceTotalPrice;
@@ -469,7 +469,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblTotalSellPrice;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lblCustomerDebtWithThisInvoice;
+        private System.Windows.Forms.Label lblCustomerDebtWithThisSellInvoice;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblCustomerDebt;

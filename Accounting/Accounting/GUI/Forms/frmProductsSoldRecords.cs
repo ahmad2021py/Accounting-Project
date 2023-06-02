@@ -31,7 +31,7 @@ namespace Accounting.GUI.Forms
                 IEnumerable<ProductSold> DbEnabrableRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n == n);
                 DGV1.DataSource = DbEnabrableRecords;
                 DGV1.Columns["ProductSoldTableCode"].HeaderText = " کد فروش";
-                DGV1.Columns["FKSellInvoice"].HeaderText = " کد فاکتور";
+                DGV1.Columns["FKSellInvoice"].HeaderText = " کد فاکتور فروش";
                 DGV1.Columns["SellInvoice"].Visible = false;
 
 
@@ -72,9 +72,9 @@ namespace Accounting.GUI.Forms
             LoadData();
         }
 
-        async private void txtFKInvoice_TextChanged(object sender, EventArgs e)
+        async private void txtFKSellInvoice_TextChanged(object sender, EventArgs e)
         {
-            if (txtFKInvoice.Text == "")
+            if (txtFKSellInvoice.Text == "")
             {
                 LoadData();
                 return;
@@ -84,8 +84,8 @@ namespace Accounting.GUI.Forms
             {
                 IProductSoldRepository _ProductSoldRepository = _UnitOfWork.ProductSoldRepository;
 
-                int FKInvoice = int.Parse(txtFKInvoice.Text);
-                IEnumerable<ProductSold> IEnamrableProductSoldDbRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n.ProductSoldTableCode == FKInvoice);
+                int FKSellInvoice = int.Parse(txtFKSellInvoice.Text);
+                IEnumerable<ProductSold> IEnamrableProductSoldDbRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n.ProductSoldTableCode == FKSellInvoice);
                 DGV1.DataSource = IEnamrableProductSoldDbRecords;
 
 

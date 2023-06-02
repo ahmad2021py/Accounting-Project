@@ -391,5 +391,17 @@ namespace Accounting.GUI.Forms
 
             }
         }
+
+        private void خریدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBuyInvoice frmBuyInvoice = new frmBuyInvoice();
+            if (frmBuyInvoice.ShowDialog() == DialogResult.OK)
+            {
+
+                frmBuyInvoice.Close();
+                frmBuyInvoice = null;
+
+            }
+        }
     }
 }

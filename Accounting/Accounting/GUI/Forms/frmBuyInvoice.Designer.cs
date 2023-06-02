@@ -32,37 +32,38 @@ namespace Accounting.GUI.Forms
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblInvoiceTotalPrice = new System.Windows.Forms.Label();
-            this.lblTotaSellAmountWithOff = new System.Windows.Forms.Label();
+            this.lblTotalBuyAmountWithOff = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblTotalSellPrice = new System.Windows.Forms.Label();
+            this.lblTotalBuyPrice = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblCustomerDebt = new System.Windows.Forms.Label();
-            this.lblCustomerDebtWithThisInvoice = new System.Windows.Forms.Label();
+            this.lblSellerCreditor = new System.Windows.Forms.Label();
+            this.lblSellerCreditorWithThisInvoice = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
             this.btnCommit = new System.Windows.Forms.Button();
-            this.SelectCustomer = new System.Windows.Forms.Button();
-            this.btnSelectProductInStock = new System.Windows.Forms.Button();
+            this.SelectSeller = new System.Windows.Forms.Button();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
-            this.lblCustomerCode = new System.Windows.Forms.Label();
+            this.lblSellerCode = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtOff = new System.Windows.Forms.TextBox();
-            this.txtSellPricePerUnit = new System.Windows.Forms.TextBox();
-            this.txtSellCount = new System.Windows.Forms.TextBox();
-            this.txtInvoiceCode = new System.Windows.Forms.TextBox();
+            this.txtBuyPricePerUnit = new System.Windows.Forms.TextBox();
+            this.txtBuyCount = new System.Windows.Forms.TextBox();
+            this.txtBuyInvoiceCode = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblStockCode = new System.Windows.Forms.Label();
-            this.lblStockTotalQuantity = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtStockCodeForStore = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.btnSelectProductCode = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblProductCode = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,9 +71,9 @@ namespace Accounting.GUI.Forms
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblInvoiceTotalPrice);
-            this.groupBox2.Controls.Add(this.lblTotaSellAmountWithOff);
+            this.groupBox2.Controls.Add(this.lblTotalBuyAmountWithOff);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.lblTotalSellPrice);
+            this.groupBox2.Controls.Add(this.lblTotalBuyPrice);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(454, 13);
             this.groupBox2.Name = "groupBox2";
@@ -90,14 +91,14 @@ namespace Accounting.GUI.Forms
             this.lblInvoiceTotalPrice.Size = new System.Drawing.Size(0, 24);
             this.lblInvoiceTotalPrice.TabIndex = 2;
             // 
-            // lblTotaSellAmountWithOff
+            // lblTotalBuyAmountWithOff
             // 
-            this.lblTotaSellAmountWithOff.AutoSize = true;
-            this.lblTotaSellAmountWithOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotaSellAmountWithOff.Location = new System.Drawing.Point(96, 70);
-            this.lblTotaSellAmountWithOff.Name = "lblTotaSellAmountWithOff";
-            this.lblTotaSellAmountWithOff.Size = new System.Drawing.Size(0, 24);
-            this.lblTotaSellAmountWithOff.TabIndex = 3;
+            this.lblTotalBuyAmountWithOff.AutoSize = true;
+            this.lblTotalBuyAmountWithOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBuyAmountWithOff.Location = new System.Drawing.Point(96, 70);
+            this.lblTotalBuyAmountWithOff.Name = "lblTotalBuyAmountWithOff";
+            this.lblTotalBuyAmountWithOff.Size = new System.Drawing.Size(0, 24);
+            this.lblTotalBuyAmountWithOff.TabIndex = 3;
             // 
             // label12
             // 
@@ -109,14 +110,14 @@ namespace Accounting.GUI.Forms
             this.label12.TabIndex = 4;
             this.label12.Text = "مبلغ نهایی با احتساب تخفیف : ";
             // 
-            // lblTotalSellPrice
+            // lblTotalBuyPrice
             // 
-            this.lblTotalSellPrice.AutoSize = true;
-            this.lblTotalSellPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalSellPrice.Location = new System.Drawing.Point(151, 18);
-            this.lblTotalSellPrice.Name = "lblTotalSellPrice";
-            this.lblTotalSellPrice.Size = new System.Drawing.Size(0, 24);
-            this.lblTotalSellPrice.TabIndex = 5;
+            this.lblTotalBuyPrice.AutoSize = true;
+            this.lblTotalBuyPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBuyPrice.Location = new System.Drawing.Point(151, 18);
+            this.lblTotalBuyPrice.Name = "lblTotalBuyPrice";
+            this.lblTotalBuyPrice.Size = new System.Drawing.Size(0, 24);
+            this.lblTotalBuyPrice.TabIndex = 5;
             // 
             // label10
             // 
@@ -124,16 +125,15 @@ namespace Accounting.GUI.Forms
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(362, 20);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(115, 24);
+            this.label10.Size = new System.Drawing.Size(107, 24);
             this.label10.TabIndex = 6;
-            this.label10.Text = "کل مبلغ فروش : ";
+            this.label10.Text = "کل مبلغ خرید : ";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblCustomerDebt);
-            this.groupBox1.Controls.Add(this.lblCustomerDebtWithThisInvoice);
+            this.groupBox1.Controls.Add(this.lblSellerCreditor);
+            this.groupBox1.Controls.Add(this.lblSellerCreditorWithThisInvoice);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(444, 141);
@@ -143,51 +143,42 @@ namespace Accounting.GUI.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "مشتری ";
             // 
-            // lblCustomerDebt
+            // lblSellerCreditor
             // 
-            this.lblCustomerDebt.AutoSize = true;
-            this.lblCustomerDebt.Location = new System.Drawing.Point(201, 35);
-            this.lblCustomerDebt.Name = "lblCustomerDebt";
-            this.lblCustomerDebt.Size = new System.Drawing.Size(0, 17);
-            this.lblCustomerDebt.TabIndex = 3;
+            this.lblSellerCreditor.AutoSize = true;
+            this.lblSellerCreditor.Location = new System.Drawing.Point(201, 35);
+            this.lblSellerCreditor.Name = "lblSellerCreditor";
+            this.lblSellerCreditor.Size = new System.Drawing.Size(0, 17);
+            this.lblSellerCreditor.TabIndex = 3;
             // 
-            // lblCustomerDebtWithThisInvoice
+            // lblSellerCreditorWithThisInvoice
             // 
-            this.lblCustomerDebtWithThisInvoice.AutoSize = true;
-            this.lblCustomerDebtWithThisInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerDebtWithThisInvoice.Location = new System.Drawing.Point(178, 78);
-            this.lblCustomerDebtWithThisInvoice.Name = "lblCustomerDebtWithThisInvoice";
-            this.lblCustomerDebtWithThisInvoice.Size = new System.Drawing.Size(0, 24);
-            this.lblCustomerDebtWithThisInvoice.TabIndex = 2;
+            this.lblSellerCreditorWithThisInvoice.AutoSize = true;
+            this.lblSellerCreditorWithThisInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSellerCreditorWithThisInvoice.Location = new System.Drawing.Point(178, 78);
+            this.lblSellerCreditorWithThisInvoice.Name = "lblSellerCreditorWithThisInvoice";
+            this.lblSellerCreditorWithThisInvoice.Size = new System.Drawing.Size(0, 24);
+            this.lblSellerCreditorWithThisInvoice.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(279, 78);
+            this.label6.Location = new System.Drawing.Point(247, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(219, 24);
+            this.label6.Size = new System.Drawing.Size(249, 24);
             this.label6.TabIndex = 2;
-            this.label6.Text = "بدهی قبلی با احتساب این فاکتور : ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(17, 30);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(0, 24);
-            this.label14.TabIndex = 2;
+            this.label6.Text = "بستانکاری قبلی با احتساب این فاکتور : ";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(259, 30);
+            this.label13.Location = new System.Drawing.Point(229, 30);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(239, 24);
+            this.label13.Size = new System.Drawing.Size(269, 24);
             this.label13.TabIndex = 2;
-            this.label13.Text = "بدهی قبلی بدون احتساب این فاکتور : ";
+            this.label13.Text = "بستانکاری قبلی بدون احتساب این فاکتور : ";
             // 
             // label2
             // 
@@ -199,14 +190,15 @@ namespace Accounting.GUI.Forms
             this.label2.TabIndex = 2;
             this.label2.Text = "بدهی قبلی بدون احتساب این فاکتور : ";
             // 
-            // button1
+            // btnCalculate
             // 
-            this.button1.Location = new System.Drawing.Point(444, 275);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 39);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "محاسبه";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCalculate.Location = new System.Drawing.Point(444, 275);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(112, 39);
+            this.btnCalculate.TabIndex = 28;
+            this.btnCalculate.Text = "محاسبه";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.Calculate_Click);
             // 
             // btnCommit
             // 
@@ -216,28 +208,21 @@ namespace Accounting.GUI.Forms
             this.btnCommit.TabIndex = 27;
             this.btnCommit.Text = "ثبت فاکتور";
             this.btnCommit.UseVisualStyleBackColor = true;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
-            // SelectCustomer
+            // SelectSeller
             // 
-            this.SelectCustomer.Location = new System.Drawing.Point(134, 126);
-            this.SelectCustomer.Name = "SelectCustomer";
-            this.SelectCustomer.Size = new System.Drawing.Size(75, 23);
-            this.SelectCustomer.TabIndex = 26;
-            this.SelectCustomer.Text = "انتخاب";
-            this.SelectCustomer.UseVisualStyleBackColor = true;
-            // 
-            // btnSelectProductInStock
-            // 
-            this.btnSelectProductInStock.Location = new System.Drawing.Point(134, 181);
-            this.btnSelectProductInStock.Name = "btnSelectProductInStock";
-            this.btnSelectProductInStock.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectProductInStock.TabIndex = 25;
-            this.btnSelectProductInStock.Text = "انتخاب";
-            this.btnSelectProductInStock.UseVisualStyleBackColor = true;
+            this.SelectSeller.Location = new System.Drawing.Point(134, 126);
+            this.SelectSeller.Name = "SelectSeller";
+            this.SelectSeller.Size = new System.Drawing.Size(75, 23);
+            this.SelectSeller.TabIndex = 26;
+            this.SelectSeller.Text = "انتخاب";
+            this.SelectSeller.UseVisualStyleBackColor = true;
+            this.SelectSeller.Click += new System.EventHandler(this.SelectSeller_Click);
             // 
             // bPersianCalenderTextBox1
             // 
-            this.bPersianCalenderTextBox1.Location = new System.Drawing.Point(134, 75);
+            this.bPersianCalenderTextBox1.Location = new System.Drawing.Point(205, 83);
             this.bPersianCalenderTextBox1.Miladi = new System.DateTime(((long)(0)));
             this.bPersianCalenderTextBox1.Name = "bPersianCalenderTextBox1";
             this.bPersianCalenderTextBox1.NowDateSelected = false;
@@ -247,15 +232,15 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(155, 22);
             this.bPersianCalenderTextBox1.TabIndex = 24;
             // 
-            // lblCustomerCode
+            // lblSellerCode
             // 
-            this.lblCustomerCode.AutoSize = true;
-            this.lblCustomerCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerCode.Location = new System.Drawing.Point(229, 125);
-            this.lblCustomerCode.Name = "lblCustomerCode";
-            this.lblCustomerCode.Size = new System.Drawing.Size(71, 24);
-            this.lblCustomerCode.TabIndex = 22;
-            this.lblCustomerCode.Text = "کد مشتری";
+            this.lblSellerCode.AutoSize = true;
+            this.lblSellerCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSellerCode.Location = new System.Drawing.Point(229, 125);
+            this.lblSellerCode.Name = "lblSellerCode";
+            this.lblSellerCode.Size = new System.Drawing.Size(76, 24);
+            this.lblSellerCode.TabIndex = 22;
+            this.lblSellerCode.Text = "کد فروشنده";
             // 
             // label5
             // 
@@ -263,9 +248,9 @@ namespace Accounting.GUI.Forms
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(40, 124);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 24);
+            this.label5.Size = new System.Drawing.Size(91, 24);
             this.label5.TabIndex = 21;
-            this.label5.Text = "کد مشتری : ";
+            this.label5.Text = "کد فروشنده : ";
             // 
             // label4
             // 
@@ -283,47 +268,47 @@ namespace Accounting.GUI.Forms
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(23, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 24);
+            this.label3.Size = new System.Drawing.Size(138, 24);
             this.label3.TabIndex = 13;
-            this.label3.Text = "شماره فاکتور : ";
+            this.label3.Text = "شماره فاکتور خرید : ";
             // 
             // txtOff
             // 
-            this.txtOff.Location = new System.Drawing.Point(196, 428);
+            this.txtOff.Location = new System.Drawing.Point(190, 453);
             this.txtOff.Multiline = true;
             this.txtOff.Name = "txtOff";
             this.txtOff.Size = new System.Drawing.Size(171, 27);
             this.txtOff.TabIndex = 12;
             // 
-            // txtSellPricePerUnit
+            // txtBuyPricePerUnit
             // 
-            this.txtSellPricePerUnit.Location = new System.Drawing.Point(198, 367);
-            this.txtSellPricePerUnit.Multiline = true;
-            this.txtSellPricePerUnit.Name = "txtSellPricePerUnit";
-            this.txtSellPricePerUnit.Size = new System.Drawing.Size(169, 27);
-            this.txtSellPricePerUnit.TabIndex = 11;
+            this.txtBuyPricePerUnit.Location = new System.Drawing.Point(192, 397);
+            this.txtBuyPricePerUnit.Multiline = true;
+            this.txtBuyPricePerUnit.Name = "txtBuyPricePerUnit";
+            this.txtBuyPricePerUnit.Size = new System.Drawing.Size(169, 27);
+            this.txtBuyPricePerUnit.TabIndex = 11;
             // 
-            // txtSellCount
+            // txtBuyCount
             // 
-            this.txtSellCount.Location = new System.Drawing.Point(141, 309);
-            this.txtSellCount.Multiline = true;
-            this.txtSellCount.Name = "txtSellCount";
-            this.txtSellCount.Size = new System.Drawing.Size(100, 25);
-            this.txtSellCount.TabIndex = 10;
+            this.txtBuyCount.Location = new System.Drawing.Point(190, 334);
+            this.txtBuyCount.Multiline = true;
+            this.txtBuyCount.Name = "txtBuyCount";
+            this.txtBuyCount.Size = new System.Drawing.Size(171, 25);
+            this.txtBuyCount.TabIndex = 10;
             // 
-            // txtInvoiceCode
+            // txtBuyInvoiceCode
             // 
-            this.txtInvoiceCode.Location = new System.Drawing.Point(148, 18);
-            this.txtInvoiceCode.Multiline = true;
-            this.txtInvoiceCode.Name = "txtInvoiceCode";
-            this.txtInvoiceCode.Size = new System.Drawing.Size(168, 24);
-            this.txtInvoiceCode.TabIndex = 9;
+            this.txtBuyInvoiceCode.Location = new System.Drawing.Point(192, 18);
+            this.txtBuyInvoiceCode.Multiline = true;
+            this.txtBuyInvoiceCode.Name = "txtBuyInvoiceCode";
+            this.txtBuyInvoiceCode.Size = new System.Drawing.Size(168, 24);
+            this.txtBuyInvoiceCode.TabIndex = 9;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(35, 431);
+            this.label11.Location = new System.Drawing.Point(29, 456);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(119, 24);
             this.label11.TabIndex = 18;
@@ -333,88 +318,116 @@ namespace Accounting.GUI.Forms
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(27, 370);
+            this.label9.Location = new System.Drawing.Point(10, 395);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(172, 24);
+            this.label9.Size = new System.Drawing.Size(164, 24);
             this.label9.TabIndex = 17;
-            this.label9.Text = "قیمت فروش  (هر واحد) : ";
+            this.label9.Text = "قیمت خرید  (هر واحد) : ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(40, 310);
+            this.label8.Location = new System.Drawing.Point(34, 335);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 24);
+            this.label8.Size = new System.Drawing.Size(88, 24);
             this.label8.TabIndex = 16;
-            this.label8.Text = "تعداد فروش : ";
-            // 
-            // lblStockCode
-            // 
-            this.lblStockCode.AutoSize = true;
-            this.lblStockCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockCode.Location = new System.Drawing.Point(229, 179);
-            this.lblStockCode.Name = "lblStockCode";
-            this.lblStockCode.Size = new System.Drawing.Size(110, 24);
-            this.lblStockCode.TabIndex = 15;
-            this.lblStockCode.Text = "کد کالای انتخابی";
-            // 
-            // lblStockTotalQuantity
-            // 
-            this.lblStockTotalQuantity.AutoSize = true;
-            this.lblStockTotalQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockTotalQuantity.Location = new System.Drawing.Point(137, 234);
-            this.lblStockTotalQuantity.Name = "lblStockTotalQuantity";
-            this.lblStockTotalQuantity.Size = new System.Drawing.Size(76, 24);
-            this.lblStockTotalQuantity.TabIndex = 14;
-            this.lblStockTotalQuantity.Text = "تعدا موجود";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 234);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 24);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "تعدا موجود  :";
+            this.label8.Text = "تعداد خرید : ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 179);
+            this.label7.Location = new System.Drawing.Point(10, 269);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 24);
+            this.label7.Size = new System.Drawing.Size(146, 24);
             this.label7.TabIndex = 19;
-            this.label7.Text = "کد کالای انباری : ";
+            this.label7.Text = "کد انبار جهت ذخیره : ";
+            // 
+            // txtStockCodeForStore
+            // 
+            this.txtStockCodeForStore.Location = new System.Drawing.Point(193, 271);
+            this.txtStockCodeForStore.Multiline = true;
+            this.txtStockCodeForStore.Name = "txtStockCodeForStore";
+            this.txtStockCodeForStore.Size = new System.Drawing.Size(168, 24);
+            this.txtStockCodeForStore.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 506);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(220, 24);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "توضیحات جهت ذخیره در انبار :  ";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(190, 535);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(323, 110);
+            this.txtDescription.TabIndex = 12;
+            // 
+            // btnSelectProductCode
+            // 
+            this.btnSelectProductCode.Location = new System.Drawing.Point(134, 176);
+            this.btnSelectProductCode.Name = "btnSelectProductCode";
+            this.btnSelectProductCode.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectProductCode.TabIndex = 26;
+            this.btnSelectProductCode.Text = "انتخاب";
+            this.btnSelectProductCode.UseVisualStyleBackColor = true;
+            this.btnSelectProductCode.Click += new System.EventHandler(this.btnSelectProductCode_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(37, 176);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 24);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "محصول : ";
+            // 
+            // lblProductCode
+            // 
+            this.lblProductCode.AutoSize = true;
+            this.lblProductCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductCode.Location = new System.Drawing.Point(229, 176);
+            this.lblProductCode.Name = "lblProductCode";
+            this.lblProductCode.Size = new System.Drawing.Size(79, 24);
+            this.lblProductCode.TabIndex = 21;
+            this.lblProductCode.Text = "کد محصول";
             // 
             // frmBuyInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 522);
+            this.ClientSize = new System.Drawing.Size(963, 650);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnCommit);
-            this.Controls.Add(this.SelectCustomer);
-            this.Controls.Add(this.btnSelectProductInStock);
+            this.Controls.Add(this.btnSelectProductCode);
+            this.Controls.Add(this.SelectSeller);
             this.Controls.Add(this.bPersianCalenderTextBox1);
-            this.Controls.Add(this.lblCustomerCode);
+            this.Controls.Add(this.lblSellerCode);
+            this.Controls.Add(this.lblProductCode);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtOff);
-            this.Controls.Add(this.txtSellPricePerUnit);
-            this.Controls.Add(this.txtSellCount);
-            this.Controls.Add(this.txtInvoiceCode);
+            this.Controls.Add(this.txtBuyPricePerUnit);
+            this.Controls.Add(this.txtBuyCount);
+            this.Controls.Add(this.txtStockCodeForStore);
+            this.Controls.Add(this.txtBuyInvoiceCode);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lblStockCode);
-            this.Controls.Add(this.lblStockTotalQuantity);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.MaximizeBox = false;
             this.Name = "frmBuyInvoice";
@@ -434,36 +447,37 @@ namespace Accounting.GUI.Forms
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblInvoiceTotalPrice;
-        private System.Windows.Forms.Label lblTotaSellAmountWithOff;
+        private System.Windows.Forms.Label lblTotalBuyAmountWithOff;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblTotalSellPrice;
+        private System.Windows.Forms.Label lblTotalBuyPrice;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblCustomerDebt;
-        private System.Windows.Forms.Label lblCustomerDebtWithThisInvoice;
+        private System.Windows.Forms.Label lblSellerCreditor;
+        private System.Windows.Forms.Label lblSellerCreditorWithThisInvoice;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Button btnCommit;
-        private System.Windows.Forms.Button SelectCustomer;
-        private System.Windows.Forms.Button btnSelectProductInStock;
+        private System.Windows.Forms.Button SelectSeller;
         private BPersianCalender.BPersianCalenderTextBox bPersianCalenderTextBox1;
-        private System.Windows.Forms.Label lblCustomerCode;
+        private System.Windows.Forms.Label lblSellerCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtOff;
-        private System.Windows.Forms.TextBox txtSellPricePerUnit;
-        private System.Windows.Forms.TextBox txtSellCount;
-        private System.Windows.Forms.TextBox txtInvoiceCode;
+        private System.Windows.Forms.TextBox txtBuyPricePerUnit;
+        private System.Windows.Forms.TextBox txtBuyCount;
+        private System.Windows.Forms.TextBox txtBuyInvoiceCode;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblStockCode;
-        private System.Windows.Forms.Label lblStockTotalQuantity;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtStockCodeForStore;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Button btnSelectProductCode;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblProductCode;
     }
 }
