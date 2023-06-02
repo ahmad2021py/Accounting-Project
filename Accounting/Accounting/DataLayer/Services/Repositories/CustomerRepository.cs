@@ -44,8 +44,10 @@ namespace Accounting.DataLayer.Services
                 db.Entry(dbRecord).Entity.Email = record.Email;
                 db.Entry(dbRecord).Entity.ZipCode = record.ZipCode;
                 db.Entry(dbRecord).Entity.State = record.State;
+                db.Entry(dbRecord).Entity.debtor = record.debtor;
+                db.Entry(dbRecord).Entity.creditor = record.creditor;
 
-             
+
                 return true;
          
 

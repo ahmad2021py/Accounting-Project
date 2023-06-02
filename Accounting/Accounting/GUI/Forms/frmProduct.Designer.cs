@@ -29,9 +29,9 @@ namespace Accounting.GUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCountingUnit = new System.Windows.Forms.TextBox();
             this.txtFeatures = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
@@ -43,17 +43,18 @@ namespace Accounting.GUI.Forms
             this.btnGetDetails = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnShowProductSoldRecords = new System.Windows.Forms.Button();
             this.btnShowfrmProductRecords = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btNew = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
-         
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -62,6 +63,7 @@ namespace Accounting.GUI.Forms
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.txtCountingUnit);
             this.groupBox1.Controls.Add(this.txtFeatures);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.txtProductName);
@@ -73,6 +75,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.btnGetDetails);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
@@ -82,15 +85,24 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Location = new System.Drawing.Point(23, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(1152, 537);
+            this.groupBox1.Size = new System.Drawing.Size(1176, 544);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ویرایش و ثبت محصول ";
             // 
+            // txtCountingUnit
+            // 
+            this.txtCountingUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCountingUnit.Location = new System.Drawing.Point(766, 278);
+            this.txtCountingUnit.Multiline = true;
+            this.txtCountingUnit.Name = "txtCountingUnit";
+            this.txtCountingUnit.Size = new System.Drawing.Size(246, 36);
+            this.txtCountingUnit.TabIndex = 99;
+            // 
             // txtFeatures
             // 
             this.txtFeatures.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeatures.Location = new System.Drawing.Point(701, 263);
+            this.txtFeatures.Location = new System.Drawing.Point(733, 353);
             this.txtFeatures.Multiline = true;
             this.txtFeatures.Name = "txtFeatures";
             this.txtFeatures.Size = new System.Drawing.Size(346, 148);
@@ -99,10 +111,10 @@ namespace Accounting.GUI.Forms
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(789, 480);
+            this.txtPrice.Location = new System.Drawing.Point(765, 228);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(246, 36);
+            this.txtPrice.Size = new System.Drawing.Size(246, 28);
             this.txtPrice.TabIndex = 98;
             // 
             // txtProductName
@@ -185,6 +197,7 @@ namespace Accounting.GUI.Forms
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnShowProductSoldRecords);
             this.groupBox2.Controls.Add(this.btnShowfrmProductRecords);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnDelete);
@@ -192,9 +205,19 @@ namespace Accounting.GUI.Forms
             this.groupBox2.Controls.Add(this.btNew);
             this.groupBox2.Location = new System.Drawing.Point(21, 61);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(127, 387);
+            this.groupBox2.Size = new System.Drawing.Size(127, 462);
             this.groupBox2.TabIndex = 83;
             this.groupBox2.TabStop = false;
+            // 
+            // btnShowProductSoldRecords
+            // 
+            this.btnShowProductSoldRecords.Location = new System.Drawing.Point(13, 359);
+            this.btnShowProductSoldRecords.Name = "btnShowProductSoldRecords";
+            this.btnShowProductSoldRecords.Size = new System.Drawing.Size(97, 81);
+            this.btnShowProductSoldRecords.TabIndex = 93;
+            this.btnShowProductSoldRecords.Text = "لیست محصولات فروخته شده";
+            this.btnShowProductSoldRecords.UseVisualStyleBackColor = true;
+            this.btnShowProductSoldRecords.Click += new System.EventHandler(this.btnShowProductSoldRecords_Click);
             // 
             // btnShowfrmProductRecords
             // 
@@ -246,14 +269,26 @@ namespace Accounting.GUI.Forms
             this.btNew.UseVisualStyleBackColor = true;
             this.btNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(1023, 283);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 28);
+            this.label6.TabIndex = 80;
+            this.label6.Text = "واحد شمارش : ";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1053, 485);
+            this.label1.Location = new System.Drawing.Point(1023, 228);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 28);
+            this.label1.Size = new System.Drawing.Size(61, 28);
             this.label1.TabIndex = 80;
             this.label1.Text = "قیمت : ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -262,7 +297,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1042, 263);
+            this.label2.Location = new System.Drawing.Point(1074, 353);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 28);
@@ -305,10 +340,6 @@ namespace Accounting.GUI.Forms
             this.PasswordLabel.TabIndex = 78;
             this.PasswordLabel.Text = "نام محصول :";
             this.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // bunifuColorTransition1
-            // 
-            
             // 
             // frmProduct
             // 
@@ -358,5 +389,8 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnBrowse;
         public System.Windows.Forms.TextBox txtProductCode;
+        private System.Windows.Forms.TextBox txtCountingUnit;
+        internal System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnShowProductSoldRecords;
     }
 }

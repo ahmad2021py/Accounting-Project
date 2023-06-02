@@ -93,7 +93,9 @@
     <Compile Include="DataLayer\Context\Accounting_DbContext.cs" />
     <Compile Include="DataLayer\Context\UnitOfWork.cs" />
     <Compile Include="DataLayer\Entities\Category.cs" />
+    <Compile Include="DataLayer\Entities\Cheque.cs" />
     <Compile Include="DataLayer\Entities\Company.cs" />
+    <Compile Include="DataLayer\Entities\Invoice.cs" />
     <Compile Include="DataLayer\Entities\Product.cs" />
     <Compile Include="DataLayer\Entities\Customer.cs" />
     <Compile Include="DataLayer\Entities\ProductSold.cs" />
@@ -103,8 +105,10 @@
     <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\ICategoryRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\ICompanyRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\IRepositories\IInvoiceRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IProductRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\ICustomerRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\IRepositories\IProductSoldRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IRegistrationRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IStockRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IEntityGenericRepository.cs" />
@@ -112,8 +116,10 @@
     <Compile Include="DataLayer\Services\Repositories\CategoryRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\CompanyRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IBaseDbSet.cs" />
+    <Compile Include="DataLayer\Services\Repositories\InvoiceRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\ProductRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\CustomerRepository.cs" />
+    <Compile Include="DataLayer\Services\Repositories\ProductSoldRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\EntityGenericRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\StockRepository.cs" />
@@ -135,6 +141,12 @@
     </Compile>
     <Compile Include="GUI\Forms\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCheque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmCheque.Designer.cs">
+      <DependentUpon>frmCheque.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmCompany.cs">
       <SubType>Form</SubType>
@@ -178,17 +190,23 @@
     <Compile Include="GUI\Forms\frmLoginDetails.Designer.cs">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmProductsSoldRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmProductsSoldRecords.Designer.cs">
+      <DependentUpon>frmProductsSoldRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmRecoveryPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Forms\frmSaleAndBuy.cs">
+    <Compile Include="GUI\Forms\frmSellInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Forms\frmSaleAndBuy.Designer.cs">
-      <DependentUpon>frmSaleAndBuy.cs</DependentUpon>
+    <Compile Include="GUI\Forms\frmSellInvoice.Designer.cs">
+      <DependentUpon>frmSellInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmStock.cs">
       <SubType>Form</SubType>
@@ -227,9 +245,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202305271430438_initDb.cs" />
-    <Compile Include="Migrations\202305271430438_initDb.designer.cs">
-      <DependentUpon>202305271430438_initDb.cs</DependentUpon>
+    <Compile Include="Migrations\202306021030051_initdb.cs" />
+    <Compile Include="Migrations\202306021030051_initdb.designer.cs">
+      <DependentUpon>202306021030051_initdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
@@ -252,6 +270,9 @@
     <EmbeddedResource Include="GUI\Forms\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmCheque.resx">
+      <DependentUpon>frmCheque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmCompany.resx">
       <DependentUpon>frmCompany.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,11 +294,14 @@
     <EmbeddedResource Include="GUI\Forms\frmLoginDetails.resx">
       <DependentUpon>frmLoginDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmProductsSoldRecords.resx">
+      <DependentUpon>frmProductsSoldRecords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmSaleAndBuy.resx">
-      <DependentUpon>frmSaleAndBuy.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Forms\frmSellInvoice.resx">
+      <DependentUpon>frmSellInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
@@ -297,8 +321,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305271430438_initDb.resx">
-      <DependentUpon>202305271430438_initDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306021030051_initdb.resx">
+      <DependentUpon>202306021030051_initdb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -336,70 +360,6 @@
     <Content Include="bin\Debug\Accounting.pdb" />
     <Content Include="bin\Debug\AccountingDLL.dll" />
     <Content Include="bin\Debug\BPersianCalender.dll" />
-    <Content Include="bin\Debug\Bunifu.Licensing.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.1.5.3.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.1.5.3.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuGauge.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuGauge.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuGroupBox.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuGroupBox.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuPanel.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuRating.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuRating.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuShadowPanel.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuShadowPanel.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuShapes.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuShapes.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuSlider.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuTextBox.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuTextBox.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuTransition.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuTransition.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml" />
-    <Content Include="bin\Debug\Bunifu.UI.WinForms.Deprecated.dll" />
     <Content Include="bin\Debug\EntityFramework.dll" />
     <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
     <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
@@ -413,6 +373,7 @@
     <Content Include="bin\Debug\Stimulsoft.Report.Win.dll" />
     <None Include="GUI\Resourses\Category.png" />
     <None Include="GUI\Resourses\SaleAndBuy.png" />
+    <None Include="GUI\Resourses\background.png" />
     <Content Include="Utilities\BPersianCalender.dll" />
     <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\CHANGELOG.txt" />
     <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\Icon.png" />

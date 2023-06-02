@@ -13,9 +13,12 @@ namespace Accounting.DataLayer.Entities
     public class Category : IBaseDbSet
     {
 
-        [Key] // set this Column Primary Key
+       
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
-        public long id { get; set; }
+        public long Row { get; set; }
+        [Key] // set this Column Primary Key
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int CategoryCode { get; set; }
         public string CategoryName { get; set; }
 
 

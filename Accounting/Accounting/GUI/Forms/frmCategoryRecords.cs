@@ -81,7 +81,7 @@ namespace Accounting.GUI.Forms
 
 
                     long CategoryId = long.Parse(txtCategoryId.Text);
-                    var CategoriesDbRecords = await _CategoryRepository.GetAll<Category>(n => n.id.ToString().Contains(CategoryId.ToString()));
+                    var CategoriesDbRecords = await _CategoryRepository.GetAll<Category>(n => n.Row.ToString().Contains(CategoryId.ToString()));
                     DGV1.DataSource = CategoriesDbRecords;
 
 

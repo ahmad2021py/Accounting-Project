@@ -80,7 +80,7 @@ namespace Accounting.GUI.Forms
 
 
                 long CompanyId = long.Parse(txtCompanyId.Text);
-                IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.id.ToString().Contains(CompanyId.ToString()));
+                IEnumerable<Company> IenumerableompanyDbRecords = await _CompanyRepository.GetAll<Company>(n => n.Row.ToString().Contains(CompanyId.ToString()));
                 DGV1.DataSource = IenumerableompanyDbRecords;
 
 

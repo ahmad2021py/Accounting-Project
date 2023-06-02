@@ -1,5 +1,4 @@
-﻿using Accounting.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
 {
-    public partial class frmSaleAndBuy : Form
+    public partial class frmCheque : Form
     {
-        public frmSaleAndBuy()
+        public frmCheque()
         {
             InitializeComponent();
-        }
-
-  
-
-        private void frmSaleAndBuy_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
         }
     }
 }

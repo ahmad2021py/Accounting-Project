@@ -28,10 +28,26 @@ namespace Accounting.GUI.Forms
                   string.IsNullOrEmpty(txtCustomerCity.Text) ||
                   string.IsNullOrEmpty(txtCustomerEmail.Text) ||
                   string.IsNullOrEmpty(txtCustomerName.Text) ||
+                  string.IsNullOrEmpty(txtcreditor.Text) ||
+                  string.IsNullOrEmpty(txtdebtor.Text) ||
+                    string.IsNullOrEmpty(cbStates.Text) ||
+                     string.IsNullOrEmpty(txtCustomerPhone.Text) ||
+                        string.IsNullOrEmpty(txtCustomerZipCode.Text) ||
+                          string.IsNullOrEmpty(txtNationalCode.Text) ||
+
+                   string.IsNullOrWhiteSpace(txtCustomerAddress.Text) ||
+                       string.IsNullOrWhiteSpace(txtCustomerCity.Text) ||
+                          string.IsNullOrWhiteSpace(txtCustomerEmail.Text) ||
+                          string.IsNullOrWhiteSpace(txtCustomerName.Text) ||
+                              string.IsNullOrWhiteSpace(txtcreditor.Text) ||
+                              string.IsNullOrWhiteSpace(txtdebtor.Text) ||
+                                string.IsNullOrWhiteSpace(cbStates.Text) ||
                   string.IsNullOrWhiteSpace(txtCustomerPhone.Text) ||
                   string.IsNullOrWhiteSpace(txtCustomerZipCode.Text) ||
-                  string.IsNullOrWhiteSpace(txtNationalCode.Text) ||
-                  string.IsNullOrWhiteSpace(cbStates.Text)
+                  string.IsNullOrWhiteSpace(txtNationalCode.Text)
+
+
+
                 )
 
                 return true;
@@ -52,6 +68,8 @@ namespace Accounting.GUI.Forms
             txtCustomerCity.Text = "";
             txtCustomerZipCode.Text = "";
             txtCustomerAddress.Text = "";
+            txtdebtor.Text = "";
+            txtcreditor.Text = "";
             txtCustomerName.Focus();
         }
 
@@ -60,6 +78,10 @@ namespace Accounting.GUI.Forms
 
         private Customer Fill__CustomerRecord(Customer CustomerRecord)
         {
+            decimal debte = decimal.Parse(txtdebtor.Text);
+
+            CustomerRecord.debtor = debte;
+            CustomerRecord.creditor =decimal.Parse(txtcreditor.Text);
             CustomerRecord.NationalCode = long.Parse(txtNationalCode.Text);
             CustomerRecord.Name = txtCustomerName.Text;
             CustomerRecord.Phone = txtCustomerPhone.Text;
@@ -75,7 +97,7 @@ namespace Accounting.GUI.Forms
 
 
 
-    
+
 
 
 
@@ -126,6 +148,8 @@ namespace Accounting.GUI.Forms
                 txtCustomerPhone.Text = frmCustomerRecords._Phone;
                 cbStates.Text = frmCustomerRecords._State;
                 txtCustomerZipCode.Text = frmCustomerRecords._ZipCode;
+                txtcreditor.Text = frmCustomerRecords._creditor;
+                txtdebtor.Text = frmCustomerRecords._debtor;
 
                 frmCustomerRecords = null;
 
@@ -148,7 +172,7 @@ namespace Accounting.GUI.Forms
                 return;
             }
 
-          
+
 
             using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
@@ -174,20 +198,14 @@ namespace Accounting.GUI.Forms
         async private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            if (IsNull())
+            if (string.IsNullOrEmpty(txtNationalCode.Text)||string.IsNullOrWhiteSpace(txtNationalCode.Text))
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
-            if (!IsValidateEmailResult)
-            {
-                MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
-                return;
-            }
+          
 
-           
 
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
@@ -206,8 +224,14 @@ namespace Accounting.GUI.Forms
                     ICustomerRepository _CustomerRepository = _unitOfWork.CustomerRepository;
 
                     bool Result = await _CustomerRepository.IsExist<Customer>(n => n.NationalCode == NationalCode);
-                    if (Result)
+                    if (!Result)
                     {
+
+                        MessageBox.Show("مشتری با این کد ملی یافت نشد");
+                        return;
+                    } 
+                        
+                        
                         bool DeleteResult = await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == NationalCode);
                         if (DeleteResult)
                         {
@@ -216,14 +240,12 @@ namespace Accounting.GUI.Forms
                             Reset();
 
                         }
-
-
-                    }
                     else
                     {
                         MessageBox.Show("خطایی رخ داده است");
-                        return;
                     }
+
+                
 
 
 
@@ -255,46 +277,46 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 ICustomerRepository _CustomerRepository = _UnitOfWork.CustomerRepository;
-               
-                    bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
 
-                    if (!nationalCodeValidation)
+                bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
+
+                if (!nationalCodeValidation)
+                {
+                    MessageBox.Show("کد ملی نامعتبر است");
+                    return;
+                }
+                string nationalCode = WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
+                long NationalCode = long.Parse(nationalCode);
+                bool Result = await _CustomerRepository.IsExist<Customer>(n => n.NationalCode == NationalCode);
+                if (!Result)
+                {
+                    using (UnitOfWork _unitOfWork = new UnitOfWork())
                     {
-                        MessageBox.Show("کد ملی نامعتبر است");
-                        return;
-                    }
-                    string nationalCode = WorkWithNationalCode.AddZeroToStartNationalCodeIfWant(txtNationalCode.Text);
-                    long NationalCode = long.Parse(nationalCode);
-                    bool Result = await _CustomerRepository.IsExist<Customer>(n => n.NationalCode == NationalCode);
-                    if (!Result)
-                    {
-                        using (UnitOfWork _unitOfWork = new UnitOfWork())
+                        Customer CustomerRecord = new Customer();
+                        CustomerRecord = Fill__CustomerRecord(CustomerRecord);
+                        bool AddResult = await _CustomerRepository.Add<Customer>(CustomerRecord);
+                        if (AddResult)
                         {
-                            Customer CustomerRecord = new Customer();
-                            CustomerRecord = Fill__CustomerRecord(CustomerRecord);
-                            bool AddResult = await _CustomerRepository.Add<Customer>(CustomerRecord);
-                            if (AddResult)
-                            {
-                                MessageBox.Show("رکورد با موفقیت ثبت شد");
+                            MessageBox.Show("رکورد با موفقیت ثبت شد");
 
-                                _UnitOfWork.Save();
-                                Reset();
-                            }
-                            else
-                            {
-                                MessageBox.Show("خطایی رخ داده است");
-                            }
+                            _UnitOfWork.Save();
+                            Reset();
+                        }
+                        else
+                        {
+                            MessageBox.Show("خطایی رخ داده است");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("این مشتری از قبل وجود دارد");
-                        Reset();
-                        return;
-                    }
                 }
-               
-            
+                else
+                {
+                    MessageBox.Show("این مشتری از قبل وجود دارد");
+                    Reset();
+                    return;
+                }
+            }
+
+
         }
 
 

@@ -12,20 +12,22 @@ namespace Accounting.DataLayer.Entities
     [Table("Products")]
     public class Product : IBaseDbSet
     {
+  
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique.
+        public long Row { get; set; }  //this Column auto increment To make each record (Row) unique  . And Avoid Errors .
+
+        //-------------------------------------------------
         [Key] // set this Column Primary Key
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
-        public long id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]  // set this Column auto increment To make each record unique.
+        public int ProductCode { get; set; } //must be unique for this Table
         [Required]
         public string ProductName { get; set; }
-        [Required]
-        public string Features { get; set; }
-        [Required]
         public decimal Price { get; set; }
-        [Required]
+        public string Features { get; set; }
         public byte[] Picture { get; set; }
-        [Required]
         public string Category { get; set; }
-        [Required]
         public string Company { get; set; }
+
+        public string CountingUnit { get; set; }
     }
 }

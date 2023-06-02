@@ -13,7 +13,7 @@ namespace Accounting.DataLayer.Interfaces
 
      
         Task<bool> ChangeUserPasswordByUser(User user, string newUserPassword);
-        Task<bool> ChangeUserPasswordByAdmin(string userName, string newUserPassword);
+        Task<bool> ChangeUserPasswordByAdmin(User user);
 
 
 

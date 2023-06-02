@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Entities
 {
-    [Table("ProductSolds")]
-    public class ProductSold : IBaseDbSet
+    [Table("ProductSolds")] // This Table Not Need Row Column .
+    public class ProductSold 
     {
         [Key] // set this Column Primary Key
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
-        public long id { get; set; }
-        public string Invoice { get; set; }
-        public Product ProductId { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
-        public decimal TotalAmount { get; set; }
+        [Required()]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ProductSoldTableCode { get; set; }
+        [ForeignKey("Invoice")]
+        [Required()]
+        public string FKInvoice { get; set; } // This Column Must Be Uniqe . this Is FKInvoice .
+        public Invoice Invoice { get; set; }
     }
 }

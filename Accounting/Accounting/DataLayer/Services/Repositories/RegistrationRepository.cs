@@ -78,8 +78,12 @@ namespace Accounting.DataLayer.Services
             //try
             //{
 
-                Registration _dbRecord = db.Registrations.Where(n => n.UserName == record.UserName).Select(n => n).First();
-                db.Registrations.Attach(_dbRecord);
+                Registration _dbRecord = db.Registrations.Where(n => n.RegistrationsCode == record.RegistrationsCode).Select(n => n).SingleOrDefault();
+                if (_dbRecord==null)
+                {
+                    return false;
+                }
+                    db.Registrations.Attach(_dbRecord);
                 db.Entry(_dbRecord).Entity.Password = record.Password;
                 db.Entry(_dbRecord).Entity.Role = record.Role;
                 db.Entry(_dbRecord).Entity.ContactNumber = record.ContactNumber;

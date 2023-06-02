@@ -51,6 +51,8 @@ namespace Accounting.GUI.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtRegistrationCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +109,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(26, 74);
+            this.label6.Location = new System.Drawing.Point(26, 106);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 28);
@@ -119,7 +121,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label7.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(26, 133);
+            this.label7.Location = new System.Drawing.Point(26, 169);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 28);
@@ -172,15 +174,15 @@ namespace Accounting.GUI.Forms
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(210, 60);
+            this.txtUserName.Location = new System.Drawing.Point(210, 105);
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(259, 42);
+            this.txtUserName.Size = new System.Drawing.Size(259, 29);
             this.txtUserName.TabIndex = 92;
             // 
             // txtUserPass
             // 
-            this.txtUserPass.Location = new System.Drawing.Point(210, 119);
+            this.txtUserPass.Location = new System.Drawing.Point(210, 154);
             this.txtUserPass.Multiline = true;
             this.txtUserPass.Name = "txtUserPass";
             this.txtUserPass.Size = new System.Drawing.Size(259, 42);
@@ -268,6 +270,26 @@ namespace Accounting.GUI.Forms
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(26, 56);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(122, 28);
+            this.label8.TabIndex = 85;
+            this.label8.Text = "کد ثبت نام : ";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtRegistrationCode
+            // 
+            this.txtRegistrationCode.Location = new System.Drawing.Point(210, 54);
+            this.txtRegistrationCode.Multiline = true;
+            this.txtRegistrationCode.Name = "txtRegistrationCode";
+            this.txtRegistrationCode.Size = new System.Drawing.Size(259, 28);
+            this.txtRegistrationCode.TabIndex = 92;
+            // 
             // frmUserRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,6 +300,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.txtFamily);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtUserPass);
+            this.Controls.Add(this.txtRegistrationCode);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnUpdate);
@@ -289,6 +312,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -331,5 +355,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnRegister;
+        internal System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtRegistrationCode;
     }
 }

@@ -73,6 +73,7 @@ namespace Accounting.GUI.Forms
             txtProductName.Text = "";
             cbCategory.Text = "";
             cbCompany.Text = "";
+            txtCountingUnit.Text = "";
             PboxProductPicture.Image = null;
             PboxProductPicture.Image = Properties.Resources.icons8_product_128px_2;
 
@@ -84,9 +85,11 @@ namespace Accounting.GUI.Forms
             if (
                string.IsNullOrEmpty(txtFeatures.Text) ||
                   string.IsNullOrEmpty(txtPrice.Text) ||
+                  string.IsNullOrEmpty(txtCountingUnit.Text) ||
                   string.IsNullOrEmpty(txtProductCode.Text) ||
                   string.IsNullOrEmpty(txtFeatures.Text) ||
                   string.IsNullOrWhiteSpace(txtPrice.Text) ||
+                  string.IsNullOrWhiteSpace(txtCountingUnit.Text) ||
                   string.IsNullOrWhiteSpace(cbCategory.Text) ||
                   string.IsNullOrWhiteSpace(cbCompany.Text) 
                   )
@@ -108,7 +111,8 @@ namespace Accounting.GUI.Forms
 
 
 
-            productRecord.id = Convert.ToInt32(txtProductCode.Text);
+            productRecord.ProductCode = Convert.ToInt32(txtProductCode.Text);
+            productRecord.CountingUnit =txtCountingUnit.Text;
             productRecord.ProductName = txtProductName.Text;
             productRecord.Price = Convert.ToDecimal(txtPrice.Text);
             productRecord.Company = cbCompany.Text;
@@ -126,11 +130,12 @@ namespace Accounting.GUI.Forms
             {
 
 
-                txtProductCode.Text = dbProductRecord.id.ToString();
+               
                 txtProductName.Text = dbProductRecord.ProductName;
                 txtPrice.Text = dbProductRecord.Price.ToString();
                 cbCompany.Text = dbProductRecord.Company;
                 cbCategory.Text = dbProductRecord.Category;
+                txtCountingUnit.Text = dbProductRecord.CountingUnit;
                 txtFeatures.Text = dbProductRecord.Features;
                 PboxProductPicture.Image = WorkWithImage.byteArrayToImage(dbProductRecord.Picture);
             }
@@ -174,7 +179,7 @@ namespace Accounting.GUI.Forms
                         Instance = Fill__ProductRecord(Instance);
                         int ProductCode = Convert.ToInt32(txtProductCode.Text);
                     
-                        bool UpdateProductResult = await _ProductRepository.UpdateProduct(Instance, n => n.id == Instance.id);
+                        bool UpdateProductResult = await _ProductRepository.UpdateProduct(Instance, n => n.ProductCode == Instance.ProductCode);
                         if (UpdateProductResult)
                         {
                            
@@ -214,7 +219,7 @@ namespace Accounting.GUI.Forms
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
-            Reset();
+             Reset();
             FillCombo();
             txtProductName.Focus();
         }
@@ -224,6 +229,7 @@ namespace Accounting.GUI.Forms
             if (string.IsNullOrEmpty(txtProductCode.Text)|| string.IsNullOrWhiteSpace(txtProductCode.Text))
             {
                 MessageBox.Show("ورودی نامعتبر");
+                return;
             }
                 
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
@@ -233,12 +239,12 @@ namespace Accounting.GUI.Forms
 
                 int ProductCode = Int32.Parse(txtProductCode.Text);
 
-                bool result = await _ProductRepository.IsExist<Product>(n => n.id == ProductCode);
+                bool result = await _ProductRepository.IsExist<Product>(n => n.ProductCode == ProductCode);
 
                 if (result)
                 {
 
-                    Product record = await _ProductRepository.GetEntity<Product>(n => n.id == ProductCode);
+                    Product record = await _ProductRepository.GetEntity<Product>(n => n.ProductCode == ProductCode);
                     FillControlersWithProductDbRecord(record);
 
 
@@ -316,7 +322,7 @@ namespace Accounting.GUI.Forms
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
                
                     int productCode = Int32.Parse(txtProductCode.Text);
-                    bool Result = await _ProductRepository.IsExist<Product>(n => n.id == productCode);
+                    bool Result = await _ProductRepository.IsExist<Product>(n => n.ProductCode == productCode);
 
                     if (!Result)
                     {
@@ -384,11 +390,11 @@ namespace Accounting.GUI.Forms
 
                     int ProductCode = Convert.ToInt32(txtProductCode.Text);
 
-                    bool result = await _ProductRepository.IsExist<Product>(N => N.id == ProductCode);
+                    bool result = await _ProductRepository.IsExist<Product>(N => N.ProductCode == ProductCode);
                     if (result)
                     {
 
-                        bool DeleteResult = await _ProductRepository.DeleteByCondition<Product>(n => n.id == ProductCode);
+                        bool DeleteResult = await _ProductRepository.DeleteByCondition<Product>(n => n.ProductCode == ProductCode);
 
                         if (DeleteResult)
                             MessageBox.Show("رکورد با موفقیت حذف شد");
@@ -433,7 +439,7 @@ namespace Accounting.GUI.Forms
                 this.cbCategory.Text = formProductRecords._Category;
                 this.cbCompany.Text = formProductRecords._Company;
                 this.txtFeatures.Text = formProductRecords._Features;
-                this.txtProductCode.Text = formProductRecords._id;
+                this.txtProductCode.Text = formProductRecords._ProductCode;
                 this.PboxProductPicture.Image = formProductRecords._Picture;
                 this.txtPrice.Text = formProductRecords._Price;
                 this.txtProductName.Text = formProductRecords._ProductName;
@@ -457,6 +463,21 @@ namespace Accounting.GUI.Forms
         private void txtPrice_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShowProductSoldRecords_Click(object sender, EventArgs e)
+        {
+            frmProductsSoldRecords frmProductsSoldRecords = new frmProductsSoldRecords();
+            if (frmProductsSoldRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmProductsSoldRecords.Close();
+
+                frmProductsSoldRecords = null;
+
+
+
+            }
         }
 
 

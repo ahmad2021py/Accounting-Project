@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Accounting.DataLayer.Services
 {
 
-    public class UserRepository :EntityGenericRepository<User>, IUserRepository,IEntityGenericRepository, IDisposable
+    public class UserRepository : EntityGenericRepository<User>, IUserRepository, IEntityGenericRepository, IDisposable
     {
 
         //------------Fields----------------
@@ -20,23 +20,23 @@ namespace Accounting.DataLayer.Services
 
         //-------Methods--------------------------
         #region constructor
-        public UserRepository(Accounting_DbContext context) :base(context)
+        public UserRepository(Accounting_DbContext context) : base(context)
         {
             db = context;
         }
         #endregion
 
 
-      
+
         #region ChangeUserPassword By User Method
 
-      async public Task<bool> ChangeUserPasswordByUser(User user, string newUserPassword)
+        async public Task<bool> ChangeUserPasswordByUser(User user, string newUserPassword)
         {
             return await Task.Run(() =>
             {
 
-            //    try
-            //{
+                //    try
+                //{
 
                 User query = db.Users.Where(n => n.UserName == user.UserName && n.Password == user.Password).Select(n => n).First();
                 db.Users.Attach(query);
@@ -44,11 +44,11 @@ namespace Accounting.DataLayer.Services
                 //SAVE change
                 db.SaveChanges();
                 return true;
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
+                //}
+                //catch
+                //{
+                //    return false;
+                //}
 
             });
 
@@ -67,7 +67,7 @@ namespace Accounting.DataLayer.Services
 
         #region ChangeUserPassword By Admin Method
 
-        async public Task<bool> ChangeUserPasswordByAdmin(string userName, string newUserPassword)
+        async public Task<bool> ChangeUserPasswordByAdmin(User user)
         {
             return await Task.Run(() =>
             {
@@ -75,12 +75,18 @@ namespace Accounting.DataLayer.Services
                 //try
                 //{
 
-                    User query = db.Users.Where(n => n.UserName == userName).Select(n => n).First();
+                User query = db.Users.Where(n => n.UserCode == user.UserCode).Select(n => n).SingleOrDefault();
+                if (query == null)
+                {
+                    return false;
+                }
                     db.Users.Attach(query);
-                    db.Entry(query).Entity.Password = newUserPassword;
-                    //SAVE change
-                    db.SaveChanges();
-                    return true;
+                db.Entry(query).Entity.UserName = user.UserName;
+                db.Entry(query).Entity.Password = user.Password;
+
+                //SAVE change
+                db.SaveChanges();
+                return true;
                 //}
                 //catch
                 //{
@@ -96,7 +102,7 @@ namespace Accounting.DataLayer.Services
 
         public void Dispose()
         {
-           //Not an Object to Dispose
+            //Not an Object to Dispose
         }
 
 

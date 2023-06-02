@@ -1,5 +1,6 @@
 ﻿using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.DataLayer.Services;
 using Accounting.DataLayer.Services.Repositories;
 using System;
@@ -27,6 +28,8 @@ namespace Accounting.DataLayer.Context
         private IProductRepository _ProductRepository;
         private ICustomerRepository _CustomerRepository;
         private IStockRepository _stockRepository;
+        private IProductSoldRepository _ProductSoldRepository;
+        private IInvoiceRepository _InvoiceRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -123,6 +126,38 @@ namespace Accounting.DataLayer.Context
                 return _stockRepository;
             }
         }
+
+
+
+        public IProductSoldRepository ProductSoldRepository
+        {
+            get
+            {
+                if (_ProductSoldRepository == null)
+                {
+                    _ProductSoldRepository = new ProductSoldRepository(db);
+                }
+
+                return _ProductSoldRepository;
+            }
+        }
+
+
+
+        public IInvoiceRepository InvoiceRepository
+        {
+            get
+            {
+                if (_InvoiceRepository == null)
+                {
+                    _InvoiceRepository = new InvoiceRepository(db);
+                }
+
+                return _InvoiceRepository;
+            }
+        }
+
+
 
 
         //---------Methods-----------------

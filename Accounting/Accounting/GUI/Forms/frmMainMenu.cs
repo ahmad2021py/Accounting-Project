@@ -161,19 +161,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void btnSaleAndBuy_Click(object sender, EventArgs e)
-        {
-            frmSaleAndBuy frmSaleAndBuy = new frmSaleAndBuy();
-            if (frmSaleAndBuy.ShowDialog() == DialogResult.OK)
-            {
-
-                frmSaleAndBuy.Close();
-                frmSaleAndBuy = null;
-
-            }
-
-        }
-
+      
         private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmLogin frm = new frmLogin();
@@ -277,17 +265,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void ثبتخریدوفروشکالاToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmSaleAndBuy frmSaleAndBuy = new frmSaleAndBuy();
-            if (frmSaleAndBuy.ShowDialog() == DialogResult.OK)
-            {
-
-                frmSaleAndBuy.Close();
-                frmSaleAndBuy = null;
-
-            }
-        }
+       
 
         private void لیستشرکتهاToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -352,6 +330,40 @@ namespace Accounting.GUI.Forms
                 frmLoginDetails = null;
 
             }
+        }
+
+        private void فروشToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSellInvoice frmSellInvoice = new frmSellInvoice();
+            if (frmSellInvoice.ShowDialog() == DialogResult.OK)
+            {
+
+                frmSellInvoice.Close();
+                frmSellInvoice = null;
+
+            }
+        }
+
+        private void hihdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductsSoldRecords frmProductsSoldRecords = new frmProductsSoldRecords();
+            if (frmProductsSoldRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmProductsSoldRecords.Close();
+                frmProductsSoldRecords = null;
+
+            }
+        }
+
+        private void ثبتخریدوفروشکالاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void فروشکالاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

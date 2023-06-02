@@ -26,6 +26,7 @@ namespace Accounting.GUI.Forms
         public string _Role;
         public string _UserName;
         public string _Password;
+        public string _UserCode;
         async void LoadData()
         {
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
@@ -39,7 +40,7 @@ namespace Accounting.GUI.Forms
 
 
                 DGV1.DataSource = DbUserList;
-                DGV1.Columns["id"].HeaderText = " آیدی";
+                DGV1.Columns["UserCode"].HeaderText = " د کاربر";
                 DGV1.Columns["Role"].HeaderText = "نقش";
                 DGV1.Columns["UserName"].HeaderText = " نام کاربری";
                 DGV1.Columns["Password"].HeaderText = " کلمه عبور";
@@ -69,6 +70,7 @@ namespace Accounting.GUI.Forms
         {
            
             _Role = DGV1.Rows[e.RowIndex].Cells["Role"].Value.ToString();
+            _UserCode = DGV1.Rows[e.RowIndex].Cells["UserCode"].Value.ToString();
             _UserName = DGV1.Rows[e.RowIndex].Cells["UserName"].Value.ToString();
             _Password = DGV1.Rows[e.RowIndex].Cells["Password"].Value.ToString();
 
@@ -77,17 +79,17 @@ namespace Accounting.GUI.Forms
 
        async private void txtUserID_TextChanged(object sender, EventArgs e)
         {
-            if (txtUserID.Text == "")
+            if (txtUserCode.Text == "")
             {
                 LoadData();
                 return;
 
             }
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtUserID.Text);
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtUserCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtUserID.Text = "";
+                txtUserCode.Text = "";
                 return;
             }
 
@@ -95,8 +97,8 @@ namespace Accounting.GUI.Forms
             {
                 IUserRepository _UserRepository = _UnitOfWork.UserRepository;
 
-                int id = Convert.ToInt32(txtUserID.Text);
-                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.id == id);
+                int UserCode = Convert.ToInt32(txtUserCode.Text);
+                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserCode == UserCode);
                 DGV1.DataSource = DbUserSearchRecords;
 
             }
@@ -117,7 +119,7 @@ namespace Accounting.GUI.Forms
             {
                 IUserRepository _UserRepository = _UnitOfWork.UserRepository;
 
-                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserName == txtRole.Text);
+                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserName == txtUserName.Text);
                 DGV1.DataSource = DbUserSearchRecords;
 
 

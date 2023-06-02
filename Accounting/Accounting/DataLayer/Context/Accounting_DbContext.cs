@@ -34,6 +34,8 @@ namespace Accounting.DataLayer.Context
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<Registration> Registrations { get; set; }
         public virtual DbSet<ProductSold> ProductSolds { get; set; }
+        public virtual DbSet<Cheque> Cheques { get; set; }
+        public virtual DbSet<Invoice> invoice { get; set; }
 
 
 
@@ -44,7 +46,7 @@ namespace Accounting.DataLayer.Context
 
 
 
-   
+
 
 
 

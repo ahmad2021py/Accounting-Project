@@ -31,13 +31,15 @@ namespace Accounting.GUI.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserReords));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtRole = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtUserID = new System.Windows.Forms.TextBox();
+            this.txtUserCode = new System.Windows.Forms.TextBox();
             this.DGV1 = new System.Windows.Forms.DataGridView();
             this.btnExcelExport = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.SuspendLayout();
@@ -54,17 +56,6 @@ namespace Accounting.GUI.Forms
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "جستجو با نقش";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.AutoSize = true;
-            this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(51, 165);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(336, 98);
-            this.groupBox2.TabIndex = 78;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "جستجو با نام کاربر";
-            // 
             // txtRole
             // 
             this.txtRole.Location = new System.Drawing.Point(58, 31);
@@ -74,10 +65,31 @@ namespace Accounting.GUI.Forms
             this.txtRole.TabIndex = 82;
             this.txtRole.TextChanged += new System.EventHandler(this.txtRole_TextChanged);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.txtUserName);
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
+            this.groupBox2.Location = new System.Drawing.Point(51, 165);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(336, 101);
+            this.groupBox2.TabIndex = 78;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "جستجو با نام کاربر";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(58, 35);
+            this.txtUserName.Multiline = true;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(272, 45);
+            this.txtUserName.TabIndex = 82;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
+            // 
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.txtUserID);
+            this.groupBox1.Controls.Add(this.txtUserCode);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(51, 29);
             this.groupBox1.Name = "groupBox1";
@@ -86,14 +98,14 @@ namespace Accounting.GUI.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو با آیدی";
             // 
-            // txtUserID
+            // txtUserCode
             // 
-            this.txtUserID.Location = new System.Drawing.Point(58, 38);
-            this.txtUserID.Multiline = true;
-            this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(272, 41);
-            this.txtUserID.TabIndex = 5;
-            this.txtUserID.TextChanged += new System.EventHandler(this.txtUserID_TextChanged);
+            this.txtUserCode.Location = new System.Drawing.Point(58, 38);
+            this.txtUserCode.Multiline = true;
+            this.txtUserCode.Name = "txtUserCode";
+            this.txtUserCode.Size = new System.Drawing.Size(272, 41);
+            this.txtUserCode.TabIndex = 5;
+            this.txtUserCode.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // DGV1
             // 
@@ -138,6 +150,8 @@ namespace Accounting.GUI.Forms
             this.Load += new System.EventHandler(this.frmLoginDetails_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
@@ -151,8 +165,9 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DGV1;
-        private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.TextBox txtUserCode;
         private System.Windows.Forms.TextBox txtRole;
         private System.Windows.Forms.Button btnExcelExport;
+        private System.Windows.Forms.TextBox txtUserName;
     }
 }

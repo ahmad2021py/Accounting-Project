@@ -32,9 +32,9 @@ namespace Accounting.GUI.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockRecords));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtProductId = new System.Windows.Forms.TextBox();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtStockId = new System.Windows.Forms.TextBox();
+            this.txtStockCode = new System.Windows.Forms.TextBox();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSearchByDate = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@ namespace Accounting.GUI.Forms
             // groupBox3
             // 
             this.groupBox3.AutoSize = true;
-            this.groupBox3.Controls.Add(this.txtProductId);
+            this.groupBox3.Controls.Add(this.txtProductCode);
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(28, 170);
             this.groupBox3.Name = "groupBox3";
@@ -58,19 +58,19 @@ namespace Accounting.GUI.Forms
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "جستجو با کد کالا";
             // 
-            // txtProductId
+            // txtProductCode
             // 
-            this.txtProductId.Location = new System.Drawing.Point(17, 38);
-            this.txtProductId.Multiline = true;
-            this.txtProductId.Name = "txtProductId";
-            this.txtProductId.Size = new System.Drawing.Size(255, 40);
-            this.txtProductId.TabIndex = 96;
-            this.txtProductId.TextChanged += new System.EventHandler(this.txtProductId_TextChanged);
+            this.txtProductCode.Location = new System.Drawing.Point(17, 38);
+            this.txtProductCode.Multiline = true;
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.Size = new System.Drawing.Size(255, 40);
+            this.txtProductCode.TabIndex = 96;
+            this.txtProductCode.TextChanged += new System.EventHandler(this.txtProductId_TextChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.txtStockId);
+            this.groupBox1.Controls.Add(this.txtStockCode);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(28, 12);
             this.groupBox1.Name = "groupBox1";
@@ -79,14 +79,14 @@ namespace Accounting.GUI.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "جستجو با کد  انبار";
             // 
-            // txtStockId
+            // txtStockCode
             // 
-            this.txtStockId.Location = new System.Drawing.Point(17, 43);
-            this.txtStockId.Multiline = true;
-            this.txtStockId.Name = "txtStockId";
-            this.txtStockId.Size = new System.Drawing.Size(255, 40);
-            this.txtStockId.TabIndex = 96;
-            this.txtStockId.TextChanged += new System.EventHandler(this.txtStockId_TextChanged);
+            this.txtStockCode.Location = new System.Drawing.Point(17, 43);
+            this.txtStockCode.Multiline = true;
+            this.txtStockCode.Name = "txtStockCode";
+            this.txtStockCode.Size = new System.Drawing.Size(255, 40);
+            this.txtStockCode.TabIndex = 96;
+            this.txtStockCode.TextChanged += new System.EventHandler(this.txtStockId_TextChanged);
             // 
             // bPersianCalenderTextBox1
             // 
@@ -137,11 +137,11 @@ namespace Accounting.GUI.Forms
             // DGV1
             // 
             this.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV1.Location = new System.Drawing.Point(605, 12);
+            this.DGV1.Location = new System.Drawing.Point(325, 12);
             this.DGV1.Name = "DGV1";
             this.DGV1.RowHeadersWidth = 51;
             this.DGV1.RowTemplate.Height = 24;
-            this.DGV1.Size = new System.Drawing.Size(543, 515);
+            this.DGV1.Size = new System.Drawing.Size(420, 515);
             this.DGV1.TabIndex = 97;
             this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
             // 
@@ -149,7 +149,7 @@ namespace Accounting.GUI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 539);
+            this.ClientSize = new System.Drawing.Size(757, 539);
             this.Controls.Add(this.DGV1);
             this.Controls.Add(this.btnExcelExport);
             this.Controls.Add(this.groupBox2);
@@ -181,8 +181,8 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.GroupBox groupBox1;
         private BPersianCalender.BPersianCalenderTextBox bPersianCalenderTextBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtStockId;
-        private System.Windows.Forms.TextBox txtProductId;
+        private System.Windows.Forms.TextBox txtStockCode;
+        private System.Windows.Forms.TextBox txtProductCode;
         private System.Windows.Forms.Button btnSearchByDate;
         private System.Windows.Forms.Button btnExcelExport;
         private System.Windows.Forms.DataGridView DGV1;

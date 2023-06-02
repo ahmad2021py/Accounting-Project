@@ -91,7 +91,7 @@ namespace Accounting.GUI.Forms
             this.btnCancel.Location = new System.Drawing.Point(539, 232);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 43);
-            this.btnCancel.TabIndex = 64;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "انصراف";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -101,7 +101,7 @@ namespace Accounting.GUI.Forms
             this.btnOK.Location = new System.Drawing.Point(182, 234);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(100, 43);
-            this.btnOK.TabIndex = 65;
+            this.btnOK.TabIndex = 4;
             this.btnOK.Text = "ورود";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -112,7 +112,7 @@ namespace Accounting.GUI.Forms
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(246, 39);
-            this.txtPassword.TabIndex = 66;
+            this.txtPassword.TabIndex = 3;
             // 
             // txtUserName
             // 
@@ -120,7 +120,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(246, 39);
-            this.txtUserName.TabIndex = 66;
+            this.txtUserName.TabIndex = 2;
             // 
             // lblPassword
             // 

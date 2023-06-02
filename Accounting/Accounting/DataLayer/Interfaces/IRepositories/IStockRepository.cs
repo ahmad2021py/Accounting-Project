@@ -11,8 +11,8 @@ namespace Accounting.DataLayer.Interfaces
     {
 
 
-          Task<bool> UpdateStock(Stock Obj, Expression<Func<Stock, bool>> currentEntityFilter);
-
+          Task<bool> UpdateStock(StockEntityWithoutRowPropertyForUpdate Obj, Expression<Func<Stock, bool>> currentEntityFilter);
+        Task<bool> UpdateStock(StockbyOnlyQuantityField Obj, Expression<Func<Stock, bool>> currentEntityFilter);
 
 
     }

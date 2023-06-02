@@ -30,7 +30,7 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
         #region Update Generic-Method
-        async public Task<bool> UpdateStock(Stock Obj, Expression<Func<Stock, bool>> currentEntityFilter)
+        async public Task<bool> UpdateStock(StockEntityWithoutRowPropertyForUpdate Obj, Expression<Func<Stock, bool>> currentEntityFilter)
 
         {
             return await Task.Run(() =>
@@ -38,7 +38,6 @@ namespace Accounting.DataLayer.Services.Repositories
                 //try
                 //{
                     var dbRecord = db.Set<Stock>().FirstOrDefault(currentEntityFilter);
-                    Obj.id = dbRecord.id;
                     
                     db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
@@ -59,5 +58,31 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
 
+        #region Update Stock ProductQuantity By frmSellInvoice
+        async public Task<bool> UpdateStock(StockbyOnlyQuantityField Obj, Expression<Func<Stock, bool>> currentEntityFilter)
+
+        {
+            return await Task.Run(() =>
+            {
+                //try
+                //{
+                var dbRecord = db.Set<Stock>().FirstOrDefault(currentEntityFilter);
+
+                db.Entry(dbRecord).CurrentValues.SetValues(Obj);
+
+                return true;
+                //}
+
+                //catch
+                //{
+                //    return false;
+                //}
+            });
+
+        }
+
+
+
+        #endregion
     }
 }

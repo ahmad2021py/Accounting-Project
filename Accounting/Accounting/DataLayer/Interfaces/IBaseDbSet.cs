@@ -7,7 +7,7 @@ namespace Accounting.DataLayer.Services
     {
         [Key] // set this Column Primary Key
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
-        long id { get; set; } // All the Tables Of DataBase Must Have This Column
+        long Row { get; set; } // All the Tables Of DataBase Must Have This Column
 
     }
 }

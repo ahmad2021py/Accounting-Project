@@ -20,7 +20,7 @@ namespace Accounting.GUI.Forms
         }
 
 
-        public string _id;
+        public string _StockCode;
         public string _FKProductId;
         public string _BuyPrice;
         public string _StockDate;
@@ -57,13 +57,13 @@ namespace Accounting.GUI.Forms
                     //----------- Create a DataTable and add 6 Columns to it---------
                     //  DataTable dataTable = new DataTable();
                     dataTable.Clear();
-                    dataTable.Columns.Add("id", typeof(int));
+                    dataTable.Columns.Add("StockCode", typeof(int));
                     dataTable.Columns.Add("Description", typeof(string));
                     dataTable.Columns.Add("Quantity", typeof(string));
                     dataTable.Columns.Add("StockDate", typeof(string));
                     dataTable.Columns.Add("BuyPrice", typeof(int));
                     dataTable.Columns.Add("FKProductId", typeof(long));
-                    dataTable.Columns["id"].Caption = " کد انبار";
+                    dataTable.Columns["StockCode"].Caption = " کد انبار";
                     dataTable.Columns["Description"].Caption = " توضیحات";
                     dataTable.Columns["Quantity"].Caption = " تعداد";
                     dataTable.Columns["StockDate"].Caption = " تاریخ دریافت";
@@ -74,12 +74,11 @@ namespace Accounting.GUI.Forms
                     for (int i = 0; i < DbStocklist.Count; i++)
                     {
                         DataRow dataRow = dataTable.NewRow();
-                        dataRow["id"] = DbStocklist[i].id;
+                        dataRow["StockCode"] = DbStocklist[i].StockCode;
                         dataRow["Description"] = DbStocklist[i].Description;
                         dataRow["Quantity"] = DbStocklist[i].Quantity;
                         dataRow["StockDate"] = ShamsiDates[i];
-                        dataRow["BuyPrice"] = DbStocklist[i].BuyPrice;
-                        dataRow["FKProductId"] = DbStocklist[i].FKProductId;
+                        dataRow["FKProductId"] = DbStocklist[i].FKProduct;
                         dataTable.Rows.Add(dataRow);
 
                     }
@@ -160,14 +159,14 @@ namespace Accounting.GUI.Forms
         private void txtStockId_TextChanged(object sender, EventArgs e)
         {
 
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtStockId.Text);
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtStockCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtStockId.Text = "";
+                txtStockCode.Text = "";
                 return;
             }
-            if (txtStockId.Text == "")
+            if (txtStockCode.Text == "")
             {
                 LoadData();
             }
@@ -178,8 +177,8 @@ namespace Accounting.GUI.Forms
                     IStockRepository _StockRepository = _UnitOfWork.StockRepository;
 
 
-                    long StockId = long.Parse(txtStockId.Text);
-                    DGV1.DataSource = _StockRepository.GetAll<Stock>(n => n.id == StockId);
+                    long StockCode = long.Parse(txtStockCode.Text);
+                    DGV1.DataSource = _StockRepository.GetAll<Stock>(n => n.StockCode == StockCode);
               
 
 
@@ -190,14 +189,14 @@ namespace Accounting.GUI.Forms
 
         private void txtProductId_TextChanged(object sender, EventArgs e)
         {
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductId.Text);
+            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtProductId.Text = "";
+                txtProductCode.Text = "";
                 return;
             }
-            if (txtProductId.Text == "")
+            if (txtProductCode.Text == "")
             {
                 LoadData();
             }
@@ -208,8 +207,8 @@ namespace Accounting.GUI.Forms
                     IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
 
 
-                    long ProductId = long.Parse(txtProductId.Text);
-                    DGV1.DataSource = _ProductRepository.GetAll<Stock>(n => n.FKProductId == ProductId);
+                    long ProductCode = long.Parse(txtProductCode.Text);
+                    DGV1.DataSource = _ProductRepository.GetAll<Stock>(n => n.FKProduct == ProductCode);
                     //DGV1.Columns["Product"].Visible = false;
 
 
@@ -225,7 +224,8 @@ namespace Accounting.GUI.Forms
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
+            _StockCode = DGV1.Rows[e.RowIndex].Cells["StockCode"].Value.ToString();
 
             _FKProductId = DGV1.Rows[e.RowIndex].Cells["FKProductId"].Value.ToString();
             _Quantity = DGV1.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();

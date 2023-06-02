@@ -39,7 +39,7 @@ namespace Accounting.DataLayer.Services
             //    try
             //{
                 var dbRecord = db.Set<Product>().FirstOrDefault(currentEntityFilter);
-                Obj.id = dbRecord.id;
+                Obj.Row = dbRecord.Row;
                 db.Entry(dbRecord).CurrentValues.SetValues(Obj);
                  
                 return true;
