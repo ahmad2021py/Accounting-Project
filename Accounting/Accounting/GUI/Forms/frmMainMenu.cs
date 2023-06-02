@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Accounting.Utilities;
+using System;
 using System.Windows.Forms;
-using Accounting.Utilities;
 
 namespace Accounting.GUI.Forms
 {
@@ -38,7 +38,7 @@ namespace Accounting.GUI.Forms
         private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-          
+
             frmLogin frm = new frmLogin();
             frm.Show();
             this.Close();
@@ -89,7 +89,7 @@ namespace Accounting.GUI.Forms
 
         private void btnProdut_Click(object sender, EventArgs e)
         {
-        
+
             frmProduct formProduct = new frmProduct();
             if (formProduct.ShowDialog() == DialogResult.OK)
             {
@@ -161,7 +161,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-      
+
         private void frmMainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmLogin frm = new frmLogin();
@@ -169,29 +169,7 @@ namespace Accounting.GUI.Forms
             this.Hide();
         }
 
-        private void مدیریتکاربرانToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmUserRegistration frmUserRegistration = new frmUserRegistration();
-            if (frmUserRegistration.ShowDialog() == DialogResult.OK)
-            {
 
-                frmUserRegistration.Close();
-                frmUserRegistration = null;
-
-            }
-        }
-
-        private void لیستکاربرانToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmUserReords frmUserReords = new frmUserReords();
-            if (frmUserReords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmUserReords.Close();
-                frmUserReords = null;
-
-            }
-        }
 
         private void ویرایشوثبتمحصولToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -265,7 +243,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-       
+
 
         private void لیستشرکتهاToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -364,6 +342,54 @@ namespace Accounting.GUI.Forms
         private void فروشکالاToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ویرایشوثبتفروشندهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSeller frmSeller = new frmSeller();
+            if (frmSeller.ShowDialog() == DialogResult.OK)
+            {
+
+                frmSeller.Close();
+                frmSeller = null;
+
+            }
+        }
+
+        private void لیستفروشندگانToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSellerRecords frmSellerRecords = new frmSellerRecords();
+            if (frmSellerRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmSellerRecords.Close();
+                frmSellerRecords = null;
+
+            }
+        }
+
+        private void مدیریتکاربرانToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmUserRegistration frmUserRegistration = new frmUserRegistration();
+            if (frmUserRegistration.ShowDialog() == DialogResult.OK)
+            {
+
+                frmUserRegistration.Close();
+                frmUserRegistration = null;
+
+            }
+        }
+
+        private void لیستکاربرانToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmUserReords frmUserReords = new frmUserReords();
+            if (frmUserReords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmUserReords.Close();
+                frmUserReords = null;
+
+            }
         }
     }
 }

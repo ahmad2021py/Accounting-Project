@@ -1,16 +1,14 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Services.Repositories
 {
-   public class StockRepository : EntityGenericRepository<Stock>, IStockRepository, IEntityGenericRepository
+    public class StockRepository : EntityGenericRepository<Stock>, IStockRepository, IEntityGenericRepository
     {
         //------------Fields----------------
 
@@ -37,11 +35,14 @@ namespace Accounting.DataLayer.Services.Repositories
             {
                 //try
                 //{
-                    var dbRecord = db.Set<Stock>().FirstOrDefault(currentEntityFilter);
-                    
-                    db.Entry(dbRecord).CurrentValues.SetValues(Obj);
+                var dbRecord = db.Set<Stock>().FirstOrDefault(currentEntityFilter);
+                if (dbRecord == null)
+                {
+                    return false;
+                }
+                db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
-                    return true;
+                return true;
                 //}
 
                 //catch

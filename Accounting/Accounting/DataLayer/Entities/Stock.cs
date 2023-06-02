@@ -1,12 +1,7 @@
-﻿using Accounting.DataLayer.Services;
+﻿using Accounting.DataLayer.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Accounting.DataLayer.Entities
 {
     [Table("Stocks")]
@@ -32,6 +27,8 @@ namespace Accounting.DataLayer.Entities
 
         public string Description { get; set; }
 
+
+        public decimal BuyPrice { get; set; }// This Column Fill only By frmBuyInvoice
         //*********relationship************
         //---- Foreign key to Product----------
         //----This Attribute is name of Target Table---------------

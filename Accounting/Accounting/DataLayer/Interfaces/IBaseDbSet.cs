@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Accounting.DataLayer.Services
+namespace Accounting.DataLayer.Interfaces
 {
     public interface IBaseDbSet
     {

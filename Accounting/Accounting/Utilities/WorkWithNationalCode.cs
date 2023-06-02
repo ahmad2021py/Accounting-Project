@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Utilities
 {
     public static class WorkWithNationalCode
     {
-       public static bool NationalCodeValidation(string nationalCode)
+        public static bool NationalCodeValidation(string nationalCode)
         {
 
 
             if (nationalCode.Length < 8 || nationalCode.Length > 10)
             {
-               // Not Valid
+                // Not Valid
                 return false;
             }
-            
+
             int sum = 0;
             string codeMeli = nationalCode;
             if (codeMeli.Length >= 8 && codeMeli.Length < 10)
@@ -33,11 +29,11 @@ namespace Accounting.Utilities
             sum = sum % 11;
             if (sum < 2 && int.Parse(codeMeli[9].ToString()) != sum)
             {
-              // Not Valid
+                // Not Valid
                 return false;
             }
 
-            return true ;
+            return true;
         }
 
 

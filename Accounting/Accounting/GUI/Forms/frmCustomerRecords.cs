@@ -1,17 +1,10 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using Accounting.Utilities;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using AccountingDLL;
 using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -74,12 +67,12 @@ namespace Accounting.GUI.Forms
             }
         }
 
-     
+
 
         private void frmCustomerRecords_Load(object sender, EventArgs e)
         {
             LoadData();
-            
+
         }
 
 
@@ -88,7 +81,7 @@ namespace Accounting.GUI.Forms
 
 
 
-     
+
 
 
         private void frmCustomerRecords_FormClosing(object sender, FormClosingEventArgs e)
@@ -96,7 +89,7 @@ namespace Accounting.GUI.Forms
             this.DialogResult = DialogResult.OK;
         }
 
-     async   private void txtNationalCode_TextChanged(object sender, EventArgs e)
+        async private void txtNationalCode_TextChanged(object sender, EventArgs e)
         {
             if (txtNationalCode.Text == "")
             {
@@ -139,7 +132,7 @@ namespace Accounting.GUI.Forms
 
 
                 IEnumerable<Customer> IEnamrableCustomerDbRecords = await _CustomerRepository.GetAll<Customer>(n => n.Name.Contains(txtCustomerName.Text));
-                
+
                 DGV1.DataSource = IEnamrableCustomerDbRecords;
 
 
@@ -164,8 +157,8 @@ namespace Accounting.GUI.Forms
             // stiReport1.Show();
         }
 
-       
-      
+
+
 
         private void btnExport_Click_1(object sender, EventArgs e)
         {
@@ -179,7 +172,7 @@ namespace Accounting.GUI.Forms
 
         private void DGV1_CellDoubleClick_(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             _NationalCode = DGV1.Rows[e.RowIndex].Cells["NationalCode"].Value.ToString();
             _Name = DGV1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
             _Phone = DGV1.Rows[e.RowIndex].Cells["Phone"].Value.ToString();

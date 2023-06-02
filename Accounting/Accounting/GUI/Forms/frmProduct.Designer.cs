@@ -138,9 +138,9 @@ namespace Accounting.GUI.Forms
             // 
             // PboxProductPicture
             // 
-            this.PboxProductPicture.Location = new System.Drawing.Point(230, 190);
+            this.PboxProductPicture.Location = new System.Drawing.Point(257, 250);
             this.PboxProductPicture.Name = "PboxProductPicture";
-            this.PboxProductPicture.Size = new System.Drawing.Size(246, 221);
+            this.PboxProductPicture.Size = new System.Drawing.Size(216, 176);
             this.PboxProductPicture.TabIndex = 85;
             this.PboxProductPicture.TabStop = false;
             // 

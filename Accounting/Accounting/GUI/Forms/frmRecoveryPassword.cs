@@ -1,16 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
-using AccountingDLL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -33,7 +24,7 @@ namespace Accounting.GUI.Forms
                 return;
             }
 
-            bool IsValidateEmailResult =   await WorkWithEmail.IsValidateEmail(txtEmail.Text);
+            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtEmail.Text);
             if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
@@ -53,7 +44,7 @@ namespace Accounting.GUI.Forms
                 string Password = "";
                 try
                 {
-                    Password =await IRegistrationRepository.GetUserPassword(txtUserName.Text, txtEmail.Text);
+                    Password = await IRegistrationRepository.GetUserPassword(txtUserName.Text, txtEmail.Text);
                 }
 
                 catch
@@ -66,7 +57,7 @@ namespace Accounting.GUI.Forms
                 if (Result)
                 {
                     MessageBox.Show("پسورد به ایمیل شما ارسال شد", "موفق", MessageBoxButtons.OK, MessageBoxIcon.None);
-                  
+
                 }
                 else
                 {
@@ -79,7 +70,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-    
+
 
         private void frmRecoveryPassword_FormClosing(object sender, FormClosingEventArgs e)
         {

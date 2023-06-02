@@ -95,7 +95,8 @@
     <Compile Include="DataLayer\Entities\Category.cs" />
     <Compile Include="DataLayer\Entities\Cheque.cs" />
     <Compile Include="DataLayer\Entities\Company.cs" />
-    <Compile Include="DataLayer\Entities\Invoice.cs" />
+    <Compile Include="DataLayer\Entities\Seller.cs" />
+    <Compile Include="DataLayer\Entities\SellInvoice.cs" />
     <Compile Include="DataLayer\Entities\Product.cs" />
     <Compile Include="DataLayer\Entities\Customer.cs" />
     <Compile Include="DataLayer\Entities\ProductSold.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="DataLayer\Interfaces\IRepositories\IStockRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IEntityGenericRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IUserRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\IRepositories\ISellerRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\CategoryRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\CompanyRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IBaseDbSet.cs" />
@@ -122,8 +124,15 @@
     <Compile Include="DataLayer\Services\Repositories\ProductSoldRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\RegistrationRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\EntityGenericRepository.cs" />
+    <Compile Include="DataLayer\Services\Repositories\SellerRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\StockRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\UserRepository.cs" />
+    <Compile Include="GUI\Forms\frmBuyInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmBuyInvoice.Designer.cs">
+      <DependentUpon>frmBuyInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +211,18 @@
     <Compile Include="GUI\Forms\frmRecoveryPassword.Designer.cs">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Forms\frmSeller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmSeller.Designer.cs">
+      <DependentUpon>frmSeller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmSellerRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmSellerRecords.Designer.cs">
+      <DependentUpon>frmSellerRecords.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmSellInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,9 +266,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202306021030051_initdb.cs" />
-    <Compile Include="Migrations\202306021030051_initdb.designer.cs">
-      <DependentUpon>202306021030051_initdb.cs</DependentUpon>
+    <Compile Include="Migrations\202306021520305_initDb.cs" />
+    <Compile Include="Migrations\202306021520305_initDb.designer.cs">
+      <DependentUpon>202306021520305_initDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
@@ -261,6 +282,9 @@
     <Compile Include="Utilities\WorkWithEmail.cs" />
     <Compile Include="Utilities\WorkWithImage.cs" />
     <Compile Include="Utilities\WorkWithStrings.cs" />
+    <EmbeddedResource Include="GUI\Forms\frmBuyInvoice.resx">
+      <DependentUpon>frmBuyInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +324,12 @@
     <EmbeddedResource Include="GUI\Forms\frmRecoveryPassword.resx">
       <DependentUpon>frmRecoveryPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmSeller.resx">
+      <DependentUpon>frmSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmSellerRecords.resx">
+      <DependentUpon>frmSellerRecords.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmSellInvoice.resx">
       <DependentUpon>frmSellInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,8 +351,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306021030051_initdb.resx">
-      <DependentUpon>202306021030051_initdb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306021520305_initDb.resx">
+      <DependentUpon>202306021520305_initDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

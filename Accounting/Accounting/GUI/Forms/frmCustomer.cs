@@ -1,15 +1,8 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -81,7 +74,7 @@ namespace Accounting.GUI.Forms
             decimal debte = decimal.Parse(txtdebtor.Text);
 
             CustomerRecord.debtor = debte;
-            CustomerRecord.creditor =decimal.Parse(txtcreditor.Text);
+            CustomerRecord.creditor = decimal.Parse(txtcreditor.Text);
             CustomerRecord.NationalCode = long.Parse(txtNationalCode.Text);
             CustomerRecord.Name = txtCustomerName.Text;
             CustomerRecord.Phone = txtCustomerPhone.Text;
@@ -165,6 +158,8 @@ namespace Accounting.GUI.Forms
                 return;
             }
 
+
+
             bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
             if (!IsValidateEmailResult)
             {
@@ -198,13 +193,13 @@ namespace Accounting.GUI.Forms
         async private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txtNationalCode.Text)||string.IsNullOrWhiteSpace(txtNationalCode.Text))
+            if (string.IsNullOrEmpty(txtNationalCode.Text) || string.IsNullOrWhiteSpace(txtNationalCode.Text))
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-          
+
 
 
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
@@ -229,23 +224,23 @@ namespace Accounting.GUI.Forms
 
                         MessageBox.Show("مشتری با این کد ملی یافت نشد");
                         return;
-                    } 
-                        
-                        
-                        bool DeleteResult = await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == NationalCode);
-                        if (DeleteResult)
-                        {
-                            MessageBox.Show("رکورد با موفقیت حذف شد");
-                            _unitOfWork.Save();
-                            Reset();
+                    }
 
-                        }
+
+                    bool DeleteResult = await _CustomerRepository.DeleteByCondition<Customer>(n => n.NationalCode == NationalCode);
+                    if (DeleteResult)
+                    {
+                        MessageBox.Show("رکورد با موفقیت حذف شد");
+                        _unitOfWork.Save();
+                        Reset();
+
+                    }
                     else
                     {
                         MessageBox.Show("خطایی رخ داده است");
                     }
 
-                
+
 
 
 

@@ -1,16 +1,8 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -96,7 +88,7 @@ namespace Accounting.GUI.Forms
 
 
 
-        private Invoice Fill__InvoiceRecord(Invoice Invoice)
+        private SellInvoice Fill__InvoiceRecord(SellInvoice Invoice)
         {
             Invoice.FKCustomer = long.Parse(lblCustomerCode.Text);
             Invoice.Quantity = int.Parse(txtSellCount.Text);
@@ -232,7 +224,7 @@ namespace Accounting.GUI.Forms
                 IInvoiceRepository _InvoiceRepository = _UnitOfWork.InvoiceRepository;
 
                 string InvoiceCode = txtInvoiceCode.Text;
-                bool InvoiceResult = await _InvoiceRepository.IsExist<Invoice>(n => n.InvoiceCode == InvoiceCode);
+                bool InvoiceResult = await _InvoiceRepository.IsExist<SellInvoice>(n => n.InvoiceCode == InvoiceCode);
 
                 if (InvoiceResult)
                 {
@@ -241,17 +233,17 @@ namespace Accounting.GUI.Forms
                     return;
                 }
 
-                Invoice InvoiceRecord = new Invoice();
+                SellInvoice InvoiceRecord = new SellInvoice();
                 InvoiceRecord = Fill__InvoiceRecord(InvoiceRecord);
 
-                bool AddResult = await _InvoiceRepository.Add<Invoice>(InvoiceRecord);
+                bool AddResult = await _InvoiceRepository.Add<SellInvoice>(InvoiceRecord);
 
                 if (!AddResult)
                 {
                     MessageBox.Show("در افزودن فاکتور خطایی رخ داه است");
                     return;
                 }
-                ProductSold productSoldRecord = new ProductSold() { FKInvoice = InvoiceRecord.InvoiceCode };
+                ProductSold productSoldRecord = new ProductSold() { FKSellInvoice = InvoiceRecord.InvoiceCode };
                 IProductSoldRepository _ProductSoldRepository = _UnitOfWork.ProductSoldRepository;
                 bool AddToProductSoldResult = await _ProductSoldRepository.Add<ProductSold>(productSoldRecord);
                 if (!AddToProductSoldResult)

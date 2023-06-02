@@ -2,9 +2,9 @@
 
 namespace Accounting.GUI.Forms
 {
-    public partial class frmCheque : Form
+    public partial class frmBuyInvoice : Form
     {
-        public frmCheque()
+        public frmBuyInvoice()
         {
             InitializeComponent();
         }

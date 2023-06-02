@@ -113,9 +113,9 @@ namespace Accounting.GUI.Forms
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(34, 136);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 24);
+            this.label5.Size = new System.Drawing.Size(91, 24);
             this.label5.TabIndex = 1;
-            this.label5.Text = "کد مشتری : ";
+            this.label5.Text = "کد فروشنده : ";
             // 
             // bPersianCalenderTextBox1
             // 
@@ -166,7 +166,6 @@ namespace Accounting.GUI.Forms
             this.txtSellCount.Name = "txtSellCount";
             this.txtSellCount.Size = new System.Drawing.Size(100, 25);
             this.txtSellCount.TabIndex = 0;
-
             // 
             // txtSellPricePerUnit
             // 

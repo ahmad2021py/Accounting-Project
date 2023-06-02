@@ -1,10 +1,8 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using Accounting.Utilities;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using AccountingDLL;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -50,6 +48,7 @@ namespace Accounting.GUI.Forms
                 DGV1.Columns["Price"].HeaderText = " قیمت";
                 DGV1.Columns["Company"].HeaderText = " شرکت";
                 DGV1.Columns["Category"].HeaderText = " دسته بندی";
+                DGV1.Columns["CountingUnit"].HeaderText = " واحد شمارش";
                 DGV1.Columns["Picture"].Visible = false;//Picture Column
                                                         //----------------------------------
 

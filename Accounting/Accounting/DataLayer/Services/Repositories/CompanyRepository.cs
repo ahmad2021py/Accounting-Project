@@ -1,32 +1,26 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Accounting.DataLayer.Interfaces.IRepositories;
 
-namespace Accounting.DataLayer.Services
+namespace Accounting.DataLayer.Services.Repositories
 {
-    public class CompanyRepository :EntityGenericRepository<Company>, ICompanyRepository,IEntityGenericRepository
+    public class CompanyRepository : EntityGenericRepository<Company>, ICompanyRepository, IEntityGenericRepository
     {
         //------Feilds----------------------
         #region فیلد های کلاس
         private Accounting_DbContext db;
         #endregion
 
-       //---------Methods-----------------
+        //---------Methods-----------------
         #region متد سازنده کلاس 
-        public CompanyRepository(Accounting_DbContext context): base(context)
+        public CompanyRepository(Accounting_DbContext context) : base(context)
         {
             db = context;
         }
         #endregion
-       
 
-      
+
+
 
     }
 }

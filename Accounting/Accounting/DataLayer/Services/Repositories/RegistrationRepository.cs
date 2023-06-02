@@ -1,16 +1,12 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Accounting.DataLayer.Services
+namespace Accounting.DataLayer.Services.Repositories
 {
-    public class RegistrationRepository : EntityGenericRepository<Registration>, IRegistrationRepository , IEntityGenericRepository
+    public class RegistrationRepository : EntityGenericRepository<Registration>, IRegistrationRepository, IEntityGenericRepository
     {
 
         #region فیلد های کلاس
@@ -19,41 +15,41 @@ namespace Accounting.DataLayer.Services
 
         //-------------------------------------
         #region متد سازنده کلاس 
-        public RegistrationRepository(Accounting_DbContext context) :base (context)
+        public RegistrationRepository(Accounting_DbContext context) : base(context)
         {
             db = context;
         }
         #endregion
         //---------
         #region متد بررسی وجود ایمیل و پسورد در دیتابیس ، برای بازیابی پسورد
-        async   public Task< bool> RegistrationIsValid(string username, string email)
+        async public Task<bool> RegistrationIsValid(string username, string email)
         {
 
             return await Task.Run(() =>
             {
-            //    try
-            //{
+                //    try
+                //{
 
-               
-               var query = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n).ToList();
-                if (query.Count>0)
+
+                var query = db.Registrations.Where(n => n.Email == email && n.UserName == username).Select(n => n).ToList();
+                if (query.Count > 0)
                     return true;
 
 
 
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
-            return false;
+                //}
+                //catch
+                //{
+                //    return false;
+                //}
+                return false;
             });
 
         }
         #endregion
         //------------------------------------------------
         #region متد دریافت رمز با نام کاربری و ایمیل
-         async  public Task<string> GetUserPassword(string username, string email)
+        async public Task<string> GetUserPassword(string username, string email)
         {
             return await Task.Run(() =>
             {
@@ -64,26 +60,26 @@ namespace Accounting.DataLayer.Services
 
         #endregion
         //----------------
-     
+
         //------------
-  
+
 
         #region Update Record
 
-      async  public Task<bool> UpdateRecord(Registration record)
+        async public Task<bool> UpdateRecord(Registration record)
         {
             return await Task.Run(() =>
             {
 
-            //try
-            //{
+                //try
+                //{
 
                 Registration _dbRecord = db.Registrations.Where(n => n.RegistrationsCode == record.RegistrationsCode).Select(n => n).SingleOrDefault();
-                if (_dbRecord==null)
+                if (_dbRecord == null)
                 {
                     return false;
                 }
-                    db.Registrations.Attach(_dbRecord);
+                db.Registrations.Attach(_dbRecord);
                 db.Entry(_dbRecord).Entity.Password = record.Password;
                 db.Entry(_dbRecord).Entity.Role = record.Role;
                 db.Entry(_dbRecord).Entity.ContactNumber = record.ContactNumber;
@@ -113,7 +109,7 @@ namespace Accounting.DataLayer.Services
 
         #region Update Password By USER Method
 
-        async public Task<bool> UpdatePasswordByUser(string UserName,string NewPassword)
+        async public Task<bool> UpdatePasswordByUser(string UserName, string NewPassword)
         {
             return await Task.Run(() =>
             {
@@ -121,13 +117,13 @@ namespace Accounting.DataLayer.Services
                 //try
                 //{
 
-                    Registration _dbRecord = db.Registrations.Where(n => n.UserName == UserName).Select(n => n).First();
-                    db.Registrations.Attach(_dbRecord);
-                    db.Entry(_dbRecord).Entity.Password = NewPassword;
-                   
-                    //SAVE change
-                    db.SaveChanges();
-                    return true;
+                Registration _dbRecord = db.Registrations.Where(n => n.UserName == UserName).Select(n => n).First();
+                db.Registrations.Attach(_dbRecord);
+                db.Entry(_dbRecord).Entity.Password = NewPassword;
+
+                //SAVE change
+                db.SaveChanges();
+                return true;
                 //}
                 //catch
                 //{

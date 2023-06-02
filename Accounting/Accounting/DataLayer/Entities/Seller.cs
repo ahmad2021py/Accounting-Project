@@ -1,11 +1,13 @@
-﻿
-using Accounting.DataLayer.Interfaces;
+﻿using Accounting.DataLayer.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Accounting.DataLayer.Entities
 {
-    [Table("Customers")] // this attribute is name of table 
-    public class Customer : IBaseDbSet
+
+
+    [Table("Sellers")] // this attribute is name of table 
+    public class Seller : IBaseDbSet
     {
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
@@ -13,7 +15,7 @@ namespace Accounting.DataLayer.Entities
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key] // set this Column Primary Key
-        public long NationalCode { get; set; } //There is no need for the Customer Code column because the national code is unique .
+        public long NationalCode { get; set; } //There is no need for the Seller Code column because the national code is unique .
         [Required]
         [MaxLength(20)]
         public string Name { get; set; }
@@ -35,5 +37,11 @@ namespace Accounting.DataLayer.Entities
         public decimal debtor { get; set; }
         public decimal creditor { get; set; }
 
+
+
+
+
+
+        //---------------------------
     }
 }

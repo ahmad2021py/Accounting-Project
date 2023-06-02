@@ -1,16 +1,10 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using AccountingDLL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -47,19 +41,19 @@ namespace Accounting.GUI.Forms
             }
 
         }
-     
+
         private void frmLoginDetails_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
-     
-      
 
-        
 
-    
-      
+
+
+
+
+
 
         private void frmUserReords_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -68,7 +62,7 @@ namespace Accounting.GUI.Forms
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             _Role = DGV1.Rows[e.RowIndex].Cells["Role"].Value.ToString();
             _UserCode = DGV1.Rows[e.RowIndex].Cells["UserCode"].Value.ToString();
             _UserName = DGV1.Rows[e.RowIndex].Cells["UserName"].Value.ToString();
@@ -77,7 +71,7 @@ namespace Accounting.GUI.Forms
             this.DialogResult = DialogResult.OK;
         }
 
-       async private void txtUserID_TextChanged(object sender, EventArgs e)
+        async private void txtUserID_TextChanged(object sender, EventArgs e)
         {
             if (txtUserCode.Text == "")
             {
@@ -105,9 +99,9 @@ namespace Accounting.GUI.Forms
 
         }
 
-     
 
-      async  private void txtUserName_TextChanged(object sender, EventArgs e)
+
+        async private void txtUserName_TextChanged(object sender, EventArgs e)
         {
             if (txtRole.Text == "")
             {
@@ -126,7 +120,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-       async private void txtRole_TextChanged(object sender, EventArgs e)
+        async private void txtRole_TextChanged(object sender, EventArgs e)
         {
             if (txtRole.Text == "")
             {

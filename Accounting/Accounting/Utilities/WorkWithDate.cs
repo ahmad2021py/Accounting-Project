@@ -1,8 +1,6 @@
 ﻿
 using System;
 using System.Globalization;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Accounting.Utilities
@@ -65,7 +63,7 @@ namespace Accounting.Utilities
 
 
 
-        public  string GetShamsiDayNameByMiladiDate(DateTime dateTime)
+        public string GetShamsiDayNameByMiladiDate(DateTime dateTime)
         {
 
             string ShamsiDay;

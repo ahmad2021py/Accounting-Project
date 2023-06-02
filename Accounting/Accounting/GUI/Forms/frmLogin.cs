@@ -1,18 +1,10 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using AccountingDLL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Accounting.GUI.Forms
 {
@@ -29,36 +21,36 @@ namespace Accounting.GUI.Forms
 
             frmMainMenu frm = new frmMainMenu();
 
-           
+
             //frm.lblUser.Text = cbRole.Text;
             //frm.toolStripStatusLabel3.Text = UserTemp.UserName;
             WorkWithGlobalVariables.LoginedUserName = UserTemp.UserName;
             WorkWithGlobalVariables.LoginedUserRole = cbRole.Text;
             WorkWithDate workWithDate = new WorkWithDate();
-            WorkWithGlobalVariables.LoginedUserTime =  workWithDate.MiladiToShamsi(DateTime.Now);
-            WorkWithGlobalVariables.LoginedUserTime = WorkWithGlobalVariables.LoginedUserTime +" ساعت :  "+ DateTime.Now.Hour+":"+ DateTime.Now.Minute +":"+ DateTime.Now.Second;
+            WorkWithGlobalVariables.LoginedUserTime = workWithDate.MiladiToShamsi(DateTime.Now);
+            WorkWithGlobalVariables.LoginedUserTime = WorkWithGlobalVariables.LoginedUserTime + " ساعت :  " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
 
             if (cbRole.Text == "Manager")
             {
                 //Hide btnRegistration 
-       
-              
+
+
                 // Hide btnUsers
-           
+
             }
             else if (cbRole.Text == "Employee")
             {
                 //Hide btnRegistration 
-          
-     
+
+
                 // Hide btnUsers
-             
+
                 //  frm.btnModify.Enabled = false;
                 // btnInvoiceRpt.Enabled = false;
                 //  frm.butonInvoice.Enabled = false;
                 // frm.btnInvoice.Enabled = false;
             }
-           
+
             frm.Show();
             this.Hide();
         }
@@ -78,12 +70,12 @@ namespace Accounting.GUI.Forms
             txtUserName.Focus();
         }
 
-       
 
-       
-       
 
-    
+
+
+
+
 
 
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
@@ -96,7 +88,7 @@ namespace Accounting.GUI.Forms
             Application.Exit();
         }
 
-     async   private void btnOK_Click(object sender, EventArgs e)
+        async private void btnOK_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
 
@@ -150,7 +142,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-   
+
 
         private void linklblRecoveryPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

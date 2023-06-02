@@ -1,16 +1,9 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using AccountingDLL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -23,13 +16,13 @@ namespace Accounting.GUI.Forms
         {
             InitializeComponent();
             _user = new User();
-         
+
 
         }
 
 
 
-       void  reset()
+        void reset()
         {
             txtNewPass.Text = "";
             txtOldPass.Text = "";
@@ -39,7 +32,7 @@ namespace Accounting.GUI.Forms
 
 
         }
-            private async void btnOK_Click(object sender, EventArgs e)
+        private async void btnOK_Click(object sender, EventArgs e)
         {
             if (
 
@@ -109,9 +102,9 @@ namespace Accounting.GUI.Forms
             this.DialogResult = DialogResult.OK;
         }
 
-    
 
-       
+
+
 
 
 

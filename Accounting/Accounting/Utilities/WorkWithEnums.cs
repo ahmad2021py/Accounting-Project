@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Accounting.Utilities
 {
-  public static  class WorkWithEnums
+    public static class WorkWithEnums
     {
 
 
-       public enum IranStates
+        public enum IranStates
         {
             آذربایجان_شرقی,
             آذربایجان_غربی,
@@ -73,10 +73,10 @@ namespace Accounting.Utilities
 
 
 
-            //---End Block of Class And Namespace------------------------
+        //---End Block of Class And Namespace------------------------
 
 
-        }
+    }
 
 
 }

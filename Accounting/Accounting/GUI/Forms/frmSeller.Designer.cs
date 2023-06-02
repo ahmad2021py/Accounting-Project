@@ -1,7 +1,7 @@
 ﻿
 namespace Accounting.GUI.Forms
 {
-    partial class frmCustomer
+    partial class frmSeller
     {
         /// <summary>
         /// Required designer variable.
@@ -29,18 +29,17 @@ namespace Accounting.GUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomer));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtcreditor = new System.Windows.Forms.TextBox();
             this.txtdebtor = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtCustomerEmail = new System.Windows.Forms.TextBox();
-            this.txtCustomerAddress = new System.Windows.Forms.TextBox();
-            this.txtCustomerZipCode = new System.Windows.Forms.TextBox();
-            this.txtCustomerCity = new System.Windows.Forms.TextBox();
-            this.txtCustomerPhone = new System.Windows.Forms.TextBox();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.txtSellerEmail = new System.Windows.Forms.TextBox();
+            this.txtSellerAddress = new System.Windows.Forms.TextBox();
+            this.txtSellerZipCode = new System.Windows.Forms.TextBox();
+            this.txtSellerCity = new System.Windows.Forms.TextBox();
+            this.txtSellerPhone = new System.Windows.Forms.TextBox();
+            this.txtSellerName = new System.Windows.Forms.TextBox();
             this.txtNationalCode = new System.Windows.Forms.TextBox();
             this.cbStates = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,7 +48,7 @@ namespace Accounting.GUI.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnShowfmCustomerRecords = new System.Windows.Forms.Button();
+            this.btnShowfmSallerRecords = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,12 +67,12 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.txtdebtor);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtCustomerEmail);
-            this.groupBox1.Controls.Add(this.txtCustomerAddress);
-            this.groupBox1.Controls.Add(this.txtCustomerZipCode);
-            this.groupBox1.Controls.Add(this.txtCustomerCity);
-            this.groupBox1.Controls.Add(this.txtCustomerPhone);
-            this.groupBox1.Controls.Add(this.txtCustomerName);
+            this.groupBox1.Controls.Add(this.txtSellerEmail);
+            this.groupBox1.Controls.Add(this.txtSellerAddress);
+            this.groupBox1.Controls.Add(this.txtSellerZipCode);
+            this.groupBox1.Controls.Add(this.txtSellerCity);
+            this.groupBox1.Controls.Add(this.txtSellerPhone);
+            this.groupBox1.Controls.Add(this.txtSellerName);
             this.groupBox1.Controls.Add(this.txtNationalCode);
             this.groupBox1.Controls.Add(this.cbStates);
             this.groupBox1.Controls.Add(this.label3);
@@ -86,13 +85,13 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.PasswordLabel);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(27, 9);
+            this.groupBox1.Location = new System.Drawing.Point(17, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox1.Size = new System.Drawing.Size(984, 497);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ویرایش و ثبت مشتری ";
+            this.groupBox1.Text = "ویرایش و ثبت فروشنده";
             // 
             // txtcreditor
             // 
@@ -134,53 +133,53 @@ namespace Accounting.GUI.Forms
             this.label8.Text = "بدهکار : ";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtCustomerEmail
+            // txtSellerEmail
             // 
-            this.txtCustomerEmail.Location = new System.Drawing.Point(628, 168);
-            this.txtCustomerEmail.Multiline = true;
-            this.txtCustomerEmail.Name = "txtCustomerEmail";
-            this.txtCustomerEmail.Size = new System.Drawing.Size(232, 28);
-            this.txtCustomerEmail.TabIndex = 4;
+            this.txtSellerEmail.Location = new System.Drawing.Point(628, 168);
+            this.txtSellerEmail.Multiline = true;
+            this.txtSellerEmail.Name = "txtSellerEmail";
+            this.txtSellerEmail.Size = new System.Drawing.Size(232, 28);
+            this.txtSellerEmail.TabIndex = 4;
             // 
-            // txtCustomerAddress
+            // txtSellerAddress
             // 
-            this.txtCustomerAddress.Location = new System.Drawing.Point(550, 364);
-            this.txtCustomerAddress.Multiline = true;
-            this.txtCustomerAddress.Name = "txtCustomerAddress";
-            this.txtCustomerAddress.Size = new System.Drawing.Size(310, 103);
-            this.txtCustomerAddress.TabIndex = 8;
+            this.txtSellerAddress.Location = new System.Drawing.Point(550, 364);
+            this.txtSellerAddress.Multiline = true;
+            this.txtSellerAddress.Name = "txtSellerAddress";
+            this.txtSellerAddress.Size = new System.Drawing.Size(310, 103);
+            this.txtSellerAddress.TabIndex = 8;
             // 
-            // txtCustomerZipCode
+            // txtSellerZipCode
             // 
-            this.txtCustomerZipCode.Location = new System.Drawing.Point(628, 317);
-            this.txtCustomerZipCode.Multiline = true;
-            this.txtCustomerZipCode.Name = "txtCustomerZipCode";
-            this.txtCustomerZipCode.Size = new System.Drawing.Size(232, 28);
-            this.txtCustomerZipCode.TabIndex = 7;
+            this.txtSellerZipCode.Location = new System.Drawing.Point(628, 317);
+            this.txtSellerZipCode.Multiline = true;
+            this.txtSellerZipCode.Name = "txtSellerZipCode";
+            this.txtSellerZipCode.Size = new System.Drawing.Size(232, 28);
+            this.txtSellerZipCode.TabIndex = 7;
             // 
-            // txtCustomerCity
+            // txtSellerCity
             // 
-            this.txtCustomerCity.Location = new System.Drawing.Point(626, 264);
-            this.txtCustomerCity.Multiline = true;
-            this.txtCustomerCity.Name = "txtCustomerCity";
-            this.txtCustomerCity.Size = new System.Drawing.Size(232, 28);
-            this.txtCustomerCity.TabIndex = 6;
+            this.txtSellerCity.Location = new System.Drawing.Point(626, 264);
+            this.txtSellerCity.Multiline = true;
+            this.txtSellerCity.Name = "txtSellerCity";
+            this.txtSellerCity.Size = new System.Drawing.Size(232, 28);
+            this.txtSellerCity.TabIndex = 6;
             // 
-            // txtCustomerPhone
+            // txtSellerPhone
             // 
-            this.txtCustomerPhone.Location = new System.Drawing.Point(628, 116);
-            this.txtCustomerPhone.Multiline = true;
-            this.txtCustomerPhone.Name = "txtCustomerPhone";
-            this.txtCustomerPhone.Size = new System.Drawing.Size(232, 28);
-            this.txtCustomerPhone.TabIndex = 3;
+            this.txtSellerPhone.Location = new System.Drawing.Point(628, 116);
+            this.txtSellerPhone.Multiline = true;
+            this.txtSellerPhone.Name = "txtSellerPhone";
+            this.txtSellerPhone.Size = new System.Drawing.Size(232, 28);
+            this.txtSellerPhone.TabIndex = 3;
             // 
-            // txtCustomerName
+            // txtSellerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(626, 69);
-            this.txtCustomerName.Multiline = true;
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(232, 28);
-            this.txtCustomerName.TabIndex = 2;
+            this.txtSellerName.Location = new System.Drawing.Point(626, 69);
+            this.txtSellerName.Multiline = true;
+            this.txtSellerName.Name = "txtSellerName";
+            this.txtSellerName.Size = new System.Drawing.Size(232, 28);
+            this.txtSellerName.TabIndex = 2;
             // 
             // txtNationalCode
             // 
@@ -189,7 +188,6 @@ namespace Accounting.GUI.Forms
             this.txtNationalCode.Name = "txtNationalCode";
             this.txtNationalCode.Size = new System.Drawing.Size(232, 28);
             this.txtNationalCode.TabIndex = 1;
-            this.txtNationalCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNationalCode_KeyPress);
             // 
             // cbStates
             // 
@@ -217,7 +215,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.Controls.Add(this.btnSave);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnUpdate);
-            this.groupBox2.Controls.Add(this.btnShowfmCustomerRecords);
+            this.groupBox2.Controls.Add(this.btnShowfmSallerRecords);
             this.groupBox2.Location = new System.Drawing.Point(21, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(127, 387);
@@ -264,15 +262,15 @@ namespace Accounting.GUI.Forms
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnShowfmCustomerRecords
+            // btnShowfmSallerRecords
             // 
-            this.btnShowfmCustomerRecords.Location = new System.Drawing.Point(15, 303);
-            this.btnShowfmCustomerRecords.Name = "btnShowfmCustomerRecords";
-            this.btnShowfmCustomerRecords.Size = new System.Drawing.Size(97, 54);
-            this.btnShowfmCustomerRecords.TabIndex = 15;
-            this.btnShowfmCustomerRecords.Text = "لیست مشتریان";
-            this.btnShowfmCustomerRecords.UseVisualStyleBackColor = true;
-            this.btnShowfmCustomerRecords.Click += new System.EventHandler(this.btnShowfmCustomerRecords_Click);
+            this.btnShowfmSallerRecords.Location = new System.Drawing.Point(15, 303);
+            this.btnShowfmSallerRecords.Name = "btnShowfmSallerRecords";
+            this.btnShowfmSallerRecords.Size = new System.Drawing.Size(97, 54);
+            this.btnShowfmSallerRecords.TabIndex = 15;
+            this.btnShowfmSallerRecords.Text = "لیست فروشندگان";
+            this.btnShowfmSallerRecords.UseVisualStyleBackColor = true;
+            this.btnShowfmSallerRecords.Click += new System.EventHandler(this.btnShowfmSallerRecords_Click);
             // 
             // label7
             // 
@@ -355,24 +353,20 @@ namespace Accounting.GUI.Forms
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(103, 28);
             this.PasswordLabel.TabIndex = 78;
-            this.PasswordLabel.Text = "نام مشتری :";
+            this.PasswordLabel.Text = "نام فروشنده : ";
             this.PasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // frmCustomer
+            // frmSeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 516);
+            this.ClientSize = new System.Drawing.Size(1020, 546);
             this.Controls.Add(this.groupBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmCustomer";
+            this.Name = "frmSeller";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "مشتری";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomer_FormClosing);
-            this.Load += new System.EventHandler(this.frmCustomer_Load);
+            this.Text = "فروشنده";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -384,31 +378,31 @@ namespace Accounting.GUI.Forms
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        internal System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        internal System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.Label label2;
-        internal System.Windows.Forms.Label PasswordLabel;
-        internal System.Windows.Forms.Label label5;
-        internal System.Windows.Forms.Label label4;
-        internal System.Windows.Forms.Label label7;
-        internal System.Windows.Forms.Label label6;
-        public System.Windows.Forms.ComboBox cbStates;
-        private System.Windows.Forms.TextBox txtNationalCode;
-        private System.Windows.Forms.TextBox txtCustomerPhone;
-        private System.Windows.Forms.TextBox txtCustomerName;
-        private System.Windows.Forms.TextBox txtCustomerEmail;
-        private System.Windows.Forms.TextBox txtCustomerZipCode;
-        private System.Windows.Forms.TextBox txtCustomerCity;
-        private System.Windows.Forms.TextBox txtCustomerAddress;
-        private System.Windows.Forms.Button btnShowfmCustomerRecords;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.TextBox txtcreditor;
         private System.Windows.Forms.TextBox txtdebtor;
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtSellerEmail;
+        private System.Windows.Forms.TextBox txtSellerAddress;
+        private System.Windows.Forms.TextBox txtSellerZipCode;
+        private System.Windows.Forms.TextBox txtSellerCity;
+        private System.Windows.Forms.TextBox txtSellerPhone;
+        private System.Windows.Forms.TextBox txtSellerName;
+        private System.Windows.Forms.TextBox txtNationalCode;
+        public System.Windows.Forms.ComboBox cbStates;
+        internal System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnShowfmSallerRecords;
+        internal System.Windows.Forms.Label label7;
+        internal System.Windows.Forms.Label label6;
+        internal System.Windows.Forms.Label label5;
+        internal System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.Label label2;
+        internal System.Windows.Forms.Label PasswordLabel;
     }
 }

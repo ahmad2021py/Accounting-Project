@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Accounting.Utilities
+﻿namespace Accounting.Utilities
 {
-  public static class WorkWithStrings
+    public static class WorkWithStrings
     {
 
 
@@ -46,12 +40,12 @@ namespace Accounting.Utilities
 
             }
             return true;
-            
+
         }
 
         public static bool TextToDecimalVlaidation(string str)
         {
-           
+
             decimal value;
             bool result = decimal.TryParse(str, out value);
             if (!result)
@@ -105,7 +99,7 @@ namespace Accounting.Utilities
 
 
 
-    
+
 
 
 

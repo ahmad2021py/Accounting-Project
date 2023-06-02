@@ -40,6 +40,7 @@ namespace Accounting.GUI.Forms
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtBuyPrice = new System.Windows.Forms.TextBox();
             this.txtProductQuantity = new System.Windows.Forms.TextBox();
             this.btnShowFrmStockRecords = new System.Windows.Forms.Button();
             this.btnShowFrmProduct = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace Accounting.GUI.Forms
             this.txtProductCode = new System.Windows.Forms.TextBox();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +58,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(999, 255);
+            this.label2.Location = new System.Drawing.Point(934, 313);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 28);
@@ -73,7 +75,7 @@ namespace Accounting.GUI.Forms
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(177, 28);
             this.label28.TabIndex = 78;
-            this.label28.Text = "افزایش یا کاهش تعداد : ";
+            this.label28.Text = "تعداد موجودی : ";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -96,6 +98,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtDescription);
+            this.groupBox1.Controls.Add(this.txtBuyPrice);
             this.groupBox1.Controls.Add(this.txtProductQuantity);
             this.groupBox1.Controls.Add(this.btnShowFrmStockRecords);
             this.groupBox1.Controls.Add(this.btnShowFrmProduct);
@@ -106,6 +109,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
@@ -115,7 +119,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Size = new System.Drawing.Size(1178, 625);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "موجودی";
+            this.groupBox1.Text = "ویرایش کالاهای انباری";
             // 
             // btnNew
             // 
@@ -149,21 +153,31 @@ namespace Accounting.GUI.Forms
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(1021, 523);
+            this.btnSave.Location = new System.Drawing.Point(826, 314);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(92, 49);
             this.btnSave.TabIndex = 99;
             this.btnSave.Text = "ذخیره";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(625, 296);
+            this.txtDescription.Location = new System.Drawing.Point(569, 344);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(468, 146);
             this.txtDescription.TabIndex = 98;
+            // 
+            // txtBuyPrice
+            // 
+            this.txtBuyPrice.Location = new System.Drawing.Point(661, 253);
+            this.txtBuyPrice.Multiline = true;
+            this.txtBuyPrice.Name = "txtBuyPrice";
+            this.txtBuyPrice.Size = new System.Drawing.Size(275, 42);
+            this.txtBuyPrice.TabIndex = 98;
+            this.txtBuyPrice.TextChanged += new System.EventHandler(this.txtProductQuantity_TextChanged_1);
             // 
             // txtProductQuantity
             // 
@@ -246,6 +260,18 @@ namespace Accounting.GUI.Forms
             this.label4.Text = "کد انباری : ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(965, 253);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(189, 28);
+            this.label1.TabIndex = 78;
+            this.label1.Text = "قیمت خرید (هر واحد) : ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -299,5 +325,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtStockCode;
         internal System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtBuyPrice;
+        internal System.Windows.Forms.Label label1;
     }
 }

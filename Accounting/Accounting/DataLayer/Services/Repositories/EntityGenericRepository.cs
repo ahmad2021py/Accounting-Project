@@ -1,16 +1,15 @@
 ﻿using Accounting.DataLayer.Context;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Accounting.DataLayer.Services
+namespace Accounting.DataLayer.Services.Repositories
 {
-    public class EntityGenericRepository<T> : IEntityGenericRepository 
+    public class EntityGenericRepository<T> : IEntityGenericRepository
     {
         //------------Fields----------------
 
@@ -30,7 +29,7 @@ namespace Accounting.DataLayer.Services
         #endregion
 
 
-      
+
 
 
         #region GetEntity Generic-Method
@@ -41,9 +40,9 @@ namespace Accounting.DataLayer.Services
             {
                 T item = null;
 
-            item = db.Set<T>().FirstOrDefault(predicate);
+                item = db.Set<T>().FirstOrDefault(predicate);
 
-            return item;
+                return item;
             });
         }
 
@@ -57,7 +56,7 @@ namespace Accounting.DataLayer.Services
             {
 
                 IQueryable<TEntity> data = db.Set<TEntity>();
-            return data.Any(predicate);
+                return data.Any(predicate);
             });
 
         }
@@ -68,17 +67,17 @@ namespace Accounting.DataLayer.Services
         public async Task<bool> Add<T>(T newItem) where T : class
         {
             return await Task.Run(() =>
-            { 
+            {
 
-            //try
-            //{
+                //try
+                //{
                 db.Set<T>().Add(newItem);
                 return true;
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
+                //}
+                //catch
+                //{
+                //    return false;
+                //}
             });
         }
 
@@ -88,7 +87,7 @@ namespace Accounting.DataLayer.Services
 
         public async Task<IEnumerable<T>> GetAll<T>(Expression<Func<T, bool>> predicate) where T : class
         {
-           
+
 
             return await Task.Run(() =>
             {
@@ -121,14 +120,14 @@ namespace Accounting.DataLayer.Services
             {
                 //try
                 //{
-                    var entity = db.Set<TDelete>().Where(expression).FirstOrDefault();
-                    if (db.Entry<TDelete>(entity).State == EntityState.Detached)
-                    {
-                        db.Set<TDelete>().Attach(entity);
-                    }
+                var entity = db.Set<TDelete>().Where(expression).FirstOrDefault();
+                if (db.Entry<TDelete>(entity).State == EntityState.Detached)
+                {
+                    db.Set<TDelete>().Attach(entity);
+                }
 
-                    db.Set<TDelete>().Remove(entity);
-                    return true;
+                db.Set<TDelete>().Remove(entity);
+                return true;
                 //}
                 //catch
                 //{
@@ -147,19 +146,19 @@ namespace Accounting.DataLayer.Services
         {
             return await Task.Run(() =>
             {
-            //    try
-            //{
+                //    try
+                //{
                 var dbRecord = db.Set<T>().FirstOrDefault(currentEntityFilter);
                 db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
 
                 return true;
-            //}
+                //}
 
-            //catch
-            //{
-            //    return false;
-            //}
+                //catch
+                //{
+                //    return false;
+                //}
             });
 
         }

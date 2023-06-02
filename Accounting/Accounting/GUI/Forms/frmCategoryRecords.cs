@@ -1,16 +1,10 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using AccountingDLL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -32,7 +26,8 @@ namespace Accounting.GUI.Forms
                 IEnumerable<Category> IenamrableCategoryDbRecords = await _CategoryRepository.GetAll<Category>(n => n == n);
                 DGV1.DataSource = IenamrableCategoryDbRecords;
 
-                DGV1.Columns["id"].HeaderText = " کد دسته";
+                DGV1.Columns["Row"].HeaderText = " ردیف";
+                DGV1.Columns["CategoryCode"].HeaderText = " کد دسته";
                 DGV1.Columns["CategoryName"].HeaderText = " نام دسنه";
                 //----------------------------------
 

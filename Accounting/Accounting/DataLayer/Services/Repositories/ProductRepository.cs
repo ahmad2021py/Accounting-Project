@@ -1,15 +1,12 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Accounting.DataLayer.Services
+namespace Accounting.DataLayer.Services.Repositories
 {
     public class ProductRepository : EntityGenericRepository<Product>, IProductRepository, IEntityGenericRepository
     {
@@ -31,24 +28,24 @@ namespace Accounting.DataLayer.Services
 
 
         #region Update Generic-Method
-       async public Task<bool> UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter) 
+        async public Task<bool> UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter)
 
         {
             return await Task.Run(() =>
             {
-            //    try
-            //{
+                //    try
+                //{
                 var dbRecord = db.Set<Product>().FirstOrDefault(currentEntityFilter);
                 Obj.Row = dbRecord.Row;
                 db.Entry(dbRecord).CurrentValues.SetValues(Obj);
-                 
-                return true;
-            //}
 
-            //catch
-            //{
-            //    return false;
-            //}
+                return true;
+                //}
+
+                //catch
+                //{
+                //    return false;
+                //}
             });
 
         }

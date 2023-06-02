@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Accounting.DataLayer.Interfaces.IRepositories
+﻿namespace Accounting.DataLayer.Interfaces.IRepositories
 {
-   public interface IInvoiceRepository : IEntityGenericRepository
+    public interface IInvoiceRepository : IEntityGenericRepository
     {
     }
 }

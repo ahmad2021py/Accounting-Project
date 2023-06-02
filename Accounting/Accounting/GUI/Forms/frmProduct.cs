@@ -1,17 +1,9 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using Accounting.DataLayer.Services;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -34,25 +26,25 @@ namespace Accounting.GUI.Forms
             //{
 
 
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
+                ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
+
+                var CompanyDbList = await _CompanyRepository.GetAll<Company>(n => n == n);
+                var CategoryDbList = await _CategoryRepository.GetAll<Category>(n => n == n);
+                foreach (var n in CompanyDbList)
                 {
-                    ICompanyRepository _CompanyRepository = _UnitOfWork.CompanyRepository;
-                    ICategoryRepository _CategoryRepository = _UnitOfWork.CategoryRepository;
-                   
-                        var CompanyDbList = await _CompanyRepository.GetAll<Company>(n => n == n);
-                        var CategoryDbList = await _CategoryRepository.GetAll<Category>(n => n == n);
-                        foreach (var n in CompanyDbList)
-                        {
-                            cbCompany.Items.Add(n.CompanyName);
-                        }
-
-                        foreach (var n in CategoryDbList)
-                        {
-                            cbCategory.Items.Add(n.CategoryName);
-                        }
-
-                   
+                    cbCompany.Items.Add(n.CompanyName);
                 }
+
+                foreach (var n in CategoryDbList)
+                {
+                    cbCategory.Items.Add(n.CategoryName);
+                }
+
+
+            }
 
 
 
@@ -66,7 +58,7 @@ namespace Accounting.GUI.Forms
         }
         private void Reset()
         {
-          
+
             txtPrice.Text = "";
             txtFeatures.Text = "";
             txtProductCode.Text = "";
@@ -80,6 +72,55 @@ namespace Accounting.GUI.Forms
             txtProductName.Focus();
         }
 
+
+
+        private bool Validations()
+
+        {
+
+
+
+            if (!WorkWithStrings.TextToDecimalVlaidation(txtPrice.Text))
+            {
+                // MessageBox.Show("تعداد نامعتبر");
+                return false;
+            }
+            else if (!WorkWithStrings.TextToDecimalVlaidation(txtPrice.Text))
+            {
+
+                // MessageBox.Show("قیمت نامعتبر");
+                return false;
+
+
+            }
+
+
+
+            return true;
+        }
+
+
+
+
+        private bool Validations(string productCode)
+
+        {
+
+
+
+            if (!WorkWithStrings.TextToDecimalVlaidation(productCode))
+            {
+                // MessageBox.Show("تعداد نامعتبر");
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+
+
         private bool IsNull()
         {
             if (
@@ -91,12 +132,12 @@ namespace Accounting.GUI.Forms
                   string.IsNullOrWhiteSpace(txtPrice.Text) ||
                   string.IsNullOrWhiteSpace(txtCountingUnit.Text) ||
                   string.IsNullOrWhiteSpace(cbCategory.Text) ||
-                  string.IsNullOrWhiteSpace(cbCompany.Text) 
+                  string.IsNullOrWhiteSpace(cbCompany.Text)
                   )
 
 
 
-               
+
 
                 return true;
             else
@@ -112,7 +153,7 @@ namespace Accounting.GUI.Forms
 
 
             productRecord.ProductCode = Convert.ToInt32(txtProductCode.Text);
-            productRecord.CountingUnit =txtCountingUnit.Text;
+            productRecord.CountingUnit = txtCountingUnit.Text;
             productRecord.ProductName = txtProductName.Text;
             productRecord.Price = Convert.ToDecimal(txtPrice.Text);
             productRecord.Company = cbCompany.Text;
@@ -130,7 +171,7 @@ namespace Accounting.GUI.Forms
             {
 
 
-               
+
                 txtProductName.Text = dbProductRecord.ProductName;
                 txtPrice.Text = dbProductRecord.Price.ToString();
                 cbCompany.Text = dbProductRecord.Company;
@@ -161,44 +202,51 @@ namespace Accounting.GUI.Forms
 
 
 
-       async private void btnUpdate_Click(object sender, EventArgs e)
+        async private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (IsNull())
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-          
 
-                    using (UnitOfWork _unitOfWork = new UnitOfWork())
-                    {
-                     
-                        IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
-                 
-                        Product Instance = new Product();
-                        Instance = Fill__ProductRecord(Instance);
-                        int ProductCode = Convert.ToInt32(txtProductCode.Text);
-                    
-                        bool UpdateProductResult = await _ProductRepository.UpdateProduct(Instance, n => n.ProductCode == Instance.ProductCode);
-                        if (UpdateProductResult)
-                        {
-                           
-                            MessageBox.Show("رکورد با موفقیت  بروز شد");
-                      
-                            _unitOfWork.Save();
-                        
-                            Reset();
-                        }
-                        else
-                        {
-                   
-                            MessageBox.Show("خطایی رخ داده است");
-                     
-                            return;
-                        }
 
-                    }
-              
+            if (!Validations())
+            {
+                MessageBox.Show("مقادیر ورودی نامعتر");
+                return;
+
+            }
+
+            using (UnitOfWork _unitOfWork = new UnitOfWork())
+            {
+
+                IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
+
+                Product Instance = new Product();
+                Instance = Fill__ProductRecord(Instance);
+                int ProductCode = Convert.ToInt32(txtProductCode.Text);
+
+                bool UpdateProductResult = await _ProductRepository.UpdateProduct(Instance, n => n.ProductCode == Instance.ProductCode);
+                if (UpdateProductResult)
+                {
+
+                    MessageBox.Show("رکورد با موفقیت  بروز شد");
+
+                    _unitOfWork.Save();
+
+                    Reset();
+                }
+                else
+                {
+
+                    MessageBox.Show("خطایی رخ داده است");
+
+                    return;
+                }
+
+            }
+
             //}
             //catch
             //{
@@ -209,8 +257,8 @@ namespace Accounting.GUI.Forms
             //}
         }
 
-       
-   
+
+
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -219,20 +267,20 @@ namespace Accounting.GUI.Forms
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
-             Reset();
+            Reset();
             FillCombo();
             txtProductName.Focus();
         }
 
         private async void btnGetDetails_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtProductCode.Text)|| string.IsNullOrWhiteSpace(txtProductCode.Text))
+            if (string.IsNullOrEmpty(txtProductCode.Text) || string.IsNullOrWhiteSpace(txtProductCode.Text))
             {
                 MessageBox.Show("ورودی نامعتبر");
                 return;
             }
-                
-                using (UnitOfWork _unitOfWork = new UnitOfWork())
+
+            using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
 
                 IProductRepository _ProductRepository = _unitOfWork.ProductRepository;
@@ -266,7 +314,7 @@ namespace Accounting.GUI.Forms
             }
 
 
-          
+
 
         }
 
@@ -306,7 +354,7 @@ namespace Accounting.GUI.Forms
             this.DialogResult = DialogResult.OK;
         }
 
-      async  private void btnSave_Click(object sender, EventArgs e)
+        async private void btnSave_Click(object sender, EventArgs e)
         {
             if (IsNull())
             {
@@ -315,51 +363,57 @@ namespace Accounting.GUI.Forms
             }
             //try
             //{
+            if (!Validations())
+            {
+                MessageBox.Show("مقادیر ورودی نامعتر");
+                return;
+
+            }
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
 
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-               
-                    int productCode = Int32.Parse(txtProductCode.Text);
-                    bool Result = await _ProductRepository.IsExist<Product>(n => n.ProductCode == productCode);
 
-                    if (!Result)
+                int productCode = Int32.Parse(txtProductCode.Text);
+                bool Result = await _ProductRepository.IsExist<Product>(n => n.ProductCode == productCode);
+
+                if (!Result)
+                {
+
+                    Product ProductRecord = new Product();
+                    ProductRecord = Fill__ProductRecord(ProductRecord);
+
+                    bool AddResult = await _ProductRepository.Add<Product>(ProductRecord);
+                    if (AddResult)
                     {
 
-                        Product ProductRecord = new Product();
-                        ProductRecord = Fill__ProductRecord(ProductRecord);
+                        MessageBox.Show("رکورد با موفقیت ثبت شد");
 
-                        bool AddResult = await _ProductRepository.Add<Product>(ProductRecord);
-                        if (AddResult)
-                        {
+                        _UnitOfWork.Save();
 
-                            MessageBox.Show("رکورد با موفقیت ثبت شد");
+                        Reset();
 
-                            _UnitOfWork.Save();
-
-                            Reset();
-
-                        }
-                        else
-                        {
-
-                            MessageBox.Show("خطایی رخ داده است");
-
-                            return;
-                        }
                     }
                     else
                     {
 
-                        MessageBox.Show("این محصول از قبل وجود دارد");
+                        MessageBox.Show("خطایی رخ داده است");
 
-                        Reset();
                         return;
                     }
                 }
-             
-            
+                else
+                {
+
+                    MessageBox.Show("این محصول از قبل وجود دارد");
+
+                    Reset();
+                    return;
+                }
+            }
+
+
             //}
             //catch
             //{
@@ -370,12 +424,13 @@ namespace Accounting.GUI.Forms
             //}
         }
 
-      async  private void btnDelete_Click(object sender, EventArgs e)
+        async private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+            if (!Validations(txtProductCode.Text))
             {
-                MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("مقادیر ورودی نامعتر");
                 return;
+
             }
 
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)

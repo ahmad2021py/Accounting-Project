@@ -6,32 +6,28 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Services.Repositories
 {
-    public class CustomerRepository : EntityGenericRepository<Customer>, ICustomerRepository, IEntityGenericRepository
+    public class SellerRepository : EntityGenericRepository<Seller>, IEntityGenericRepository, ISellerRepository
     {
-        //------------Fields----------------
-        private Accounting_DbContext db;
-
-
-        //-------Methods--------------------------
-        #region constructor
-        public CustomerRepository(Accounting_DbContext context) : base(context)
+        Accounting_DbContext db;
+        public SellerRepository(Accounting_DbContext Context) : base(Context)
         {
-            db = context;
+            db = Context;
         }
 
 
-        #endregion
-        //------------
 
-
-        async public Task<bool> UpdateRecord(Customer record)
+        async public Task<bool> UpdateRecord(Seller record)
         {
             return await Task.Run(() =>
             {
 
 
-                Customer dbRecord = db.Customers.Where(n => n.NationalCode == record.NationalCode).Select(n => n).First();
-                db.Customers.Attach(dbRecord);
+                Seller dbRecord = db.Sellers.Where(n => n.NationalCode == record.NationalCode).Select(n => n).FirstOrDefault();
+                if (dbRecord == null)
+                {
+                    return false;
+                }
+                db.Sellers.Attach(dbRecord);
                 db.Entry(dbRecord).Entity.Name = record.Name;
                 db.Entry(dbRecord).Entity.NationalCode = record.NationalCode;
                 db.Entry(dbRecord).Entity.Phone = record.Phone;
@@ -42,8 +38,6 @@ namespace Accounting.DataLayer.Services.Repositories
                 db.Entry(dbRecord).Entity.State = record.State;
                 db.Entry(dbRecord).Entity.debtor = record.debtor;
                 db.Entry(dbRecord).Entity.creditor = record.creditor;
-
-
                 return true;
 
 
@@ -72,6 +66,13 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
 
-        //---End Block of Class And Namespace------------------------
+
+
+
+
+
+
+
+        //----------------------
     }
 }

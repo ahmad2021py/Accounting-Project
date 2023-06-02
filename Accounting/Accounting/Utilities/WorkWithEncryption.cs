@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Utilities
 {
     public static class WorkWithEncryption
     {
 
-        
+
         public static string EncryptPassword(string clearText)
         {
             string EncryptionKey = "`q`=<n:M#W]s%k?iwq";
@@ -55,7 +52,7 @@ namespace Accounting.Utilities
             }
             return cipherText;
         }
-       
+
     }
-    }
+}
 

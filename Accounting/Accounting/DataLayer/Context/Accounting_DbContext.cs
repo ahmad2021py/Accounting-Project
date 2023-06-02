@@ -1,13 +1,5 @@
 ﻿using Accounting.DataLayer.Entities;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Data.Linq;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Context
 {
@@ -15,13 +7,13 @@ namespace Accounting.DataLayer.Context
 
     {
 
-        
+
         public Accounting_DbContext() : base("name=AccountingConnectionString")
         {
 
 
-          
-          
+
+
 
 
         }
@@ -35,7 +27,8 @@ namespace Accounting.DataLayer.Context
         public virtual DbSet<Registration> Registrations { get; set; }
         public virtual DbSet<ProductSold> ProductSolds { get; set; }
         public virtual DbSet<Cheque> Cheques { get; set; }
-        public virtual DbSet<Invoice> invoice { get; set; }
+        public virtual DbSet<SellInvoice> invoices { get; set; }
+        public virtual DbSet<Seller> Sellers { get; set; }
 
 
 

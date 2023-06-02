@@ -1,14 +1,11 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Accounting.DataLayer.Services
+namespace Accounting.DataLayer.Services.Repositories
 {
 
     public class UserRepository : EntityGenericRepository<User>, IUserRepository, IEntityGenericRepository, IDisposable
@@ -80,7 +77,7 @@ namespace Accounting.DataLayer.Services
                 {
                     return false;
                 }
-                    db.Users.Attach(query);
+                db.Users.Attach(query);
                 db.Entry(query).Entity.UserName = user.UserName;
                 db.Entry(query).Entity.Password = user.Password;
 

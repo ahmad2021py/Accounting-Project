@@ -1,16 +1,10 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Accounting.DataLayer.Interfaces.IRepositories;
 
-namespace Accounting.DataLayer.Services
+namespace Accounting.DataLayer.Services.Repositories
 {
-   public class CategoryRepository:EntityGenericRepository<Category> ,ICategoryRepository,IEntityGenericRepository
+    public class CategoryRepository : EntityGenericRepository<Category>, ICategoryRepository, IEntityGenericRepository
     {
         //-----Fields-------------
         private Accounting_DbContext db;
@@ -26,9 +20,9 @@ namespace Accounting.DataLayer.Services
 
 
 
-    
 
-       
+
+
 
 
 

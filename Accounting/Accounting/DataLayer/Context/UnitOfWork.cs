@@ -1,26 +1,19 @@
-﻿using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using Accounting.DataLayer.Interfaces.IRepositories;
-using Accounting.DataLayer.Services;
+﻿using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.DataLayer.Services.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Context
 {
-  public  class UnitOfWork:IDisposable
+    public class UnitOfWork : IDisposable
     {
 
         //--------Fields--------------
-        Accounting_DbContext db = new Accounting_DbContext( );
+        Accounting_DbContext db = new Accounting_DbContext();
         public UnitOfWork()
         {
             //db.Configuration.LazyLoadingEnabled = false;
         }
-       
+
         private IUserRepository _userRepository;
         private IRegistrationRepository _RegistrationRepository;
         private ICompanyRepository _CompanyRepository;
@@ -30,6 +23,7 @@ namespace Accounting.DataLayer.Context
         private IStockRepository _stockRepository;
         private IProductSoldRepository _ProductSoldRepository;
         private IInvoiceRepository _InvoiceRepository;
+        private ISellerRepository _SellerRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -56,7 +50,7 @@ namespace Accounting.DataLayer.Context
                 return _RegistrationRepository;
             }
         }
-      
+
         public ICompanyRepository CompanyRepository
         {
             get
@@ -97,7 +91,7 @@ namespace Accounting.DataLayer.Context
         }
 
 
-       
+
 
 
         public ICustomerRepository CustomerRepository
@@ -160,6 +154,29 @@ namespace Accounting.DataLayer.Context
 
 
 
+
+        public ISellerRepository SellerRepository
+        {
+            get
+            {
+                if (_SellerRepository == null)
+                {
+                    _SellerRepository = new SellerRepository(db);
+                }
+
+                return _SellerRepository;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
         //---------Methods-----------------
         public void Save()
         {
@@ -194,15 +211,15 @@ namespace Accounting.DataLayer.Context
 
         public void Dispose()//if Using Method Not Use . I Could Call this Method to Dispose all Resources .   
         {
-         //   db.Dispose();
-         //   db = null;
-         ////   _userRepository.Dispose();
-         //   _userRepository = null;
-         //   _RegistrationRepository = null;
-         //   _CompanyRepository = null;
-         //   _CategoryRepository = null;
-         //   _ProductRepository = null;
-         //   _CustomerRepository = null;
+            //   db.Dispose();
+            //   db = null;
+            ////   _userRepository.Dispose();
+            //   _userRepository = null;
+            //   _RegistrationRepository = null;
+            //   _CompanyRepository = null;
+            //   _CategoryRepository = null;
+            //   _ProductRepository = null;
+            //   _CustomerRepository = null;
 
         }
 
@@ -235,4 +252,4 @@ namespace Accounting.DataLayer.Context
 
 
 
-    
+

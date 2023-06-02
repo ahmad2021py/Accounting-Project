@@ -43,11 +43,11 @@ namespace Accounting.GUI.Forms
             // DGV1
             // 
             this.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV1.Location = new System.Drawing.Point(337, 12);
+            this.DGV1.Location = new System.Drawing.Point(356, 12);
             this.DGV1.Name = "DGV1";
             this.DGV1.RowHeadersWidth = 51;
             this.DGV1.RowTemplate.Height = 24;
-            this.DGV1.Size = new System.Drawing.Size(430, 492);
+            this.DGV1.Size = new System.Drawing.Size(348, 492);
             this.DGV1.TabIndex = 0;
             // 
             // btnExport
@@ -108,7 +108,7 @@ namespace Accounting.GUI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 516);
+            this.ClientSize = new System.Drawing.Size(716, 516);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.DGV1);
             this.Controls.Add(this.groupBox2);

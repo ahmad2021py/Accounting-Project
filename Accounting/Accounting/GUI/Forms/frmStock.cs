@@ -1,16 +1,8 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
-using Accounting.DataLayer.Interfaces;
-using Accounting.DataLayer.Services;
+using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -26,14 +18,14 @@ namespace Accounting.GUI.Forms
         private void Reset()
         {
             //--textboxes
-           
+
             txtDescription.Text = "";
             txtProductCode.Text = "";
             txtProductQuantity.Text = "";
 
             bPersianCalenderTextBox1.Text = "";
             txtProductCode.Focus();
-           
+
 
 
 
@@ -42,13 +34,13 @@ namespace Accounting.GUI.Forms
         private bool IsNull()
         {
             if (
-            
+
                  string.IsNullOrEmpty(txtDescription.Text) ||
                  string.IsNullOrEmpty(txtProductCode.Text) ||
                  string.IsNullOrEmpty(txtProductQuantity.Text) ||
                  string.IsNullOrEmpty(txtStockCode.Text) ||
                  string.IsNullOrEmpty(bPersianCalenderTextBox1.Text) ||
-           
+
                  string.IsNullOrWhiteSpace(txtDescription.Text) ||
                  string.IsNullOrWhiteSpace(txtProductCode.Text) ||
                  string.IsNullOrWhiteSpace(txtProductQuantity.Text) ||
@@ -67,6 +59,47 @@ namespace Accounting.GUI.Forms
 
         }
 
+
+        private bool Validations()
+
+        {
+
+
+
+            if (!WorkWithStrings.TextToDecimalVlaidation(txtBuyPrice.Text))
+            {
+                // MessageBox.Show("تعداد نامعتبر");
+                return false;
+            }
+            else if (!WorkWithStrings.TextToIntVlaidation(txtProductCode.Text))
+            {
+
+                // MessageBox.Show("قیمت نامعتبر");
+                return false;
+
+
+            }
+
+            else if (!WorkWithStrings.TextToIntVlaidation(txtProductQuantity.Text))
+            {
+                // MessageBox.Show("میزان تخفیف نامعتبر");
+                return false;
+            }
+
+
+            else if (!WorkWithStrings.TextToIntVlaidation(this.txtStockCode.Text))
+            {
+                //  MessageBox.Show("بدهکاری نامعتبر");
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+
+
         private Stock Fill__StockRecord(Stock stockRecord)
         {
 
@@ -80,7 +113,7 @@ namespace Accounting.GUI.Forms
             stockRecord.FKProduct = int.Parse(txtProductCode.Text);
             stockRecord.Quantity = Convert.ToInt32(txtProductQuantity.Text);
 
-   
+
             stockRecord.Description = txtDescription.Text;
 
             return stockRecord;
@@ -97,12 +130,13 @@ namespace Accounting.GUI.Forms
             string ShamsiDate = bPersianCalenderTextBox1.Text;
             WorkWithDate workWithDate = new WorkWithDate();
             stockRecord.StockCode = Convert.ToInt32(txtStockCode.Text);
+            stockRecord.BuyPrice = Convert.ToInt32(txtBuyPrice.Text);
 
             stockRecord.StockDate = workWithDate.ShamsiToMiladi(ShamsiDate);
             stockRecord.FKProduct = int.Parse(txtProductCode.Text);
             stockRecord.Quantity = Convert.ToInt32(txtProductQuantity.Text);
 
-      
+
             stockRecord.Description = txtDescription.Text;
 
             return stockRecord;
@@ -110,7 +144,7 @@ namespace Accounting.GUI.Forms
 
 
         }
-      
+
 
 
 
@@ -132,7 +166,7 @@ namespace Accounting.GUI.Forms
 
                 formProductRecords.Close();
                 this.txtProductCode.Text = formProductRecords._ProductCode;
-           
+
                 formProductRecords = null;
 
 
@@ -154,6 +188,7 @@ namespace Accounting.GUI.Forms
                 this.txtProductCode.Text = frmStockRecords._FKProductId;
                 this.txtDescription.Text = frmStockRecords._Description;
                 this.txtProductQuantity.Text = frmStockRecords._Quantity;
+                this.txtBuyPrice.Text = frmStockRecords._BuyPrice;
                 this.bPersianCalenderTextBox1.Text = frmStockRecords._StockDate;
                 frmStockRecords = null;
 
@@ -163,15 +198,15 @@ namespace Accounting.GUI.Forms
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            
+
 
 
 
             bool IntVlaidationResult = WorkWithStrings.TextToIntVlaidation(txtProductCode.Text);
             bool IntVlaidationResult2 = WorkWithStrings.TextToIntVlaidation(txtProductQuantity.Text);
- 
 
-            if (!IntVlaidationResult || !IntVlaidationResult2 )
+
+            if (!IntVlaidationResult || !IntVlaidationResult2)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
                 txtProductCode.Text = "";
@@ -233,7 +268,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-      
+
 
         async private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -252,8 +287,16 @@ namespace Accounting.GUI.Forms
 
             }
 
-            
-                using (UnitOfWork _unitOfWork = new UnitOfWork())
+            if (!Validations())
+            {
+                MessageBox.Show("مقادیر ورودی نامعتر");
+                return;
+
+            }
+
+
+
+            using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
 
                 IStockRepository _StockRepository = _unitOfWork.StockRepository;
@@ -313,7 +356,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-    
+
 
 
         private void frmStock_FormClosing(object sender, FormClosingEventArgs e)

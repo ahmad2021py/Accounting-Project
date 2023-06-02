@@ -4,12 +4,6 @@ using Accounting.DataLayer.Interfaces.IRepositories;
 using AccountingDLL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -24,7 +18,7 @@ namespace Accounting.GUI.Forms
 
 
 
-       async void LoadData()
+        async void LoadData()
         {
 
 
@@ -37,8 +31,8 @@ namespace Accounting.GUI.Forms
                 IEnumerable<ProductSold> DbEnabrableRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n == n);
                 DGV1.DataSource = DbEnabrableRecords;
                 DGV1.Columns["ProductSoldTableCode"].HeaderText = " کد فروش";
-                DGV1.Columns["FKInvoice"].HeaderText = " کد فاکتور";
-                DGV1.Columns["Invoice"].Visible = false;
+                DGV1.Columns["FKSellInvoice"].HeaderText = " کد فاکتور";
+                DGV1.Columns["SellInvoice"].Visible = false;
 
 
 
@@ -51,7 +45,7 @@ namespace Accounting.GUI.Forms
 
 
 
-      async  private void txtProductSoldCode_TextChanged(object sender, EventArgs e)
+        async private void txtProductSoldCode_TextChanged(object sender, EventArgs e)
         {
             if (txtProductSoldCode.Text == "")
             {
@@ -63,8 +57,8 @@ namespace Accounting.GUI.Forms
             {
                 IProductSoldRepository _ProductSoldRepository = _UnitOfWork.ProductSoldRepository;
 
-                int ProductSoldCode =int.Parse(txtProductSoldCode.Text);
-                IEnumerable<ProductSold> IEnamrableProductSoldDbRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n.ProductSoldTableCode==ProductSoldCode);
+                int ProductSoldCode = int.Parse(txtProductSoldCode.Text);
+                IEnumerable<ProductSold> IEnamrableProductSoldDbRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n.ProductSoldTableCode == ProductSoldCode);
                 DGV1.DataSource = IEnamrableProductSoldDbRecords;
 
 
@@ -78,7 +72,7 @@ namespace Accounting.GUI.Forms
             LoadData();
         }
 
-       async private void txtFKInvoice_TextChanged(object sender, EventArgs e)
+        async private void txtFKInvoice_TextChanged(object sender, EventArgs e)
         {
             if (txtFKInvoice.Text == "")
             {

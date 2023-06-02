@@ -1,8 +1,5 @@
 ﻿using Accounting.GUI.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting
@@ -18,9 +15,9 @@ namespace Accounting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainMenu());
+            Application.Run(new frmLogin());
 
-            
+
         }
     }
 }
