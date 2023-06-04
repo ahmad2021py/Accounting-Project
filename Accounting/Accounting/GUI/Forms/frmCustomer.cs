@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -53,6 +54,64 @@ namespace Accounting.GUI.Forms
         }
 
 
+        private List<PropertyMap> Fill__PropertyMapList()
+        {
+            List<PropertyMap> CustomerPropertiesToUpdate = new List<PropertyMap>()
+            {
+                new PropertyMap()
+                {
+
+
+                    PropertyName="debtor"  ,
+                    PropertyValue=decimal.Parse(txtdebtor.Text)
+        }, 
+                new PropertyMap()
+                {
+                    PropertyName="creditor" ,
+                    PropertyValue=decimal.Parse(txtcreditor.Text)
+        },
+                new PropertyMap()
+                {
+
+                    PropertyName="Name" ,
+                    PropertyValue=txtCustomerName.Text
+        } ,
+                new PropertyMap()
+                {
+                    PropertyName="Phone" ,
+                    PropertyValue=txtCustomerPhone.Text
+                } ,
+                new PropertyMap()
+                {
+                    PropertyName="State" ,
+                    PropertyValue=cbStates.Text
+                } ,
+                new PropertyMap()
+                {
+                    PropertyName="ZipCode" , 
+                    PropertyValue=txtCustomerZipCode.Text
+                } ,
+                new PropertyMap()
+                {
+                    PropertyName="Email" ,
+                    PropertyValue=txtCustomerEmail.Text
+                },
+
+                new PropertyMap()
+                {
+                    PropertyName="City" ,
+                    PropertyValue=txtCustomerCity.Text
+                } ,
+                new PropertyMap()
+                {
+                    PropertyName="Address" ,
+                    PropertyValue= txtCustomerAddress.Text
+                }
+            };
+          
+            return CustomerPropertiesToUpdate;
+
+        }
 
 
 
@@ -151,9 +210,10 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
                 ICustomerRepository _customerRepository = _unitOfWork.CustomerRepository;
-                Customer Instance = new Customer();
-                Instance = Fill__CustomerRecord(Instance);
-                bool UpdateRecordResult = await _customerRepository.UpdateRecord(Instance);
+                long nationalCode = long.Parse(txtNationalCode.Text);
+              List<PropertyMap> CustomerPropertiesToUpdate = Fill__PropertyMapList();
+
+                bool UpdateRecordResult = await _customerRepository.UpdateMany<Customer>(n=>n.NationalCode== nationalCode, CustomerPropertiesToUpdate);
                 if (UpdateRecordResult)
                 {
                     MessageBox.Show("رکورد با موفقیت  بروز شد");

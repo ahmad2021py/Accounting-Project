@@ -27,28 +27,22 @@ namespace Accounting.DataLayer.Services.Repositories
         #endregion
 
 
-   
+
         async public Task<bool> UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter)
 
         {
             return await Task.Run(() =>
             {
-             
+
                 var dbRecord = db.Set<Product>().FirstOrDefault(currentEntityFilter);
                 Obj.Row = dbRecord.Row;
                 db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
                 return true;
-            
+
             });
 
         }
-
-
-
-
-
-
 
 
 

@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -101,7 +102,18 @@ namespace Accounting.GUI.Forms
                 //-----Update Quantity of Stock DbRecord ------
                 dbRecord.Quantity -= int.Parse(txtReturnFromBuy_Count.Text);
 
-                bool updateResult = await stockRepository.Update<Stock>(dbRecord ,n=>n.StockCode== stockCode );
+                List<PropertyMap> stockPropertyToUpdate = new List<PropertyMap>()
+                {
+
+                    new PropertyMap()
+                    {
+                        PropertyName="Quantity" ,
+                        PropertyValue=dbRecord.Quantity
+                    }
+
+                };
+
+                bool updateResult = await stockRepository.UpdateMany<Stock>(n => n.StockCode == stockCode, stockPropertyToUpdate);
                 if (!updateResult)
                 {
                     MessageBox.Show("خطایی در اپدیت رکورد رخ داده است");

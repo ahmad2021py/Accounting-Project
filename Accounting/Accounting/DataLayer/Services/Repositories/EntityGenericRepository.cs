@@ -1,5 +1,6 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Interfaces.IRepositories;
+using Accounting.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -28,13 +29,9 @@ namespace Accounting.DataLayer.Services.Repositories
         }
         #endregion
 
-
-
-
-
-       
-
         //-------WORKED----------------
+
+
         #region IsExist Generic-Method
         public async Task<bool> IsExist<TEntity>(Expression<Func<TEntity, bool>> predicate = null) where TEntity : class
         {
@@ -48,6 +45,8 @@ namespace Accounting.DataLayer.Services.Repositories
         }
 
         #endregion
+
+
 
         #region Add Generic-Method
         public async Task<bool> Add<T>(T newItem) where T : class
@@ -69,6 +68,8 @@ namespace Accounting.DataLayer.Services.Repositories
 
         #endregion
 
+
+
         #region GetAll Generic-Method
 
         public async Task<IEnumerable<T>> GetAll<T>(Expression<Func<T, bool>> predicate) where T : class
@@ -85,6 +86,8 @@ namespace Accounting.DataLayer.Services.Repositories
 
         #endregion
 
+
+
         #region GetEntity Generic-Method
         public async Task<T> GetEntity<T>(Expression<Func<T, bool>> predicate) where T : class
 
@@ -100,6 +103,7 @@ namespace Accounting.DataLayer.Services.Repositories
         }
 
         #endregion
+
 
 
         #region Delete Generic-Method
@@ -130,45 +134,40 @@ namespace Accounting.DataLayer.Services.Repositories
         #endregion
 
 
-        //-----
-
 
         #region Update Generic-Method
-        public async Task<bool> Update<T>(object Obj, Expression<Func<T, bool>> currentEntityFilter) where T : class
-
+        async public Task<bool> UpdateMany<TEntity>(Expression<Func<TEntity, bool>> filterExpression, List<PropertyMap> maps) where TEntity : class
         {
             return await Task.Run(() =>
             {
-              
-                var dbRecord = db.Set<T>().FirstOrDefault(currentEntityFilter);
-                if (dbRecord ==null)
+
+                // Get the records to be updated depending on the filter expression
+                var recordsToBeUpdated = db.Set<TEntity>().Where(filterExpression).ToList();
+                var value = recordsToBeUpdated.FirstOrDefault();
+                if (value != null)
                 {
-                    return false;
+                    var properties = value.GetType().GetProperties();
+                    foreach (var entity in recordsToBeUpdated)
+                    {
+                        foreach (var map in maps)
+                        {
+                            properties.FirstOrDefault(x => x.Name == map.PropertyName)?
+                                      .SetValue(entity, map.PropertyValue);
+                        }
+                        return true;
+
+
+                    }
                 }
-                    db.Entry(dbRecord).CurrentValues.SetValues(Obj);
-
-
-                return true;
-            
+                return false;
             });
-
         }
-
 
 
         #endregion
 
 
-
-
-
-        //--------------------------------------
-
-
-
-
-
-
+        //-----s
 
 
 

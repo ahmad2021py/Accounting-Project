@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -63,8 +64,6 @@ namespace Accounting.GUI.Forms
             txtProductName.Text = "";
             cbCategory.Text = "";
             cbCompany.Text = "";
-            txtCountingUnit.Text = "";
-            PboxProductPicture.Image = null;
             PboxProductPicture.Image = Properties.Resources.icons8_product_128px_2;
 
             txtProductName.Focus();
@@ -132,7 +131,7 @@ namespace Accounting.GUI.Forms
 
         async private void btnUpdate_Click(object sender, EventArgs e)
         {
-            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text, cbCategory.Text, txtFeatures.Text, txtProductCode.Text, txtCountingUnit.Text);
+            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text, cbCategory.Text, txtFeatures.Text, txtProductCode.Text);
             if (isNull)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -151,13 +150,65 @@ namespace Accounting.GUI.Forms
                 Instance = Fill__ProductRecord(Instance);
                 int ProductCode = Convert.ToInt32(txtProductCode.Text);
 
-                bool UpdateProductResult = await _ProductRepository.UpdateProduct(Instance, n => n.ProductCode == Instance.ProductCode);
+
+                //------Fill PropertyMap ------------
+
+                List<PropertyMap> ProductPropertiesToUpdate = new List<PropertyMap> {
+
+                new PropertyMap()
+                {
+                    PropertyName ="Company" ,
+                    PropertyValue= cbCompany.Text,
+
+
+                } ,
+                new PropertyMap()
+                {
+
+                    PropertyName = "Picture" ,
+                    PropertyValue= WorkWithImage.imageToByteArray(PboxProductPicture.Image)
+
+
+                 } ,
+
+                 new PropertyMap()
+                {
+
+                    PropertyName = "ProductName" ,
+                    PropertyValue= txtProductName.Text
+
+
+                      } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "Category" ,
+                    PropertyValue= cbCategory.Text
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "Features" ,
+                    PropertyValue= txtFeatures.Text ,
+
+
+                    } ,
+
+                };
+                //-----
+
+                int productCode = int.Parse(txtProductCode.Text);
+
+                bool UpdateProductResult = await _ProductRepository.UpdateMany<Product>(n => n.ProductCode == productCode, ProductPropertiesToUpdate);
+
                 if (UpdateProductResult)
                 {
 
                     MessageBox.Show("رکورد با موفقیت  بروز شد");
-
                     _unitOfWork.Save();
+
 
                     Reset();
                 }
@@ -171,14 +222,7 @@ namespace Accounting.GUI.Forms
 
             }
 
-            //}
-            //catch
-            //{
-            //    bunifuCircleProgress3.ProgressColor = Color.Red;
-            //    MessageBox.Show("خطایی رخ داده است");
-            //    bunifuCircleProgress3.Value = 0;
-            //    return;
-            //}
+
         }
 
 
@@ -281,7 +325,7 @@ namespace Accounting.GUI.Forms
         async private void btnSave_Click(object sender, EventArgs e)
         {
 
-            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text, cbCategory.Text, txtFeatures.Text, txtProductCode.Text, txtCountingUnit.Text);
+            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text, cbCategory.Text, txtFeatures.Text, txtProductCode.Text);
             if (isNull)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);

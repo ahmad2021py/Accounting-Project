@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -137,9 +138,23 @@ namespace Accounting.GUI.Forms
 
                 Stock stockDbRecord = await stockRepository.GetEntity<Stock>(n => n.StockCode == stockCode);
                 stockDbRecord.Quantity += returnQuantity;
-                stockDbRecord.StockCode = stockCode;
-                // bool addTostockResult = await stockRepository.UpdateDbEntryAsync<Stock>(stockDbRecord, n => n.Quantity);
-                bool addTostockResult = await stockRepository.Update<Stock>(stockDbRecord , n=>n.StockCode==stockDbRecord.StockCode);
+                List<PropertyMap> StockPopertiesToUpdate = new List<PropertyMap>()
+                {
+
+                    new PropertyMap()
+                    {
+                        PropertyName="Quantity" ,
+                        PropertyValue = stockDbRecord.Quantity
+
+
+                    }
+
+
+
+                };
+
+
+                bool addTostockResult = await stockRepository.UpdateMany<Stock>(n => n.StockCode == stockCode, StockPopertiesToUpdate);
 
                 if (!addTostockResult)
                 {

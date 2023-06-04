@@ -31,7 +31,6 @@ namespace Accounting.GUI.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCountingUnit = new System.Windows.Forms.TextBox();
             this.txtFeatures = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtProductCode = new System.Windows.Forms.TextBox();
@@ -48,7 +47,6 @@ namespace Accounting.GUI.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btNew = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +59,6 @@ namespace Accounting.GUI.Forms
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
-            this.groupBox1.Controls.Add(this.txtCountingUnit);
             this.groupBox1.Controls.Add(this.txtFeatures);
             this.groupBox1.Controls.Add(this.txtProductName);
             this.groupBox1.Controls.Add(this.txtProductCode);
@@ -72,7 +69,6 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.btnGetDetails);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -85,15 +81,6 @@ namespace Accounting.GUI.Forms
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ویرایش و ثبت محصول ";
-            // 
-            // txtCountingUnit
-            // 
-            this.txtCountingUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCountingUnit.Location = new System.Drawing.Point(765, 235);
-            this.txtCountingUnit.Multiline = true;
-            this.txtCountingUnit.Name = "txtCountingUnit";
-            this.txtCountingUnit.Size = new System.Drawing.Size(246, 36);
-            this.txtCountingUnit.TabIndex = 99;
             // 
             // txtFeatures
             // 
@@ -256,18 +243,6 @@ namespace Accounting.GUI.Forms
             this.btNew.UseVisualStyleBackColor = true;
             this.btNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(1022, 240);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 28);
-            this.label6.TabIndex = 80;
-            this.label6.Text = "واحد شمارش : ";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -362,8 +337,6 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.TextBox txtFeatures;
         private System.Windows.Forms.Button btnBrowse;
         public System.Windows.Forms.TextBox txtProductCode;
-        private System.Windows.Forms.TextBox txtCountingUnit;
-        internal System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnShowProductSoldRecords;
     }
 }

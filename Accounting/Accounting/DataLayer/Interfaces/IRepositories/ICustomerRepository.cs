@@ -7,52 +7,6 @@ namespace Accounting.DataLayer.Interfaces.IRepositories
     {
 
 
-        Task<bool> UpdateRecord(Customer record);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
