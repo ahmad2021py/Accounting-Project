@@ -31,73 +31,6 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private bool IsNull()
-        {
-            if (
-
-                 string.IsNullOrEmpty(txtDescription.Text) ||
-                 string.IsNullOrEmpty(txtProductCode.Text) ||
-                 string.IsNullOrEmpty(txtProductQuantity.Text) ||
-                 string.IsNullOrEmpty(txtStockCode.Text) ||
-                 string.IsNullOrEmpty(bPersianCalenderTextBox1.Text) ||
-
-                 string.IsNullOrWhiteSpace(txtDescription.Text) ||
-                 string.IsNullOrWhiteSpace(txtProductCode.Text) ||
-                 string.IsNullOrWhiteSpace(txtProductQuantity.Text) ||
-                 string.IsNullOrWhiteSpace(txtStockCode.Text)
-                 )
-
-
-
-
-
-                return true;
-            else
-            {
-                return false;
-            }
-
-        }
-
-
-        private bool Validations()
-
-        {
-
-
-
-            if (!WorkWithStrings.TextToDecimalVlaidation(txtBuyPrice.Text))
-            {
-                // MessageBox.Show("تعداد نامعتبر");
-                return false;
-            }
-            else if (!WorkWithStrings.TextToIntVlaidation(txtProductCode.Text))
-            {
-
-                // MessageBox.Show("قیمت نامعتبر");
-                return false;
-
-
-            }
-
-            else if (!WorkWithStrings.TextToIntVlaidation(txtProductQuantity.Text))
-            {
-                // MessageBox.Show("میزان تخفیف نامعتبر");
-                return false;
-            }
-
-
-            else if (!WorkWithStrings.TextToIntVlaidation(this.txtStockCode.Text))
-            {
-                //  MessageBox.Show("بدهکاری نامعتبر");
-                return false;
-            }
-
-
-            return true;
-        }
-
-
 
 
         private Stock Fill__StockRecord(Stock stockRecord)
@@ -202,11 +135,10 @@ namespace Accounting.GUI.Forms
 
 
 
-            bool IntVlaidationResult = WorkWithStrings.TextToIntVlaidation(txtProductCode.Text);
-            bool IntVlaidationResult2 = WorkWithStrings.TextToIntVlaidation(txtProductQuantity.Text);
+            bool IntVlaidationResult = WorkWithStrings.StringToIntValidations(txtProductCode.Text, txtProductQuantity.Text);
 
 
-            if (!IntVlaidationResult || !IntVlaidationResult2)
+            if (!IntVlaidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
                 txtProductCode.Text = "";
@@ -217,8 +149,14 @@ namespace Accounting.GUI.Forms
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-                if (IsNull())
+
+                bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(bPersianCalenderTextBox1.Text,
+                    txtStockCode.Text,
+                    txtProductQuantity.Text,
+                    txtProductCode.Text,
+                    txtDescription.Text);
+
+                if (isNullResult)
                 {
 
 
@@ -227,6 +165,9 @@ namespace Accounting.GUI.Forms
 
 
                 }
+
+                IStockRepository _StockRepository = _UnitOfWork.StockRepository;
+
                 int StockCode = Int32.Parse(txtStockCode.Text);
                 int ProductCode = Int32.Parse(txtProductCode.Text);
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
@@ -274,22 +215,26 @@ namespace Accounting.GUI.Forms
         {
 
 
-            if (IsNull())
+
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(bPersianCalenderTextBox1.Text,
+                txtStockCode.Text,
+                txtProductQuantity.Text,
+                txtProductCode.Text,
+                txtDescription.Text);
+
+            if (isNullResult)
             {
 
 
-
                 MessageBox.Show("لطفا فیلد های خواسته شده را پر کنید");
-
                 return;
-
 
 
             }
 
-            if (!Validations())
+            if (!WorkWithStrings.StringToDecimalValidations(txtBuyPrice.Text) || !WorkWithStrings.StringToIntValidations(txtProductCode.Text, txtProductQuantity.Text, this.txtStockCode.Text))
             {
-                MessageBox.Show("مقادیر ورودی نامعتر");
+                MessageBox.Show("مقادیر ورودی نامعتبر");
                 return;
 
             }
@@ -329,7 +274,7 @@ namespace Accounting.GUI.Forms
 
         private void txtProductId_TextChanged(object sender, EventArgs e)
         {
-            bool IntVlaidationResult = WorkWithStrings.TextToIntVlaidation(txtProductCode.Text);
+            bool IntVlaidationResult = WorkWithStrings.StringToIntValidations(txtProductCode.Text);
 
 
             if (!IntVlaidationResult)
@@ -344,7 +289,7 @@ namespace Accounting.GUI.Forms
         private void txtProductQuantity_TextChanged(object sender, EventArgs e)
         {
 
-            bool IntVlaidationResult = WorkWithStrings.TextToIntVlaidation(txtProductQuantity.Text);
+            bool IntVlaidationResult = WorkWithStrings.StringToIntValidations(txtProductQuantity.Text);
 
 
             if (!IntVlaidationResult)

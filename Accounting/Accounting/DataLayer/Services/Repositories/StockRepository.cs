@@ -60,7 +60,7 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
         #region Update Stock ProductQuantity By frmSellInvoice
-        async public Task<bool> UpdateStock(StockbyOnlyQuantityField Obj, Expression<Func<Stock, bool>> currentEntityFilter)
+        async public Task<bool> UpdateStockProductQuantity(StockbyOnlyQuantityField Obj, Expression<Func<Stock, bool>> currentEntityFilter)
 
         {
             return await Task.Run(() =>
@@ -85,5 +85,12 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
         #endregion
+
+
+
+
+
+
+
     }
 }

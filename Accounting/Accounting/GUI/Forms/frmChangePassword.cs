@@ -34,20 +34,12 @@ namespace Accounting.GUI.Forms
         }
         private async void btnOK_Click(object sender, EventArgs e)
         {
-            if (
-
-                   string.IsNullOrEmpty(txtUserName.Text) ||
-                   string.IsNullOrEmpty(txtOldPass.Text) ||
-                   string.IsNullOrEmpty(txtNewPass.Text) ||
-                   string.IsNullOrEmpty(txtRepeatNewPass.Text) ||
-                   string.IsNullOrWhiteSpace(txtUserName.Text) ||
-                   string.IsNullOrWhiteSpace(txtOldPass.Text) ||
-                   string.IsNullOrWhiteSpace(txtNewPass.Text) ||
-                   string.IsNullOrWhiteSpace(txtRepeatNewPass.Text)
-
-                )
 
 
+
+
+
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtUserName.Text, txtOldPass.Text, txtNewPass.Text, txtRepeatNewPass.Text))
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

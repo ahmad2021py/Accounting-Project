@@ -4,15 +4,12 @@ using Accounting.DataLayer.Interfaces.IRepositories;
 
 namespace Accounting.DataLayer.Services.Repositories
 {
-    public class SellInvoiceRepository : EntityGenericRepository<SellInvoice>, IEntityGenericRepository, ISelllnvoiceRepository
+    public class ReturnFromSellInvoiceRepository : EntityGenericRepository<ReturnFromSellIncoice>, IEntityGenericRepository, IReturnFromSellInvoiceRepository
     {
         Accounting_DbContext db;
-        public SellInvoiceRepository(Accounting_DbContext context) : base(context)
+        public ReturnFromSellInvoiceRepository(Accounting_DbContext context) : base(context)
         {
             db = context;
         }
-
-
-
     }
 }

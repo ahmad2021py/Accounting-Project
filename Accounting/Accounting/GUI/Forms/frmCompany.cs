@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
+using Accounting.Utilities;
 using System;
 using System.Windows.Forms;
 
@@ -25,12 +26,14 @@ namespace Accounting.GUI.Forms
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCompanyName.Text) || string.IsNullOrWhiteSpace(txtCompanyName.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtCompanyName.Text))
             {
 
                 MessageBox.Show("ورودی نامعتبر");
                 return;
             }
+
+
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
@@ -78,7 +81,7 @@ namespace Accounting.GUI.Forms
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCompanyName.Text) || string.IsNullOrWhiteSpace(txtCompanyName.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtCompanyName.Text))
             {
 
                 MessageBox.Show("ورودی نامعتبر");

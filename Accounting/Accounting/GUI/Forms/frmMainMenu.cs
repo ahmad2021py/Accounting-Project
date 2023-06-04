@@ -403,5 +403,82 @@ namespace Accounting.GUI.Forms
 
             }
         }
+
+        private void بازگشتازخریدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReturnFromSellIncoice frmReturnFromSell = new frmReturnFromSellIncoice();
+            if (frmReturnFromSell.ShowDialog() == DialogResult.OK)
+            {
+
+                frmReturnFromSell.Close();
+                frmReturnFromSell = null;
+
+            }
+        }
+
+        private void بازگشتازخریدToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmReturnFromBuyInvoice frmReturnFromBuyInvoice = new frmReturnFromBuyInvoice();
+            if (frmReturnFromBuyInvoice.ShowDialog() == DialogResult.OK)
+            {
+
+                frmReturnFromBuyInvoice.Close();
+                frmReturnFromBuyInvoice = null;
+
+            }
+        }
+
+        private void لیستفاکتورهایبازگشتازفروشToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReturnFromSellIncoiceRecords frmReturnFromSellIncoiceRecords = new frmReturnFromSellIncoiceRecords();
+            if (frmReturnFromSellIncoiceRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmReturnFromSellIncoiceRecords.Close();
+                frmReturnFromSellIncoiceRecords = null;
+
+            }
+        }
+
+        private void لیستفاکتورهایبازگشتازفروشToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmReturnFromSellIncoiceRecords frmReturnFromSellIncoiceRecords = new frmReturnFromSellIncoiceRecords();
+            if (frmReturnFromSellIncoiceRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmReturnFromSellIncoiceRecords.Close();
+                frmReturnFromSellIncoiceRecords = null;
+
+            }
+        }
+
+        private void لیستفاکتورهایفروشToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void لیستفاکتورهایفروشToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmSellInvoiceRecords frmSellInvoiceRecords = new frmSellInvoiceRecords();
+            if (frmSellInvoiceRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmSellInvoiceRecords.Close();
+                frmSellInvoiceRecords = null;
+
+            }
+        }
+
+        private void لیستفاکتورهایخریدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBuyInvoiceRecords frmBuyInvoiceRecords = new frmBuyInvoiceRecords();
+            if (frmBuyInvoiceRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmBuyInvoiceRecords.Close();
+                frmBuyInvoiceRecords = null;
+
+            }
+        }
     }
 }

@@ -27,32 +27,23 @@ namespace Accounting.DataLayer.Services.Repositories
         #endregion
 
 
-        #region Update Generic-Method
+   
         async public Task<bool> UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter)
 
         {
             return await Task.Run(() =>
             {
-                //    try
-                //{
+             
                 var dbRecord = db.Set<Product>().FirstOrDefault(currentEntityFilter);
                 Obj.Row = dbRecord.Row;
                 db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
                 return true;
-                //}
-
-                //catch
-                //{
-                //    return false;
-                //}
+            
             });
 
         }
 
-
-
-        #endregion
 
 
 

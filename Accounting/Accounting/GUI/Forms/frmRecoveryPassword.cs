@@ -17,12 +17,14 @@ namespace Accounting.GUI.Forms
 
         async private void btnSend_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrWhiteSpace(txtUserName.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtUserName.Text))
             {
 
                 MessageBox.Show("ورودی نامعتبر");
                 return;
             }
+
+
 
             bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtEmail.Text);
             if (!IsValidateEmailResult)
@@ -30,6 +32,8 @@ namespace Accounting.GUI.Forms
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
             }
+
+
             Cursor = Cursors.WaitCursor;
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())

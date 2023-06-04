@@ -4,8 +4,28 @@
     {
 
 
+        public static bool StringIsNullOrEmptyOrWhiteSpace(params string[] strings)
+        {
+            bool[] IsNullOrEmptyResults = new bool[strings.Length];
+            bool[] IsNullOrWhiteSpaceResults = new bool[strings.Length];
+            for (int i = 0; i < strings.Length; i++)
+            {
+                IsNullOrEmptyResults[i] = string.IsNullOrEmpty(strings[i]);
+                IsNullOrWhiteSpaceResults[i] = string.IsNullOrWhiteSpace(strings[i]);
+                if (IsNullOrEmptyResults[i] == true || IsNullOrWhiteSpaceResults[i] == true)
+                {
+                    return true;
+                }
+            }
 
-        public static bool TextToIntVlaidation(string str)
+            return false;
+        }
+
+
+
+
+
+        public static bool StringToIntValidations(params string[] strings)
         {
             //--------Summary to use-----
             /* 
@@ -30,29 +50,44 @@
 
              */
             //
+
+            bool[] intValidations = new bool[strings.Length];
             int value;
-            bool result = int.TryParse(str, out value);
-            if (!result)
+            for (int i = 0; i < strings.Length; i++)
             {
-                //something has gone wrong
-                //Text Format is not Correct
-                return false;
+                intValidations[i] = int.TryParse(strings[i], out value);
+
+                if (!intValidations[i]) // is not int 
+                {
+                    //something has gone wrong
+                    //Text Format is not Correct
+                    return false;
+                }
+
 
             }
             return true;
 
         }
 
-        public static bool TextToDecimalVlaidation(string str)
+
+
+        public static bool StringToDecimalValidations(params string[] strings)
         {
 
+            bool[] decimalValidations = new bool[strings.Length];
             decimal value;
-            bool result = decimal.TryParse(str, out value);
-            if (!result)
+            for (int i = 0; i < strings.Length; i++)
             {
-                //something has gone wrong
-                //Text Format is not Correct
-                return false;
+                decimalValidations[i] = decimal.TryParse(strings[i], out value);
+
+                if (!decimalValidations[i]) // is not int 
+                {
+                    //something has gone wrong
+                    //Text Format is not Correct
+                    return false;
+                }
+
 
             }
             return true;
@@ -61,16 +96,22 @@
 
 
 
-        public static bool TextTofloatVlaidation(string str)
+        public static bool StringToFloatValidations(params string[] strings)
         {
 
+            bool[] floatValidations = new bool[strings.Length];
             float value;
-            bool result = float.TryParse(str, out value);
-            if (!result)
+            for (int i = 0; i < strings.Length; i++)
             {
-                //something has gone wrong
-                //Text Format is not Correct
-                return false;
+                floatValidations[i] = float.TryParse(strings[i], out value);
+
+                if (!floatValidations[i]) // is not int 
+                {
+                    //something has gone wrong
+                    //Text Format is not Correct
+                    return false;
+                }
+
 
             }
             return true;
@@ -78,22 +119,49 @@
         }
 
 
-        public static bool TextToDoubleVlaidation(string str)
+        public static bool StringToDoubleValidations(params string[] strings)
         {
 
-            double value;
-            bool result = double.TryParse(str, out value);
-            if (!result)
+            bool[] doubleValidations = new bool[strings.Length];
+            float value;
+            for (int i = 0; i < strings.Length; i++)
             {
-                //something has gone wrong
-                //Text Format is not Correct
-                return false;
+                doubleValidations[i] = float.TryParse(strings[i], out value);
+
+                if (!doubleValidations[i]) // is not int 
+                {
+                    //something has gone wrong
+                    //Text Format is not Correct
+                    return false;
+                }
+
 
             }
             return true;
 
         }
 
+        public static bool StringToLongValidations(params string[] strings)
+        {
+
+            bool[] longValidations = new bool[strings.Length];
+            long value;
+            for (int i = 0; i < strings.Length; i++)
+            {
+                longValidations[i] = long.TryParse(strings[i], out value);
+
+                if (!longValidations[i]) // is not int 
+                {
+                    //something has gone wrong
+                    //Text Format is not Correct
+                    return false;
+                }
+
+
+            }
+            return true;
+
+        }
 
 
 

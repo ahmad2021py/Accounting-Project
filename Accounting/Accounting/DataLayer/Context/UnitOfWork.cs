@@ -25,6 +25,8 @@ namespace Accounting.DataLayer.Context
         private ISelllnvoiceRepository _SellInvoiceRepository;
         private IBuyInvoiceRepository _BuyInvoiceRepository;
         private ISellerRepository _SellerRepository;
+        private IReturnFromSellInvoiceRepository _ReturnFromSellInvoieRepository;
+        private IReturnFromBuyIncoiceRepository _ReturnFromBuyIncoiceRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -183,8 +185,33 @@ namespace Accounting.DataLayer.Context
 
 
 
+        public IReturnFromSellInvoiceRepository ReturnFromSellInvoicRepository
+        {
+            get
+            {
+                if (_ReturnFromSellInvoieRepository == null)
+                {
+                    _ReturnFromSellInvoieRepository = new ReturnFromSellInvoiceRepository(db);
+                }
+
+                return _ReturnFromSellInvoieRepository;
+            }
+        }
 
 
+
+        public IReturnFromBuyIncoiceRepository ReturnFromBuyIncoiceRepository
+        {
+            get
+            {
+                if (_ReturnFromBuyIncoiceRepository == null)
+                {
+                    _ReturnFromBuyIncoiceRepository = new ReturnFromBuyIncoiceRepository(db);
+                }
+
+                return _ReturnFromBuyIncoiceRepository;
+            }
+        }
 
 
 

@@ -16,84 +16,6 @@ namespace Accounting.GUI.Forms
 
 
 
-
-
-
-        private bool IsNull()
-        {
-            if (
-                 string.IsNullOrEmpty(txtSellerAddress.Text) ||
-                  string.IsNullOrEmpty(txtSellerCity.Text) ||
-                  string.IsNullOrEmpty(txtSellerEmail.Text) ||
-                  string.IsNullOrEmpty(txtSellerName.Text) ||
-                  string.IsNullOrEmpty(txtcreditor.Text) ||
-                  string.IsNullOrEmpty(txtdebtor.Text) ||
-                    string.IsNullOrEmpty(cbStates.Text) ||
-                     string.IsNullOrEmpty(txtSellerPhone.Text) ||
-                        string.IsNullOrEmpty(txtSellerZipCode.Text) ||
-                          string.IsNullOrEmpty(txtNationalCode.Text) ||
-
-                   string.IsNullOrWhiteSpace(txtSellerAddress.Text) ||
-                       string.IsNullOrWhiteSpace(txtSellerCity.Text) ||
-                          string.IsNullOrWhiteSpace(txtSellerEmail.Text) ||
-                          string.IsNullOrWhiteSpace(txtSellerName.Text) ||
-                              string.IsNullOrWhiteSpace(txtcreditor.Text) ||
-                              string.IsNullOrWhiteSpace(txtdebtor.Text) ||
-                                string.IsNullOrWhiteSpace(cbStates.Text) ||
-                  string.IsNullOrWhiteSpace(txtSellerPhone.Text) ||
-                  string.IsNullOrWhiteSpace(txtSellerZipCode.Text) ||
-                  string.IsNullOrWhiteSpace(txtNationalCode.Text)
-
-
-
-                )
-
-                return true;
-            else
-            {
-                return false;
-            }
-
-        }
-
-
-
-
-        private bool Validations()
-
-        {
-
-
-
-            if (!WorkWithStrings.TextToDecimalVlaidation(txtcreditor.Text))
-            {
-                // MessageBox.Show("تعداد نامعتبر");
-                return false;
-            }
-            else if (!WorkWithStrings.TextToDecimalVlaidation(txtdebtor.Text))
-            {
-
-                // MessageBox.Show("قیمت نامعتبر");
-                return false;
-
-
-            }
-
-            else if (!WorkWithStrings.TextToIntVlaidation(txtSellerZipCode.Text))
-            {
-                // MessageBox.Show("میزان تخفیف نامعتبر");
-                return false;
-            }
-
-
-
-
-            return true;
-        }
-
-
-
-
         private void Reset()
         {
             txtNationalCode.Text = "";
@@ -134,7 +56,20 @@ namespace Accounting.GUI.Forms
 
         async private void btnSave_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtNationalCode.Text,
+                txtSellerZipCode.Text,
+                txtSellerPhone.Text,
+                cbStates.Text,
+                txtdebtor.Text,
+                txtcreditor.Text,
+                txtSellerName.Text,
+                txtSellerEmail.Text,
+                txtSellerCity.Text,
+                txtSellerAddress.Text
+                );
+
+
+            if (isNullResult)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -146,6 +81,8 @@ namespace Accounting.GUI.Forms
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
                 return;
             }
+
+
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -194,7 +131,7 @@ namespace Accounting.GUI.Forms
 
         async private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNationalCode.Text) || string.IsNullOrWhiteSpace(txtNationalCode.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtNationalCode.Text))
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -203,7 +140,7 @@ namespace Accounting.GUI.Forms
 
 
 
-            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 bool nationalCodeValidation = WorkWithNationalCode.NationalCodeValidation(txtNationalCode.Text);
 
@@ -256,14 +193,30 @@ namespace Accounting.GUI.Forms
 
         async private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtNationalCode.Text,
+                txtSellerZipCode.Text,
+                txtSellerPhone.Text,
+                cbStates.Text,
+                txtdebtor.Text,
+                txtcreditor.Text,
+                txtSellerName.Text,
+                txtSellerEmail.Text,
+                txtSellerCity.Text,
+                txtSellerAddress.Text
+                );
+
+
+            if (isNullResult)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!Validations())
+
+
+            if (!WorkWithStrings.StringToIntValidations(txtSellerZipCode.Text) || !WorkWithStrings.StringToDecimalValidations(txtdebtor.Text, txtcreditor.Text))
             {
-                MessageBox.Show("مقادیر ورودی نامعتر");
+                MessageBox.Show("مقادیر ورودی نامعتبر");
                 return;
 
             }

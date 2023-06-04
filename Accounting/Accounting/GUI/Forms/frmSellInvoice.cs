@@ -15,37 +15,6 @@ namespace Accounting.GUI.Forms
         }
 
 
-        private bool IsNull()
-        {
-            if (
-               string.IsNullOrEmpty(txtSellInvoiceCode.Text) ||
-                  string.IsNullOrEmpty(txtOff.Text) ||
-                  string.IsNullOrEmpty(txtSellCount.Text) ||
-                  string.IsNullOrEmpty(txtSellPricePerUnit.Text) ||
-                  string.IsNullOrEmpty(lblStockCode.Text) ||
-                  string.IsNullOrEmpty(lblCustomerCode.Text) ||
-                  string.IsNullOrEmpty(bPersianCalenderTextBox1.Text) ||
-
-
-                  string.IsNullOrWhiteSpace(txtSellInvoiceCode.Text) ||
-                  string.IsNullOrWhiteSpace(txtOff.Text) ||
-                  string.IsNullOrWhiteSpace(txtSellCount.Text) ||
-                  string.IsNullOrWhiteSpace(txtSellPricePerUnit.Text) ||
-                  string.IsNullOrWhiteSpace(lblStockCode.Text) ||
-                  string.IsNullOrWhiteSpace(bPersianCalenderTextBox1.Text) ||
-                  string.IsNullOrWhiteSpace(lblCustomerCode.Text)
-
-                  )
-            {
-
-                return true;
-            }
-            return false;
-
-
-
-        }
-
 
 
         private void Reset()
@@ -126,42 +95,7 @@ namespace Accounting.GUI.Forms
         }
 
 
-        private bool Validations()
 
-        {
-
-
-
-            if (!WorkWithStrings.TextToIntVlaidation(txtSellCount.Text))
-            {
-                // MessageBox.Show("تعداد نامعتبر");
-                return false;
-            }
-            else if (!WorkWithStrings.TextToDecimalVlaidation(txtSellPricePerUnit.Text))
-            {
-
-                // MessageBox.Show("قیمت نامعتبر");
-                return false;
-
-
-            }
-
-            else if (!WorkWithStrings.TextToIntVlaidation(txtOff.Text))
-            {
-                // MessageBox.Show("میزان تخفیف نامعتبر");
-                return false;
-            }
-
-
-            else if (!WorkWithStrings.TextToDecimalVlaidation(this.lblCustomerDebt.Text))
-            {
-                //  MessageBox.Show("بدهکاری نامعتبر");
-                return false;
-            }
-
-
-            return true;
-        }
 
 
         private void btnSelectProductInStock_Click(object sender, EventArgs e)
@@ -180,13 +114,25 @@ namespace Accounting.GUI.Forms
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(bPersianCalenderTextBox1.Text,
+                lblCustomerCode.Text,
+                lblStockCode.Text,
+                txtSellPricePerUnit.Text,
+                txtSellCount.Text,
+                txtOff.Text,
+                txtSellInvoiceCode.Text
+
+
+                );
+
+
+            if (isNullResult)
             {
                 MessageBox.Show("فیلد خالی یا نامعتبر");
                 return;
             }
 
-            if (!Validations())
+            if (!WorkWithStrings.StringToIntValidations(txtSellCount.Text, txtOff.Text) || !WorkWithStrings.StringToDecimalValidations(txtSellPricePerUnit.Text, this.lblCustomerDebt.Text))
             {
                 MessageBox.Show("مقادیر ورودی نامعتر");
                 return;
@@ -214,9 +160,21 @@ namespace Accounting.GUI.Forms
 
         async private void btnCommit_Click(object sender, EventArgs e)
         {
-          if (IsNull())
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(bPersianCalenderTextBox1.Text,
+                lblCustomerCode.Text,
+                lblStockCode.Text,
+                txtSellPricePerUnit.Text,
+                txtSellCount.Text,
+                txtOff.Text,
+                txtSellInvoiceCode.Text
+
+
+                );
+
+
+            if (isNullResult)
             {
-                MessageBox.Show("مقادیر نامعتبر");
+                MessageBox.Show("فیلد خالی یا نامعتبر");
                 return;
             }
 
@@ -263,7 +221,7 @@ namespace Accounting.GUI.Forms
                 stockbyOnlyQuantityField.Quantity = StockTotalQuantity - SellCount;
                 int StockCode = int.Parse(lblStockCode.Text);
                 IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-                bool UpdateResult = await _StockRepository.UpdateStock(stockbyOnlyQuantityField, n => n.StockCode == StockCode);
+                bool UpdateResult = await _StockRepository.UpdateStockProductQuantity(stockbyOnlyQuantityField, n => n.StockCode == StockCode);
                 if (UpdateResult)
                 {
                     _UnitOfWork.Save();

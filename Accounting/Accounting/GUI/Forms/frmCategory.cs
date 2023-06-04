@@ -1,6 +1,7 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
+using Accounting.Utilities;
 using System;
 using System.Windows.Forms;
 
@@ -49,7 +50,9 @@ namespace Accounting.GUI.Forms
 
         async private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCategoryName.Text) || string.IsNullOrWhiteSpace(txtCategoryName.Text))
+
+
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtCategoryName.Text))
             {
 
                 MessageBox.Show("ورودی نامعتبر");
@@ -113,12 +116,14 @@ namespace Accounting.GUI.Forms
 
         async private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCategoryName.Text) || string.IsNullOrWhiteSpace(txtCategoryName.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtCategoryName.Text))
             {
 
                 MessageBox.Show("ورودی نامعتبر");
                 return;
             }
+
+
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 using (UnitOfWork _unitOfWork = new UnitOfWork())

@@ -28,34 +28,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private bool IsNull()
-        {
-            if (
-               string.IsNullOrEmpty(txtBuyInvoiceCode.Text) ||
-                  string.IsNullOrEmpty(txtOff.Text) ||
-                  string.IsNullOrEmpty(txtBuyCount.Text) ||
-                  string.IsNullOrEmpty(txtBuyPricePerUnit.Text) ||
-                  string.IsNullOrEmpty(lblSellerCode.Text) ||
-                  string.IsNullOrEmpty(bPersianCalenderTextBox1.Text) ||
 
-
-                  string.IsNullOrWhiteSpace(txtBuyInvoiceCode.Text) ||
-                  string.IsNullOrWhiteSpace(txtOff.Text) ||
-                  string.IsNullOrWhiteSpace(txtBuyCount.Text) ||
-                  string.IsNullOrWhiteSpace(txtBuyPricePerUnit.Text) ||
-                  string.IsNullOrWhiteSpace(bPersianCalenderTextBox1.Text) ||
-                  string.IsNullOrWhiteSpace(lblSellerCode.Text)
-
-                  )
-            {
-
-                return true;
-            }
-            return false;
-
-
-
-        }
 
         private void Reset()
         {
@@ -74,14 +47,14 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private BuyInvoice Fill__InvoiceRecord(BuyInvoice BuyInvoiceInastance)
+        private BuyInvoice Fill__BuyInvoiceRecord(BuyInvoice BuyInvoiceInastance)
         {
             BuyInvoiceInastance.FKSeller = long.Parse(lblSellerCode.Text);
             BuyInvoiceInastance.BuyCount = int.Parse(txtBuyCount.Text);
             BuyInvoiceInastance.TotalBuyAmount = Decimal.Parse(lblTotalBuyAmountWithOff.Text);
             BuyInvoiceInastance.BuyInvoiceCode = txtBuyInvoiceCode.Text;
-            BuyInvoiceInastance.FKStock =int.Parse( txtStockCodeForStore.Text);
-            BuyInvoiceInastance.FKSeller =long.Parse( lblSellerCode.Text);
+            BuyInvoiceInastance.FKStock = int.Parse(txtStockCodeForStore.Text);
+            BuyInvoiceInastance.FKSeller = long.Parse(lblSellerCode.Text);
             WorkWithDate date = new WorkWithDate();
             BuyInvoiceInastance.BuyInvoiceDate = date.ShamsiToMiladi(bPersianCalenderTextBox1.Text);
             BuyInvoiceInastance.Off = int.Parse(txtOff.Text);
@@ -91,100 +64,57 @@ namespace Accounting.GUI.Forms
 
         }
 
-      
 
-        private bool Validations()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void Calculate_Click(object sender, EventArgs e)
         {
-
-
-
-            if (!WorkWithStrings.TextToIntVlaidation(txtBuyCount.Text))
+            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(lblSellerCode.Text, bPersianCalenderTextBox1.Text, txtBuyPricePerUnit.Text, txtBuyCount.Text, txtOff.Text, txtBuyInvoiceCode.Text, lblSellerCode.Text);
+            if (isNull)
             {
-                // MessageBox.Show("تعداد نامعتبر");
-                return false;
-            }
-            else if (!WorkWithStrings.TextToDecimalVlaidation(txtBuyPricePerUnit.Text))
-            {
-
-                // MessageBox.Show("قیمت نامعتبر");
-                return false;
-
-
-            }
-
-            else if (!WorkWithStrings.TextToIntVlaidation(txtOff.Text))
-            {
-                // MessageBox.Show("میزان تخفیف نامعتبر");
-                return false;
-            }
-
-
-
-
-            return true;
-        }
-
-
-
-
-        private BuyInvoice Fill__BuyInvoiceRecord(BuyInvoice BuyInvoiceInstance)
-        {
-            BuyInvoiceInstance.FKSeller = long.Parse(lblSellerCode.Text);
-            BuyInvoiceInstance.BuyCount = int.Parse(txtBuyCount.Text);
-            BuyInvoiceInstance.BuyInvoiceCode =txtBuyInvoiceCode.Text;
-            BuyInvoiceInstance.FKStock = int.Parse(txtStockCodeForStore.Text);
-            BuyInvoiceInstance.BuyPricePerUnit =decimal.Parse(txtBuyPricePerUnit.Text) ;
-            WorkWithDate date = new WorkWithDate();
-            BuyInvoiceInstance.BuyInvoiceDate = date.ShamsiToMiladi(bPersianCalenderTextBox1.Text);
-            BuyInvoiceInstance.Off = int.Parse(txtOff.Text);
-            BuyInvoiceInstance.TotalBuyAmount = decimal.Parse(lblTotalBuyAmountWithOff.Text);
-
-            return BuyInvoiceInstance;
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void Calculate_Click(object sender, System.EventArgs e)
-        {
-            if (IsNull())
-            {
-                MessageBox.Show("فیلد خالی یا نامعتبر");
+                MessageBox.Show("فیلد خالی یا دارای فاصله");
                 return;
             }
+            bool decimalvalidate = WorkWithStrings.StringToDecimalValidations(txtBuyPricePerUnit.Text);
+            bool intValidate = WorkWithStrings.StringToIntValidations(txtBuyCount.Text, txtOff.Text);
 
-            if (!Validations())
+
+            if (!decimalvalidate || !intValidate)
             {
                 MessageBox.Show("مقادیر ورودی نامعتر");
                 return;
 
             }
-           
+
             int BuyCount = int.Parse(txtBuyCount.Text);
             decimal BuyPricePerUnit = decimal.Parse(txtBuyPricePerUnit.Text);
             decimal TotalBuyCost = (BuyCount * BuyPricePerUnit);
@@ -198,12 +128,17 @@ namespace Accounting.GUI.Forms
             lblSellerCreditorWithThisInvoice.Text = (SellerCreditor + TotalPriceWithOff).ToString();
         }
 
-      async  private void btnCommit_Click(object sender, EventArgs e)
+        async private void btnCommit_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+            bool decimalvalidate = WorkWithStrings.StringToDecimalValidations(txtBuyPricePerUnit.Text);
+            bool intValidate = WorkWithStrings.StringToIntValidations(txtBuyCount.Text, txtOff.Text);
+
+
+            if (!decimalvalidate || !intValidate)
             {
-                MessageBox.Show("مقادیر نامعتبر");
+                MessageBox.Show("مقادیر ورودی نامعتبر");
                 return;
+
             }
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
@@ -232,16 +167,16 @@ namespace Accounting.GUI.Forms
                     MessageBox.Show("در افزودن فاکتور خطایی رخ داه است");
                     return;
                 }
-               
-               
-              
 
 
-                
+
+
+
+
                 int StockCode = int.Parse(txtStockCodeForStore.Text);
                 IStockRepository _StockRepository = _UnitOfWork.StockRepository;
 
-                bool StockCodeIsExists = await _StockRepository.IsExist<Stock>( n => n.StockCode == StockCode);
+                bool StockCodeIsExists = await _StockRepository.IsExist<Stock>(n => n.StockCode == StockCode);
                 if (StockCodeIsExists)
                 {
                     MessageBox.Show("رکوردی با این کد انبار وجود دارد");
@@ -280,7 +215,7 @@ namespace Accounting.GUI.Forms
                     MessageBox.Show("فاکتور با موفقیت ثبت شد");
                     Reset();
                     return;
-                
+
                 }
 
 

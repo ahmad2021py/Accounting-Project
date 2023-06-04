@@ -160,7 +160,7 @@ namespace Accounting.GUI.Forms
         private void txtStockId_TextChanged(object sender, EventArgs e)
         {
 
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtStockCode.Text);
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtStockCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
@@ -190,7 +190,7 @@ namespace Accounting.GUI.Forms
 
         private void txtProductId_TextChanged(object sender, EventArgs e)
         {
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductCode.Text);
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtProductCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");

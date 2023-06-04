@@ -12,7 +12,7 @@ namespace Accounting.DataLayer.Interfaces.IRepositories
 
 
         Task<bool> UpdateStock(StockEntityWithoutRowPropertyForUpdate Obj, Expression<Func<Stock, bool>> currentEntityFilter);
-        Task<bool> UpdateStock(StockbyOnlyQuantityField Obj, Expression<Func<Stock, bool>> currentEntityFilter);
+        Task<bool> UpdateStockProductQuantity(StockbyOnlyQuantityField Obj, Expression<Func<Stock, bool>> currentEntityFilter);
 
 
     }

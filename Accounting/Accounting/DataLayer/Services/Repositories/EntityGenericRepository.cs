@@ -32,21 +32,7 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
 
-        #region GetEntity Generic-Method
-        public async Task<T> GetEntity<T>(Expression<Func<T, bool>> predicate) where T : class
-
-        {
-            return await Task.Run(() =>
-            {
-                T item = null;
-
-                item = db.Set<T>().FirstOrDefault(predicate);
-
-                return item;
-            });
-        }
-
-        #endregion
+       
 
         //-------WORKED----------------
         #region IsExist Generic-Method
@@ -99,18 +85,21 @@ namespace Accounting.DataLayer.Services.Repositories
 
         #endregion
 
+        #region GetEntity Generic-Method
+        public async Task<T> GetEntity<T>(Expression<Func<T, bool>> predicate) where T : class
 
+        {
+            return await Task.Run(() =>
+            {
+                T item = null;
 
+                item = db.Set<T>().FirstOrDefault(predicate);
 
+                return item;
+            });
+        }
 
-
-
-
-
-
-
-
-
+        #endregion
 
 
         #region Delete Generic-Method
@@ -140,25 +129,27 @@ namespace Accounting.DataLayer.Services.Repositories
 
         #endregion
 
+
+        //-----
+
+
         #region Update Generic-Method
         public async Task<bool> Update<T>(object Obj, Expression<Func<T, bool>> currentEntityFilter) where T : class
 
         {
             return await Task.Run(() =>
             {
-                //    try
-                //{
+              
                 var dbRecord = db.Set<T>().FirstOrDefault(currentEntityFilter);
-                db.Entry(dbRecord).CurrentValues.SetValues(Obj);
+                if (dbRecord ==null)
+                {
+                    return false;
+                }
+                    db.Entry(dbRecord).CurrentValues.SetValues(Obj);
 
 
                 return true;
-                //}
-
-                //catch
-                //{
-                //    return false;
-                //}
+            
             });
 
         }
@@ -166,6 +157,10 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
         #endregion
+
+
+
+
 
         //--------------------------------------
 

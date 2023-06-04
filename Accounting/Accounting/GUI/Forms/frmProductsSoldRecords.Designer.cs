@@ -49,6 +49,7 @@ namespace Accounting.GUI.Forms
             this.DGV1.RowTemplate.Height = 24;
             this.DGV1.Size = new System.Drawing.Size(348, 492);
             this.DGV1.TabIndex = 0;
+            this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
             // 
             // btnExport
             // 

@@ -2,7 +2,6 @@
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
-using AccountingDLL;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -16,46 +15,7 @@ namespace Accounting.GUI.Forms
 
 
         //---- Methods ---------
-        #region Method for validation frmUserRegistration textboxes
-        bool TxtNull()
-        {
-            if (WorkWithTextboxes.TextBoxisNull(cbRole.Text))
-            {
-                MessageBox.Show("لطفا نقش کاربر را انتخاب کنید");
-                return true;
-            }
-            else if (WorkWithTextboxes.TextBoxisNull(txtUserName.Text))
-            {
-                MessageBox.Show("لطفا فیلد نام کاربری را پر کنید");
-                return true;
-            }
-            else if (WorkWithTextboxes.TextBoxisNull(txtUserPass.Text))
-            {
-                MessageBox.Show("لطفا فیلد رمز را پر کنید ");
-                return true;
-            }
-            else if (WorkWithTextboxes.TextBoxisNull(txtMail.Text))
-            {
-                MessageBox.Show("لطفا فیلد ایمیل را پر کنید");
-                return true;
-            }
 
-            else if (WorkWithTextboxes.TextBoxisNull(txtFamily.Text))
-            {
-                MessageBox.Show("لطفا فیلد نام  را پر کنید");
-                return true;
-            }
-            else if (WorkWithTextboxes.TextBoxisNull(txtContactNo.Text))
-            {
-                MessageBox.Show("لطفا فیلد شماره  را پر کنید");
-                return true;
-            }
-
-            return false;
-
-        }
-        #endregion
-        //-----------
         #region Method For Reset textBoxes and other
         void Reset()
         {
@@ -114,6 +74,23 @@ namespace Accounting.GUI.Forms
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtContactNo.Text,
+                txtFamily.Text,
+                txtMail.Text,
+                txtUserPass.Text,
+                txtUserName.Text,
+                cbRole.Text
+
+                );
+
+            if (isNullResult)
+            {
+                MessageBox.Show("ورودی نامعتبر");
+                return;
+
+            }
+
+
             bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtMail.Text);
             if (!IsValidateEmailResult)
             {
@@ -123,12 +100,7 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository _IUserRepository = _UnitOfWork.UserRepository;
-                if (TxtNull())
-                {
-                    MessageBox.Show("ورودی نامعتبر");
-                    return;
 
-                }
                 bool RegistrationUserNameresult = await _IUserRepository.IsExist<Registration>(n => n.UserName == txtUserName.Text);
                 int RegistrationCode = Convert.ToInt32(txtRegistrationCode.Text);
                 bool txtRegistrationCoderesult = await _IUserRepository.IsExist<Registration>(n => n.RegistrationsCode == RegistrationCode);
@@ -174,13 +146,13 @@ namespace Accounting.GUI.Forms
 
         async private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtRegistrationCode.Text) || string.IsNullOrWhiteSpace(txtRegistrationCode.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtRegistrationCode.Text))
             {
                 MessageBox.Show("کد نامعتبر");
                 return;
             }
 
-            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 using (UnitOfWork _unitOfWork = new UnitOfWork())
                 {

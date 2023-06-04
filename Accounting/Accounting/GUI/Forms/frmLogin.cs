@@ -2,7 +2,6 @@
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
-using AccountingDLL;
 using System;
 using System.Windows.Forms;
 
@@ -92,53 +91,35 @@ namespace Accounting.GUI.Forms
         {
             Cursor = Cursors.WaitCursor;
 
-            if (WorkWithTextboxes.TextBoxisNull(cbRole.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbRole.Text, txtUserName.Text, txtPassword.Text))
             {
 
-                MessageBox.Show("لطفا نقش خود را مشخص کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cbRole.Focus();
-            }
-            else if (WorkWithTextboxes.TextBoxisNull(txtUserName.Text))
-            {
-
-                MessageBox.Show("لطفا نام کاربری خود را وارد کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUserName.Focus();
-            }
-            else if (WorkWithTextboxes.TextBoxisNull(txtPassword.Text))
-            {
-
-                MessageBox.Show("لطفا کلمه عبور خود را وارد کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPassword.Focus();
+                MessageBox.Show("لطفا فیلد های خواسته شده را کامل کنید", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            else
-            {
-                UserTemp.UserName = txtUserName.Text.Trim();
-                UserTemp.Password = WorkWithEncryption.EncryptPassword(txtPassword.Text.Trim());
-                UserTemp.Role = cbRole.Text;
+            UserTemp.UserName = txtUserName.Text.Trim();
+            UserTemp.Password = WorkWithEncryption.EncryptPassword(txtPassword.Text.Trim());
+            UserTemp.Role = cbRole.Text;
 
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IUserRepository IUserRepository = _UnitOfWork.UserRepository;
+                bool Result = await IUserRepository.IsExist<User>(n => n.UserName == UserTemp.UserName && n.Password == UserTemp.Password && n.Role == UserTemp.Role);
+                if (Result)
                 {
-                    IUserRepository IUserRepository = _UnitOfWork.UserRepository;
-                    bool Result = await IUserRepository.IsExist<User>(n => n.UserName == UserTemp.UserName && n.Password == UserTemp.Password && n.Role == UserTemp.Role);
-                    if (Result)
-                    {
-                        frmMainInitialize();
-                        Cursor = Cursors.Default;
-                    }
-                    else
-                    {
-                        MessageBox.Show("کاربری با این مشخصات یافت نشد ");
-                        txtPassword.Text = "";
-                        txtUserName.Text = "";
-                        Cursor = Cursors.Default;
-                    }
-
+                    frmMainInitialize();
+                    Cursor = Cursors.Default;
+                }
+                else
+                {
+                    MessageBox.Show("کاربری با این مشخصات یافت نشد ");
+                    txtPassword.Text = "";
+                    txtUserName.Text = "";
+                    Cursor = Cursors.Default;
                 }
 
-
             }
-
 
         }
 

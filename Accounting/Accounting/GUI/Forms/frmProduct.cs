@@ -72,53 +72,12 @@ namespace Accounting.GUI.Forms
 
 
 
-     
-
-
-
-
-        private bool Validations(string productCode)
-
-        {
-
-
-
-            if (!WorkWithStrings.TextToDecimalVlaidation(productCode))
-            {
-                // MessageBox.Show("تعداد نامعتبر");
-                return false;
-            }
-
-
-            return true;
-        }
-
-
-
-
-        private bool IsNull()
-        {
-            if (
-               string.IsNullOrEmpty(txtFeatures.Text) ||
-                  string.IsNullOrEmpty(txtCountingUnit.Text) ||
-                  string.IsNullOrEmpty(txtProductCode.Text) ||
-                  string.IsNullOrEmpty(txtFeatures.Text) ||
-                  string.IsNullOrWhiteSpace(txtCountingUnit.Text) ||
-                  string.IsNullOrWhiteSpace(cbCategory.Text) ||
-                  string.IsNullOrWhiteSpace(cbCompany.Text)
-                  )
 
 
 
 
 
-                return true;
-            else
-            {
-                return false;
-            }
 
-        }
 
         private Product Fill__ProductRecord(Product productRecord)
         {
@@ -173,14 +132,15 @@ namespace Accounting.GUI.Forms
 
         async private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text, cbCategory.Text, txtFeatures.Text, txtProductCode.Text, txtCountingUnit.Text);
+            if (isNull)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
-          
+
 
             using (UnitOfWork _unitOfWork = new UnitOfWork())
             {
@@ -238,7 +198,7 @@ namespace Accounting.GUI.Forms
 
         private async void btnGetDetails_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtProductCode.Text) || string.IsNullOrWhiteSpace(txtProductCode.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtProductCode.Text))
             {
                 MessageBox.Show("ورودی نامعتبر");
                 return;
@@ -286,7 +246,7 @@ namespace Accounting.GUI.Forms
 
         private void txtProductCode_TextChanged(object sender, EventArgs e)
         {
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtProductCode.Text);
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtProductCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
@@ -320,14 +280,14 @@ namespace Accounting.GUI.Forms
 
         async private void btnSave_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+
+            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text, cbCategory.Text, txtFeatures.Text, txtProductCode.Text, txtCountingUnit.Text);
+            if (isNull)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //try
-            //{
-           
+
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
@@ -385,7 +345,7 @@ namespace Accounting.GUI.Forms
 
         async private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!Validations(txtProductCode.Text))
+            if (!WorkWithStrings.StringToIntValidations(txtProductCode.Text))
             {
                 MessageBox.Show("مقادیر ورودی نامعتر");
                 return;

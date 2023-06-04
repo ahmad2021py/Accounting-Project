@@ -122,7 +122,7 @@ namespace Accounting.GUI.Forms
 
         private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-         
+
             _NationalCode = DGV1.Rows[e.RowIndex].Cells["NationalCode"].Value.ToString();
             _Name = DGV1.Rows[e.RowIndex].Cells["Name"].Value.ToString();
             _Phone = DGV1.Rows[e.RowIndex].Cells["Phone"].Value.ToString();

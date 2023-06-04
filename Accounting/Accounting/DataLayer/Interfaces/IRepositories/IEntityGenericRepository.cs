@@ -22,6 +22,7 @@ namespace Accounting.DataLayer.Interfaces.IRepositories
 
 
 
+        
 
 
 
@@ -43,7 +44,7 @@ namespace Accounting.DataLayer.Interfaces.IRepositories
 
 
 
-        //---End Block of Interface And Namespace------------------------
+            //---End Block of Interface And Namespace------------------------
 
-    }
+        }
 }

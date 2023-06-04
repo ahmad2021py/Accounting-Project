@@ -79,7 +79,7 @@ namespace Accounting.GUI.Forms
                 return;
 
             }
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtUserCode.Text);
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtUserCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");

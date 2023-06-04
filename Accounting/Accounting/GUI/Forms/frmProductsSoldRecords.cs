@@ -10,6 +10,7 @@ namespace Accounting.GUI.Forms
 {
     public partial class frmProductsSoldRecords : Form
     {
+        public string _ProductSoldTableCode;
         public frmProductsSoldRecords()
         {
             InitializeComponent();
@@ -102,6 +103,12 @@ namespace Accounting.GUI.Forms
         private void btnExport_Click(object sender, EventArgs e)
         {
             WorkWithExcel.ExportExcel(DGV1);
+        }
+
+        private void DGV1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _ProductSoldTableCode = DGV1.Rows[e.RowIndex].Cells["ProductSoldTableCode"].Value.ToString();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

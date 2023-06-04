@@ -14,42 +14,7 @@ namespace Accounting.GUI.Forms
             InitializeComponent();
         }
 
-        private bool IsNull()
-        {
-            if (
-                 string.IsNullOrEmpty(txtCustomerAddress.Text) ||
-                  string.IsNullOrEmpty(txtCustomerCity.Text) ||
-                  string.IsNullOrEmpty(txtCustomerEmail.Text) ||
-                  string.IsNullOrEmpty(txtCustomerName.Text) ||
-                  string.IsNullOrEmpty(txtcreditor.Text) ||
-                  string.IsNullOrEmpty(txtdebtor.Text) ||
-                    string.IsNullOrEmpty(cbStates.Text) ||
-                     string.IsNullOrEmpty(txtCustomerPhone.Text) ||
-                        string.IsNullOrEmpty(txtCustomerZipCode.Text) ||
-                          string.IsNullOrEmpty(txtNationalCode.Text) ||
 
-                   string.IsNullOrWhiteSpace(txtCustomerAddress.Text) ||
-                       string.IsNullOrWhiteSpace(txtCustomerCity.Text) ||
-                          string.IsNullOrWhiteSpace(txtCustomerEmail.Text) ||
-                          string.IsNullOrWhiteSpace(txtCustomerName.Text) ||
-                              string.IsNullOrWhiteSpace(txtcreditor.Text) ||
-                              string.IsNullOrWhiteSpace(txtdebtor.Text) ||
-                                string.IsNullOrWhiteSpace(cbStates.Text) ||
-                  string.IsNullOrWhiteSpace(txtCustomerPhone.Text) ||
-                  string.IsNullOrWhiteSpace(txtCustomerZipCode.Text) ||
-                  string.IsNullOrWhiteSpace(txtNationalCode.Text)
-
-
-
-                )
-
-                return true;
-            else
-            {
-                return false;
-            }
-
-        }
 
         private void Reset()
         {
@@ -152,7 +117,21 @@ namespace Accounting.GUI.Forms
 
         async private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (IsNull())
+
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtCustomerAddress.Text,
+                  txtCustomerCity.Text,
+                  txtCustomerEmail.Text,
+                  txtCustomerName.Text,
+                  txtcreditor.Text,
+                  txtdebtor.Text,
+                  cbStates.Text,
+                  txtCustomerPhone.Text,
+                  txtCustomerZipCode.Text,
+                  txtNationalCode.Text);
+
+
+
+            if (isNullResult)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -193,7 +172,7 @@ namespace Accounting.GUI.Forms
         async private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txtNationalCode.Text) || string.IsNullOrWhiteSpace(txtNationalCode.Text))
+            if (WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtNationalCode.Text))
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -256,11 +235,25 @@ namespace Accounting.GUI.Forms
         async private void btnSave_Click(object sender, EventArgs e)
         {
 
-            if (IsNull())
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtCustomerAddress.Text,
+                txtCustomerCity.Text,
+                txtCustomerEmail.Text,
+                txtCustomerName.Text,
+                txtcreditor.Text,
+                txtdebtor.Text,
+                cbStates.Text,
+                txtCustomerPhone.Text,
+                txtCustomerZipCode.Text,
+                txtNationalCode.Text);
+
+
+
+            if (isNullResult)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
 
             bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
             if (!IsValidateEmailResult)

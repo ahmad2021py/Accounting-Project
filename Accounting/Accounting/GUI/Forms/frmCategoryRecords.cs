@@ -57,7 +57,7 @@ namespace Accounting.GUI.Forms
                 LoadData();
                 return;
             }
-            bool ValidationResult = WorkWithStrings.TextToIntVlaidation(txtCategoryId.Text);
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtCategoryId.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
