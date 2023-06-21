@@ -274,6 +274,15 @@ namespace Accounting.GUI.Forms
 
         }
 
+        private void frmSeller_Load(object sender, EventArgs e)
+        {
+            var list = WorkWithEnums.GetIranStatesList();
+            foreach (string n in list)
+            {
+                cbStates.Items.Add(n);
+            }
+        }
+
 
 
 

@@ -198,6 +198,7 @@ namespace Accounting.GUI.Forms
             this.cbStates.Name = "cbStates";
             this.cbStates.Size = new System.Drawing.Size(234, 24);
             this.cbStates.TabIndex = 5;
+            this.cbStates.SelectedIndexChanged += new System.EventHandler(this.cbStates_SelectedIndexChanged);
             // 
             // label3
             // 

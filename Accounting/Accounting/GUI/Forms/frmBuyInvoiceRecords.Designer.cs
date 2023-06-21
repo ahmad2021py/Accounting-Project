@@ -35,8 +35,15 @@ namespace Accounting.GUI.Forms
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSearchByDate = new System.Windows.Forms.Button();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnExcelExport = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBuyInvoiceCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV1
@@ -49,6 +56,7 @@ namespace Accounting.GUI.Forms
             this.DGV1.Size = new System.Drawing.Size(488, 469);
             this.DGV1.TabIndex = 0;
             this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
+            this.DGV1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV1_RowHeaderMouseClick);
             // 
             // groupBox2
             // 
@@ -56,7 +64,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.Controls.Add(this.btnSearchByDate);
             this.groupBox2.Controls.Add(this.bPersianCalenderTextBox1);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(12, 251);
+            this.groupBox2.Location = new System.Drawing.Point(12, 170);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 142);
             this.groupBox2.TabIndex = 99;
@@ -86,11 +94,66 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(278, 32);
             this.bPersianCalenderTextBox1.TabIndex = 2;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnExport);
+            this.groupBox3.Controls.Add(this.btnExcelExport);
+            this.groupBox3.ForeColor = System.Drawing.Color.Black;
+            this.groupBox3.Location = new System.Drawing.Point(12, 383);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(293, 98);
+            this.groupBox3.TabIndex = 100;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "خروجی گرفتن";
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(76, 32);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(97, 54);
+            this.btnExport.TabIndex = 3;
+            this.btnExport.Text = "چاپ";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnExcelExport
+            // 
+            this.btnExcelExport.Location = new System.Drawing.Point(190, 32);
+            this.btnExcelExport.Name = "btnExcelExport";
+            this.btnExcelExport.Size = new System.Drawing.Size(97, 54);
+            this.btnExcelExport.TabIndex = 2;
+            this.btnExcelExport.Text = "خروجی اکسل";
+            this.btnExcelExport.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.txtBuyInvoiceCode);
+            this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.groupBox1.Location = new System.Drawing.Point(12, 33);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(299, 110);
+            this.groupBox1.TabIndex = 101;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "جستجو با کد";
+            // 
+            // txtBuyInvoiceCode
+            // 
+            this.txtBuyInvoiceCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuyInvoiceCode.Location = new System.Drawing.Point(17, 40);
+            this.txtBuyInvoiceCode.Multiline = true;
+            this.txtBuyInvoiceCode.Name = "txtBuyInvoiceCode";
+            this.txtBuyInvoiceCode.Size = new System.Drawing.Size(246, 36);
+            this.txtBuyInvoiceCode.TabIndex = 0;
+            this.txtBuyInvoiceCode.TextChanged += new System.EventHandler(this.txtBuyInvoiceCode_TextChanged);
+            // 
             // frmBuyInvoiceRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 493);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.DGV1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -103,6 +166,9 @@ namespace Accounting.GUI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +180,10 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSearchByDate;
         private BPersianCalender.BPersianCalenderTextBox bPersianCalenderTextBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnExcelExport;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtBuyInvoiceCode;
     }
 }

@@ -374,6 +374,11 @@ namespace Accounting.GUI.Forms
             Reset();
         }
 
+        private void cbStates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

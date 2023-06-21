@@ -2,6 +2,7 @@
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,11 +13,31 @@ namespace Accounting.GUI.Forms
     public partial class frmBuyInvoiceRecords : Form
     {
 
+        public string _Row;
         public string _BuyInvoiceCode;
+        public string _BuyInvoiceDate;
+        public string _BuyCount;
+        public string _BuyPricePerUnit;
+        public string _Off;
+        public string _TotalBuyAmount;
+        public string _FKSeller;
         public string _FKStock;
+        private StiReport stiReport1;
+
+
+
+
+
+
+
+
         public frmBuyInvoiceRecords()
         {
             InitializeComponent();
+            stiReport1 = new StiReport();
+            // How to Activate Stimulsoft
+            Stimulsoft.Base.StiLicense.Key = "6vJhGtLLLz2GNviWmUTrhSqnOItdDwjBylQzQcAOiHn0s4gy0Fr5YoUZ9V00Y0igCSFQzwEqYBh/N77k4f0fWXTHW5rqeBNLkaurJDenJ9o97TyqHs9HfvINK18Uwzsc/bG01Rq+x3H3Rf+g7AY92gvWmp7VA2Uxa30Q97f61siWz2dE5kdBVcCnSFzC6awE74JzDcJMj8OuxplqB1CYcpoPcOjKy1PiATlC3UsBaLEXsok1xxtRMQ283r282tkh8XQitsxtTczAJBxijuJNfziYhci2jResWXK51ygOOEbVAxmpflujkJ8oEVHkOA/CjX6bGx05pNZ6oSIu9H8deF94MyqIwcdeirCe60GbIQByQtLimfxbIZnO35X3fs/94av0ODfELqrQEpLrpU6FNeHttvlMc5UVrT4K+8lPbqR8Hq0PFWmFrbVIYSi7tAVFMMe2D1C59NWyLu3AkrD3No7YhLVh7LV0Tttr/8FrcZ8xirBPcMZCIGrRIesrHxOsZH2V8t/t0GXCnLLAWX+TNvdNXkB8cF2y9ZXf1enI064yE5dwMs2fQ0yOUG/xornE";
+            //Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
         }
 
 
@@ -171,6 +192,75 @@ namespace Accounting.GUI.Forms
 
         }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            //Load File
+            stiReport1.Load(Application.StartupPath + "/AppFiles/BuyInvoice.mrt");
+            stiReport1.Compile();
+            //Set Variables
+            stiReport1["Row"] = _Row;
+            stiReport1["BuyInvoiceCode"] = _BuyInvoiceCode;
+            stiReport1["BuyInvoiceDate"] = _BuyInvoiceDate;
+            stiReport1["FKStock"] = _FKStock;
+            stiReport1["FKSeller"] = _FKSeller;
+            stiReport1["TotalBuyAmount"] = _TotalBuyAmount;
+            stiReport1["Off"] = _Off;
+            stiReport1["BuyPricePerUnit"] = _BuyPricePerUnit;
+            stiReport1["BuyCount"] = _BuyCount;
+       
+        
+
+            //--------Show------------
+            stiReport1.Show();
+            //---------
+        }
+
+        private void DGV1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            _Row = DGV1.Rows[e.RowIndex].Cells["Row"].Value.ToString();
+            _BuyCount = DGV1.Rows[e.RowIndex].Cells["BuyCount"].Value.ToString();
+            _BuyInvoiceCode = DGV1.Rows[e.RowIndex].Cells["BuyInvoiceCode"].Value.ToString();
+            _BuyInvoiceDate = DGV1.Rows[e.RowIndex].Cells["BuyInvoiceDate"].Value.ToString();
+            _BuyPricePerUnit = DGV1.Rows[e.RowIndex].Cells["BuyPricePerUnit"].Value.ToString();
+            _FKSeller = DGV1.Rows[e.RowIndex].Cells["FKSeller"].Value.ToString();
+            _FKStock = DGV1.Rows[e.RowIndex].Cells["FKStock"].Value.ToString();
+            _Off = DGV1.Rows[e.RowIndex].Cells["Off"].Value.ToString();
+            _TotalBuyAmount = DGV1.Rows[e.RowIndex].Cells["TotalBuyAmount"].Value.ToString();
+        }
+
+      async  private void txtBuyInvoiceCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuyInvoiceCode.Text == "")
+            {
+                LoadData();
+                return;
+            }
+          
+
+
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IBuyInvoiceRepository buyInvoiceRepository = _UnitOfWork.BuyInvoiceRepository;
+                try
+                {
+
+
+                    long buyInvoiceCode = long.Parse(txtBuyInvoiceCode.Text);
+                    var buyInvoiceDbRecords = await buyInvoiceRepository.GetAll<BuyInvoice>(n => n.BuyInvoiceCode.ToString().Contains(txtBuyInvoiceCode.Text.ToString()));
+                    DGV1.DataSource = buyInvoiceDbRecords;
+
+
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
+
+            }
+        }
 
 
 
@@ -186,6 +276,7 @@ namespace Accounting.GUI.Forms
 
 
 
-            //----------------------------
+
+        //----------------------------
     }
 }

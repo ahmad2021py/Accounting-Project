@@ -2,6 +2,7 @@
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
+using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,22 @@ namespace Accounting.GUI.Forms
     public partial class frmSellInvoiceRecords : Form
     {
         public string _SellInvoiceCode;
-
+        public string _Row;
+        public string _SellInvoiceDate;
+        public string _FKCustomer;
+        public string _FKStock;
+        public string _Quantity;
+        public string _TotalSellAmount;
+        public string _SellPricePerUnit;
+        public string _Off;
+        private StiReport stiReport1;
         public frmSellInvoiceRecords()
         {
             InitializeComponent();
+            stiReport1 = new StiReport();
+            // How to Activate Stimulsoft
+            Stimulsoft.Base.StiLicense.Key = "6vJhGtLLLz2GNviWmUTrhSqnOItdDwjBylQzQcAOiHn0s4gy0Fr5YoUZ9V00Y0igCSFQzwEqYBh/N77k4f0fWXTHW5rqeBNLkaurJDenJ9o97TyqHs9HfvINK18Uwzsc/bG01Rq+x3H3Rf+g7AY92gvWmp7VA2Uxa30Q97f61siWz2dE5kdBVcCnSFzC6awE74JzDcJMj8OuxplqB1CYcpoPcOjKy1PiATlC3UsBaLEXsok1xxtRMQ283r282tkh8XQitsxtTczAJBxijuJNfziYhci2jResWXK51ygOOEbVAxmpflujkJ8oEVHkOA/CjX6bGx05pNZ6oSIu9H8deF94MyqIwcdeirCe60GbIQByQtLimfxbIZnO35X3fs/94av0ODfELqrQEpLrpU6FNeHttvlMc5UVrT4K+8lPbqR8Hq0PFWmFrbVIYSi7tAVFMMe2D1C59NWyLu3AkrD3No7YhLVh7LV0Tttr/8FrcZ8xirBPcMZCIGrRIesrHxOsZH2V8t/t0GXCnLLAWX+TNvdNXkB8cF2y9ZXf1enI064yE5dwMs2fQ0yOUG/xornE";
+            //Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
 
         }
 
@@ -174,6 +187,81 @@ namespace Accounting.GUI.Forms
 
 
                 }
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            //Load File
+            stiReport1.Load(Application.StartupPath + "/AppFiles/SellInvoice.mrt");
+            stiReport1.Compile();
+            //Set Variables
+            stiReport1["Row"] = _Row;
+            stiReport1["SellInvoiceCode"] = _SellInvoiceCode;
+            stiReport1["SellInvoiceDate"] = _SellInvoiceDate;
+            stiReport1["FKStock"] = _FKStock;
+            stiReport1["FKCustomer"] = _FKCustomer;
+            stiReport1["TotalSellAmount"] = _TotalSellAmount;
+            stiReport1["Off"] = _Off;
+            stiReport1["SellPricePerUnit"] = _SellPricePerUnit;
+            stiReport1["Quantity"] = _Quantity;
+
+
+
+            //--------Show------------
+            stiReport1.Show();
+            //---------
+        }
+
+        private void DGV1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            _Row = DGV1.Rows[e.RowIndex].Cells["Row"].Value.ToString();
+            _Quantity = DGV1.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+            _FKCustomer = DGV1.Rows[e.RowIndex].Cells["FKCustomer"].Value.ToString();
+            _FKStock = DGV1.Rows[e.RowIndex].Cells["FKStock"].Value.ToString();
+            _Off = DGV1.Rows[e.RowIndex].Cells["Off"].Value.ToString();
+            _SellInvoiceCode = DGV1.Rows[e.RowIndex].Cells["SellInvoiceCode"].Value.ToString();
+            _SellInvoiceDate = DGV1.Rows[e.RowIndex].Cells["SellInvoiceDate"].Value.ToString();
+            _SellPricePerUnit = DGV1.Rows[e.RowIndex].Cells["SellPricePerUnit"].Value.ToString();
+            _TotalSellAmount = DGV1.Rows[e.RowIndex].Cells["TotalSellAmount"].Value.ToString();
+        }
+
+     async   private void txtSellInvoiceCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSellInvoiceCode.Text == "")
+            {
+                LoadData();
+                return;
+            }
+
+
+
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                ISelllnvoiceRepository selllnvoiceRepository = _UnitOfWork.SellInvoiceRepository;
+                try
+                {
+
+
+
+                    IEnumerable<SellInvoice> sellIncoiceDbRecords = await selllnvoiceRepository.GetAll<SellInvoice>(n => n.SellInvoiceCode.ToString().Contains(txtSellInvoiceCode.Text.ToString()));
+                    List<SellInvoice> dblist = new List<SellInvoice>(sellIncoiceDbRecords);
+
+                    DataTable datatable = DesignAndFillDataTable(dblist);
+
+
+                    DGV1.DataSource = datatable;
+
+
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
+
             }
         }
 

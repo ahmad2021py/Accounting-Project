@@ -160,5 +160,65 @@ namespace Accounting.GUI.Forms
                 }
             }
         }
+
+ 
+
+   async     private void txtReturnFromSellInvoiceCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtReturnFromSellInvoiceCode.Text == "")
+            {
+                LoadData();
+                return;
+            }
+
+
+
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IReturnFromSellInvoiceRepository returnFromSellInvoiceRepository = _UnitOfWork.ReturnFromSellInvoicRepository;
+                try
+                {
+
+
+
+                    IEnumerable< ReturnFromSellIncoice> returnFromSellIncoiceDbRecords = await returnFromSellInvoiceRepository.GetAll<ReturnFromSellIncoice>(n => n.ReturnFromSellIncoiceCode.ToString().Contains(txtReturnFromSellInvoiceCode.Text.ToString()));
+                    List<ReturnFromSellIncoice> dblist = new List<ReturnFromSellIncoice>(returnFromSellIncoiceDbRecords);
+
+                   DataTable datatable= DesignAndFillDataTable(dblist);  
+
+
+                    DGV1.DataSource = datatable;
+
+
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //------------------------------------
     }
 }

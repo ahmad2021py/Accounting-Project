@@ -38,7 +38,6 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSearchByDate = new System.Windows.Forms.Button();
-            this.btnExcelExport = new System.Windows.Forms.Button();
             this.DGV1 = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -124,16 +123,6 @@ namespace Accounting.GUI.Forms
             this.btnSearchByDate.UseVisualStyleBackColor = true;
             this.btnSearchByDate.Click += new System.EventHandler(this.btnSearchByDate_Click);
             // 
-            // btnExcelExport
-            // 
-            this.btnExcelExport.Location = new System.Drawing.Point(15, 440);
-            this.btnExcelExport.Name = "btnExcelExport";
-            this.btnExcelExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExcelExport.TabIndex = 4;
-            this.btnExcelExport.Text = "خروجی اکسل";
-            this.btnExcelExport.UseVisualStyleBackColor = true;
-            this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
-            // 
             // DGV1
             // 
             this.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -151,7 +140,6 @@ namespace Accounting.GUI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 539);
             this.Controls.Add(this.DGV1);
-            this.Controls.Add(this.btnExcelExport);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -184,7 +172,6 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.TextBox txtStockCode;
         private System.Windows.Forms.TextBox txtProductCode;
         private System.Windows.Forms.Button btnSearchByDate;
-        private System.Windows.Forms.Button btnExcelExport;
         private System.Windows.Forms.DataGridView DGV1;
     }
 }

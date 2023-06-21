@@ -171,11 +171,7 @@ namespace Accounting.GUI.Forms
 
 
 
-        private void btnExport_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void btnExcelExport_Click(object sender, EventArgs e)
         {
             WorkWithExcel.ExportExcel(DGV1);

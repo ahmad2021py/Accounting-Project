@@ -369,6 +369,7 @@ namespace Accounting.GUI.Forms
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "فروشنده";
+            this.Load += new System.EventHandler(this.frmSeller_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

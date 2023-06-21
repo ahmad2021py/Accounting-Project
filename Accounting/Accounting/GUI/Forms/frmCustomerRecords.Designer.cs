@@ -49,7 +49,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.AutoSize = true;
             this.groupBox1.Controls.Add(this.txtNationalCode);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(58, 21);
+            this.groupBox1.Location = new System.Drawing.Point(28, 21);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(292, 112);
             this.groupBox1.TabIndex = 79;
@@ -71,7 +71,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.txtCustomerName);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(58, 172);
+            this.groupBox2.Location = new System.Drawing.Point(28, 172);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(292, 99);
             this.groupBox2.TabIndex = 80;
@@ -102,7 +102,7 @@ namespace Accounting.GUI.Forms
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(38, 21);
+            this.btnExport.Location = new System.Drawing.Point(36, 24);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(97, 54);
             this.btnExport.TabIndex = 3;

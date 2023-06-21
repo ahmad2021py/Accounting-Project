@@ -54,6 +54,7 @@ namespace Accounting.GUI.Forms
             this.DGV1.Size = new System.Drawing.Size(537, 543);
             this.DGV1.TabIndex = 0;
             this.DGV1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV1_CellDoubleClick);
+            this.DGV1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV1_RowHeaderMouseClick);
             // 
             // groupBox3
             // 

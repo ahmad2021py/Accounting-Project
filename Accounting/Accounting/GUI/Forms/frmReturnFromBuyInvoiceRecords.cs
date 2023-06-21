@@ -169,5 +169,55 @@ namespace Accounting.GUI.Forms
             }
         }
 
+       async private void txtReturnFromBuyInvoiceCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtReturnFromBuyInvoiceCode.Text == "")
+            {
+                LoadData();
+                return;
+            }
+
+
+
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IReturnFromBuyIncoiceRepository returnFromBuyIncoiceRepository = _UnitOfWork.ReturnFromBuyIncoiceRepository;
+                try
+                {
+
+
+                    long returnFromBuyIncoiceCode = long.Parse(txtReturnFromBuyInvoiceCode.Text);
+                    var returnFromBuyIncoiceDbRecords = await returnFromBuyIncoiceRepository.GetAll<ReturnFromBuyIncoice>(n => n.ReturnFromBuyInvoiceCode.ToString().Contains(txtReturnFromBuyInvoiceCode.Text.ToString()));
+                    DGV1.DataSource = returnFromBuyIncoiceDbRecords;
+
+
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //-----------------------
     }
     }

@@ -49,7 +49,7 @@
         </Text2>
         <Text4 Ref="4" type="Text" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>7.2,1.2,3.6,0.6</ClientRectangle>
+          <ClientRectangle>7,1.2,4,0.6</ClientRectangle>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
           <Font>Arial,14,Bold</Font>
@@ -57,7 +57,7 @@
           <Name>Text4</Name>
           <Page isRef="2" />
           <Parent isRef="2" />
-          <Text>فرم مشخصات مشتری</Text>
+          <Text>فرم مشخصات فروشنده</Text>
           <TextBrush>Black</TextBrush>
           <Type>Expression</Type>
         </Text4>
@@ -71,7 +71,7 @@
           <Name>Text7</Name>
           <Page isRef="2" />
           <Parent isRef="2" />
-          <Text>: کد مشتری </Text>
+          <Text>: کد فروشنده </Text>
           <TextBrush>Black</TextBrush>
           <Type>Expression</Type>
         </Text7>
@@ -765,11 +765,11 @@
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
   <ReportAuthor isNull="true" />
-  <ReportChanged>6/21/2023 8:20:16 PM</ReportChanged>
+  <ReportChanged>6/21/2023 9:41:07 PM</ReportChanged>
   <ReportCreated>12/13/2004 12:12:00 AM</ReportCreated>
   <ReportDescription isNull="true" />
-  <ReportFile>D:\university_PC\projects\Accounting\Accounting-Project\Accounting\Accounting\bin\Debug\AppFiles\Customer.mrt</ReportFile>
-  <ReportGuid>3978a901a19f46a8960603a09a5a64d4</ReportGuid>
+  <ReportFile>D:\university_PC\projects\Accounting\Accounting-Project\Accounting\Accounting\bin\Debug\AppFiles\Seller.mrt</ReportFile>
+  <ReportGuid>6c2b5567a16d4daa82ba81444882a174</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2022.1.1.0</ReportVersion>

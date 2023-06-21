@@ -157,21 +157,55 @@ namespace Accounting.GUI.Forms
 
         }
 
+      async  private void txtChequeCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtChequeCode.Text == "")
+            {
+                LoadData();
+                return;
+            }
 
 
 
 
 
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IChequeRepository chequeRepository = _UnitOfWork.ChequeRepository;
+                try
+                {
 
 
+              
+                    var chequeDbRecords = await chequeRepository.GetAll<Cheque>(n => n.ChequeCode.ToString().Contains(txtChequeCode.Text.ToString()));
+                    DGV1.DataSource = chequeDbRecords;
 
 
+                }
+                catch
+                {
+                    MessageBox.Show(" خطایی رخ داده است");
+                }
 
 
-
-
-
-
-            //----------------------------
+            }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //----------------------------
+    }
 }

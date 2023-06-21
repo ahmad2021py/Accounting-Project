@@ -35,8 +35,11 @@ namespace Accounting.GUI.Forms
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSearchByDate = new System.Windows.Forms.Button();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtReturnFromBuyInvoiceCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DGV1
@@ -55,7 +58,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.Controls.Add(this.btnSearchByDate);
             this.groupBox2.Controls.Add(this.bPersianCalenderTextBox1);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(27, 325);
+            this.groupBox2.Location = new System.Drawing.Point(6, 169);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 142);
             this.groupBox2.TabIndex = 97;
@@ -85,11 +88,34 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(278, 32);
             this.bPersianCalenderTextBox1.TabIndex = 2;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.txtReturnFromBuyInvoiceCode);
+            this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
+            this.groupBox1.Location = new System.Drawing.Point(12, 29);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(293, 110);
+            this.groupBox1.TabIndex = 102;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "جستجو با کد";
+            // 
+            // txtReturnFromBuyInvoiceCode
+            // 
+            this.txtReturnFromBuyInvoiceCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReturnFromBuyInvoiceCode.Location = new System.Drawing.Point(17, 40);
+            this.txtReturnFromBuyInvoiceCode.Multiline = true;
+            this.txtReturnFromBuyInvoiceCode.Name = "txtReturnFromBuyInvoiceCode";
+            this.txtReturnFromBuyInvoiceCode.Size = new System.Drawing.Size(246, 36);
+            this.txtReturnFromBuyInvoiceCode.TabIndex = 0;
+            this.txtReturnFromBuyInvoiceCode.TextChanged += new System.EventHandler(this.txtReturnFromBuyInvoiceCode_TextChanged);
+            // 
             // frmReturnFromBuyInvoiceRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 530);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.DGV1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -102,6 +128,8 @@ namespace Accounting.GUI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +141,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSearchByDate;
         private BPersianCalender.BPersianCalenderTextBox bPersianCalenderTextBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtReturnFromBuyInvoiceCode;
     }
 }
