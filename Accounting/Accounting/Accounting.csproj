@@ -479,6 +479,8 @@
     <None Include="GUI\Resourses\Category.png" />
     <None Include="GUI\Resourses\SaleAndBuy.png" />
     <None Include="GUI\Resourses\background.png" />
+    <None Include="GUI\Resourses\Cheque.ico" />
+    <None Include="GUI\Resourses\Invoice.ico" />
     <Content Include="Utilities\BPersianCalender.dll" />
     <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\CHANGELOG.txt" />
     <Content Include="Utilities\Bunifu UI WinForms 5.0.3\Assets\Icon.png" />

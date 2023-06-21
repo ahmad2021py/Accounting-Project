@@ -64,7 +64,7 @@ namespace Accounting.GUI.Forms
             this.txtProductCode.Multiline = true;
             this.txtProductCode.Name = "txtProductCode";
             this.txtProductCode.Size = new System.Drawing.Size(255, 40);
-            this.txtProductCode.TabIndex = 96;
+            this.txtProductCode.TabIndex = 1;
             this.txtProductCode.TextChanged += new System.EventHandler(this.txtProductId_TextChanged);
             // 
             // groupBox1
@@ -85,7 +85,7 @@ namespace Accounting.GUI.Forms
             this.txtStockCode.Multiline = true;
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(255, 40);
-            this.txtStockCode.TabIndex = 96;
+            this.txtStockCode.TabIndex = 0;
             this.txtStockCode.TextChanged += new System.EventHandler(this.txtStockId_TextChanged);
             // 
             // bPersianCalenderTextBox1
@@ -99,7 +99,7 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(278, 32);
-            this.bPersianCalenderTextBox1.TabIndex = 87;
+            this.bPersianCalenderTextBox1.TabIndex = 2;
             // 
             // groupBox2
             // 
@@ -107,7 +107,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.Controls.Add(this.btnSearchByDate);
             this.groupBox2.Controls.Add(this.bPersianCalenderTextBox1);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(9, 292);
+            this.groupBox2.Location = new System.Drawing.Point(8, 292);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 142);
             this.groupBox2.TabIndex = 95;
@@ -119,7 +119,7 @@ namespace Accounting.GUI.Forms
             this.btnSearchByDate.Location = new System.Drawing.Point(201, 75);
             this.btnSearchByDate.Name = "btnSearchByDate";
             this.btnSearchByDate.Size = new System.Drawing.Size(92, 46);
-            this.btnSearchByDate.TabIndex = 96;
+            this.btnSearchByDate.TabIndex = 3;
             this.btnSearchByDate.Text = "جستجو";
             this.btnSearchByDate.UseVisualStyleBackColor = true;
             this.btnSearchByDate.Click += new System.EventHandler(this.btnSearchByDate_Click);
@@ -129,7 +129,7 @@ namespace Accounting.GUI.Forms
             this.btnExcelExport.Location = new System.Drawing.Point(15, 440);
             this.btnExcelExport.Name = "btnExcelExport";
             this.btnExcelExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExcelExport.TabIndex = 96;
+            this.btnExcelExport.TabIndex = 4;
             this.btnExcelExport.Text = "خروجی اکسل";
             this.btnExcelExport.UseVisualStyleBackColor = true;
             this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);

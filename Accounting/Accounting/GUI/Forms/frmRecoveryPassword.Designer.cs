@@ -70,7 +70,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(418, 36);
-            this.txtUserName.TabIndex = 92;
+            this.txtUserName.TabIndex = 0;
             // 
             // txtEmail
             // 
@@ -79,14 +79,14 @@ namespace Accounting.GUI.Forms
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(418, 36);
-            this.txtEmail.TabIndex = 92;
+            this.txtEmail.TabIndex = 1;
             // 
             // btnSend
             // 
             this.btnSend.Location = new System.Drawing.Point(272, 181);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(97, 54);
-            this.btnSend.TabIndex = 93;
+            this.btnSend.TabIndex = 2;
             this.btnSend.Text = "ارسال";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);

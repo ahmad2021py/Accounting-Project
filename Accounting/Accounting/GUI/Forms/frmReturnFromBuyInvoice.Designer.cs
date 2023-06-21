@@ -30,6 +30,7 @@ namespace Accounting.GUI.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReturnFromBuyInvoice));
             this.btnCommit = new System.Windows.Forms.Button();
             this.txtReturnFromBuy_Count = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,7 +51,7 @@ namespace Accounting.GUI.Forms
             this.btnCommit.Location = new System.Drawing.Point(451, 316);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(106, 42);
-            this.btnCommit.TabIndex = 41;
+            this.btnCommit.TabIndex = 4;
             this.btnCommit.Text = "ثبت";
             this.btnCommit.UseVisualStyleBackColor = true;
             this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
@@ -61,7 +62,7 @@ namespace Accounting.GUI.Forms
             this.txtReturnFromBuy_Count.Multiline = true;
             this.txtReturnFromBuy_Count.Name = "txtReturnFromBuy_Count";
             this.txtReturnFromBuy_Count.Size = new System.Drawing.Size(100, 25);
-            this.txtReturnFromBuy_Count.TabIndex = 35;
+            this.txtReturnFromBuy_Count.TabIndex = 3;
             // 
             // label8
             // 
@@ -78,7 +79,7 @@ namespace Accounting.GUI.Forms
             this.btnSelectBuyInvoiceCode.Location = new System.Drawing.Point(155, 81);
             this.btnSelectBuyInvoiceCode.Name = "btnSelectBuyInvoiceCode";
             this.btnSelectBuyInvoiceCode.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectBuyInvoiceCode.TabIndex = 33;
+            this.btnSelectBuyInvoiceCode.TabIndex = 1;
             this.btnSelectBuyInvoiceCode.Text = "انتخاب";
             this.btnSelectBuyInvoiceCode.UseVisualStyleBackColor = true;
             this.btnSelectBuyInvoiceCode.Click += new System.EventHandler(this.btnSelectBuyInvoiceCode_Click);
@@ -93,7 +94,7 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(155, 22);
-            this.bPersianCalenderTextBox1.TabIndex = 31;
+            this.bPersianCalenderTextBox1.TabIndex = 2;
             // 
             // label1
             // 
@@ -131,7 +132,7 @@ namespace Accounting.GUI.Forms
             this.txtReturnFromBuyInvoiceCode.Multiline = true;
             this.txtReturnFromBuyInvoiceCode.Name = "txtReturnFromBuyInvoiceCode";
             this.txtReturnFromBuyInvoiceCode.Size = new System.Drawing.Size(116, 24);
-            this.txtReturnFromBuyInvoiceCode.TabIndex = 23;
+            this.txtReturnFromBuyInvoiceCode.TabIndex = 0;
             // 
             // txtBuyInvoiceCode
             // 
@@ -178,6 +179,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.txtBuyInvoiceCode);
             this.Controls.Add(this.lblStockCode);
             this.Controls.Add(this.label7);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmReturnFromBuyInvoice";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

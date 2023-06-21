@@ -29,6 +29,7 @@ namespace Accounting.GUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductsSoldRecords));
             this.DGV1 = new System.Windows.Forms.DataGridView();
             this.btnExport = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,7 +57,7 @@ namespace Accounting.GUI.Forms
             this.btnExport.Location = new System.Drawing.Point(12, 450);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExport.TabIndex = 92;
+            this.btnExport.TabIndex = 2;
             this.btnExport.Text = "خروجی اکسل";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
@@ -80,7 +81,7 @@ namespace Accounting.GUI.Forms
             this.txtFKSellInvoice.Multiline = true;
             this.txtFKSellInvoice.Name = "txtFKSellInvoice";
             this.txtFKSellInvoice.Size = new System.Drawing.Size(255, 36);
-            this.txtFKSellInvoice.TabIndex = 91;
+            this.txtFKSellInvoice.TabIndex = 1;
             this.txtFKSellInvoice.TextChanged += new System.EventHandler(this.txtFKSellInvoice_TextChanged);
             // 
             // groupBox1
@@ -102,7 +103,7 @@ namespace Accounting.GUI.Forms
             this.txtProductSoldCode.Multiline = true;
             this.txtProductSoldCode.Name = "txtProductSoldCode";
             this.txtProductSoldCode.Size = new System.Drawing.Size(255, 36);
-            this.txtProductSoldCode.TabIndex = 91;
+            this.txtProductSoldCode.TabIndex = 0;
             this.txtProductSoldCode.TextChanged += new System.EventHandler(this.txtProductSoldCode_TextChanged);
             // 
             // frmProductsSoldRecords
@@ -114,6 +115,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.DGV1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmProductsSoldRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

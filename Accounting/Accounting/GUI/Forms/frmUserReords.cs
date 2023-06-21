@@ -34,7 +34,9 @@ namespace Accounting.GUI.Forms
 
 
                 DGV1.DataSource = DbUserList;
-                DGV1.Columns["UserCode"].HeaderText = " د کاربر";
+
+                DGV1.Columns["Row"].HeaderText = "ردیف";
+                DGV1.Columns["UserCode"].HeaderText = " کد کاربر";
                 DGV1.Columns["Role"].HeaderText = "نقش";
                 DGV1.Columns["UserName"].HeaderText = " نام کاربری";
                 DGV1.Columns["Password"].HeaderText = " کلمه عبور";

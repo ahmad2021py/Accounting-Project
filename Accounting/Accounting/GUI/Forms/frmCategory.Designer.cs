@@ -41,18 +41,18 @@ namespace Accounting.GUI.Forms
             // txtCategoryName
             // 
             this.txtCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoryName.Location = new System.Drawing.Point(234, 146);
+            this.txtCategoryName.Location = new System.Drawing.Point(221, 178);
             this.txtCategoryName.Multiline = true;
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(246, 36);
-            this.txtCategoryName.TabIndex = 70;
+            this.txtCategoryName.TabIndex = 0;
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.ForeColor = System.Drawing.Color.Black;
-            this.lblUserName.Location = new System.Drawing.Point(86, 153);
+            this.lblUserName.Location = new System.Drawing.Point(54, 181);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(128, 29);
             this.lblUserName.TabIndex = 71;
@@ -60,40 +60,40 @@ namespace Accounting.GUI.Forms
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(539, 39);
+            this.btnNew.Location = new System.Drawing.Point(475, 348);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(97, 54);
-            this.btnNew.TabIndex = 72;
+            this.btnNew.TabIndex = 4;
             this.btnNew.Text = "جدید";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(537, 118);
+            this.btnSave.Location = new System.Drawing.Point(173, 348);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 54);
-            this.btnSave.TabIndex = 72;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "ذخیره";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(537, 201);
+            this.btnDelete.Location = new System.Drawing.Point(323, 348);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 54);
-            this.btnDelete.TabIndex = 72;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "حذف";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnShowfrmCategoryRecords
             // 
-            this.btnShowfrmCategoryRecords.Location = new System.Drawing.Point(537, 294);
+            this.btnShowfrmCategoryRecords.Location = new System.Drawing.Point(26, 348);
             this.btnShowfrmCategoryRecords.Name = "btnShowfrmCategoryRecords";
             this.btnShowfrmCategoryRecords.Size = new System.Drawing.Size(97, 54);
-            this.btnShowfrmCategoryRecords.TabIndex = 72;
+            this.btnShowfrmCategoryRecords.TabIndex = 1;
             this.btnShowfrmCategoryRecords.Text = "لیست";
             this.btnShowfrmCategoryRecords.UseVisualStyleBackColor = true;
             this.btnShowfrmCategoryRecords.Click += new System.EventHandler(this.btnShowfrmCategoryRecords_Click);
@@ -103,7 +103,7 @@ namespace Accounting.GUI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(676, 414);
+            this.ClientSize = new System.Drawing.Size(593, 414);
             this.Controls.Add(this.btnShowfrmCategoryRecords);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);

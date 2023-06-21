@@ -62,7 +62,7 @@ namespace Accounting.GUI.Forms
             this.txtRole.Multiline = true;
             this.txtRole.Name = "txtRole";
             this.txtRole.Size = new System.Drawing.Size(272, 45);
-            this.txtRole.TabIndex = 82;
+            this.txtRole.TabIndex = 2;
             this.txtRole.TextChanged += new System.EventHandler(this.txtRole_TextChanged);
             // 
             // groupBox2
@@ -83,7 +83,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(272, 45);
-            this.txtUserName.TabIndex = 82;
+            this.txtUserName.TabIndex = 1;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // groupBox1
@@ -104,7 +104,7 @@ namespace Accounting.GUI.Forms
             this.txtUserCode.Multiline = true;
             this.txtUserCode.Name = "txtUserCode";
             this.txtUserCode.Size = new System.Drawing.Size(272, 41);
-            this.txtUserCode.TabIndex = 5;
+            this.txtUserCode.TabIndex = 0;
             this.txtUserCode.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // DGV1
@@ -123,7 +123,7 @@ namespace Accounting.GUI.Forms
             this.btnExcelExport.Location = new System.Drawing.Point(26, 475);
             this.btnExcelExport.Name = "btnExcelExport";
             this.btnExcelExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExcelExport.TabIndex = 97;
+            this.btnExcelExport.TabIndex = 3;
             this.btnExcelExport.Text = "خروجی اکسل";
             this.btnExcelExport.UseVisualStyleBackColor = true;
             this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);

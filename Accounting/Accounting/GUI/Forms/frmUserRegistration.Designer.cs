@@ -67,7 +67,7 @@ namespace Accounting.GUI.Forms
             this.cbRole.Margin = new System.Windows.Forms.Padding(4);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(201, 24);
-            this.cbRole.TabIndex = 1;
+            this.cbRole.TabIndex = 0;
             // 
             // label1
             // 
@@ -167,7 +167,7 @@ namespace Accounting.GUI.Forms
             this.btnBrowse.Location = new System.Drawing.Point(705, 434);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(111, 44);
-            this.btnBrowse.TabIndex = 91;
+            this.btnBrowse.TabIndex = 8;
             this.btnBrowse.Text = "انتخاب تصویر";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -178,7 +178,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(259, 29);
-            this.txtUserName.TabIndex = 92;
+            this.txtUserName.TabIndex = 2;
             // 
             // txtUserPass
             // 
@@ -186,7 +186,7 @@ namespace Accounting.GUI.Forms
             this.txtUserPass.Multiline = true;
             this.txtUserPass.Name = "txtUserPass";
             this.txtUserPass.Size = new System.Drawing.Size(259, 42);
-            this.txtUserPass.TabIndex = 92;
+            this.txtUserPass.TabIndex = 3;
             // 
             // txtName
             // 
@@ -194,7 +194,7 @@ namespace Accounting.GUI.Forms
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(259, 42);
-            this.txtName.TabIndex = 92;
+            this.txtName.TabIndex = 4;
             // 
             // txtFamily
             // 
@@ -202,7 +202,7 @@ namespace Accounting.GUI.Forms
             this.txtFamily.Multiline = true;
             this.txtFamily.Name = "txtFamily";
             this.txtFamily.Size = new System.Drawing.Size(259, 42);
-            this.txtFamily.TabIndex = 92;
+            this.txtFamily.TabIndex = 5;
             // 
             // txtContactNo
             // 
@@ -210,7 +210,7 @@ namespace Accounting.GUI.Forms
             this.txtContactNo.Multiline = true;
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(259, 42);
-            this.txtContactNo.TabIndex = 92;
+            this.txtContactNo.TabIndex = 6;
             // 
             // txtMail
             // 
@@ -218,14 +218,14 @@ namespace Accounting.GUI.Forms
             this.txtMail.Multiline = true;
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(259, 42);
-            this.txtMail.TabIndex = 92;
+            this.txtMail.TabIndex = 7;
             // 
             // btnShowUserRecords
             // 
             this.btnShowUserRecords.Location = new System.Drawing.Point(514, 503);
             this.btnShowUserRecords.Name = "btnShowUserRecords";
             this.btnShowUserRecords.Size = new System.Drawing.Size(102, 58);
-            this.btnShowUserRecords.TabIndex = 91;
+            this.btnShowUserRecords.TabIndex = 13;
             this.btnShowUserRecords.Text = "لیست";
             this.btnShowUserRecords.UseVisualStyleBackColor = true;
             this.btnShowUserRecords.Click += new System.EventHandler(this.btnShowUserRecords_Click);
@@ -235,7 +235,7 @@ namespace Accounting.GUI.Forms
             this.btnNew.Location = new System.Drawing.Point(394, 503);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(102, 58);
-            this.btnNew.TabIndex = 91;
+            this.btnNew.TabIndex = 12;
             this.btnNew.Text = "جدید";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -245,7 +245,7 @@ namespace Accounting.GUI.Forms
             this.btnDelete.Location = new System.Drawing.Point(275, 502);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(102, 58);
-            this.btnDelete.TabIndex = 91;
+            this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "حذف";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -255,7 +255,7 @@ namespace Accounting.GUI.Forms
             this.btnUpdate.Location = new System.Drawing.Point(149, 503);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(102, 58);
-            this.btnUpdate.TabIndex = 91;
+            this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "بروزرسانی";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -265,7 +265,7 @@ namespace Accounting.GUI.Forms
             this.btnRegister.Location = new System.Drawing.Point(22, 502);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(102, 58);
-            this.btnRegister.TabIndex = 91;
+            this.btnRegister.TabIndex = 9;
             this.btnRegister.Text = "ثبت نام";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
@@ -288,7 +288,7 @@ namespace Accounting.GUI.Forms
             this.txtRegistrationCode.Multiline = true;
             this.txtRegistrationCode.Name = "txtRegistrationCode";
             this.txtRegistrationCode.Size = new System.Drawing.Size(259, 28);
-            this.txtRegistrationCode.TabIndex = 92;
+            this.txtRegistrationCode.TabIndex = 1;
             // 
             // frmUserRegistration
             // 

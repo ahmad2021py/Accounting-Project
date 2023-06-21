@@ -30,6 +30,7 @@ namespace Accounting.GUI.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellInvoice));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSellInvoiceCode = new System.Windows.Forms.TextBox();
@@ -127,7 +128,7 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(155, 22);
-            this.bPersianCalenderTextBox1.TabIndex = 3;
+            this.bPersianCalenderTextBox1.TabIndex = 1;
             // 
             // label6
             // 
@@ -165,7 +166,7 @@ namespace Accounting.GUI.Forms
             this.txtSellCount.Multiline = true;
             this.txtSellCount.Name = "txtSellCount";
             this.txtSellCount.Size = new System.Drawing.Size(100, 25);
-            this.txtSellCount.TabIndex = 0;
+            this.txtSellCount.TabIndex = 4;
             // 
             // txtSellPricePerUnit
             // 
@@ -173,7 +174,7 @@ namespace Accounting.GUI.Forms
             this.txtSellPricePerUnit.Multiline = true;
             this.txtSellPricePerUnit.Name = "txtSellPricePerUnit";
             this.txtSellPricePerUnit.Size = new System.Drawing.Size(169, 27);
-            this.txtSellPricePerUnit.TabIndex = 0;
+            this.txtSellPricePerUnit.TabIndex = 5;
             // 
             // label9
             // 
@@ -200,7 +201,7 @@ namespace Accounting.GUI.Forms
             this.btnSelectProductInStock.Location = new System.Drawing.Point(128, 193);
             this.btnSelectProductInStock.Name = "btnSelectProductInStock";
             this.btnSelectProductInStock.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectProductInStock.TabIndex = 4;
+            this.btnSelectProductInStock.TabIndex = 3;
             this.btnSelectProductInStock.Text = "انتخاب";
             this.btnSelectProductInStock.UseVisualStyleBackColor = true;
             this.btnSelectProductInStock.Click += new System.EventHandler(this.btnSelectProductInStock_Click);
@@ -221,14 +222,14 @@ namespace Accounting.GUI.Forms
             this.txtOff.Multiline = true;
             this.txtOff.Name = "txtOff";
             this.txtOff.Size = new System.Drawing.Size(171, 27);
-            this.txtOff.TabIndex = 0;
+            this.txtOff.TabIndex = 6;
             // 
             // SelectCustomer
             // 
             this.SelectCustomer.Location = new System.Drawing.Point(128, 138);
             this.SelectCustomer.Name = "SelectCustomer";
             this.SelectCustomer.Size = new System.Drawing.Size(75, 23);
-            this.SelectCustomer.TabIndex = 5;
+            this.SelectCustomer.TabIndex = 2;
             this.SelectCustomer.Text = "انتخاب";
             this.SelectCustomer.UseVisualStyleBackColor = true;
             this.SelectCustomer.Click += new System.EventHandler(this.SelectCustomer_Click);
@@ -238,7 +239,7 @@ namespace Accounting.GUI.Forms
             this.btnCommit.Location = new System.Drawing.Point(438, 341);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(112, 39);
-            this.btnCommit.TabIndex = 6;
+            this.btnCommit.TabIndex = 8;
             this.btnCommit.Text = "ثبت فاکتور";
             this.btnCommit.UseVisualStyleBackColor = true;
             this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
@@ -258,7 +259,7 @@ namespace Accounting.GUI.Forms
             this.btnCalculate.Location = new System.Drawing.Point(438, 287);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(112, 39);
-            this.btnCalculate.TabIndex = 6;
+            this.btnCalculate.TabIndex = 7;
             this.btnCalculate.Text = "محاسبه";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
@@ -426,6 +427,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.lblStockTotalQuantity);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmSellInvoice";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

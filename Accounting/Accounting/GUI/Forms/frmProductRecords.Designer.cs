@@ -63,7 +63,7 @@ namespace Accounting.GUI.Forms
             this.txtCategory.Multiline = true;
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(255, 36);
-            this.txtCategory.TabIndex = 91;
+            this.txtCategory.TabIndex = 2;
             this.txtCategory.TextChanged += new System.EventHandler(this.txtCategory_TextChanged);
             // 
             // groupBox2
@@ -85,7 +85,7 @@ namespace Accounting.GUI.Forms
             this.txtCompany.Multiline = true;
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(255, 36);
-            this.txtCompany.TabIndex = 91;
+            this.txtCompany.TabIndex = 1;
             this.txtCompany.TextChanged += new System.EventHandler(this.txtCompany_TextChanged);
             // 
             // groupBox1
@@ -107,7 +107,7 @@ namespace Accounting.GUI.Forms
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(255, 36);
-            this.txtProductName.TabIndex = 91;
+            this.txtProductName.TabIndex = 0;
             this.txtProductName.TextChanged += new System.EventHandler(this.txtProductName_TextChanged);
             // 
             // btnExport
@@ -115,7 +115,7 @@ namespace Accounting.GUI.Forms
             this.btnExport.Location = new System.Drawing.Point(24, 459);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExport.TabIndex = 88;
+            this.btnExport.TabIndex = 3;
             this.btnExport.Text = "خروجی اکسل";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);

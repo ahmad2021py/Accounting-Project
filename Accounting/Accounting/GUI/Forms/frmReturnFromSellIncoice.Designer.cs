@@ -30,6 +30,7 @@ namespace Accounting.GUI.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReturnFromSellIncoice));
             this.SelectCustomer = new System.Windows.Forms.Button();
             this.btnSelectProductInStock = new System.Windows.Forms.Button();
             this.bPersianCalenderTextBox1 = new BPersianCalender.BPersianCalenderTextBox();
@@ -60,7 +61,7 @@ namespace Accounting.GUI.Forms
             this.SelectCustomer.Location = new System.Drawing.Point(130, 187);
             this.SelectCustomer.Name = "SelectCustomer";
             this.SelectCustomer.Size = new System.Drawing.Size(75, 23);
-            this.SelectCustomer.TabIndex = 15;
+            this.SelectCustomer.TabIndex = 3;
             this.SelectCustomer.Text = "انتخاب";
             this.SelectCustomer.UseVisualStyleBackColor = true;
             this.SelectCustomer.Click += new System.EventHandler(this.SelectCustomer_Click);
@@ -70,7 +71,7 @@ namespace Accounting.GUI.Forms
             this.btnSelectProductInStock.Location = new System.Drawing.Point(130, 242);
             this.btnSelectProductInStock.Name = "btnSelectProductInStock";
             this.btnSelectProductInStock.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectProductInStock.TabIndex = 14;
+            this.btnSelectProductInStock.TabIndex = 4;
             this.btnSelectProductInStock.Text = "انتخاب";
             this.btnSelectProductInStock.UseVisualStyleBackColor = true;
             this.btnSelectProductInStock.Click += new System.EventHandler(this.btnSelectProductInStock_Click);
@@ -85,7 +86,7 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(155, 22);
-            this.bPersianCalenderTextBox1.TabIndex = 13;
+            this.bPersianCalenderTextBox1.TabIndex = 2;
             // 
             // lblCustomerCode
             // 
@@ -133,7 +134,7 @@ namespace Accounting.GUI.Forms
             this.txtProductSoldCode.Name = "txtProductSoldCode";
             this.txtProductSoldCode.ReadOnly = true;
             this.txtProductSoldCode.Size = new System.Drawing.Size(116, 24);
-            this.txtProductSoldCode.TabIndex = 6;
+            this.txtProductSoldCode.TabIndex = 100;
             // 
             // lblStockCode
             // 
@@ -160,7 +161,7 @@ namespace Accounting.GUI.Forms
             this.txtReturnFromSell_Count.Multiline = true;
             this.txtReturnFromSell_Count.Name = "txtReturnFromSell_Count";
             this.txtReturnFromSell_Count.Size = new System.Drawing.Size(100, 25);
-            this.txtReturnFromSell_Count.TabIndex = 16;
+            this.txtReturnFromSell_Count.TabIndex = 5;
             // 
             // label8
             // 
@@ -218,7 +219,7 @@ namespace Accounting.GUI.Forms
             this.txtReturnFromSell_UnitAmount.Multiline = true;
             this.txtReturnFromSell_UnitAmount.Name = "txtReturnFromSell_UnitAmount";
             this.txtReturnFromSell_UnitAmount.Size = new System.Drawing.Size(100, 25);
-            this.txtReturnFromSell_UnitAmount.TabIndex = 16;
+            this.txtReturnFromSell_UnitAmount.TabIndex = 6;
             // 
             // btnCalculate
             // 
@@ -226,7 +227,7 @@ namespace Accounting.GUI.Forms
             this.btnCalculate.Location = new System.Drawing.Point(402, 157);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(106, 42);
-            this.btnCalculate.TabIndex = 21;
+            this.btnCalculate.TabIndex = 7;
             this.btnCalculate.Text = "محاسبه";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
@@ -237,7 +238,7 @@ namespace Accounting.GUI.Forms
             this.btnCommit.Location = new System.Drawing.Point(402, 227);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(106, 42);
-            this.btnCommit.TabIndex = 21;
+            this.btnCommit.TabIndex = 8;
             this.btnCommit.Text = "ثبت";
             this.btnCommit.UseVisualStyleBackColor = true;
             this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
@@ -247,7 +248,7 @@ namespace Accounting.GUI.Forms
             this.btnSelectProductSoldCode.Location = new System.Drawing.Point(190, 85);
             this.btnSelectProductSoldCode.Name = "btnSelectProductSoldCode";
             this.btnSelectProductSoldCode.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectProductSoldCode.TabIndex = 15;
+            this.btnSelectProductSoldCode.TabIndex = 1;
             this.btnSelectProductSoldCode.Text = "انتخاب";
             this.btnSelectProductSoldCode.UseVisualStyleBackColor = true;
             this.btnSelectProductSoldCode.Click += new System.EventHandler(this.btnSelectSellInviceCode_Click);
@@ -258,7 +259,7 @@ namespace Accounting.GUI.Forms
             this.txtReturnFromSellInvoiceCode.Multiline = true;
             this.txtReturnFromSellInvoiceCode.Name = "txtReturnFromSellInvoiceCode";
             this.txtReturnFromSellInvoiceCode.Size = new System.Drawing.Size(116, 24);
-            this.txtReturnFromSellInvoiceCode.TabIndex = 6;
+            this.txtReturnFromSellInvoiceCode.TabIndex = 0;
             // 
             // label1
             // 
@@ -295,6 +296,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.txtProductSoldCode);
             this.Controls.Add(this.lblStockCode);
             this.Controls.Add(this.label7);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmReturnFromSellIncoice";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

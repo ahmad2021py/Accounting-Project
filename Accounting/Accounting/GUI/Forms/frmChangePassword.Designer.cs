@@ -72,7 +72,7 @@ namespace Accounting.GUI.Forms
             this.txtUserName.Multiline = true;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(246, 36);
-            this.txtUserName.TabIndex = 87;
+            this.txtUserName.TabIndex = 0;
             // 
             // txtOldPass
             // 
@@ -82,7 +82,7 @@ namespace Accounting.GUI.Forms
             this.txtOldPass.Name = "txtOldPass";
             this.txtOldPass.PasswordChar = '*';
             this.txtOldPass.Size = new System.Drawing.Size(246, 36);
-            this.txtOldPass.TabIndex = 88;
+            this.txtOldPass.TabIndex = 1;
             this.txtOldPass.UseSystemPasswordChar = true;
             // 
             // txtNewPass
@@ -93,7 +93,7 @@ namespace Accounting.GUI.Forms
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.PasswordChar = '*';
             this.txtNewPass.Size = new System.Drawing.Size(246, 36);
-            this.txtNewPass.TabIndex = 89;
+            this.txtNewPass.TabIndex = 2;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
             // txtRepeatNewPass
@@ -104,7 +104,7 @@ namespace Accounting.GUI.Forms
             this.txtRepeatNewPass.Name = "txtRepeatNewPass";
             this.txtRepeatNewPass.PasswordChar = 'p';
             this.txtRepeatNewPass.Size = new System.Drawing.Size(246, 36);
-            this.txtRepeatNewPass.TabIndex = 89;
+            this.txtRepeatNewPass.TabIndex = 3;
             this.txtRepeatNewPass.UseSystemPasswordChar = true;
             // 
             // btnOk
@@ -112,7 +112,7 @@ namespace Accounting.GUI.Forms
             this.btnOk.Location = new System.Drawing.Point(220, 315);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(97, 54);
-            this.btnOk.TabIndex = 91;
+            this.btnOk.TabIndex = 4;
             this.btnOk.Text = "تغییر رمز";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOK_Click);

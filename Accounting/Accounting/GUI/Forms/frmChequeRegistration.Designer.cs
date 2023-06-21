@@ -30,6 +30,7 @@ namespace Accounting.GUI.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChequeRegistration));
             this.txtChequeCode = new System.Windows.Forms.TextBox();
             this.lblChequeName = new System.Windows.Forms.Label();
             this.txtChequeBank = new System.Windows.Forms.TextBox();
@@ -72,7 +73,7 @@ namespace Accounting.GUI.Forms
             this.txtChequeBank.Multiline = true;
             this.txtChequeBank.Name = "txtChequeBank";
             this.txtChequeBank.Size = new System.Drawing.Size(357, 39);
-            this.txtChequeBank.TabIndex = 0;
+            this.txtChequeBank.TabIndex = 1;
             // 
             // lblBank
             // 
@@ -90,7 +91,7 @@ namespace Accounting.GUI.Forms
             this.txtBankBranch.Multiline = true;
             this.txtBankBranch.Name = "txtBankBranch";
             this.txtBankBranch.Size = new System.Drawing.Size(357, 39);
-            this.txtBankBranch.TabIndex = 0;
+            this.txtBankBranch.TabIndex = 2;
             // 
             // label1
             // 
@@ -112,7 +113,7 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(357, 22);
-            this.bPersianCalenderTextBox1.TabIndex = 2;
+            this.bPersianCalenderTextBox1.TabIndex = 3;
             // 
             // label2
             // 
@@ -130,7 +131,7 @@ namespace Accounting.GUI.Forms
             this.txtAmount.Multiline = true;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(357, 39);
-            this.txtAmount.TabIndex = 0;
+            this.txtAmount.TabIndex = 4;
             // 
             // label3
             // 
@@ -152,7 +153,7 @@ namespace Accounting.GUI.Forms
             this.cbStatus.Location = new System.Drawing.Point(170, 369);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(165, 24);
-            this.cbStatus.TabIndex = 3;
+            this.cbStatus.TabIndex = 5;
             // 
             // label4
             // 
@@ -169,7 +170,7 @@ namespace Accounting.GUI.Forms
             this.btnShowfrmChequeRecords.Location = new System.Drawing.Point(42, 469);
             this.btnShowfrmChequeRecords.Name = "btnShowfrmChequeRecords";
             this.btnShowfrmChequeRecords.Size = new System.Drawing.Size(97, 54);
-            this.btnShowfrmChequeRecords.TabIndex = 73;
+            this.btnShowfrmChequeRecords.TabIndex = 6;
             this.btnShowfrmChequeRecords.Text = "لیست";
             this.btnShowfrmChequeRecords.UseVisualStyleBackColor = true;
             this.btnShowfrmChequeRecords.Click += new System.EventHandler(this.btnShowfrmChequeRecords_Click);
@@ -179,7 +180,7 @@ namespace Accounting.GUI.Forms
             this.btnDelete.Location = new System.Drawing.Point(299, 469);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 54);
-            this.btnDelete.TabIndex = 74;
+            this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "حذف";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -189,7 +190,7 @@ namespace Accounting.GUI.Forms
             this.btnSave.Location = new System.Drawing.Point(170, 469);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 54);
-            this.btnSave.TabIndex = 75;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "ذخیره";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -199,7 +200,7 @@ namespace Accounting.GUI.Forms
             this.btnNew.Location = new System.Drawing.Point(430, 469);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(97, 54);
-            this.btnNew.TabIndex = 76;
+            this.btnNew.TabIndex = 9;
             this.btnNew.Text = "جدید";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -225,6 +226,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.txtBankBranch);
             this.Controls.Add(this.txtChequeBank);
             this.Controls.Add(this.txtChequeCode);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmChequeRegistration";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

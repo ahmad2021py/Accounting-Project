@@ -5,7 +5,6 @@ using Accounting.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -19,101 +18,115 @@ namespace Accounting.GUI.Forms
         {
             InitializeComponent();
         }
+
+
+        private DataTable DesignAndFillDataTable(List<BuyInvoice> BuyInvoiceRecords)
+        {
+            DataTable dataTable = new DataTable();
+            //-----------Design datatable---------
+            //----------- Create a DataTable and add 6 Columns to it---------
+            //  DataTable dataTable = new DataTable();
+            dataTable.Clear();
+            dataTable.Columns.Add("Row", typeof(int));
+            dataTable.Columns.Add("BuyInvoiceCode", typeof(string));
+            dataTable.Columns.Add("BuyInvoiceDate", typeof(string));
+            dataTable.Columns.Add("BuyCount", typeof(int));
+            dataTable.Columns.Add("BuyPricePerUnit", typeof(decimal));
+            dataTable.Columns.Add("Off", typeof(int));
+            dataTable.Columns.Add("TotalBuyAmount", typeof(decimal));
+            dataTable.Columns.Add("FKSeller", typeof(long));
+            dataTable.Columns.Add("FKStock", typeof(int));
+
+
+            dataTable.Columns["Row"].Caption = "ردیف ";
+            dataTable.Columns["BuyInvoiceCode"].Caption = "کد فاکتور";
+            dataTable.Columns["BuyInvoiceDate"].Caption = "تاریخ فاکتور";
+            dataTable.Columns["BuyCount"].Caption = "تعداد خرید";
+            dataTable.Columns["BuyPricePerUnit"].Caption = "قیمت هر واحد";
+            dataTable.Columns["Off"].Caption = "تخفیف";
+            dataTable.Columns["TotalBuyAmount"].Caption = "کل مبلغ خرید";
+            dataTable.Columns["FKSeller"].Caption = "کد فروشنده";
+            dataTable.Columns["FKStock"].Caption = "کد انبار";
+
+
+
+            //-----
+
+            //--------------An Instanse to Store MildadiDates------------
+            List<DateTime> MiladiDates = new List<DateTime>();
+            //-----
+            //-------Get MiladiDateTime List and Convert To ShamsiDate--------- 
+            foreach (var n in BuyInvoiceRecords)
+            {
+                MiladiDates.Add(n.BuyInvoiceDate);
+            }
+            WorkWithDate workWithDate = new WorkWithDate();
+            List<string> ShamsiDates = new List<string>();
+            foreach (var n in MiladiDates)
+            {
+                ShamsiDates.Add(workWithDate.MiladiToShamsi(n));
+            }
+            //-----
+            //-------------seed data to dataTable---------
+            for (int i = 0; i < BuyInvoiceRecords.Count; i++)
+            {
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["Row"] = BuyInvoiceRecords[i].Row;
+                dataRow["FKStock"] = BuyInvoiceRecords[i].FKStock;
+                dataRow["FKSeller"] = BuyInvoiceRecords[i].FKSeller;
+                dataRow["TotalBuyAmount"] = BuyInvoiceRecords[i].TotalBuyAmount;
+                dataRow["Off"] = BuyInvoiceRecords[i].Off;
+                dataRow["BuyPricePerUnit"] = BuyInvoiceRecords[i].BuyPricePerUnit;
+                dataRow["BuyCount"] = BuyInvoiceRecords[i].BuyCount;
+                dataRow["BuyInvoiceDate"] = ShamsiDates[i];
+                dataRow["BuyInvoiceCode"] = BuyInvoiceRecords[i].BuyInvoiceCode;
+
+                dataTable.Rows.Add(dataRow);
+
+            }
+            //-----
+            return dataTable;
+        }
         async void LoadData()
         {
+
+
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IBuyInvoiceRepository buyInvoiceRepository = _UnitOfWork.BuyInvoiceRepository;
                 //--------
-                IEnumerable<BuyInvoice> IEnamrablebuyInvoiceDbRecords = await buyInvoiceRepository.GetAll<BuyInvoice>(n => n == n);
-                List<BuyInvoice> DbbuyInvoicelist = IEnamrablebuyInvoiceDbRecords.ToList();
 
 
-                //----------------------------------
+                //--------
 
-
+                IEnumerable<BuyInvoice> IEnamrableChequeDbRecords = await buyInvoiceRepository.GetAll<BuyInvoice>(n => n == n);
+                List<BuyInvoice> DbChequelist = new List<BuyInvoice>(IEnamrableChequeDbRecords);
                 //-----
-                DataTable dataTable = new DataTable();
-
-                //-------Get MiladiDateTime List and Convert To ShamsiDate--------- 
-
-                WorkWithDate workWithDate = new WorkWithDate();
-                List<string> ShamsiDates = new List<string>();
-                foreach (var n in DbbuyInvoicelist)
-                {
-                    ShamsiDates.Add(workWithDate.MiladiToShamsi(n.BuyInvoiceDate));
-                }
-                //-----
-                //-----------Design datatable---------
-                //----------- Create a DataTable and add 6 Columns to it---------
-                //  DataTable dataTable = new DataTable();
-                dataTable.Clear();
-                dataTable.Columns.Add("Row", typeof(int));
-                dataTable.Columns.Add("BuyInvoiceCode", typeof(string));
-                dataTable.Columns.Add("BuyInvoiceDate", typeof(string));
-                dataTable.Columns.Add("BuyCount", typeof(int));
-                dataTable.Columns.Add("BuyPricePerUnit", typeof(decimal));
-                dataTable.Columns.Add("Off", typeof(int));
-                dataTable.Columns.Add("TotalBuyAmount", typeof(decimal));
-                dataTable.Columns.Add("FKSeller", typeof(long));
-                dataTable.Columns.Add("FKStock", typeof(int));
 
 
-                dataTable.Columns["BuyInvoiceCode"].Caption = "کد فاکتور خرید";
-                dataTable.Columns["BuyInvoiceDate"].Caption = " تاریخ فاکتور خرید";
-                dataTable.Columns["BuyCount"].Caption = "تعداد خرید";
-                dataTable.Columns["BuyPricePerUnit"].Caption = "قیمت خرید هر واحد";
-                dataTable.Columns["Off"].Caption = "تخفیف";
-                dataTable.Columns["TotalBuyAmount"].Caption = "کل قیمت خرید";
-                dataTable.Columns["FKSeller"].Caption = "کد فروشنده";
-                dataTable.Columns["FKStock"].Caption = "کد انبار";
-                dataTable.Columns["Row"].Caption = "ردیف ";
 
-                //-----
-                //-------------seed data to dataTable---------
-                for (int i = 0; i < DbbuyInvoicelist.Count; i++)
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["BuyInvoiceCode"] = DbbuyInvoicelist[i].BuyInvoiceCode;
-                    dataRow["BuyCount"] = DbbuyInvoicelist[i].BuyCount;
-                    dataRow["BuyPricePerUnit"] = DbbuyInvoicelist[i].BuyPricePerUnit;
-                    dataRow["FKSeller"] = DbbuyInvoicelist[i].FKSeller;
 
-                    dataRow["Off"] = DbbuyInvoicelist[i].Off;
-                    dataRow["TotalBuyAmount"] = DbbuyInvoicelist[i].TotalBuyAmount;
-                    dataRow["BuyInvoiceDate"] = ShamsiDates[i];
-                    dataRow["FKStock"] = DbbuyInvoicelist[i].FKStock;
-                    dataRow["Row"] = DbbuyInvoicelist[i].Row;
-                    dataTable.Rows.Add(dataRow);
-
-                }
+                //--------Fill DataTable-----------
+                DataTable customeDataTable = DesignAndFillDataTable(DbChequelist);
                 //-----
                 //-------------Show In DGV1-----------
-                DGV1.DataSource = dataTable;
+
+                DGV1.DataSource = customeDataTable;
                 //-----
                 //-------------Replace Default Header Text with DataTable Columns Captions----------
                 foreach (DataGridViewColumn n in DGV1.Columns)
                 {
-                    n.HeaderText = dataTable.Columns[n.Name].Caption;
+                    n.HeaderText = customeDataTable.Columns[n.Name].Caption;
                 }
                 //-----
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
             }
+
         }
+ 
 
         private void frmBuyInvoiceRecords_Load(object sender, EventArgs e)
         {
@@ -127,5 +140,52 @@ namespace Accounting.GUI.Forms
 
             this.DialogResult = DialogResult.OK;
         }
+
+        async private void btnSearchByDate_Click(object sender, EventArgs e)
+        {
+            if (bPersianCalenderTextBox1.Text == "")
+            {
+                LoadData();
+            }
+            else
+            {
+                using (UnitOfWork _UnitOfWork = new UnitOfWork())
+                {
+                    IBuyInvoiceRepository buyInvoiceRepository = _UnitOfWork.BuyInvoiceRepository;
+
+                    string ShamsiDate = bPersianCalenderTextBox1.Text;
+                    WorkWithDate workWithDate = new WorkWithDate();
+                    DateTime MiladiDate = workWithDate.ShamsiToMiladi(ShamsiDate);
+
+
+                    IEnumerable<BuyInvoice> enumerableCollection = await buyInvoiceRepository.GetAll<BuyInvoice>(n => n.BuyInvoiceDate == MiladiDate);
+                    List<BuyInvoice> BuyInvoiceRecords = new List<BuyInvoice>(enumerableCollection);
+                    DataTable customdataTable = DesignAndFillDataTable(BuyInvoiceRecords);
+                    DGV1.DataSource = customdataTable;
+
+
+
+                }
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //----------------------------
     }
 }

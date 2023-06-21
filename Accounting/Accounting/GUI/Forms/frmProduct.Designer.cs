@@ -89,7 +89,7 @@ namespace Accounting.GUI.Forms
             this.txtFeatures.Multiline = true;
             this.txtFeatures.Name = "txtFeatures";
             this.txtFeatures.Size = new System.Drawing.Size(346, 148);
-            this.txtFeatures.TabIndex = 98;
+            this.txtFeatures.TabIndex = 5;
             // 
             // txtProductName
             // 
@@ -98,7 +98,7 @@ namespace Accounting.GUI.Forms
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(246, 36);
-            this.txtProductName.TabIndex = 98;
+            this.txtProductName.TabIndex = 2;
             // 
             // txtProductCode
             // 
@@ -107,7 +107,7 @@ namespace Accounting.GUI.Forms
             this.txtProductCode.Multiline = true;
             this.txtProductCode.Name = "txtProductCode";
             this.txtProductCode.Size = new System.Drawing.Size(246, 36);
-            this.txtProductCode.TabIndex = 97;
+            this.txtProductCode.TabIndex = 0;
             this.txtProductCode.TextChanged += new System.EventHandler(this.txtProductCode_TextChanged);
             // 
             // PboxProductPicture
@@ -142,7 +142,7 @@ namespace Accounting.GUI.Forms
             this.btnBrowse.Location = new System.Drawing.Point(300, 432);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(97, 54);
-            this.btnBrowse.TabIndex = 96;
+            this.btnBrowse.TabIndex = 6;
             this.btnBrowse.Text = "انتخاب تصویر";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -152,7 +152,7 @@ namespace Accounting.GUI.Forms
             this.btnGetDetails.Location = new System.Drawing.Point(649, 16);
             this.btnGetDetails.Name = "btnGetDetails";
             this.btnGetDetails.Size = new System.Drawing.Size(97, 54);
-            this.btnGetDetails.TabIndex = 96;
+            this.btnGetDetails.TabIndex = 1;
             this.btnGetDetails.Text = "دریافت مشخصات";
             this.btnGetDetails.UseVisualStyleBackColor = true;
             this.btnGetDetails.Click += new System.EventHandler(this.btnGetDetails_Click);
@@ -188,7 +188,7 @@ namespace Accounting.GUI.Forms
             this.btnShowProductSoldRecords.Location = new System.Drawing.Point(13, 359);
             this.btnShowProductSoldRecords.Name = "btnShowProductSoldRecords";
             this.btnShowProductSoldRecords.Size = new System.Drawing.Size(97, 81);
-            this.btnShowProductSoldRecords.TabIndex = 93;
+            this.btnShowProductSoldRecords.TabIndex = 12;
             this.btnShowProductSoldRecords.Text = "لیست محصولات فروخته شده";
             this.btnShowProductSoldRecords.UseVisualStyleBackColor = true;
             this.btnShowProductSoldRecords.Click += new System.EventHandler(this.btnShowProductSoldRecords_Click);
@@ -198,7 +198,7 @@ namespace Accounting.GUI.Forms
             this.btnShowfrmProductRecords.Location = new System.Drawing.Point(13, 286);
             this.btnShowfrmProductRecords.Name = "btnShowfrmProductRecords";
             this.btnShowfrmProductRecords.Size = new System.Drawing.Size(97, 54);
-            this.btnShowfrmProductRecords.TabIndex = 93;
+            this.btnShowfrmProductRecords.TabIndex = 11;
             this.btnShowfrmProductRecords.Text = "لیست محصولات";
             this.btnShowfrmProductRecords.UseVisualStyleBackColor = true;
             this.btnShowfrmProductRecords.Click += new System.EventHandler(this.btnShowfrmProductRecords_Click);
@@ -208,7 +208,7 @@ namespace Accounting.GUI.Forms
             this.btnUpdate.Location = new System.Drawing.Point(13, 217);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(97, 54);
-            this.btnUpdate.TabIndex = 94;
+            this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "بروزرسانی";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -218,7 +218,7 @@ namespace Accounting.GUI.Forms
             this.btnDelete.Location = new System.Drawing.Point(13, 146);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 54);
-            this.btnDelete.TabIndex = 94;
+            this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "حذف";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -228,7 +228,7 @@ namespace Accounting.GUI.Forms
             this.btnSave.Location = new System.Drawing.Point(13, 80);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 54);
-            this.btnSave.TabIndex = 95;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "ذخیره";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -238,7 +238,7 @@ namespace Accounting.GUI.Forms
             this.btNew.Location = new System.Drawing.Point(13, 14);
             this.btNew.Name = "btNew";
             this.btNew.Size = new System.Drawing.Size(97, 54);
-            this.btNew.TabIndex = 96;
+            this.btNew.TabIndex = 7;
             this.btNew.Text = "جدید";
             this.btNew.UseVisualStyleBackColor = true;
             this.btNew.Click += new System.EventHandler(this.btnNew_Click);

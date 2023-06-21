@@ -12,11 +12,11 @@ namespace Accounting.GUI.Forms
 {
     public partial class frmStockRecords : Form
     {
-        DataTable dataTable;
+       
         public frmStockRecords()
         {
             InitializeComponent();
-            dataTable = new DataTable();
+         
         }
 
 
@@ -26,6 +26,68 @@ namespace Accounting.GUI.Forms
         public string _StockDate;
         public string _Quantity;
         public string _Description;
+
+
+        DataTable DesignAndFillDataTable(List<Stock> DbStocklist)
+        {
+
+            DataTable dataTable = new DataTable();
+            //-----------Design datatable---------
+            //----------- Create a DataTable and add 6 Columns to it---------
+            //  DataTable dataTable = new DataTable();
+           
+            dataTable.Clear();
+            dataTable.Columns.Add("Row", typeof(long));
+            dataTable.Columns.Add("StockCode", typeof(int));
+            dataTable.Columns.Add("Description", typeof(string));
+            dataTable.Columns.Add("Quantity", typeof(string));
+            dataTable.Columns.Add("StockDate", typeof(string));
+            dataTable.Columns.Add("BuyPrice", typeof(int));
+            dataTable.Columns.Add("FKProductId", typeof(long));
+
+            dataTable.Columns["Row"].Caption = "ردیف";
+            dataTable.Columns["StockCode"].Caption = " کد انبار";
+            dataTable.Columns["Description"].Caption = " توضیحات";
+            dataTable.Columns["Quantity"].Caption = " تعداد";
+            dataTable.Columns["StockDate"].Caption = " تاریخ دریافت";
+            dataTable.Columns["BuyPrice"].Caption = "قیمت خرید  هر واحد";
+            dataTable.Columns["FKProductId"].Caption = " کد کالا";
+            //-----
+
+            //--------------An Instanse to Store MildadiDates------------
+            List<DateTime> MiladiDates = new List<DateTime>();
+            //-----
+            //-------Get MiladiDateTime List and Convert To ShamsiDate--------- 
+            foreach (var n in DbStocklist)
+            {
+                MiladiDates.Add(n.StockDate);
+            }
+            WorkWithDate workWithDate = new WorkWithDate();
+            List<string> ShamsiDates = new List<string>();
+            foreach (var n in MiladiDates)
+            {
+                ShamsiDates.Add(workWithDate.MiladiToShamsi(n));
+            }
+            //-----
+            //-------------seed data to dataTable---------
+            for (int i = 0; i < DbStocklist.Count; i++)
+            {
+                DataRow dataRow = dataTable.NewRow();
+                dataRow["StockCode"] = DbStocklist[i].StockCode;
+                dataRow["BuyPrice"] = DbStocklist[i].StockCode;
+                dataRow["Description"] = DbStocklist[i].Description;
+                dataRow["Quantity"] = DbStocklist[i].Quantity;
+                dataRow["StockDate"] = ShamsiDates[i];
+                dataRow["FKProductId"] = DbStocklist[i].FKProduct;
+                dataRow["Row"] = DbStocklist[i].Row;
+                dataTable.Rows.Add(dataRow);
+
+            }
+            //-----
+            return dataTable;
+
+        }
+
 
         async void LoadData()
         {
@@ -38,59 +100,20 @@ namespace Accounting.GUI.Forms
                 IEnumerable<Stock> EnumerableStocklist = await StockRepository.GetAll<Stock>(n => n == n);
                 List<Stock> DbStocklist = new List<Stock>(EnumerableStocklist);
                 //-----
-                //--------------An Instanse to Store MildadiDates------------
-                List<DateTime> MiladiDates = new List<DateTime>();
-                //-----
-                //-------Get MiladiDateTime List and Convert To ShamsiDate--------- 
-                foreach (var n in DbStocklist)
-                {
-                    MiladiDates.Add(n.StockDate);
-                }
-                WorkWithDate workWithDate = new WorkWithDate();
-                List<string> ShamsiDates = new List<string>();
-                foreach (var n in MiladiDates)
-                {
-                    ShamsiDates.Add(workWithDate.MiladiToShamsi(n));
-                }
-                //-----
-                //-----------Design datatable---------
-                //----------- Create a DataTable and add 6 Columns to it---------
-                //  DataTable dataTable = new DataTable();
-                dataTable.Clear();
-                dataTable.Columns.Add("StockCode", typeof(int));
-                dataTable.Columns.Add("Description", typeof(string));
-                dataTable.Columns.Add("Quantity", typeof(string));
-                dataTable.Columns.Add("StockDate", typeof(string));
-                dataTable.Columns.Add("BuyPrice", typeof(int));
-                dataTable.Columns.Add("FKProductId", typeof(long));
-                dataTable.Columns["StockCode"].Caption = " کد انبار";
-                dataTable.Columns["Description"].Caption = " توضیحات";
-                dataTable.Columns["Quantity"].Caption = " تعداد";
-                dataTable.Columns["StockDate"].Caption = " تاریخ دریافت";
-                dataTable.Columns["BuyPrice"].Caption = "قیمت خرید  هر واحد";
-                dataTable.Columns["FKProductId"].Caption = " کد کالا";
-                //-----
-                //-------------seed data to dataTable---------
-                for (int i = 0; i < DbStocklist.Count; i++)
-                {
-                    DataRow dataRow = dataTable.NewRow();
-                    dataRow["StockCode"] = DbStocklist[i].StockCode;
-                    dataRow["BuyPrice"] = DbStocklist[i].StockCode;
-                    dataRow["Description"] = DbStocklist[i].Description;
-                    dataRow["Quantity"] = DbStocklist[i].Quantity;
-                    dataRow["StockDate"] = ShamsiDates[i];
-                    dataRow["FKProductId"] = DbStocklist[i].FKProduct;
-                    dataTable.Rows.Add(dataRow);
 
-                }
+                //----Fill DataTable By Method DesignAndFillDataTable -----
+                DataTable customDataTable =   DesignAndFillDataTable(DbStocklist);
                 //-----
+
                 //-------------Show In DGV1-----------
-                DGV1.DataSource = dataTable;
+
+
+                DGV1.DataSource = customDataTable;
                 //-----
                 //-------------Replace Default Header Text with DataTable Columns Captions----------
                 foreach (DataGridViewColumn n in DGV1.Columns)
                 {
-                    n.HeaderText = dataTable.Columns[n.Name].Caption;
+                    n.HeaderText = customDataTable.Columns[n.Name].Caption;
                 }
                 //-----
                 //----------Set Optional DGV1 Property----------
@@ -113,7 +136,7 @@ namespace Accounting.GUI.Forms
 
 
 
-        private void btnSearchByDate_Click(object sender, EventArgs e)
+      async  private void btnSearchByDate_Click(object sender, EventArgs e)
         {
             if (bPersianCalenderTextBox1.Text == "")
             {
@@ -124,27 +147,19 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-                    //try
-                    //{
-
-
-
-
+               
                     string ShamsiDate = bPersianCalenderTextBox1.Text;
                     WorkWithDate workWithDate = new WorkWithDate();
                     DateTime MiladiDate = workWithDate.ShamsiToMiladi(ShamsiDate);
 
+             
+                     IEnumerable<Stock> enumerableCollection   =await _StockRepository.GetAll<Stock>(n => n.StockDate == MiladiDate);
+                    List<Stock> stockRecords = new List<Stock>(enumerableCollection);
+                    DGV1.DataSource = stockRecords;
 
-
-                    DGV1.DataSource = _StockRepository.GetAll<Stock>(n => n.StockDate == MiladiDate);
                     DGV1.Columns["Product"].Visible = false;
 
-                    //}
-                    //catch
-                    //{
-                    //    MessageBox.Show(" خطایی رخ داده است");
-                    //}
-
+              
                 }
             }
         }

@@ -38,7 +38,6 @@ namespace Accounting.GUI.Forms
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtBuyPrice = new System.Windows.Forms.TextBox();
             this.txtProductQuantity = new System.Windows.Forms.TextBox();
@@ -96,7 +95,6 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.btnNew);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.txtBuyPrice);
             this.groupBox1.Controls.Add(this.txtProductQuantity);
@@ -123,44 +121,33 @@ namespace Accounting.GUI.Forms
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(669, 523);
+            this.btnNew.Location = new System.Drawing.Point(696, 523);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(92, 49);
-            this.btnNew.TabIndex = 99;
+            this.btnNew.TabIndex = 10;
             this.btnNew.Text = "جدید";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(786, 523);
+            this.btnDelete.Location = new System.Drawing.Point(813, 523);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(92, 49);
-            this.btnDelete.TabIndex = 99;
+            this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "حذف";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(902, 523);
+            this.btnUpdate.Location = new System.Drawing.Point(929, 523);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(92, 49);
-            this.btnUpdate.TabIndex = 99;
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "بروزرسانی";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(980, 414);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(92, 49);
-            this.btnSave.TabIndex = 99;
-            this.btnSave.Text = "ذخیره";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Visible = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtDescription
             // 
@@ -168,7 +155,7 @@ namespace Accounting.GUI.Forms
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(468, 146);
-            this.txtDescription.TabIndex = 98;
+            this.txtDescription.TabIndex = 7;
             // 
             // txtBuyPrice
             // 
@@ -176,7 +163,7 @@ namespace Accounting.GUI.Forms
             this.txtBuyPrice.Multiline = true;
             this.txtBuyPrice.Name = "txtBuyPrice";
             this.txtBuyPrice.Size = new System.Drawing.Size(275, 42);
-            this.txtBuyPrice.TabIndex = 98;
+            this.txtBuyPrice.TabIndex = 6;
             this.txtBuyPrice.TextChanged += new System.EventHandler(this.txtProductQuantity_TextChanged_1);
             // 
             // txtProductQuantity
@@ -185,15 +172,15 @@ namespace Accounting.GUI.Forms
             this.txtProductQuantity.Multiline = true;
             this.txtProductQuantity.Name = "txtProductQuantity";
             this.txtProductQuantity.Size = new System.Drawing.Size(275, 42);
-            this.txtProductQuantity.TabIndex = 98;
+            this.txtProductQuantity.TabIndex = 4;
             this.txtProductQuantity.TextChanged += new System.EventHandler(this.txtProductQuantity_TextChanged_1);
             // 
             // btnShowFrmStockRecords
             // 
-            this.btnShowFrmStockRecords.Location = new System.Drawing.Point(522, 513);
+            this.btnShowFrmStockRecords.Location = new System.Drawing.Point(560, 514);
             this.btnShowFrmStockRecords.Name = "btnShowFrmStockRecords";
             this.btnShowFrmStockRecords.Size = new System.Drawing.Size(106, 59);
-            this.btnShowFrmStockRecords.TabIndex = 97;
+            this.btnShowFrmStockRecords.TabIndex = 11;
             this.btnShowFrmStockRecords.Text = "لیست  کالا های انباری";
             this.btnShowFrmStockRecords.UseVisualStyleBackColor = true;
             this.btnShowFrmStockRecords.Click += new System.EventHandler(this.btnShowFrmStockRecords_Click);
@@ -203,7 +190,7 @@ namespace Accounting.GUI.Forms
             this.btnShowFrmProduct.Location = new System.Drawing.Point(637, 21);
             this.btnShowFrmProduct.Name = "btnShowFrmProduct";
             this.btnShowFrmProduct.Size = new System.Drawing.Size(106, 58);
-            this.btnShowFrmProduct.TabIndex = 97;
+            this.btnShowFrmProduct.TabIndex = 2;
             this.btnShowFrmProduct.Text = "ویرایش مشخصات محصول";
             this.btnShowFrmProduct.UseVisualStyleBackColor = true;
             this.btnShowFrmProduct.Click += new System.EventHandler(this.btnShowFrmProduct_Click);
@@ -213,7 +200,7 @@ namespace Accounting.GUI.Forms
             this.btnSelect.Location = new System.Drawing.Point(749, 21);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(112, 60);
-            this.btnSelect.TabIndex = 97;
+            this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "انتخاب کد از لیست محصولات";
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
@@ -224,7 +211,7 @@ namespace Accounting.GUI.Forms
             this.txtStockCode.Multiline = true;
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(191, 34);
-            this.txtStockCode.TabIndex = 96;
+            this.txtStockCode.TabIndex = 3;
             this.txtStockCode.TextChanged += new System.EventHandler(this.txtProductId_TextChanged);
             // 
             // txtProductCode
@@ -233,7 +220,7 @@ namespace Accounting.GUI.Forms
             this.txtProductCode.Multiline = true;
             this.txtProductCode.Name = "txtProductCode";
             this.txtProductCode.Size = new System.Drawing.Size(191, 34);
-            this.txtProductCode.TabIndex = 96;
+            this.txtProductCode.TabIndex = 0;
             this.txtProductCode.TextChanged += new System.EventHandler(this.txtProductId_TextChanged);
             // 
             // bPersianCalenderTextBox1
@@ -246,7 +233,7 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
             this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(264, 22);
-            this.bPersianCalenderTextBox1.TabIndex = 91;
+            this.bPersianCalenderTextBox1.TabIndex = 5;
             // 
             // label4
             // 
@@ -319,7 +306,6 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.Button btnShowFrmProduct;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtProductQuantity;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;

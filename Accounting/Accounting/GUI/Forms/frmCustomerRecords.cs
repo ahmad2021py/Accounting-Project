@@ -143,18 +143,40 @@ namespace Accounting.GUI.Forms
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            ////Load File
-            // stiReport1.Load(Application.StartupPath + "/Reports/Customer.mrt");
-            // stiReport1.Compile();
-            // //Set Variables
-            // stiReport1["Name"] = "ahmad";
-            // stiReport1["Email"] = "gmail.com";
-            // stiReport1["Address"] = "شوشتر";
-            // stiReport1["id"] = 4; 
-            // stiReport1["NationalCode"] = 5558818125;
-            // stiReport1["ZipCode"] = "u";
-            // //Show
-            // stiReport1.Show();
+            //Load File
+            stiReport1.Load(Application.StartupPath + "/AppFiles/Customer.mrt");
+            stiReport1.Compile();
+            //Set Variables
+            stiReport1["Name"] = "ahmad";
+            stiReport1["Email"] = "gmail.com";
+            stiReport1["Address"] = "شوشتر";
+            stiReport1["id"] = 4;
+            stiReport1["NationalCode"] = 5558818125;
+            stiReport1["ZipCode"] = "u";
+            //Show
+            stiReport1.Show();
+
+
+
+
+
+
+            //---------
+
+            //stiReport1.Load(Application.StartupPath + "/Variables.mrt");
+            ////stiReport1.Load("..\\Variables.mrt");
+            //stiReport1.Compile();
+            ////Set Variables
+            //stiReport1["Name"] = "ali";
+            //stiReport1["Surname"] = "oo";
+            //stiReport1["Email"] = "ikk";
+            //stiReport1["Address"] = "ll";
+            //stiReport1["Sex"] = true;
+            //DateTime d = new DateTime();
+            //d = DateTime.Now;
+            //stiReport1["BirthDay"] = d;
+
+            //stiReport1.Show();
         }
 
 

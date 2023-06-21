@@ -42,7 +42,7 @@ namespace Accounting.GUI.Forms
             // 
             this.lblCompanyName.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCompanyName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblCompanyName.Location = new System.Drawing.Point(30, 152);
+            this.lblCompanyName.Location = new System.Drawing.Point(96, 157);
             this.lblCompanyName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCompanyName.Name = "lblCompanyName";
             this.lblCompanyName.Size = new System.Drawing.Size(101, 28);
@@ -52,51 +52,51 @@ namespace Accounting.GUI.Forms
             // 
             // btNew
             // 
-            this.btNew.Location = new System.Drawing.Point(505, 43);
+            this.btNew.Location = new System.Drawing.Point(455, 280);
             this.btNew.Name = "btNew";
             this.btNew.Size = new System.Drawing.Size(97, 54);
-            this.btNew.TabIndex = 92;
+            this.btNew.TabIndex = 4;
             this.btNew.Text = "جدید";
             this.btNew.UseVisualStyleBackColor = true;
             this.btNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(505, 122);
+            this.btnSave.Location = new System.Drawing.Point(193, 280);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(97, 54);
-            this.btnSave.TabIndex = 92;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "ذخیره";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(505, 201);
+            this.btnDelete.Location = new System.Drawing.Point(326, 280);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 54);
-            this.btnDelete.TabIndex = 92;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "حذف";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnShowfrmCompanyRecords
             // 
-            this.btnShowfrmCompanyRecords.Location = new System.Drawing.Point(508, 280);
+            this.btnShowfrmCompanyRecords.Location = new System.Drawing.Point(52, 280);
             this.btnShowfrmCompanyRecords.Name = "btnShowfrmCompanyRecords";
             this.btnShowfrmCompanyRecords.Size = new System.Drawing.Size(97, 54);
-            this.btnShowfrmCompanyRecords.TabIndex = 92;
+            this.btnShowfrmCompanyRecords.TabIndex = 1;
             this.btnShowfrmCompanyRecords.Text = "لیست";
             this.btnShowfrmCompanyRecords.UseVisualStyleBackColor = true;
             this.btnShowfrmCompanyRecords.Click += new System.EventHandler(this.btnShowfrmCompanyRecords_Click);
             // 
             // txtCompanyName
             // 
-            this.txtCompanyName.Location = new System.Drawing.Point(152, 146);
+            this.txtCompanyName.Location = new System.Drawing.Point(218, 151);
             this.txtCompanyName.Multiline = true;
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(271, 41);
-            this.txtCompanyName.TabIndex = 93;
+            this.txtCompanyName.TabIndex = 0;
             // 
             // frmCompany
             // 

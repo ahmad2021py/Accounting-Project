@@ -29,6 +29,7 @@ namespace Accounting.GUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellerRecords));
             this.DGV1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnExport = new System.Windows.Forms.Button();
@@ -68,20 +69,20 @@ namespace Accounting.GUI.Forms
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(175, 24);
+            this.btnExport.Location = new System.Drawing.Point(76, 32);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExport.TabIndex = 90;
+            this.btnExport.TabIndex = 3;
             this.btnExport.Text = "چاپ";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnExcelExport
             // 
-            this.btnExcelExport.Location = new System.Drawing.Point(50, 24);
+            this.btnExcelExport.Location = new System.Drawing.Point(190, 32);
             this.btnExcelExport.Name = "btnExcelExport";
             this.btnExcelExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExcelExport.TabIndex = 90;
+            this.btnExcelExport.TabIndex = 2;
             this.btnExcelExport.Text = "خروجی اکسل";
             this.btnExcelExport.UseVisualStyleBackColor = true;
             this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
@@ -105,7 +106,7 @@ namespace Accounting.GUI.Forms
             this.txtSellerName.Multiline = true;
             this.txtSellerName.Name = "txtSellerName";
             this.txtSellerName.Size = new System.Drawing.Size(246, 36);
-            this.txtSellerName.TabIndex = 90;
+            this.txtSellerName.TabIndex = 1;
             this.txtSellerName.TextChanged += new System.EventHandler(this.txtSellerName_TextChanged);
             // 
             // groupBox1
@@ -127,7 +128,7 @@ namespace Accounting.GUI.Forms
             this.txtNationalCode.Multiline = true;
             this.txtNationalCode.Name = "txtNationalCode";
             this.txtNationalCode.Size = new System.Drawing.Size(246, 36);
-            this.txtNationalCode.TabIndex = 90;
+            this.txtNationalCode.TabIndex = 0;
             this.txtNationalCode.TextChanged += new System.EventHandler(this.txtNationalCode_TextChanged);
             // 
             // frmSellerRecords
@@ -139,6 +140,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DGV1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmSellerRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

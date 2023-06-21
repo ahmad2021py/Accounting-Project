@@ -71,8 +71,10 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblText = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.piBoxBackground = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.piBoxBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -345,7 +347,7 @@
             // 
             this.جزئیاتورودToolStripMenuItem.Image = global::Accounting.Properties.Resources.icons8_enter_80px;
             this.جزئیاتورودToolStripMenuItem.Name = "جزئیاتورودToolStripMenuItem";
-            this.جزئیاتورودToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
+            this.جزئیاتورودToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.جزئیاتورودToolStripMenuItem.Text = "جزئیات ورود";
             this.جزئیاتورودToolStripMenuItem.Click += new System.EventHandler(this.جزئیاتورودToolStripMenuItem_Click);
             // 
@@ -353,7 +355,7 @@
             // 
             this.مدیریتکاربرانToolStripMenuItem1.Image = global::Accounting.Properties.Resources.icons8_registration_skin_type_7_48px;
             this.مدیریتکاربرانToolStripMenuItem1.Name = "مدیریتکاربرانToolStripMenuItem1";
-            this.مدیریتکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
+            this.مدیریتکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.مدیریتکاربرانToolStripMenuItem1.Text = "مدیریت کاربران";
             this.مدیریتکاربرانToolStripMenuItem1.Click += new System.EventHandler(this.مدیریتکاربرانToolStripMenuItem1_Click);
             // 
@@ -362,7 +364,7 @@
             this.لیستکاربرانToolStripMenuItem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.لیستکاربرانToolStripMenuItem1.Image = global::Accounting.Properties.Resources.icons8_team_48px;
             this.لیستکاربرانToolStripMenuItem1.Name = "لیستکاربرانToolStripMenuItem1";
-            this.لیستکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
+            this.لیستکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.لیستکاربرانToolStripMenuItem1.Text = "لیست کاربران";
             this.لیستکاربرانToolStripMenuItem1.Click += new System.EventHandler(this.لیستکاربرانToolStripMenuItem1_Click);
             // 
@@ -418,18 +420,27 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.groupBox1.Controls.Add(this.lblText);
             this.groupBox1.Controls.Add(this.lblDate);
             this.groupBox1.Controls.Add(this.lblTime);
             this.groupBox1.Controls.Add(this.lblThisDay);
             this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox1.Location = new System.Drawing.Point(654, 498);
+            this.groupBox1.Location = new System.Drawing.Point(658, 503);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(309, 50);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تاریخ امروز";
+            // 
+            // piBoxBackground
+            // 
+            this.piBoxBackground.Image = global::Accounting.Properties.Resources.background;
+            this.piBoxBackground.Location = new System.Drawing.Point(0, 28);
+            this.piBoxBackground.Name = "piBoxBackground";
+            this.piBoxBackground.Size = new System.Drawing.Size(968, 527);
+            this.piBoxBackground.TabIndex = 78;
+            this.piBoxBackground.TabStop = false;
             // 
             // frmMainMenu
             // 
@@ -441,6 +452,7 @@
             this.ClientSize = new System.Drawing.Size(969, 555);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.piBoxBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -457,6 +469,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.piBoxBackground)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,5 +517,6 @@
         private System.Windows.Forms.ToolStripMenuItem لیستفاکتورهایفروشToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem لیستفاکتورهایخریدToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem لیستفاکتورهایبازگشتازخریدToolStripMenuItem;
+        private System.Windows.Forms.PictureBox piBoxBackground;
     }
 }

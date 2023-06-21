@@ -60,7 +60,7 @@ namespace Accounting.GUI.Forms
             this.txtCategoryName.Multiline = true;
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(246, 36);
-            this.txtCategoryName.TabIndex = 86;
+            this.txtCategoryName.TabIndex = 1;
             this.txtCategoryName.TextChanged += new System.EventHandler(this.txtCategoryName_TextChanged);
             // 
             // groupBox2
@@ -82,7 +82,7 @@ namespace Accounting.GUI.Forms
             this.txtCategoryId.Multiline = true;
             this.txtCategoryId.Name = "txtCategoryId";
             this.txtCategoryId.Size = new System.Drawing.Size(246, 36);
-            this.txtCategoryId.TabIndex = 86;
+            this.txtCategoryId.TabIndex = 0;
             this.txtCategoryId.TextChanged += new System.EventHandler(this.txtCategoryId_TextChanged);
             // 
             // DGV1
@@ -101,7 +101,7 @@ namespace Accounting.GUI.Forms
             this.btnExcelExport.Location = new System.Drawing.Point(12, 425);
             this.btnExcelExport.Name = "btnExcelExport";
             this.btnExcelExport.Size = new System.Drawing.Size(97, 54);
-            this.btnExcelExport.TabIndex = 86;
+            this.btnExcelExport.TabIndex = 2;
             this.btnExcelExport.Text = "خروجی اکسل";
             this.btnExcelExport.UseVisualStyleBackColor = true;
             this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
