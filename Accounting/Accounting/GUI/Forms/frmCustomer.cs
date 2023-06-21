@@ -64,7 +64,7 @@ namespace Accounting.GUI.Forms
 
                     PropertyName="debtor"  ,
                     PropertyValue=decimal.Parse(txtdebtor.Text)
-        }, 
+        },
                 new PropertyMap()
                 {
                     PropertyName="creditor" ,
@@ -88,7 +88,7 @@ namespace Accounting.GUI.Forms
                 } ,
                 new PropertyMap()
                 {
-                    PropertyName="ZipCode" , 
+                    PropertyName="ZipCode" ,
                     PropertyValue=txtCustomerZipCode.Text
                 } ,
                 new PropertyMap()
@@ -108,7 +108,7 @@ namespace Accounting.GUI.Forms
                     PropertyValue= txtCustomerAddress.Text
                 }
             };
-          
+
             return CustomerPropertiesToUpdate;
 
         }
@@ -211,9 +211,9 @@ namespace Accounting.GUI.Forms
             {
                 ICustomerRepository _customerRepository = _unitOfWork.CustomerRepository;
                 long nationalCode = long.Parse(txtNationalCode.Text);
-              List<PropertyMap> CustomerPropertiesToUpdate = Fill__PropertyMapList();
+                List<PropertyMap> CustomerPropertiesToUpdate = Fill__PropertyMapList();
 
-                bool UpdateRecordResult = await _customerRepository.UpdateMany<Customer>(n=>n.NationalCode== nationalCode, CustomerPropertiesToUpdate);
+                bool UpdateRecordResult = await _customerRepository.UpdateMany<Customer>(n => n.NationalCode == nationalCode, CustomerPropertiesToUpdate);
                 if (UpdateRecordResult)
                 {
                     MessageBox.Show("رکورد با موفقیت  بروز شد");

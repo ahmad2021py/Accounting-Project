@@ -109,6 +109,7 @@
     <Compile Include="DataLayer\Entities\User.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IBuyInvoiceRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\ICategoryRepository.cs" />
+    <Compile Include="DataLayer\Interfaces\IRepositories\IChequeRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\ICompanyRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IReturnFromBuyIncoiceRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IRepositories\IReturnFromSellInvoiceRepository.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="DataLayer\Interfaces\IRepositories\ISellerRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\BuyInvoiceRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\CategoryRepository.cs" />
+    <Compile Include="DataLayer\Services\Repositories\ChequeRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\CompanyRepository.cs" />
     <Compile Include="DataLayer\Interfaces\IBaseDbSet.cs" />
     <Compile Include="DataLayer\Services\Repositories\ReturnFromBuyIncoiceRepository.cs" />
@@ -136,6 +138,18 @@
     <Compile Include="DataLayer\Services\Repositories\SellerRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\StockRepository.cs" />
     <Compile Include="DataLayer\Services\Repositories\UserRepository.cs" />
+    <Compile Include="GUI\Forms\frmChequeRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmChequeRecords.Designer.cs">
+      <DependentUpon>frmChequeRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\frmChequeRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\frmChequeRegistration.Designer.cs">
+      <DependentUpon>frmChequeRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\frmBuyInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,12 +179,6 @@
     </Compile>
     <Compile Include="GUI\Forms\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Forms\frmCheque.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\frmCheque.Designer.cs">
-      <DependentUpon>frmCheque.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Forms\frmCompany.cs">
       <SubType>Form</SubType>
@@ -311,9 +319,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202306041617507_initDb.cs" />
-    <Compile Include="Migrations\202306041617507_initDb.designer.cs">
-      <DependentUpon>202306041617507_initDb.cs</DependentUpon>
+    <Compile Include="Migrations\202306210825041_InitDb.cs" />
+    <Compile Include="Migrations\202306210825041_InitDb.designer.cs">
+      <DependentUpon>202306210825041_InitDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
@@ -328,6 +336,12 @@
     <Compile Include="Utilities\WorkWithEmail.cs" />
     <Compile Include="Utilities\WorkWithImage.cs" />
     <Compile Include="Utilities\WorkWithStrings.cs" />
+    <EmbeddedResource Include="GUI\Forms\frmChequeRecords.resx">
+      <DependentUpon>frmChequeRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\frmChequeRegistration.resx">
+      <DependentUpon>frmChequeRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmBuyInvoice.resx">
       <DependentUpon>frmBuyInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,9 +356,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\frmCheque.resx">
-      <DependentUpon>frmCheque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\frmCompany.resx">
       <DependentUpon>frmCompany.cs</DependentUpon>
@@ -415,8 +426,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306041617507_initDb.resx">
-      <DependentUpon>202306041617507_initDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306210825041_InitDb.resx">
+      <DependentUpon>202306210825041_InitDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

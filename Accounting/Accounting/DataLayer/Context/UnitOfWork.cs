@@ -27,6 +27,7 @@ namespace Accounting.DataLayer.Context
         private ISellerRepository _SellerRepository;
         private IReturnFromSellInvoiceRepository _ReturnFromSellInvoieRepository;
         private IReturnFromBuyIncoiceRepository _ReturnFromBuyIncoiceRepository;
+        private IChequeRepository _ChequeRepository;
         //-----------Properties---------------
         public IUserRepository UserRepository
         {
@@ -213,6 +214,19 @@ namespace Accounting.DataLayer.Context
             }
         }
 
+
+        public IChequeRepository ChequeRepository
+        {
+            get
+            {
+                if (_ChequeRepository == null)
+                {
+                    _ChequeRepository = new ChequeRepository(db);
+                }
+
+                return _ChequeRepository;
+            }
+        }
 
 
 

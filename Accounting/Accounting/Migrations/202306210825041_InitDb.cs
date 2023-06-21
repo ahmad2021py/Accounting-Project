@@ -2,7 +2,7 @@
 {
     using System.Data.Entity.Migrations;
 
-    public partial class initDb : DbMigration
+    public partial class InitDb : DbMigration
     {
         public override void Up()
         {
@@ -181,6 +181,8 @@
                 {
                     ReturnFromBuyInvoiceCode = c.Int(nullable: false),
                     Row = c.Int(nullable: false, identity: true),
+                    ReturnFromBuyInvoiceDate = c.DateTime(nullable: false),
+                    ReturnQuantity = c.Int(nullable: false),
                     FKBuyInvoice = c.String(nullable: false, maxLength: 128),
                 })
                 .PrimaryKey(t => t.ReturnFromBuyInvoiceCode)

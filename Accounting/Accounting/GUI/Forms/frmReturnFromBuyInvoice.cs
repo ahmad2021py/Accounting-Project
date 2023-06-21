@@ -80,10 +80,15 @@ namespace Accounting.GUI.Forms
                 //-----
 
                 //-----Add To ReturnFromBuyIncoice -----
+                WorkWithDate workWithDate = new WorkWithDate();
                 ReturnFromBuyIncoice returnFromBuyIncoiceRecord = new ReturnFromBuyIncoice()
                 {
+
                     ReturnFromBuyInvoiceCode = returnFromBuyInvoiceCode,
-                    FKBuyInvoice = txtBuyInvoiceCode.Text
+                    FKBuyInvoice = txtBuyInvoiceCode.Text,
+                    ReturnFromBuyInvoiceDate = workWithDate.ShamsiToMiladi(bPersianCalenderTextBox1.Text),
+                    ReturnQuantity = int.Parse(txtReturnFromBuy_Count.Text)
+
                 }
                 ;
 

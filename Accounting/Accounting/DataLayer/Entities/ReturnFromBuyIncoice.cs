@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Accounting.DataLayer.Entities
@@ -17,10 +18,10 @@ namespace Accounting.DataLayer.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ReturnFromBuyInvoiceCode { get; set; }
-        //-----
 
 
-
+        public DateTime ReturnFromBuyInvoiceDate { get; set; }
+        public int ReturnQuantity { get; set; }
 
         //---------- Reference to BuyInvoice ---------
         [ForeignKey("BuyInvoice")]

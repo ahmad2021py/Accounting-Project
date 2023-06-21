@@ -480,5 +480,74 @@ namespace Accounting.GUI.Forms
 
             }
         }
+
+        private void لیستفاکتورهایبازگشتازخریدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReturnFromBuyInvoiceRecords frmReturnFromBuyInvoiceRecords = new frmReturnFromBuyInvoiceRecords();
+            if (frmReturnFromBuyInvoiceRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmReturnFromBuyInvoiceRecords.Close();
+                frmReturnFromBuyInvoiceRecords = null;
+            }
+
+        }
+
+        private void ثبتچکToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChequeRegistration frmChequeRegistration = new frmChequeRegistration();
+            if (frmChequeRegistration.ShowDialog() == DialogResult.OK)
+            {
+
+                frmChequeRegistration.Close();
+                frmChequeRegistration = null;
+
+            }
+        }
+
+        private void اطلاعاتچکهاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChequeRecords frmChequeRecords = new frmChequeRecords();
+            if (frmChequeRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmChequeRecords.Close();
+                frmChequeRecords = null;
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //-------------------------------
     }
 }

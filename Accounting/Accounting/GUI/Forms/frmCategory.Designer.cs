@@ -103,7 +103,7 @@ namespace Accounting.GUI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(648, 360);
+            this.ClientSize = new System.Drawing.Size(676, 414);
             this.Controls.Add(this.btnShowfrmCategoryRecords);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);

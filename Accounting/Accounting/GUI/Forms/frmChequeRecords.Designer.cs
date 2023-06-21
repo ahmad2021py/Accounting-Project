@@ -1,7 +1,7 @@
 ﻿
 namespace Accounting.GUI.Forms
 {
-    partial class frmReturnFromBuyInvoiceRecords
+    partial class frmChequeRecords
     {
         /// <summary>
         /// Required designer variable.
@@ -36,25 +36,25 @@ namespace Accounting.GUI.Forms
             // DGV1
             // 
             this.DGV1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV1.Location = new System.Drawing.Point(396, 12);
+            this.DGV1.Location = new System.Drawing.Point(382, 12);
             this.DGV1.Name = "DGV1";
             this.DGV1.RowHeadersWidth = 51;
             this.DGV1.RowTemplate.Height = 24;
-            this.DGV1.Size = new System.Drawing.Size(457, 497);
+            this.DGV1.Size = new System.Drawing.Size(593, 521);
             this.DGV1.TabIndex = 0;
             // 
-            // frmReturnFromBuyInvoiceRecords
+            // frmChequeRecords
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 530);
+            this.ClientSize = new System.Drawing.Size(987, 545);
             this.Controls.Add(this.DGV1);
             this.MaximizeBox = false;
-            this.Name = "frmReturnFromBuyInvoiceRecords";
+            this.Name = "frmChequeRecords";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.Text = "لیست فاکتور های بازگشت از خرید";
-            this.Load += new System.EventHandler(this.frmReturnFromBuyInvoiceRecords_Load);
+            this.Text = "لیست چک ها";
+            this.Load += new System.EventHandler(this.frmChequeRecords_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV1)).EndInit();
             this.ResumeLayout(false);
 
