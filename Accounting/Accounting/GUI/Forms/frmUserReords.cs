@@ -73,54 +73,8 @@ namespace Accounting.GUI.Forms
             this.DialogResult = DialogResult.OK;
         }
 
-        async private void txtUserID_TextChanged(object sender, EventArgs e)
-        {
-            if (txtUserCode.Text == "")
-            {
-                LoadData();
-                return;
+      
 
-            }
-            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtUserCode.Text);
-            if (!ValidationResult)
-            {
-                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtUserCode.Text = "";
-                return;
-            }
-
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
-            {
-                IUserRepository _UserRepository = _UnitOfWork.UserRepository;
-
-                int UserCode = Convert.ToInt32(txtUserCode.Text);
-                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserCode == UserCode);
-                DGV1.DataSource = DbUserSearchRecords;
-
-            }
-
-        }
-
-
-
-        async private void txtUserName_TextChanged(object sender, EventArgs e)
-        {
-            if (txtRole.Text == "")
-            {
-                LoadData();
-                return;
-            }
-
-            using (UnitOfWork _UnitOfWork = new UnitOfWork())
-            {
-                IUserRepository _UserRepository = _UnitOfWork.UserRepository;
-
-                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserName == txtUserName.Text);
-                DGV1.DataSource = DbUserSearchRecords;
-
-
-            }
-        }
 
         async private void txtRole_TextChanged(object sender, EventArgs e)
         {
@@ -145,6 +99,54 @@ namespace Accounting.GUI.Forms
         private void btnExcelExport_Click(object sender, EventArgs e)
         {
             WorkWithExcel.ExportExcel(DGV1);
+        }
+
+      async  private void txtUserCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUserCode.Text == "")
+            {
+                LoadData();
+                return;
+            }
+           
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtUserCode.Text);
+            if (!ValidationResult)
+            {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtUserCode.Text = "";
+                return;
+            }
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IUserRepository _UserRepository = _UnitOfWork.UserRepository;
+                int userCode =  int.Parse(txtUserCode.Text);  
+                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserCode == userCode);
+
+
+                DGV1.DataSource = DbUserSearchRecords;
+
+
+            }
+        }
+
+       async private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUserName.Text == "")
+            {
+                LoadData();
+                return;
+            }
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IUserRepository _UserRepository = _UnitOfWork.UserRepository;
+                IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserName == txtUserName.Text);
+
+
+                DGV1.DataSource = DbUserSearchRecords;
+
+
+            }
         }
 
 

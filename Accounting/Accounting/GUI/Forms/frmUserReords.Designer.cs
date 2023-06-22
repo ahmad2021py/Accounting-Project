@@ -105,7 +105,7 @@ namespace Accounting.GUI.Forms
             this.txtUserCode.Name = "txtUserCode";
             this.txtUserCode.Size = new System.Drawing.Size(272, 41);
             this.txtUserCode.TabIndex = 0;
-            this.txtUserCode.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
+            this.txtUserCode.TextChanged += new System.EventHandler(this.txtUserCode_TextChanged);
             // 
             // DGV1
             // 

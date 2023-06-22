@@ -85,7 +85,7 @@ namespace Accounting.GUI.Forms
             this.txtStockCode.Name = "txtStockCode";
             this.txtStockCode.Size = new System.Drawing.Size(255, 40);
             this.txtStockCode.TabIndex = 0;
-            this.txtStockCode.TextChanged += new System.EventHandler(this.txtStockId_TextChanged);
+            this.txtStockCode.TextChanged += new System.EventHandler(this.txtStockCode_TextChanged);
             // 
             // bPersianCalenderTextBox1
             // 

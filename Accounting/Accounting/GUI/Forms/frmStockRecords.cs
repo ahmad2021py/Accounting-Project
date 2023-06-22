@@ -12,11 +12,11 @@ namespace Accounting.GUI.Forms
 {
     public partial class frmStockRecords : Form
     {
-       
+
         public frmStockRecords()
         {
             InitializeComponent();
-         
+
         }
 
 
@@ -35,7 +35,7 @@ namespace Accounting.GUI.Forms
             //-----------Design datatable---------
             //----------- Create a DataTable and add 6 Columns to it---------
             //  DataTable dataTable = new DataTable();
-           
+
             dataTable.Clear();
             dataTable.Columns.Add("Row", typeof(long));
             dataTable.Columns.Add("StockCode", typeof(int));
@@ -102,7 +102,7 @@ namespace Accounting.GUI.Forms
                 //-----
 
                 //----Fill DataTable By Method DesignAndFillDataTable -----
-                DataTable customDataTable =   DesignAndFillDataTable(DbStocklist);
+                DataTable customDataTable = DesignAndFillDataTable(DbStocklist);
                 //-----
 
                 //-------------Show In DGV1-----------
@@ -136,7 +136,7 @@ namespace Accounting.GUI.Forms
 
 
 
-      async  private void btnSearchByDate_Click(object sender, EventArgs e)
+        async private void btnSearchByDate_Click(object sender, EventArgs e)
         {
             if (bPersianCalenderTextBox1.Text == "")
             {
@@ -147,19 +147,19 @@ namespace Accounting.GUI.Forms
                 using (UnitOfWork _UnitOfWork = new UnitOfWork())
                 {
                     IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-               
+
                     string ShamsiDate = bPersianCalenderTextBox1.Text;
                     WorkWithDate workWithDate = new WorkWithDate();
                     DateTime MiladiDate = workWithDate.ShamsiToMiladi(ShamsiDate);
 
-             
-                     IEnumerable<Stock> enumerableCollection   =await _StockRepository.GetAll<Stock>(n => n.StockDate == MiladiDate);
+
+                    IEnumerable<Stock> enumerableCollection = await _StockRepository.GetAll<Stock>(n => n.StockDate == MiladiDate);
                     List<Stock> stockRecords = new List<Stock>(enumerableCollection);
                     DGV1.DataSource = stockRecords;
 
                     DGV1.Columns["Product"].Visible = false;
 
-              
+
                 }
             }
         }
@@ -175,62 +175,40 @@ namespace Accounting.GUI.Forms
         private void txtStockId_TextChanged(object sender, EventArgs e)
         {
 
-            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtStockCode.Text);
+
+        }
+
+      async  private void txtProductId_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProductCode.Text == "")
+            {
+                LoadData();
+
+            }
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtProductCode.Text);
             if (!ValidationResult)
             {
                 // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
                 txtStockCode.Text = "";
                 return;
             }
-            if (txtStockCode.Text == "")
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                LoadData();
+                IStockRepository _StockRepository = _UnitOfWork.StockRepository;
+
+
+                long productCode = long.Parse(txtProductCode.Text);
+
+
+                IEnumerable<Stock> enumerableCollection = await _StockRepository.GetAll<Stock>(n => n.StockCode == productCode);
+                List<Stock> stockRecords = new List<Stock>(enumerableCollection);
+
+                DGV1.DataSource = stockRecords;
+
             }
-            else
-            {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-
-
-                    long StockCode = long.Parse(txtStockCode.Text);
-                    DGV1.DataSource = _StockRepository.GetAll<Stock>(n => n.StockCode == StockCode);
-
-
-
-
-                }
-            }
-        }
-
-        private void txtProductId_TextChanged(object sender, EventArgs e)
-        {
-            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtProductCode.Text);
-            if (!ValidationResult)
-            {
-                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
-                txtProductCode.Text = "";
-                return;
-            }
-            if (txtProductCode.Text == "")
-            {
-                LoadData();
-            }
-            else
-            {
-                using (UnitOfWork _UnitOfWork = new UnitOfWork())
-                {
-                    IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-
-
-                    long ProductCode = long.Parse(txtProductCode.Text);
-                    DGV1.DataSource = _ProductRepository.GetAll<Stock>(n => n.FKProduct == ProductCode);
-                    //DGV1.Columns["Product"].Visible = false;
-
-
-
-                }
-            }
+        
         }
 
         private void btnExcelExport_Click(object sender, EventArgs e)
@@ -249,6 +227,38 @@ namespace Accounting.GUI.Forms
             _StockDate = DGV1.Rows[e.RowIndex].Cells["StockDate"].Value.ToString();
 
             this.DialogResult = DialogResult.OK;
+        }
+
+        async private void txtStockCode_TextChanged(object sender, EventArgs e)
+        {
+            if (txtStockCode.Text == "")
+            {
+                LoadData();
+
+            }
+            bool ValidationResult = WorkWithStrings.StringToIntValidations(txtStockCode.Text);
+            if (!ValidationResult)
+            {
+                // MessageBox.Show("فیلد کد باید عددی صحیح باشد ");
+                txtStockCode.Text = "";
+                return;
+            }
+
+
+            using (UnitOfWork _UnitOfWork = new UnitOfWork())
+            {
+                IStockRepository _StockRepository = _UnitOfWork.StockRepository;
+
+
+                long StockCode = long.Parse(txtStockCode.Text);
+
+
+                IEnumerable<Stock> enumerableCollection = await _StockRepository.GetAll<Stock>(n => n.StockCode == StockCode);
+                List<Stock> stockRecords = new List<Stock>(enumerableCollection);
+
+                DGV1.DataSource = stockRecords;
+
+            }
         }
 
 

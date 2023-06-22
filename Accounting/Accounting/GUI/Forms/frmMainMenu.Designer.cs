@@ -153,8 +153,8 @@
             this.ویرایشوثبتکالاهادرانبارToolStripMenuItem,
             this.لیستکالاهایانبارToolStripMenuItem});
             this.انبارToolStripMenuItem.Name = "انبارToolStripMenuItem";
-            this.انبارToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.انبارToolStripMenuItem.Text = "انبار";
+            this.انبارToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.انبارToolStripMenuItem.Text = "موجودی";
             // 
             // ویرایشوثبتکالاهادرانبارToolStripMenuItem
             // 
@@ -201,8 +201,8 @@
             this.ویرایشوثبتفروشندهToolStripMenuItem,
             this.لیستفروشندگانToolStripMenuItem});
             this.مشتریToolStripMenuItem.Name = "مشتریToolStripMenuItem";
-            this.مشتریToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
-            this.مشتریToolStripMenuItem.Text = "مشتری و فروشنده";
+            this.مشتریToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+            this.مشتریToolStripMenuItem.Text = "طرف حساب";
             // 
             // ویرایشوثبتمشتریToolStripMenuItem
             // 
@@ -283,14 +283,14 @@
             // ثبتچکToolStripMenuItem
             // 
             this.ثبتچکToolStripMenuItem.Name = "ثبتچکToolStripMenuItem";
-            this.ثبتچکToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ثبتچکToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.ثبتچکToolStripMenuItem.Text = "ثبت و ویرایش چک";
             this.ثبتچکToolStripMenuItem.Click += new System.EventHandler(this.ثبتچکToolStripMenuItem_Click);
             // 
             // اطلاعاتچکهاToolStripMenuItem
             // 
             this.اطلاعاتچکهاToolStripMenuItem.Name = "اطلاعاتچکهاToolStripMenuItem";
-            this.اطلاعاتچکهاToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.اطلاعاتچکهاToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.اطلاعاتچکهاToolStripMenuItem.Text = "اطلاعات چک ها";
             this.اطلاعاتچکهاToolStripMenuItem.Click += new System.EventHandler(this.اطلاعاتچکهاToolStripMenuItem_Click);
             // 
@@ -347,7 +347,7 @@
             // 
             this.جزئیاتورودToolStripMenuItem.Image = global::Accounting.Properties.Resources.icons8_enter_80px;
             this.جزئیاتورودToolStripMenuItem.Name = "جزئیاتورودToolStripMenuItem";
-            this.جزئیاتورودToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.جزئیاتورودToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.جزئیاتورودToolStripMenuItem.Text = "جزئیات ورود";
             this.جزئیاتورودToolStripMenuItem.Click += new System.EventHandler(this.جزئیاتورودToolStripMenuItem_Click);
             // 
@@ -355,7 +355,7 @@
             // 
             this.مدیریتکاربرانToolStripMenuItem1.Image = global::Accounting.Properties.Resources.icons8_registration_skin_type_7_48px;
             this.مدیریتکاربرانToolStripMenuItem1.Name = "مدیریتکاربرانToolStripMenuItem1";
-            this.مدیریتکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.مدیریتکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
             this.مدیریتکاربرانToolStripMenuItem1.Text = "مدیریت کاربران";
             this.مدیریتکاربرانToolStripMenuItem1.Click += new System.EventHandler(this.مدیریتکاربرانToolStripMenuItem1_Click);
             // 
@@ -364,7 +364,7 @@
             this.لیستکاربرانToolStripMenuItem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.لیستکاربرانToolStripMenuItem1.Image = global::Accounting.Properties.Resources.icons8_team_48px;
             this.لیستکاربرانToolStripMenuItem1.Name = "لیستکاربرانToolStripMenuItem1";
-            this.لیستکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.لیستکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(186, 26);
             this.لیستکاربرانToolStripMenuItem1.Text = "لیست کاربران";
             this.لیستکاربرانToolStripMenuItem1.Click += new System.EventHandler(this.لیستکاربرانToolStripMenuItem1_Click);
             // 

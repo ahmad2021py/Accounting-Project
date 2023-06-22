@@ -316,6 +316,15 @@ namespace Accounting.GUI.Forms
 
         async private void btnDelete_Click(object sender, EventArgs e)
         {
+            bool VlaidationResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtProductCode.Text);
+
+
+            if (VlaidationResult)
+            {
+                MessageBox.Show("ورودی نامعتبر");
+                txtProductCode.Text = "";
+                return;
+            }
 
             if (MessageBox.Show("آیا از حذف رکورد اطمینان دارید ؟", "تایید کردن", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {

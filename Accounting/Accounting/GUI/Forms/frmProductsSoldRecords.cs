@@ -85,8 +85,7 @@ namespace Accounting.GUI.Forms
             {
                 IProductSoldRepository _ProductSoldRepository = _UnitOfWork.ProductSoldRepository;
 
-                int FKSellInvoice = int.Parse(txtFKSellInvoice.Text);
-                IEnumerable<ProductSold> IEnamrableProductSoldDbRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n.ProductSoldTableCode == FKSellInvoice);
+                IEnumerable<ProductSold> IEnamrableProductSoldDbRecords = await _ProductSoldRepository.GetAll<ProductSold>(n => n.FKSellInvoice == txtFKSellInvoice.Text);
                 DGV1.DataSource = IEnamrableProductSoldDbRecords;
 
 
