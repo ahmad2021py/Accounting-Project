@@ -122,7 +122,7 @@ namespace Accounting.GUI.Forms
             // 
             this.cbCompany.FormattingEnabled = true;
             this.cbCompany.Location = new System.Drawing.Point(748, 180);
-            this.cbCompany.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCompany.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbCompany.Name = "cbCompany";
             this.cbCompany.Size = new System.Drawing.Size(264, 24);
             this.cbCompany.TabIndex = 4;
@@ -131,7 +131,7 @@ namespace Accounting.GUI.Forms
             // 
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(748, 125);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(264, 24);
             this.cbCategory.TabIndex = 3;

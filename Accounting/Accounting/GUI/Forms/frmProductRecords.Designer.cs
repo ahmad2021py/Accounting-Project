@@ -51,7 +51,7 @@ namespace Accounting.GUI.Forms
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(24, 304);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(278, 100);
+            this.groupBox3.Size = new System.Drawing.Size(278, 101);
             this.groupBox3.TabIndex = 79;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "جستجو با دسته بندی";
@@ -141,6 +141,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmProductRecords";

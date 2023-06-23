@@ -179,6 +179,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.txtBuyInvoiceCode);
             this.Controls.Add(this.lblStockCode);
             this.Controls.Add(this.label7);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmReturnFromBuyInvoice";

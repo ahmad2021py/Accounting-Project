@@ -13,7 +13,7 @@ namespace Accounting.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202306210825041_InitDb"; }
+            get { return "202306230523019_InitDb"; }
         }
         
         string IMigrationMetadata.Source

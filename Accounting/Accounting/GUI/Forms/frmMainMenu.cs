@@ -184,14 +184,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستمحصولاتToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductRecords frmProductRecords = new frmProductRecords(this);
-            if (frmProductRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmProductRecords.Close();
-                frmProductRecords = null;
-
-            }
+           
         }
 
         private void ویرایشوثبتمشتریToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,14 +202,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستمشتریانToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCustomerRecords frmCustomerRecords = new frmCustomerRecords();
-            if (frmCustomerRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmCustomerRecords.Close();
-                frmCustomerRecords = null;
-
-            }
+           
         }
 
         private void ویرایشوثبتکالاهادرانبارToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,14 +219,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستکالاهایانبارToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmStockRecords frmStockRecords = new frmStockRecords();
-            if (frmStockRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmStockRecords.Close();
-                frmStockRecords = null;
-
-            }
+            
         }
 
 
@@ -276,14 +255,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستشرکتهاToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmCompanyRecords frmCompanyRecords = new frmCompanyRecords();
-            if (frmCompanyRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmCompanyRecords.Close();
-                frmCompanyRecords = null;
-
-            }
+            
         }
 
         private void جزToolStripMenuItem_Click(object sender, EventArgs e)
@@ -358,14 +330,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستفروشندگانToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSellerRecords frmSellerRecords = new frmSellerRecords();
-            if (frmSellerRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmSellerRecords.Close();
-                frmSellerRecords = null;
-
-            }
+            
         }
 
         private void مدیریتکاربرانToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -495,17 +460,109 @@ namespace Accounting.GUI.Forms
 
         private void ثبتچکToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChequeRegistration frmChequeRegistration = new frmChequeRegistration();
-            if (frmChequeRegistration.ShowDialog() == DialogResult.OK)
+           
+        }
+
+        private void اطلاعاتچکهاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void دیگرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void محاسبهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void سودخالصToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRowbonifietCalculate frmNonbenefitCalculate = new frmRowbonifietCalculate();
+            if (frmNonbenefitCalculate.ShowDialog() == DialogResult.OK)
             {
 
-                frmChequeRegistration.Close();
-                frmChequeRegistration = null;
+                frmNonbenefitCalculate.Close();
+                frmNonbenefitCalculate = null;
 
             }
         }
 
-        private void اطلاعاتچکهاToolStripMenuItem_Click(object sender, EventArgs e)
+        private void شرکتتولیدکنندهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCompany frmCompany = new frmCompany();
+            if (frmCompany.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCompany.Close();
+                frmCompany = null;
+
+            }
+        }
+
+        private void لیستشرکتهاToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmCompanyRecords frmCompanyRecords = new frmCompanyRecords();
+            if (frmCompanyRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCompanyRecords.Close();
+                frmCompanyRecords = null;
+
+            }
+        }
+
+        private void لیسامحصولاتToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductRecords frmProductRecords = new frmProductRecords(this);
+            if (frmProductRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmProductRecords.Close();
+                frmProductRecords = null;
+
+            }
+        }
+
+        private void لیستکالاهایانبارToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmStockRecords frmStockRecords = new frmStockRecords();
+            if (frmStockRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmStockRecords.Close();
+                frmStockRecords = null;
+
+            }
+        }
+
+        private void لیستمشتریانToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmCustomerRecords frmCustomerRecords = new frmCustomerRecords();
+            if (frmCustomerRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmCustomerRecords.Close();
+                frmCustomerRecords = null;
+
+            }
+        }
+
+        private void لیستفروشندگانToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmSellerRecords frmSellerRecords = new frmSellerRecords();
+            if (frmSellerRecords.ShowDialog() == DialogResult.OK)
+            {
+
+                frmSellerRecords.Close();
+                frmSellerRecords = null;
+
+            }
+        }
+
+        private void اطلاعاتچکهاToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmChequeRecords frmChequeRecords = new frmChequeRecords();
             if (frmChequeRecords.ShowDialog() == DialogResult.OK)
@@ -513,6 +570,30 @@ namespace Accounting.GUI.Forms
 
                 frmChequeRecords.Close();
                 frmChequeRecords = null;
+
+            }
+        }
+
+        private void ثبتچکهاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChequeRegistration frmChequeRegistration = new frmChequeRegistration();
+            if (frmChequeRegistration.ShowDialog() == DialogResult.OK)
+            {
+
+                frmChequeRegistration.Close();
+                //frmChequeRegistration = null;
+
+            }
+        }
+
+        private void سودعملیاتیToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOperationBenefitCalculate frmOperationBenefitCalculate = new frmOperationBenefitCalculate();
+            if (frmOperationBenefitCalculate.ShowDialog() == DialogResult.OK)
+            {
+
+                frmOperationBenefitCalculate.Close();
+                frmOperationBenefitCalculate = null;
 
             }
         }

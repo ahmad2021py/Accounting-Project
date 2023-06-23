@@ -85,6 +85,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.PasswordLabel);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(17, 15);
             this.groupBox1.Name = "groupBox1";
@@ -195,7 +196,7 @@ namespace Accounting.GUI.Forms
             this.cbStates.FormattingEnabled = true;
             this.cbStates.Location = new System.Drawing.Point(626, 222);
             this.cbStates.Name = "cbStates";
-            this.cbStates.Size = new System.Drawing.Size(234, 24);
+            this.cbStates.Size = new System.Drawing.Size(234, 26);
             this.cbStates.TabIndex = 5;
             // 
             // label3

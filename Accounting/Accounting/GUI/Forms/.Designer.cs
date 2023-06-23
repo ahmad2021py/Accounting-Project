@@ -50,7 +50,7 @@ namespace Accounting.GUI.Forms
             "Manager",
             "Employee"});
             this.cbRole.Location = new System.Drawing.Point(310, 28);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(4);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(201, 24);
             this.cbRole.TabIndex = 1;
@@ -167,6 +167,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.linklblRecoveryPassword);
             this.Controls.Add(this.linklblChangePassword);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLogin";

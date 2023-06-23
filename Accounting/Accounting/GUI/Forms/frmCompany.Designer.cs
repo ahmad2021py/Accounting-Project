@@ -110,6 +110,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btNew);
             this.Controls.Add(this.lblCompanyName);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmCompany";

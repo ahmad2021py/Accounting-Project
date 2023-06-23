@@ -110,6 +110,7 @@ namespace Accounting.GUI.Forms
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label28);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(4, 0);
             this.groupBox1.Name = "groupBox1";
@@ -232,7 +233,7 @@ namespace Accounting.GUI.Forms
             this.bPersianCalenderTextBox1.ReadOnly = true;
             this.bPersianCalenderTextBox1.SelectedDate = null;
             this.bPersianCalenderTextBox1.Shamsi = null;
-            this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(264, 22);
+            this.bPersianCalenderTextBox1.Size = new System.Drawing.Size(264, 27);
             this.bPersianCalenderTextBox1.TabIndex = 5;
             // 
             // label4
@@ -277,6 +278,7 @@ namespace Accounting.GUI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 609);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmStock";

@@ -66,7 +66,7 @@ namespace Accounting.GUI.Forms
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(18, 161);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 142);
+            this.groupBox2.Size = new System.Drawing.Size(299, 144);
             this.groupBox2.TabIndex = 96;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "جستجو با تاریخ فاکتور";
@@ -156,6 +156,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.DGV1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmSellInvoiceRecords";

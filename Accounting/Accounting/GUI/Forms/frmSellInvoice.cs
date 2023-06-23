@@ -86,9 +86,8 @@ namespace Accounting.GUI.Forms
         {
             int Count = int.Parse(txtSellCount.Text);
             int RequestCount = int.Parse(lblStockTotalQuantity.Text);
-            if (Count > RequestCount)
+            if (Count > RequestCount || Count <=0)
             {
-
                 return false;
             }
             return true;
