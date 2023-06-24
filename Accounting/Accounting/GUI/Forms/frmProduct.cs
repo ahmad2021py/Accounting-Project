@@ -482,20 +482,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-        private void btnShowProductSoldRecords_Click(object sender, EventArgs e)
-        {
-            frmProductsSoldRecords frmProductsSoldRecords = new frmProductsSoldRecords();
-            if (frmProductsSoldRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmProductsSoldRecords.Close();
-
-                frmProductsSoldRecords = null;
-
-
-
-            }
-        }
+     
 
 
 

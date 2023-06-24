@@ -21,7 +21,6 @@ namespace Accounting.DataLayer.Context
         private IProductRepository _ProductRepository;
         private ICustomerRepository _CustomerRepository;
         private IStockRepository _stockRepository;
-        private IProductSoldRepository _ProductSoldRepository;
         private ISelllnvoiceRepository _SellInvoiceRepository;
         private IBuyInvoiceRepository _BuyInvoiceRepository;
         private ISellerRepository _SellerRepository;
@@ -127,18 +126,7 @@ namespace Accounting.DataLayer.Context
 
 
 
-        public IProductSoldRepository ProductSoldRepository
-        {
-            get
-            {
-                if (_ProductSoldRepository == null)
-                {
-                    _ProductSoldRepository = new ProductSoldRepository(db);
-                }
-
-                return _ProductSoldRepository;
-            }
-        }
+    
 
 
 

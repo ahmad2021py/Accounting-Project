@@ -30,11 +30,11 @@ namespace Accounting.DataLayer.Entities
         public Stock Stock { get; set; }
         //-----
 
-        //------FK to ProductSold Table---------------
-        [ForeignKey("ProductSold")]
-        public int? FKProductSold { get; set; }
+        //------FK to FKSellInvoice Table---------------
+        [ForeignKey("sellInvoice")]
+        public string FKSellInvoice { get; set; }
 
-        public ProductSold ProductSold { get; set; }
+        public virtual  SellInvoice sellInvoice { get; set; }
 
         //-----
 

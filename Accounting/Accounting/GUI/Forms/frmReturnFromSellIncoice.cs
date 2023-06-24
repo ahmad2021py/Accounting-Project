@@ -22,7 +22,7 @@ namespace Accounting.GUI.Forms
         {
             txtReturnFromSell_Count.Text = "";
             txtReturnFromSell_UnitAmount.Text = "";
-            txtProductSoldCode.Text = "";
+            txtSellInvoiceCode.Text = "";
             bPersianCalenderTextBox1.Text = "";
             lblCustomerCode.Text = "";
             lblStockCode.Text = "";
@@ -35,7 +35,7 @@ namespace Accounting.GUI.Forms
         private ReturnFromSellIncoice Fill__ReturnFromSellInvoiceRecord(ReturnFromSellIncoice returnFromSellInvoiceRecord)
         {
             returnFromSellInvoiceRecord.FKCustomer = long.Parse(lblCustomerCode.Text);
-            returnFromSellInvoiceRecord.FKProductSold = int.Parse(txtProductSoldCode.Text);
+            returnFromSellInvoiceRecord.FKSellInvoice = txtSellInvoiceCode.Text;
             returnFromSellInvoiceRecord.FKStock = int.Parse(lblStockCode.Text);
             returnFromSellInvoiceRecord.ReturnFromSellIncoiceCode = txtReturnFromSellInvoiceCode.Text;
             WorkWithDate date = new WorkWithDate();
@@ -52,7 +52,7 @@ namespace Accounting.GUI.Forms
             bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(bPersianCalenderTextBox1.Text,
                  lblStockCode.Text,
                  lblCustomerCode.Text,
-                 txtProductSoldCode.Text,
+                 txtSellInvoiceCode.Text,
                  txtReturnFromSell_UnitAmount.Text,
                  txtReturnFromSell_Count.Text);
 
@@ -76,7 +76,7 @@ namespace Accounting.GUI.Forms
 
         async private void btnCommit_Click(object sender, EventArgs e)
         {
-            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtReturnFromSell_Count.Text, txtReturnFromSell_UnitAmount.Text, txtProductSoldCode.Text, lblCustomerCode.Text, lblStockCode.Text, lblTotaRetunFrmSellAmoun.Text, bPersianCalenderTextBox1.Text);
+            bool isNullResult = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(txtReturnFromSell_Count.Text, txtReturnFromSell_UnitAmount.Text, txtSellInvoiceCode.Text, lblCustomerCode.Text, lblStockCode.Text, lblTotaRetunFrmSellAmoun.Text, bPersianCalenderTextBox1.Text);
             if (isNullResult)
             {
                 MessageBox.Show("مقادیر نامعتبر");
@@ -88,14 +88,13 @@ namespace Accounting.GUI.Forms
             {
 
 
-                IProductSoldRepository productSoldRepository = unitOfWork.ProductSoldRepository;
+                ISelllnvoiceRepository selllnvoiceRepository = unitOfWork.SellInvoiceRepository;
 
-                int productSoldCode = int.Parse(txtProductSoldCode.Text);
-                bool productSoldIsExistResult = await productSoldRepository.IsExist<ProductSold>(n => n.ProductSoldTableCode == productSoldCode);
+                bool selllnvoiceIsExistResult = await selllnvoiceRepository.IsExist<SellInvoice>(n => n.SellInvoiceCode == txtSellInvoiceCode.Text);
 
-                if (!productSoldIsExistResult)
+                if (!selllnvoiceIsExistResult)
                 {
-                    MessageBox.Show("رکوردی با این کد در جدول محصولات فروش رفته وجو ندارد");
+                    MessageBox.Show("رکوردی با این کد در جدول سند فروش  وجو ندارد");
 
                     return;
                 }
@@ -114,7 +113,7 @@ namespace Accounting.GUI.Forms
 
                 if (isExistsResult)
                 {
-                    MessageBox.Show("کد فاکتور بازگشت از خرید تکراری است");
+                    MessageBox.Show("کد فاکتور بازگشت از فروش تکراری است");
                     return;
                 }
                 //-----
@@ -204,15 +203,19 @@ namespace Accounting.GUI.Forms
 
         private void btnSelectSellInviceCode_Click(object sender, EventArgs e)
         {
-            frmProductsSoldRecords frmProductsSoldRecords = new frmProductsSoldRecords();
-            if (frmProductsSoldRecords.ShowDialog() == DialogResult.OK)
+            frmSellInvoiceRecords frmSellInvoiceRecords = new frmSellInvoiceRecords();
+            if (frmSellInvoiceRecords.ShowDialog() == DialogResult.OK)
             {
 
-                frmProductsSoldRecords.Close();
-                txtProductSoldCode.Text = frmProductsSoldRecords._ProductSoldTableCode;
-                frmProductsSoldRecords = null;
+                frmSellInvoiceRecords.Close();
+                txtSellInvoiceCode.Text = frmSellInvoiceRecords._SellInvoiceCode;
 
             }
+
+        }
+
+        private void txtSellInvoiceCode_TextChanged(object sender, EventArgs e)
+        {
 
         }
 

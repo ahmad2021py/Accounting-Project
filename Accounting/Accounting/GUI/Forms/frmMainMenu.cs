@@ -294,17 +294,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-        private void hihdToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmProductsSoldRecords frmProductsSoldRecords = new frmProductsSoldRecords();
-            if (frmProductsSoldRecords.ShowDialog() == DialogResult.OK)
-            {
-
-                frmProductsSoldRecords.Close();
-                frmProductsSoldRecords = null;
-
-            }
-        }
+      
 
         private void ثبتخریدوفروشکالاToolStripMenuItem_Click(object sender, EventArgs e)
         {

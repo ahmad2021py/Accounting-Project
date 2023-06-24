@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitDb : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -128,37 +128,6 @@
                 .PrimaryKey(t => t.NationalCode);
             
             CreateTable(
-                "dbo.ProductSolds",
-                c => new
-                    {
-                        ProductSoldTableCode = c.Int(nullable: false, identity: true),
-                        FKSellInvoice = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => t.ProductSoldTableCode)
-                .ForeignKey("dbo.SellInvoices", t => t.FKSellInvoice, cascadeDelete: true)
-                .Index(t => t.FKSellInvoice);
-            
-            CreateTable(
-                "dbo.SellInvoices",
-                c => new
-                    {
-                        SellInvoiceCode = c.String(nullable: false, maxLength: 128),
-                        Row = c.Int(nullable: false, identity: true),
-                        SellInvoiceDate = c.DateTime(nullable: false),
-                        FKCustomer = c.Long(nullable: false),
-                        FKStock = c.Int(nullable: false),
-                        Quantity = c.Int(nullable: false),
-                        TotalSellAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        SellPricePerUnit = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Off = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.SellInvoiceCode)
-                .ForeignKey("dbo.Customers", t => t.FKCustomer, cascadeDelete: true)
-                .ForeignKey("dbo.Stocks", t => t.FKStock, cascadeDelete: true)
-                .Index(t => t.FKCustomer)
-                .Index(t => t.FKStock);
-            
-            CreateTable(
                 "dbo.Registrations",
                 c => new
                     {
@@ -199,17 +168,37 @@
                         ReturnFromSellIncoiceDate = c.DateTime(nullable: false),
                         FKCustomer = c.Long(nullable: false),
                         FKStock = c.Int(nullable: false),
-                        FKProductSold = c.Int(),
+                        FKSellInvoice = c.String(maxLength: 128),
                         ReturnQuantity = c.Int(nullable: false),
                         TotalAmountFromReturnFromSellIncoice = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.ReturnFromSellIncoiceCode)
                 .ForeignKey("dbo.Customers", t => t.FKCustomer, cascadeDelete: true)
-                .ForeignKey("dbo.ProductSolds", t => t.FKProductSold)
+                .ForeignKey("dbo.SellInvoices", t => t.FKSellInvoice)
                 .ForeignKey("dbo.Stocks", t => t.FKStock, cascadeDelete: true)
                 .Index(t => t.FKCustomer)
                 .Index(t => t.FKStock)
-                .Index(t => t.FKProductSold);
+                .Index(t => t.FKSellInvoice);
+            
+            CreateTable(
+                "dbo.SellInvoices",
+                c => new
+                    {
+                        SellInvoiceCode = c.String(nullable: false, maxLength: 128),
+                        Row = c.Int(nullable: false, identity: true),
+                        SellInvoiceDate = c.DateTime(nullable: false),
+                        FKCustomer = c.Long(nullable: false),
+                        FKStock = c.Int(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                        TotalSellAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        SellPricePerUnit = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Off = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.SellInvoiceCode)
+                .ForeignKey("dbo.Customers", t => t.FKCustomer, cascadeDelete: true)
+                .ForeignKey("dbo.Stocks", t => t.FKStock, cascadeDelete: true)
+                .Index(t => t.FKCustomer)
+                .Index(t => t.FKStock);
             
             CreateTable(
                 "dbo.Users",
@@ -228,31 +217,28 @@
         public override void Down()
         {
             DropForeignKey("dbo.ReturnFromSellIncoices", "FKStock", "dbo.Stocks");
-            DropForeignKey("dbo.ReturnFromSellIncoices", "FKProductSold", "dbo.ProductSolds");
-            DropForeignKey("dbo.ReturnFromSellIncoices", "FKCustomer", "dbo.Customers");
-            DropForeignKey("dbo.ReturnFromBuyIncoices", "FKBuyInvoice", "dbo.BuyInvoices");
-            DropForeignKey("dbo.ProductSolds", "FKSellInvoice", "dbo.SellInvoices");
+            DropForeignKey("dbo.ReturnFromSellIncoices", "FKSellInvoice", "dbo.SellInvoices");
             DropForeignKey("dbo.SellInvoices", "FKStock", "dbo.Stocks");
             DropForeignKey("dbo.SellInvoices", "FKCustomer", "dbo.Customers");
+            DropForeignKey("dbo.ReturnFromSellIncoices", "FKCustomer", "dbo.Customers");
+            DropForeignKey("dbo.ReturnFromBuyIncoices", "FKBuyInvoice", "dbo.BuyInvoices");
             DropForeignKey("dbo.BuyInvoices", "FKStock", "dbo.Stocks");
             DropForeignKey("dbo.Stocks", "FKProduct", "dbo.Products");
             DropForeignKey("dbo.BuyInvoices", "FKSeller", "dbo.Sellers");
-            DropIndex("dbo.ReturnFromSellIncoices", new[] { "FKProductSold" });
+            DropIndex("dbo.SellInvoices", new[] { "FKStock" });
+            DropIndex("dbo.SellInvoices", new[] { "FKCustomer" });
+            DropIndex("dbo.ReturnFromSellIncoices", new[] { "FKSellInvoice" });
             DropIndex("dbo.ReturnFromSellIncoices", new[] { "FKStock" });
             DropIndex("dbo.ReturnFromSellIncoices", new[] { "FKCustomer" });
             DropIndex("dbo.ReturnFromBuyIncoices", new[] { "FKBuyInvoice" });
-            DropIndex("dbo.SellInvoices", new[] { "FKStock" });
-            DropIndex("dbo.SellInvoices", new[] { "FKCustomer" });
-            DropIndex("dbo.ProductSolds", new[] { "FKSellInvoice" });
             DropIndex("dbo.Stocks", new[] { "FKProduct" });
             DropIndex("dbo.BuyInvoices", new[] { "FKStock" });
             DropIndex("dbo.BuyInvoices", new[] { "FKSeller" });
             DropTable("dbo.Users");
+            DropTable("dbo.SellInvoices");
             DropTable("dbo.ReturnFromSellIncoices");
             DropTable("dbo.ReturnFromBuyIncoices");
             DropTable("dbo.Registrations");
-            DropTable("dbo.SellInvoices");
-            DropTable("dbo.ProductSolds");
             DropTable("dbo.Customers");
             DropTable("dbo.Companies");
             DropTable("dbo.Cheques");

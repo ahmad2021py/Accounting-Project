@@ -28,18 +28,17 @@ namespace Accounting.GUI.Forms
             dataTable.Columns.Add("FKCustomer", typeof(long));
             dataTable.Columns.Add("FKStock", typeof(int));
             dataTable.Columns.Add("ReturnFromSellIncoiceDate", typeof(string));
-            dataTable.Columns.Add("FKProductSold", typeof(int));
+            dataTable.Columns.Add("FKSellInvoice", typeof(int));
             dataTable.Columns.Add("ReturnQuantity", typeof(int));
             dataTable.Columns.Add("ReturnFromSellIncoiceCode", typeof(string));
             dataTable.Columns.Add("TotalAmountFromReturnFromSellIncoice", typeof(decimal));
 
-
+            dataTable.Columns["ReturnFromSellIncoiceCode"].Caption = "کد فاکتور بازگشت از فروش";
             dataTable.Columns["FKCustomer"].Caption = "کد مشتری";
             dataTable.Columns["FKStock"].Caption = " کد انبار";
             dataTable.Columns["ReturnFromSellIncoiceDate"].Caption = "تاریخ بازگشت از فروش";
-            dataTable.Columns["FKProductSold"].Caption = "کد جدول محصولات فروخته شده";
+            dataTable.Columns["FKSellInvoice"].Caption = "کد جدول سند فروش ";
             dataTable.Columns["ReturnQuantity"].Caption = "تعداد بازگشتی از فروش";
-            dataTable.Columns["ReturnFromSellIncoiceCode"].Caption = "کد فاکتور بازگشت از فروش";
             dataTable.Columns["TotalAmountFromReturnFromSellIncoice"].Caption = "کل مبلغ برگشتی از فروش";
 
             //-----
@@ -67,7 +66,7 @@ namespace Accounting.GUI.Forms
                 dataRow["FKStock"] = DbReturnFromSellIncoicelist[i].FKStock;
                 dataRow["TotalAmountFromReturnFromSellIncoice"] = DbReturnFromSellIncoicelist[i].TotalAmountFromReturnFromSellIncoice;
 
-                dataRow["FKProductSold"] = DbReturnFromSellIncoicelist[i].FKProductSold;
+                dataRow["FKSellInvoice"] = DbReturnFromSellIncoicelist[i].FKSellInvoice;
                 dataRow["ReturnQuantity"] = DbReturnFromSellIncoicelist[i].ReturnQuantity;
                 dataRow["ReturnFromSellIncoiceDate"] = ShamsiDates[i];
                 dataRow["ReturnFromSellIncoiceCode"] = DbReturnFromSellIncoicelist[i].ReturnFromSellIncoiceCode;

@@ -191,7 +191,7 @@ namespace Accounting.GUI.Forms
             this.btnShowProductSoldRecords.TabIndex = 12;
             this.btnShowProductSoldRecords.Text = "لیست محصولات فروخته شده";
             this.btnShowProductSoldRecords.UseVisualStyleBackColor = true;
-            this.btnShowProductSoldRecords.Click += new System.EventHandler(this.btnShowProductSoldRecords_Click);
+       
             // 
             // btnShowfrmProductRecords
             // 

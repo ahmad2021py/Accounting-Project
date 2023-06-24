@@ -141,7 +141,7 @@
             this.hihdToolStripMenuItem.Name = "hihdToolStripMenuItem";
             this.hihdToolStripMenuItem.Size = new System.Drawing.Size(276, 30);
             this.hihdToolStripMenuItem.Text = "محصولات فروخته شده";
-            this.hihdToolStripMenuItem.Click += new System.EventHandler(this.hihdToolStripMenuItem_Click);
+       
             // 
             // شرکتتولیدکنندهToolStripMenuItem
             // 

@@ -38,7 +38,7 @@ namespace Accounting.GUI.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtProductSoldCode = new System.Windows.Forms.TextBox();
+            this.txtSellInvoiceCode = new System.Windows.Forms.TextBox();
             this.lblStockCode = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtReturnFromSell_Count = new System.Windows.Forms.TextBox();
@@ -50,7 +50,7 @@ namespace Accounting.GUI.Forms
             this.txtReturnFromSell_UnitAmount = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.btnCommit = new System.Windows.Forms.Button();
-            this.btnSelectProductSoldCode = new System.Windows.Forms.Button();
+            this.btnSelectSellInvoiceCode = new System.Windows.Forms.Button();
             this.txtReturnFromSellInvoiceCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
@@ -127,14 +127,15 @@ namespace Accounting.GUI.Forms
             this.label3.TabIndex = 10;
             this.label3.Text = "شماره فاکتور بازگشت از فروش : ";
             // 
-            // txtProductSoldCode
+            // txtSellInvoiceCode
             // 
-            this.txtProductSoldCode.Location = new System.Drawing.Point(275, 84);
-            this.txtProductSoldCode.Multiline = true;
-            this.txtProductSoldCode.Name = "txtProductSoldCode";
-            this.txtProductSoldCode.ReadOnly = true;
-            this.txtProductSoldCode.Size = new System.Drawing.Size(116, 24);
-            this.txtProductSoldCode.TabIndex = 100;
+            this.txtSellInvoiceCode.Location = new System.Drawing.Point(275, 84);
+            this.txtSellInvoiceCode.Multiline = true;
+            this.txtSellInvoiceCode.Name = "txtSellInvoiceCode";
+            this.txtSellInvoiceCode.ReadOnly = true;
+            this.txtSellInvoiceCode.Size = new System.Drawing.Size(116, 24);
+            this.txtSellInvoiceCode.TabIndex = 100;
+            this.txtSellInvoiceCode.TextChanged += new System.EventHandler(this.txtSellInvoiceCode_TextChanged);
             // 
             // lblStockCode
             // 
@@ -243,15 +244,15 @@ namespace Accounting.GUI.Forms
             this.btnCommit.UseVisualStyleBackColor = true;
             this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
-            // btnSelectProductSoldCode
+            // btnSelectSellInvoiceCode
             // 
-            this.btnSelectProductSoldCode.Location = new System.Drawing.Point(190, 85);
-            this.btnSelectProductSoldCode.Name = "btnSelectProductSoldCode";
-            this.btnSelectProductSoldCode.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectProductSoldCode.TabIndex = 1;
-            this.btnSelectProductSoldCode.Text = "انتخاب";
-            this.btnSelectProductSoldCode.UseVisualStyleBackColor = true;
-            this.btnSelectProductSoldCode.Click += new System.EventHandler(this.btnSelectSellInviceCode_Click);
+            this.btnSelectSellInvoiceCode.Location = new System.Drawing.Point(190, 85);
+            this.btnSelectSellInvoiceCode.Name = "btnSelectSellInvoiceCode";
+            this.btnSelectSellInvoiceCode.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectSellInvoiceCode.TabIndex = 1;
+            this.btnSelectSellInvoiceCode.Text = "انتخاب";
+            this.btnSelectSellInvoiceCode.UseVisualStyleBackColor = true;
+            this.btnSelectSellInvoiceCode.Click += new System.EventHandler(this.btnSelectSellInviceCode_Click);
             // 
             // txtReturnFromSellInvoiceCode
             // 
@@ -267,9 +268,9 @@ namespace Accounting.GUI.Forms
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(5, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 24);
+            this.label1.Size = new System.Drawing.Size(146, 24);
             this.label1.TabIndex = 9;
-            this.label1.Text = "کد محصول فروخته شده : ";
+            this.label1.Text = "شماره فاکتور فروش : ";
             // 
             // frmReturnFromSellIncoice
             // 
@@ -283,7 +284,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.txtReturnFromSell_Count);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.btnSelectProductSoldCode);
+            this.Controls.Add(this.btnSelectSellInvoiceCode);
             this.Controls.Add(this.SelectCustomer);
             this.Controls.Add(this.btnSelectProductInStock);
             this.Controls.Add(this.bPersianCalenderTextBox1);
@@ -293,7 +294,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtReturnFromSellInvoiceCode);
-            this.Controls.Add(this.txtProductSoldCode);
+            this.Controls.Add(this.txtSellInvoiceCode);
             this.Controls.Add(this.lblStockCode);
             this.Controls.Add(this.label7);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -319,7 +320,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtProductSoldCode;
+        private System.Windows.Forms.TextBox txtSellInvoiceCode;
         private System.Windows.Forms.Label lblStockCode;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtReturnFromSell_Count;
@@ -331,7 +332,7 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.TextBox txtReturnFromSell_UnitAmount;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Button btnCommit;
-        private System.Windows.Forms.Button btnSelectProductSoldCode;
+        private System.Windows.Forms.Button btnSelectSellInvoiceCode;
         private System.Windows.Forms.TextBox txtReturnFromSellInvoiceCode;
         private System.Windows.Forms.Label label1;
     }

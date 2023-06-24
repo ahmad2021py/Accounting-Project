@@ -24,7 +24,6 @@ namespace Accounting.DataLayer.Context
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<Registration> Registrations { get; set; }
-        public virtual DbSet<ProductSold> ProductSolds { get; set; }
         public virtual DbSet<Cheque> Cheques { get; set; }
         public virtual DbSet<SellInvoice> SellInvoices { get; set; }
         public virtual DbSet<ReturnFromSellIncoice> ReturnFromSells { get; set; }

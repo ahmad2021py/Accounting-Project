@@ -204,14 +204,7 @@ namespace Accounting.GUI.Forms
                     MessageBox.Show("در افزودن فاکتور خطایی رخ داه است");
                     return;
                 }
-                ProductSold productSoldRecord = new ProductSold() { FKSellInvoice = SellInvoiceRecord.SellInvoiceCode };
-                IProductSoldRepository _ProductSoldRepository = _UnitOfWork.ProductSoldRepository;
-                bool AddToProductSoldResult = await _ProductSoldRepository.Add<ProductSold>(productSoldRecord);
-                if (!AddToProductSoldResult)
-                {
-                    MessageBox.Show("در افزودن به جدول فروش خطایی رخ داه است");
-                    return;
-                }
+             
 
 
                 StockbyOnlyQuantityField stockbyOnlyQuantityField = new StockbyOnlyQuantityField();
