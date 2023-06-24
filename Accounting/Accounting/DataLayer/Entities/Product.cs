@@ -14,6 +14,7 @@ namespace Accounting.DataLayer.Entities
         //-------------------------------------------------
         [Key] // set this Column Primary Key
         [DatabaseGenerated(DatabaseGeneratedOption.None)]  // set this Column auto increment To make each record unique.
+        [Required]
         public int ProductCode { get; set; } //must be unique for this Table
         [Required]
         public string ProductName { get; set; }

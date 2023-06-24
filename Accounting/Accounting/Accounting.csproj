@@ -348,9 +348,9 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202306230523019_InitDb.cs" />
-    <Compile Include="Migrations\202306230523019_InitDb.designer.cs">
-      <DependentUpon>202306230523019_InitDb.cs</DependentUpon>
+    <Compile Include="Migrations\202306240957507_InitDb.cs" />
+    <Compile Include="Migrations\202306240957507_InitDb.designer.cs">
+      <DependentUpon>202306240957507_InitDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.cs" />
@@ -461,8 +461,8 @@
     <EmbeddedResource Include="GUI\Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306230523019_InitDb.resx">
-      <DependentUpon>202306230523019_InitDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306240957507_InitDb.resx">
+      <DependentUpon>202306240957507_InitDb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
