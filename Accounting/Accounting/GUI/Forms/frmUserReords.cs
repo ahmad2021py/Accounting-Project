@@ -73,7 +73,7 @@ namespace Accounting.GUI.Forms
             this.DialogResult = DialogResult.OK;
         }
 
-      
+
 
 
         async private void txtRole_TextChanged(object sender, EventArgs e)
@@ -101,14 +101,14 @@ namespace Accounting.GUI.Forms
             WorkWithExcel.ExportExcel(DGV1);
         }
 
-      async  private void txtUserCode_TextChanged(object sender, EventArgs e)
+        async private void txtUserCode_TextChanged(object sender, EventArgs e)
         {
             if (txtUserCode.Text == "")
             {
                 LoadData();
                 return;
             }
-           
+
             bool ValidationResult = WorkWithStrings.StringToIntValidations(txtUserCode.Text);
             if (!ValidationResult)
             {
@@ -119,7 +119,7 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IUserRepository _UserRepository = _UnitOfWork.UserRepository;
-                int userCode =  int.Parse(txtUserCode.Text);  
+                int userCode = int.Parse(txtUserCode.Text);
                 IEnumerable<User> DbUserSearchRecords = await _UserRepository.GetAll<User>(n => n.UserCode == userCode);
 
 
@@ -129,7 +129,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-       async private void txtUserName_TextChanged(object sender, EventArgs e)
+        async private void txtUserName_TextChanged(object sender, EventArgs e)
         {
             if (txtUserName.Text == "")
             {

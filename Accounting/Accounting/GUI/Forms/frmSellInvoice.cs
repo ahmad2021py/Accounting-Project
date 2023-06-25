@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -86,7 +87,7 @@ namespace Accounting.GUI.Forms
         {
             int Count = int.Parse(txtSellCount.Text);
             int RequestCount = int.Parse(lblStockTotalQuantity.Text);
-            if (Count > RequestCount || Count <=0)
+            if (Count > RequestCount || Count <= 0)
             {
                 return false;
             }
@@ -204,16 +205,27 @@ namespace Accounting.GUI.Forms
                     MessageBox.Show("در افزودن فاکتور خطایی رخ داه است");
                     return;
                 }
-             
 
-
-                StockbyOnlyQuantityField stockbyOnlyQuantityField = new StockbyOnlyQuantityField();
                 int StockTotalQuantity = int.Parse(lblStockTotalQuantity.Text);
                 int SellCount = int.Parse(txtSellCount.Text);
-                stockbyOnlyQuantityField.Quantity = StockTotalQuantity - SellCount;
+                //------Fill PropertyMap ------------
+
+                List<PropertyMap> stockPropertiesToUpdate = new List<PropertyMap> {
+
+
+                new PropertyMap()
+                {
+
+                    PropertyName = "Quantity" ,
+                    PropertyValue= StockTotalQuantity - SellCount
+
+                      }
+
+                     };
+                //-----
                 int StockCode = int.Parse(lblStockCode.Text);
                 IStockRepository _StockRepository = _UnitOfWork.StockRepository;
-                bool UpdateResult = await _StockRepository.UpdateStockProductQuantity(stockbyOnlyQuantityField, n => n.StockCode == StockCode);
+                bool UpdateResult = await _StockRepository.UpdateMany<Stock>(n => n.StockCode == StockCode, stockPropertiesToUpdate);
                 if (UpdateResult)
                 {
                     _UnitOfWork.Save();

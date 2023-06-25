@@ -226,7 +226,7 @@ namespace Accounting.GUI.Forms
             _TotalSellAmount = DGV1.Rows[e.RowIndex].Cells["TotalSellAmount"].Value.ToString();
         }
 
-     async   private void txtSellInvoiceCode_TextChanged(object sender, EventArgs e)
+        async private void txtSellInvoiceCode_TextChanged(object sender, EventArgs e)
         {
             if (txtSellInvoiceCode.Text == "")
             {

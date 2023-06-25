@@ -147,7 +147,7 @@ namespace Accounting.GUI.Forms
             }
 
         }
- 
+
 
         private void frmBuyInvoiceRecords_Load(object sender, EventArgs e)
         {
@@ -207,8 +207,8 @@ namespace Accounting.GUI.Forms
             stiReport1["Off"] = _Off;
             stiReport1["BuyPricePerUnit"] = _BuyPricePerUnit;
             stiReport1["BuyCount"] = _BuyCount;
-       
-        
+
+
 
             //--------Show------------
             stiReport1.Show();
@@ -228,14 +228,14 @@ namespace Accounting.GUI.Forms
             _TotalBuyAmount = DGV1.Rows[e.RowIndex].Cells["TotalBuyAmount"].Value.ToString();
         }
 
-      async  private void txtBuyInvoiceCode_TextChanged(object sender, EventArgs e)
+        async private void txtBuyInvoiceCode_TextChanged(object sender, EventArgs e)
         {
             if (txtBuyInvoiceCode.Text == "")
             {
                 LoadData();
                 return;
             }
-          
+
 
 
 

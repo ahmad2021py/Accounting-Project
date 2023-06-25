@@ -169,7 +169,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-       async private void txtReturnFromBuyInvoiceCode_TextChanged(object sender, EventArgs e)
+        async private void txtReturnFromBuyInvoiceCode_TextChanged(object sender, EventArgs e)
         {
             if (txtReturnFromBuyInvoiceCode.Text == "")
             {
@@ -220,4 +220,4 @@ namespace Accounting.GUI.Forms
 
         //-----------------------
     }
-    }
+}

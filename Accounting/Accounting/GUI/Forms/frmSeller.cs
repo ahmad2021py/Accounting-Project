@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -233,8 +234,89 @@ namespace Accounting.GUI.Forms
             {
                 ISellerRepository _SellerRepository = _unitOfWork.SellerRepository;
                 Seller Instance = new Seller();
-                Instance = Fill__SellerRecord(Instance);
-                bool UpdateRecordResult = await _SellerRepository.UpdateRecord(Instance);
+                //------Fill PropertyMap ------------
+
+                List<PropertyMap> SellerPropertiesToUpdate = new List<PropertyMap> {
+
+
+                new PropertyMap()
+                {
+
+                    PropertyName = "Name" ,
+                    PropertyValue= txtSellerName.Text
+
+
+                 } ,
+
+                 new PropertyMap()
+                {
+
+                    PropertyName = "Phone" ,
+                    PropertyValue= txtSellerPhone.Text
+
+
+                      } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "Email" ,
+                    PropertyValue= txtSellerEmail.Text
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "State" ,
+                    PropertyValue= cbStates.Text ,
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "City" ,
+                    PropertyValue= txtSellerCity.Text ,
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "ZipCode" ,
+                    PropertyValue= txtSellerZipCode.Text ,
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "Address" ,
+                    PropertyValue= txtSellerAddress.Text ,
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "debtor" ,
+                    PropertyValue= decimal.Parse(txtdebtor.Text) ,
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "creditor" ,
+                    PropertyValue= decimal.Parse(txtcreditor.Text) ,
+
+
+                    } ,
+
+                };
+                //-----
+                long nationalCode = long.Parse(txtNationalCode.Text);
+                bool UpdateRecordResult = await _SellerRepository.UpdateMany<Seller>(n => n.NationalCode == nationalCode, SellerPropertiesToUpdate);
                 if (UpdateRecordResult)
                 {
                     MessageBox.Show("رکورد با موفقیت  بروز شد");

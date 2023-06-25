@@ -144,7 +144,7 @@ namespace Accounting.GUI.Forms
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-          
+
 
             //Load File
             stiReport1.Load(Application.StartupPath + "/AppFiles/Customer.mrt");
@@ -156,7 +156,7 @@ namespace Accounting.GUI.Forms
             stiReport1["Address"] = _Address;
             stiReport1["id"] = _NationalCode;
             stiReport1["NationalCode"] = _NationalCode;
-            stiReport1["ZipCode"] =_ZipCode;
+            stiReport1["ZipCode"] = _ZipCode;
             stiReport1["State"] = _State;
             stiReport1["City"] = _City;
             stiReport1["Phone"] = _Phone;
@@ -171,7 +171,7 @@ namespace Accounting.GUI.Forms
 
 
 
-      
+
         private void btnExcelExport_Click(object sender, EventArgs e)
         {
             WorkWithExcel.ExportExcel(DGV1);

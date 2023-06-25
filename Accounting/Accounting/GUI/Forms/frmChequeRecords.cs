@@ -70,7 +70,7 @@ namespace Accounting.GUI.Forms
                 dataRow["BankBranch"] = ChequeRecords[i].BankBranch;
                 dataRow["Amount"] = ChequeRecords[i].Amount;
                 dataRow["Status"] = ChequeRecords[i].Status;
-   
+
                 dataTable.Rows.Add(dataRow);
 
             }
@@ -121,7 +121,7 @@ namespace Accounting.GUI.Forms
 
 
 
-       
+
         private void frmChequeRecords_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -157,7 +157,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-      async  private void txtChequeCode_TextChanged(object sender, EventArgs e)
+        async private void txtChequeCode_TextChanged(object sender, EventArgs e)
         {
             if (txtChequeCode.Text == "")
             {
@@ -176,7 +176,7 @@ namespace Accounting.GUI.Forms
                 {
 
 
-              
+
                     var chequeDbRecords = await chequeRepository.GetAll<Cheque>(n => n.ChequeCode.ToString().Contains(txtChequeCode.Text.ToString()));
                     DGV1.DataSource = chequeDbRecords;
 

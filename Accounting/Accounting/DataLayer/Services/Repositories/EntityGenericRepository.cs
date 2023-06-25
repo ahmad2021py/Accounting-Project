@@ -16,7 +16,7 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
         #region  Accounting_DbContext db Field
-        private Accounting_DbContext db;
+        private Accounting_DbContext _db;
 
         #endregion
 
@@ -25,11 +25,9 @@ namespace Accounting.DataLayer.Services.Repositories
         #region constructor method
         public EntityGenericRepository(Accounting_DbContext context)
         {
-            db = context;
+            _db = context;
         }
         #endregion
-
-        //-------WORKED----------------
 
 
         #region IsExist Generic-Method
@@ -38,7 +36,7 @@ namespace Accounting.DataLayer.Services.Repositories
             return await Task.Run(() =>
             {
 
-                IQueryable<TEntity> data = db.Set<TEntity>();
+                IQueryable<TEntity> data = _db.Set<TEntity>();
                 return data.Any(predicate);
             });
 
@@ -56,7 +54,7 @@ namespace Accounting.DataLayer.Services.Repositories
 
                 //try
                 //{
-                db.Set<T>().Add(newItem);
+                _db.Set<T>().Add(newItem);
                 return true;
                 //}
                 //catch
@@ -78,7 +76,7 @@ namespace Accounting.DataLayer.Services.Repositories
 
             return await Task.Run(() =>
             {
-                return db.Set<T>().Where(predicate).ToList<T>();
+                return _db.Set<T>().Where(predicate).ToList<T>();
             });
         }
 
@@ -96,7 +94,7 @@ namespace Accounting.DataLayer.Services.Repositories
             {
                 T item = null;
 
-                item = db.Set<T>().FirstOrDefault(predicate);
+                item = _db.Set<T>().FirstOrDefault(predicate);
 
                 return item;
             });
@@ -111,21 +109,16 @@ namespace Accounting.DataLayer.Services.Repositories
         {
             return await Task.Run(() =>
             {
-                //try
-                //{
-                var entity = db.Set<TDelete>().Where(expression).FirstOrDefault();
-                if (db.Entry<TDelete>(entity).State == EntityState.Detached)
+                
+                var entity = _db.Set<TDelete>().Where(expression).FirstOrDefault();
+                if (_db.Entry<TDelete>(entity).State == EntityState.Detached)
                 {
-                    db.Set<TDelete>().Attach(entity);
+                    _db.Set<TDelete>().Attach(entity);
                 }
 
-                db.Set<TDelete>().Remove(entity);
+                _db.Set<TDelete>().Remove(entity);
                 return true;
-                //}
-                //catch
-                //{
-                //    return false;
-                //}
+       
 
             });
         }
@@ -142,7 +135,7 @@ namespace Accounting.DataLayer.Services.Repositories
             {
 
                 // Get the records to be updated depending on the filter expression
-                var recordsToBeUpdated = db.Set<TEntity>().Where(filterExpression).ToList();
+                var recordsToBeUpdated = _db.Set<TEntity>().Where(filterExpression).ToList();
                 var value = recordsToBeUpdated.FirstOrDefault();
                 if (value != null)
                 {
@@ -165,35 +158,6 @@ namespace Accounting.DataLayer.Services.Repositories
 
 
         #endregion
-
-
-        //-----s
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //---End Block of Interface And Namespace------------------------
 
 
     }

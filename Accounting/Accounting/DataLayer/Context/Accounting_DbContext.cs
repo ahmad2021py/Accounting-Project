@@ -6,16 +6,8 @@ namespace Accounting.DataLayer.Context
     public class Accounting_DbContext : DbContext
 
     {
-
-
         public Accounting_DbContext() : base("name=AccountingConnectionString")
         {
-
-
-
-
-
-
         }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
@@ -30,11 +22,6 @@ namespace Accounting.DataLayer.Context
         public virtual DbSet<ReturnFromBuyIncoice> ReturnFromBuyIncoices { get; set; }
         public virtual DbSet<BuyInvoice> BuyInvoices { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
-
-
-
-        //--------Seed data--------
-
 
 
 

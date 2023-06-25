@@ -1,4 +1,5 @@
 ﻿using Accounting.DataLayer.Context;
+using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
@@ -38,9 +39,11 @@ namespace Accounting.GUI.Forms
 
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
-                IRegistrationRepository IRegistrationRepository = _UnitOfWork.RegistrationRepository;
-                bool RegistrationIsValidResult = await IRegistrationRepository.RegistrationIsValid(txtUserName.Text, txtEmail.Text);
-                if (!RegistrationIsValidResult)
+                IRegistrationRepository registrationRepository = _UnitOfWork.RegistrationRepository;
+
+                bool RegistrationIsValid = await registrationRepository.IsExist<Registration>(n => n.Email == txtEmail.Text && n.UserName == txtUserName.Text);
+
+                if (!RegistrationIsValid)
                 {
                     MessageBox.Show("کاربری با این مشخصات یافت نشد ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -48,7 +51,7 @@ namespace Accounting.GUI.Forms
                 string Password = "";
                 try
                 {
-                    Password = await IRegistrationRepository.GetUserPassword(txtUserName.Text, txtEmail.Text);
+                    Password = await registrationRepository.GetUserPassword(txtUserName.Text, txtEmail.Text);
                 }
 
                 catch

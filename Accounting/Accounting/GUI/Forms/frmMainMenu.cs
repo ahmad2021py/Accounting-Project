@@ -184,7 +184,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستمحصولاتToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void ویرایشوثبتمشتریToolStripMenuItem_Click(object sender, EventArgs e)
@@ -202,7 +202,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستمشتریانToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void ویرایشوثبتکالاهادرانبارToolStripMenuItem_Click(object sender, EventArgs e)
@@ -219,7 +219,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستکالاهایانبارToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -255,7 +255,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستشرکتهاToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void جزToolStripMenuItem_Click(object sender, EventArgs e)
@@ -294,7 +294,7 @@ namespace Accounting.GUI.Forms
             }
         }
 
-      
+
 
         private void ثبتخریدوفروشکالاToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -320,7 +320,7 @@ namespace Accounting.GUI.Forms
 
         private void لیستفروشندگانToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void مدیریتکاربرانToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -450,12 +450,12 @@ namespace Accounting.GUI.Forms
 
         private void ثبتچکToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void اطلاعاتچکهاToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void دیگرToolStripMenuItem_Click(object sender, EventArgs e)
@@ -465,7 +465,7 @@ namespace Accounting.GUI.Forms
 
         private void محاسبهToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void سودخالصToolStripMenuItem_Click(object sender, EventArgs e)

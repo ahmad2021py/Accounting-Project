@@ -97,8 +97,7 @@
             this.دیگرToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(969, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(994, 33);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,7 +140,6 @@
             this.hihdToolStripMenuItem.Name = "hihdToolStripMenuItem";
             this.hihdToolStripMenuItem.Size = new System.Drawing.Size(276, 30);
             this.hihdToolStripMenuItem.Text = "محصولات فروخته شده";
-       
             // 
             // شرکتتولیدکنندهToolStripMenuItem
             // 
@@ -244,14 +242,14 @@
             // سودخالصToolStripMenuItem
             // 
             this.سودخالصToolStripMenuItem.Name = "سودخالصToolStripMenuItem";
-            this.سودخالصToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.سودخالصToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.سودخالصToolStripMenuItem.Text = "سود ناخالص";
             this.سودخالصToolStripMenuItem.Click += new System.EventHandler(this.سودخالصToolStripMenuItem_Click);
             // 
             // سودعملیاتیToolStripMenuItem
             // 
             this.سودعملیاتیToolStripMenuItem.Name = "سودعملیاتیToolStripMenuItem";
-            this.سودعملیاتیToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.سودعملیاتیToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.سودعملیاتیToolStripMenuItem.Text = "سود عملیاتی";
             this.سودعملیاتیToolStripMenuItem.Click += new System.EventHandler(this.سودعملیاتیToolStripMenuItem_Click);
             // 
@@ -359,7 +357,7 @@
             // ثبتچکهاToolStripMenuItem
             // 
             this.ثبتچکهاToolStripMenuItem.Name = "ثبتچکهاToolStripMenuItem";
-            this.ثبتچکهاToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.ثبتچکهاToolStripMenuItem.Size = new System.Drawing.Size(216, 30);
             this.ثبتچکهاToolStripMenuItem.Text = "ثبت چک";
             this.ثبتچکهاToolStripMenuItem.Click += new System.EventHandler(this.ثبتچکهاToolStripMenuItem_Click);
             // 
@@ -367,7 +365,7 @@
             // 
             this.جزئیاتورودToolStripMenuItem.Image = global::Accounting.Properties.Resources.icons8_enter_80px;
             this.جزئیاتورودToolStripMenuItem.Name = "جزئیاتورودToolStripMenuItem";
-            this.جزئیاتورودToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.جزئیاتورودToolStripMenuItem.Size = new System.Drawing.Size(216, 30);
             this.جزئیاتورودToolStripMenuItem.Text = "جزئیات ورود";
             this.جزئیاتورودToolStripMenuItem.Click += new System.EventHandler(this.جزئیاتورودToolStripMenuItem_Click);
             // 
@@ -375,7 +373,7 @@
             // 
             this.مدیریتکاربرانToolStripMenuItem1.Image = global::Accounting.Properties.Resources.icons8_registration_skin_type_7_48px;
             this.مدیریتکاربرانToolStripMenuItem1.Name = "مدیریتکاربرانToolStripMenuItem1";
-            this.مدیریتکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(224, 30);
+            this.مدیریتکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(216, 30);
             this.مدیریتکاربرانToolStripMenuItem1.Text = "مدیریت کاربران";
             this.مدیریتکاربرانToolStripMenuItem1.Click += new System.EventHandler(this.مدیریتکاربرانToolStripMenuItem1_Click);
             // 
@@ -384,7 +382,7 @@
             this.لیستکاربرانToolStripMenuItem1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.لیستکاربرانToolStripMenuItem1.Image = global::Accounting.Properties.Resources.icons8_team_48px;
             this.لیستکاربرانToolStripMenuItem1.Name = "لیستکاربرانToolStripMenuItem1";
-            this.لیستکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(224, 30);
+            this.لیستکاربرانToolStripMenuItem1.Size = new System.Drawing.Size(216, 30);
             this.لیستکاربرانToolStripMenuItem1.Text = "لیست کاربران";
             this.لیستکاربرانToolStripMenuItem1.Click += new System.EventHandler(this.لیستکاربرانToolStripMenuItem1_Click);
             // 
@@ -446,7 +444,7 @@
             this.groupBox1.Controls.Add(this.lblTime);
             this.groupBox1.Controls.Add(this.lblThisDay);
             this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox1.Location = new System.Drawing.Point(658, 503);
+            this.groupBox1.Location = new System.Drawing.Point(685, 493);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(309, 50);
             this.groupBox1.TabIndex = 76;
@@ -458,7 +456,7 @@
             this.piBoxBackground.Image = global::Accounting.Properties.Resources.background;
             this.piBoxBackground.Location = new System.Drawing.Point(0, 28);
             this.piBoxBackground.Name = "piBoxBackground";
-            this.piBoxBackground.Size = new System.Drawing.Size(968, 527);
+            this.piBoxBackground.Size = new System.Drawing.Size(996, 527);
             this.piBoxBackground.TabIndex = 78;
             this.piBoxBackground.TabStop = false;
             // 
@@ -469,7 +467,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImage = global::Accounting.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(969, 555);
+            this.ClientSize = new System.Drawing.Size(994, 555);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.piBoxBackground);
@@ -477,7 +475,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmMainMenu";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

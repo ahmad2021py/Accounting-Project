@@ -1,10 +1,6 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
-using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Services.Repositories
 {
@@ -25,42 +21,6 @@ namespace Accounting.DataLayer.Services.Repositories
             db = context;
         }
         #endregion
-
-
-
-        async public Task<bool> UpdateProduct(Product Obj, Expression<Func<Product, bool>> currentEntityFilter)
-
-        {
-            return await Task.Run(() =>
-            {
-
-                var dbRecord = db.Set<Product>().FirstOrDefault(currentEntityFilter);
-                Obj.Row = dbRecord.Row;
-                db.Entry(dbRecord).CurrentValues.SetValues(Obj);
-
-                return true;
-
-            });
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

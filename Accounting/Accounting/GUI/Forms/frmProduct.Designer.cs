@@ -41,7 +41,6 @@ namespace Accounting.GUI.Forms
             this.btnGetDetails = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnShowProductSoldRecords = new System.Windows.Forms.Button();
             this.btnShowfrmProductRecords = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -122,7 +121,7 @@ namespace Accounting.GUI.Forms
             // 
             this.cbCompany.FormattingEnabled = true;
             this.cbCompany.Location = new System.Drawing.Point(748, 180);
-            this.cbCompany.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCompany.Margin = new System.Windows.Forms.Padding(4);
             this.cbCompany.Name = "cbCompany";
             this.cbCompany.Size = new System.Drawing.Size(264, 24);
             this.cbCompany.TabIndex = 4;
@@ -131,7 +130,7 @@ namespace Accounting.GUI.Forms
             // 
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(748, 125);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(264, 24);
             this.cbCategory.TabIndex = 3;
@@ -171,27 +170,16 @@ namespace Accounting.GUI.Forms
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnShowProductSoldRecords);
             this.groupBox2.Controls.Add(this.btnShowfrmProductRecords);
             this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.btnSave);
             this.groupBox2.Controls.Add(this.btNew);
-            this.groupBox2.Location = new System.Drawing.Point(21, 61);
+            this.groupBox2.Location = new System.Drawing.Point(21, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(127, 462);
+            this.groupBox2.Size = new System.Drawing.Size(127, 365);
             this.groupBox2.TabIndex = 83;
             this.groupBox2.TabStop = false;
-            // 
-            // btnShowProductSoldRecords
-            // 
-            this.btnShowProductSoldRecords.Location = new System.Drawing.Point(13, 359);
-            this.btnShowProductSoldRecords.Name = "btnShowProductSoldRecords";
-            this.btnShowProductSoldRecords.Size = new System.Drawing.Size(97, 81);
-            this.btnShowProductSoldRecords.TabIndex = 12;
-            this.btnShowProductSoldRecords.Text = "لیست محصولات فروخته شده";
-            this.btnShowProductSoldRecords.UseVisualStyleBackColor = true;
-       
             // 
             // btnShowfrmProductRecords
             // 
@@ -337,6 +325,5 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.TextBox txtFeatures;
         private System.Windows.Forms.Button btnBrowse;
         public System.Windows.Forms.TextBox txtProductCode;
-        private System.Windows.Forms.Button btnShowProductSoldRecords;
     }
 }

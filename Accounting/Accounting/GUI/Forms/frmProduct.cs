@@ -482,7 +482,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-     
+
 
 
 

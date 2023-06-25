@@ -74,7 +74,7 @@ namespace Accounting.GUI.Forms
             {
                 DataRow dataRow = dataTable.NewRow();
                 dataRow["StockCode"] = DbStocklist[i].StockCode;
-                dataRow["BuyPrice"] = DbStocklist[i].StockCode;
+                dataRow["BuyPrice"] = DbStocklist[i].BuyPrice;
                 dataRow["Description"] = DbStocklist[i].Description;
                 dataRow["Quantity"] = DbStocklist[i].Quantity;
                 dataRow["StockDate"] = ShamsiDates[i];
@@ -130,6 +130,7 @@ namespace Accounting.GUI.Forms
         private void frmStockRecords_Load(object sender, EventArgs e)
         {
             LoadData();
+
         }
 
 
@@ -178,7 +179,7 @@ namespace Accounting.GUI.Forms
 
         }
 
-      async  private void txtProductId_TextChanged(object sender, EventArgs e)
+        async private void txtProductId_TextChanged(object sender, EventArgs e)
         {
             if (txtProductCode.Text == "")
             {
@@ -208,7 +209,7 @@ namespace Accounting.GUI.Forms
                 DGV1.DataSource = stockRecords;
 
             }
-        
+
         }
 
         private void btnExcelExport_Click(object sender, EventArgs e)

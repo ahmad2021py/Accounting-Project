@@ -126,7 +126,7 @@ namespace Accounting.DataLayer.Context
 
 
 
-    
+
 
 
 
@@ -222,6 +222,7 @@ namespace Accounting.DataLayer.Context
         //---------Methods-----------------
         public void Save()
         {
+
             db.SaveChanges();
         }
 

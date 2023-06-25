@@ -28,7 +28,7 @@ namespace Accounting.GUI.Forms
                 //try
                 //{
                 IEnumerable<Company> IenumerableComapnyDbRecords = await _CompanyRepository.GetAll<Company>(n => n == n);
-            
+
                 DGV1.DataSource = IenumerableComapnyDbRecords;
                 DGV1.Columns["Row"].HeaderText = " ردیف ";
                 DGV1.Columns["CompanyCode"].HeaderText = " کد شرکت";

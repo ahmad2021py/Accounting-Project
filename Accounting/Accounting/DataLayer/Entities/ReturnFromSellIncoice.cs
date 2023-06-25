@@ -6,44 +6,32 @@ namespace Accounting.DataLayer.Entities
 {
     public class ReturnFromSellIncoice
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Row { get; set; }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string ReturnFromSellIncoiceCode { get; set; } //This Column Must Be Uniqe .
+        public string ReturnFromSellIncoiceCode { get; set; }
         public DateTime ReturnFromSellIncoiceDate { get; set; }
-
-
-
-
+        public int ReturnQuantity { get; set; }
+        public decimal TotalAmountFromReturnFromSellIncoice { get; set; }
+        //-------Relations---------
         //--------FK To Customer Table-----------------
         [ForeignKey("Customer")]
         [Required()]
         public long FKCustomer { get; set; }
         public Customer Customer { get; set; }
         //-----
-
         //-------FK To Stock Table ----------------
         [ForeignKey("Stock")]
         [Required()]
         public int FKStock { get; set; }
         public Stock Stock { get; set; }
         //-----
-
         //------FK to FKSellInvoice Table---------------
         [ForeignKey("sellInvoice")]
         public string FKSellInvoice { get; set; }
-
-        public virtual  SellInvoice sellInvoice { get; set; }
-
+        public virtual SellInvoice sellInvoice { get; set; }
         //-----
 
-        public int ReturnQuantity { get; set; }
-
-
-        public decimal TotalAmountFromReturnFromSellIncoice { get; set; }
-
-
-        //----------------------
     }
 }

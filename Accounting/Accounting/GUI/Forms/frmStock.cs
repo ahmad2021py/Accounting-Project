@@ -3,6 +3,7 @@ using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
 using Accounting.Utilities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -22,7 +23,7 @@ namespace Accounting.GUI.Forms
             txtDescription.Text = "";
             txtProductCode.Text = "";
             txtProductQuantity.Text = "";
-
+            txtBuyPrice.Text = "";
             bPersianCalenderTextBox1.Text = "";
             txtProductCode.Focus();
 
@@ -60,17 +61,7 @@ namespace Accounting.GUI.Forms
 
 
 
-            string ShamsiDate = bPersianCalenderTextBox1.Text;
-            WorkWithDate workWithDate = new WorkWithDate();
-            stockRecord.StockCode = Convert.ToInt32(txtStockCode.Text);
-            stockRecord.BuyPrice = Convert.ToInt32(txtBuyPrice.Text);
 
-            stockRecord.StockDate = workWithDate.ShamsiToMiladi(ShamsiDate);
-            stockRecord.FKProduct = int.Parse(txtProductCode.Text);
-            stockRecord.Quantity = Convert.ToInt32(txtProductQuantity.Text);
-
-
-            stockRecord.Description = txtDescription.Text;
 
             return stockRecord;
 
@@ -245,11 +236,58 @@ namespace Accounting.GUI.Forms
             {
 
                 IStockRepository _StockRepository = _unitOfWork.StockRepository;
+                //------Fill PropertyMap ------------
 
-                StockEntityWithoutRowPropertyForUpdate Instance = new StockEntityWithoutRowPropertyForUpdate();
-                Instance = Fill__StockRecord(Instance);
+                WorkWithDate workWithDate = new WorkWithDate();
+                DateTime stockdate = workWithDate.ShamsiToMiladi(bPersianCalenderTextBox1.Text);
+                List<PropertyMap> StockPropertiesToUpdate = new List<PropertyMap> {
+                new PropertyMap()
+                {
+
+                    PropertyName = "StockDate",
+                    PropertyValue= stockdate
+
+
+                } ,
+
+                 new PropertyMap()
+                {
+
+                    PropertyName = "Quantity",
+                    PropertyValue= Convert.ToInt32(txtProductQuantity.Text)
+
+
+            } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "Description",
+                    PropertyValue= txtDescription.Text
+
+
+                    } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "BuyPrice",
+                    PropertyValue=decimal.Parse(txtBuyPrice.Text)
+
+
+            } ,
+                    new PropertyMap()
+                     {
+
+                    PropertyName = "FKProduct",
+                    PropertyValue = int.Parse(txtProductCode.Text)
+
+
+            }
+
+
+                };
+                //-----
                 int stockCode = int.Parse(txtStockCode.Text);
-                bool UpdateProductResult = await _StockRepository.UpdateStock(Instance, n => n.StockCode == stockCode);
+                bool UpdateProductResult = await _StockRepository.UpdateMany<Stock>(n => n.StockCode == stockCode, StockPropertiesToUpdate);
                 if (UpdateProductResult)
                 {
 
@@ -375,6 +413,7 @@ namespace Accounting.GUI.Forms
         private void frmStock_Load(object sender, EventArgs e)
         {
             Reset();
+
         }
 
         private void txtProductQuantity_TextChanged_1(object sender, EventArgs e)

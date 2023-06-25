@@ -19,30 +19,5 @@ namespace Accounting.DataLayer.Interfaces.IRepositories
 
         Task<bool> UpdateMany<TEntity>(Expression<Func<TEntity, bool>> filterExpression, List<PropertyMap> maps) where TEntity : class;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //---End Block of Interface And Namespace------------------------
-
     }
 }

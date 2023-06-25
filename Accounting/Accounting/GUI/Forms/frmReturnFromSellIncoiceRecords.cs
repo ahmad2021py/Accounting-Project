@@ -82,7 +82,7 @@ namespace Accounting.GUI.Forms
             using (UnitOfWork _UnitOfWork = new UnitOfWork())
             {
                 IReturnFromSellInvoiceRepository returnFromSellInvoiceRepository = _UnitOfWork.ReturnFromSellInvoicRepository;
-          
+
 
 
                 //---------Get List Of SellInvoice Table Records-----------
@@ -126,13 +126,13 @@ namespace Accounting.GUI.Forms
 
 
 
-     
+
         private void frmReturnFromSellIncoiceRecords_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
-      async  private void btnSearchByDate_Click(object sender, EventArgs e)
+        async private void btnSearchByDate_Click(object sender, EventArgs e)
         {
             if (bPersianCalenderTextBox1.Text == "")
             {
@@ -151,7 +151,7 @@ namespace Accounting.GUI.Forms
 
                     IEnumerable<ReturnFromSellIncoice> enumerableCollection = await returnFromSellInvoiceRepository.GetAll<ReturnFromSellIncoice>(n => n.ReturnFromSellIncoiceDate == MiladiDate);
                     List<ReturnFromSellIncoice> ReturnFromSellInvoiceRecords = new List<ReturnFromSellIncoice>(enumerableCollection);
-                   DataTable customdataTable= DesignAndFillDataTable(ReturnFromSellInvoiceRecords);
+                    DataTable customdataTable = DesignAndFillDataTable(ReturnFromSellInvoiceRecords);
                     DGV1.DataSource = customdataTable;
 
 
@@ -160,9 +160,9 @@ namespace Accounting.GUI.Forms
             }
         }
 
- 
 
-   async     private void txtReturnFromSellInvoiceCode_TextChanged(object sender, EventArgs e)
+
+        async private void txtReturnFromSellInvoiceCode_TextChanged(object sender, EventArgs e)
         {
             if (txtReturnFromSellInvoiceCode.Text == "")
             {
@@ -182,10 +182,10 @@ namespace Accounting.GUI.Forms
 
 
 
-                    IEnumerable< ReturnFromSellIncoice> returnFromSellIncoiceDbRecords = await returnFromSellInvoiceRepository.GetAll<ReturnFromSellIncoice>(n => n.ReturnFromSellIncoiceCode.ToString().Contains(txtReturnFromSellInvoiceCode.Text.ToString()));
+                    IEnumerable<ReturnFromSellIncoice> returnFromSellIncoiceDbRecords = await returnFromSellInvoiceRepository.GetAll<ReturnFromSellIncoice>(n => n.ReturnFromSellIncoiceCode.ToString().Contains(txtReturnFromSellInvoiceCode.Text.ToString()));
                     List<ReturnFromSellIncoice> dblist = new List<ReturnFromSellIncoice>(returnFromSellIncoiceDbRecords);
 
-                   DataTable datatable= DesignAndFillDataTable(dblist);  
+                    DataTable datatable = DesignAndFillDataTable(dblist);
 
 
                     DGV1.DataSource = datatable;

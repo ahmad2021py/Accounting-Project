@@ -188,7 +188,7 @@ namespace Accounting.GUI.Forms
             // 
             // btnShowFrmProduct
             // 
-            this.btnShowFrmProduct.Location = new System.Drawing.Point(637, 21);
+            this.btnShowFrmProduct.Location = new System.Drawing.Point(514, 17);
             this.btnShowFrmProduct.Name = "btnShowFrmProduct";
             this.btnShowFrmProduct.Size = new System.Drawing.Size(106, 58);
             this.btnShowFrmProduct.TabIndex = 2;
@@ -198,9 +198,9 @@ namespace Accounting.GUI.Forms
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(749, 21);
+            this.btnSelect.Location = new System.Drawing.Point(866, 31);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(112, 60);
+            this.btnSelect.Size = new System.Drawing.Size(193, 26);
             this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "انتخاب کد از لیست محصولات";
             this.btnSelect.UseVisualStyleBackColor = true;
@@ -217,10 +217,11 @@ namespace Accounting.GUI.Forms
             // 
             // txtProductCode
             // 
-            this.txtProductCode.Location = new System.Drawing.Point(867, 24);
+            this.txtProductCode.Location = new System.Drawing.Point(729, 33);
             this.txtProductCode.Multiline = true;
             this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new System.Drawing.Size(191, 34);
+            this.txtProductCode.ReadOnly = true;
+            this.txtProductCode.Size = new System.Drawing.Size(130, 21);
             this.txtProductCode.TabIndex = 0;
             this.txtProductCode.TextChanged += new System.EventHandler(this.txtProductId_TextChanged);
             // 

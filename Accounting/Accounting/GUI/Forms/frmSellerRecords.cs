@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Accounting.GUI.Forms
 {
     public partial class frmSellerRecords : Form
-    { 
+    {
         private StiReport stiReport1;
         public frmSellerRecords()
         {

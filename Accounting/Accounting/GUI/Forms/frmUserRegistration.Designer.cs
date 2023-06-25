@@ -38,7 +38,7 @@ namespace Accounting.GUI.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.PboxProductPicture = new System.Windows.Forms.PictureBox();
+            this.PboxAvatar = new System.Windows.Forms.PictureBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtUserPass = new System.Windows.Forms.TextBox();
@@ -53,7 +53,7 @@ namespace Accounting.GUI.Forms
             this.btnRegister = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtRegistrationCode = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PboxAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // cbRole
@@ -153,14 +153,14 @@ namespace Accounting.GUI.Forms
             this.label2.Text = "نقش : ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // PboxProductPicture
+            // PboxAvatar
             // 
-            this.PboxProductPicture.Location = new System.Drawing.Point(686, 272);
-            this.PboxProductPicture.Name = "PboxProductPicture";
-            this.PboxProductPicture.Size = new System.Drawing.Size(151, 156);
-            this.PboxProductPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PboxProductPicture.TabIndex = 90;
-            this.PboxProductPicture.TabStop = false;
+            this.PboxAvatar.Location = new System.Drawing.Point(686, 272);
+            this.PboxAvatar.Name = "PboxAvatar";
+            this.PboxAvatar.Size = new System.Drawing.Size(151, 156);
+            this.PboxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PboxAvatar.TabIndex = 90;
+            this.PboxAvatar.TabStop = false;
             // 
             // btnBrowse
             // 
@@ -308,7 +308,7 @@ namespace Accounting.GUI.Forms
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnShowUserRecords);
             this.Controls.Add(this.btnBrowse);
-            this.Controls.Add(this.PboxProductPicture);
+            this.Controls.Add(this.PboxAvatar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
@@ -327,7 +327,7 @@ namespace Accounting.GUI.Forms
             this.Text = "مدیریت کاربران";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUserRegistration_FormClosing);
             this.Load += new System.EventHandler(this.frmUserRegistration_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PboxProductPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PboxAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,7 +342,7 @@ namespace Accounting.GUI.Forms
         internal System.Windows.Forms.Label label7;
         internal System.Windows.Forms.Label label5;
         internal System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox PboxProductPicture;
+        private System.Windows.Forms.PictureBox PboxAvatar;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TextBox txtUserPass;

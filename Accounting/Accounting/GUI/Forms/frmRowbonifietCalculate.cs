@@ -1,16 +1,9 @@
 ﻿using Accounting.DataLayer.Context;
 using Accounting.DataLayer.Entities;
 using Accounting.DataLayer.Interfaces.IRepositories;
-using Accounting.DataLayer.Services.Repositories;
 using Accounting.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -48,25 +41,25 @@ namespace Accounting.GUI.Forms
                 var Sellresult = await selllnvoiceRepository.GetAll<SellInvoice>(n => n.SellInvoiceDate >= MiladiDate && n.SellInvoiceDate <= finallMiladiDate);
                 decimal TotalSellAmount = 0;
                 List<int> SellStockCodes = new List<int>();
-                int AllSellQuantity=0;
+                int AllSellQuantity = 0;
                 foreach (var n in Sellresult)
                 {
                     TotalSellAmount += n.TotalSellAmount;
                     SellStockCodes.Add(n.FKStock);
-                    AllSellQuantity+=n.Quantity;
+                    AllSellQuantity += n.Quantity;
 
 
                 }
                 //-----
                 //--Get BuyInvoice with SellStockCodes   --------
                 IBuyInvoiceRepository buylnvoiceRepository = _unitOfWork.BuyInvoiceRepository;
-                List<BuyInvoice> buyresult=new List<BuyInvoice>();
+                List<BuyInvoice> buyresult = new List<BuyInvoice>();
 
-                for (int i=0;i< SellStockCodes.Count;i++)
+                for (int i = 0; i < SellStockCodes.Count; i++)
                 {
                     int stockCode = SellStockCodes[i];
                     buyresult.Add(await buylnvoiceRepository.GetEntity<BuyInvoice>(n => n.FKStock == stockCode));
-                  
+
 
                 }
                 decimal allBuyTotalAmount = 0;
