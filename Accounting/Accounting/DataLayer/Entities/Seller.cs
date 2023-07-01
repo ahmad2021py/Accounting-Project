@@ -10,12 +10,12 @@ namespace Accounting.DataLayer.Entities
     public class Seller : IBaseDbSet
     {
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // set this Column auto increment To make each record unique 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Row { get; set; }
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key] // set this Column Primary Key
-        public long NationalCode { get; set; } //There is no need for the Seller Code column because the national code is unique .
+        public long NationalCode { get; set; }
         [Required]
         [MaxLength(20)]
         public string Name { get; set; }

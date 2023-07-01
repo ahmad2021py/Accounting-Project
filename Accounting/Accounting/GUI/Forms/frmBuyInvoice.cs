@@ -107,10 +107,9 @@ namespace Accounting.GUI.Forms
             bool decimalvalidate = WorkWithStrings.StringToDecimalValidations(txtBuyPricePerUnit.Text);
             bool intValidate = WorkWithStrings.StringToIntValidations(txtBuyCount.Text, txtOff.Text);
 
-
             if (!decimalvalidate || !intValidate)
             {
-                MessageBox.Show("مقادیر ورودی نامعتر");
+                MessageBox.Show("مقادیر ورودی نامعتبر");
                 return;
 
             }
@@ -124,6 +123,7 @@ namespace Accounting.GUI.Forms
             decimal CalculateOff = (((Off * TotalBuyCost) / 100));
             decimal TotalPriceWithOff = TotalBuyCost - CalculateOff;
             lblTotalBuyAmountWithOff.Text = TotalPriceWithOff.ToString();
+
             decimal SellerCreditor = decimal.Parse(this.lblSellerCreditor.Text);
             lblSellerCreditorWithThisInvoice.Text = (SellerCreditor + TotalPriceWithOff).ToString();
         }

@@ -198,7 +198,7 @@ namespace Accounting.GUI.Forms
 
 
 
-            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
+            bool IsValidateEmailResult = WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
             if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");
@@ -315,7 +315,7 @@ namespace Accounting.GUI.Forms
             }
 
 
-            bool IsValidateEmailResult = await WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
+            bool IsValidateEmailResult = WorkWithEmail.IsValidateEmail(txtCustomerEmail.Text);
             if (!IsValidateEmailResult)
             {
                 MessageBox.Show("لطفا یک ایمیل معتبر وارد کنید");

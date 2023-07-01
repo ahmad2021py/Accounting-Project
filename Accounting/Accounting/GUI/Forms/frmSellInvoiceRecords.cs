@@ -205,12 +205,9 @@ namespace Accounting.GUI.Forms
             stiReport1["Off"] = _Off;
             stiReport1["SellPricePerUnit"] = _SellPricePerUnit;
             stiReport1["Quantity"] = _Quantity;
-
-
-
             //--------Show------------
             stiReport1.Show();
-            //---------
+            //-----
         }
 
         private void DGV1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

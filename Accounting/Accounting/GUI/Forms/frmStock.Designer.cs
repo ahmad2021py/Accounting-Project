@@ -42,7 +42,6 @@ namespace Accounting.GUI.Forms
             this.txtBuyPrice = new System.Windows.Forms.TextBox();
             this.txtProductQuantity = new System.Windows.Forms.TextBox();
             this.btnShowFrmStockRecords = new System.Windows.Forms.Button();
-            this.btnShowFrmProduct = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtStockCode = new System.Windows.Forms.TextBox();
             this.txtProductCode = new System.Windows.Forms.TextBox();
@@ -50,6 +49,7 @@ namespace Accounting.GUI.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnShowFrmProduct = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,16 +186,6 @@ namespace Accounting.GUI.Forms
             this.btnShowFrmStockRecords.UseVisualStyleBackColor = true;
             this.btnShowFrmStockRecords.Click += new System.EventHandler(this.btnShowFrmStockRecords_Click);
             // 
-            // btnShowFrmProduct
-            // 
-            this.btnShowFrmProduct.Location = new System.Drawing.Point(514, 17);
-            this.btnShowFrmProduct.Name = "btnShowFrmProduct";
-            this.btnShowFrmProduct.Size = new System.Drawing.Size(106, 58);
-            this.btnShowFrmProduct.TabIndex = 2;
-            this.btnShowFrmProduct.Text = "ویرایش مشخصات محصول";
-            this.btnShowFrmProduct.UseVisualStyleBackColor = true;
-            this.btnShowFrmProduct.Click += new System.EventHandler(this.btnShowFrmProduct_Click);
-            // 
             // btnSelect
             // 
             this.btnSelect.Location = new System.Drawing.Point(866, 31);
@@ -273,6 +263,17 @@ namespace Accounting.GUI.Forms
             this.label14.Text = "تاریخ ورود کالا : ";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnShowFrmProduct
+            // 
+            this.btnShowFrmProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowFrmProduct.Location = new System.Drawing.Point(569, 26);
+            this.btnShowFrmProduct.Name = "btnShowFrmProduct";
+            this.btnShowFrmProduct.Size = new System.Drawing.Size(153, 35);
+            this.btnShowFrmProduct.TabIndex = 2;
+            this.btnShowFrmProduct.Text = "ویرایش مشخصات محصول";
+            this.btnShowFrmProduct.UseVisualStyleBackColor = true;
+            this.btnShowFrmProduct.Click += new System.EventHandler(this.btnShowFrmProduct_Click);
+            // 
             // frmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -306,7 +307,6 @@ namespace Accounting.GUI.Forms
         private System.Windows.Forms.TextBox txtProductCode;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnShowFrmStockRecords;
-        private System.Windows.Forms.Button btnShowFrmProduct;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtProductQuantity;
         private System.Windows.Forms.Button btnNew;
@@ -316,5 +316,6 @@ namespace Accounting.GUI.Forms
         internal System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBuyPrice;
         internal System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnShowFrmProduct;
     }
 }

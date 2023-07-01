@@ -12,6 +12,7 @@ namespace Accounting.DataLayer.Entities
         public long Row { get; set; }  //this Column auto increment To make each record (Row) unique  . And Avoid Errors .
 
         //-------------------------------------------------
+        //[Index(IsClustered =true,IsUnique = true)] ---This column has Index by default that is Key---
         [Key] // set this Column Primary Key
         [DatabaseGenerated(DatabaseGeneratedOption.None)]  // set this Column auto increment To make each record unique.
         [Required]

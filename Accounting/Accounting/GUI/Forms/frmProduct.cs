@@ -325,7 +325,8 @@ namespace Accounting.GUI.Forms
         async private void btnSave_Click(object sender, EventArgs e)
         {
 
-            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text, cbCategory.Text, txtFeatures.Text, txtProductCode.Text);
+            bool isNull = WorkWithStrings.StringIsNullOrEmptyOrWhiteSpace(cbCompany.Text
+                , cbCategory.Text, txtFeatures.Text, txtProductCode.Text);
             if (isNull)
             {
                 MessageBox.Show("ورودی یا ورودی های نامعتبر", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -337,24 +338,19 @@ namespace Accounting.GUI.Forms
             {
 
                 IProductRepository _ProductRepository = _UnitOfWork.ProductRepository;
-
                 int productCode = Int32.Parse(txtProductCode.Text);
                 bool Result = await _ProductRepository.IsExist<Product>(n => n.ProductCode == productCode);
 
                 if (!Result)
                 {
-
                     Product ProductRecord = new Product();
                     ProductRecord = Fill__ProductRecord(ProductRecord);
 
                     bool AddResult = await _ProductRepository.Add<Product>(ProductRecord);
                     if (AddResult)
                     {
-
                         MessageBox.Show("رکورد با موفقیت ثبت شد");
-
                         _UnitOfWork.Save();
-
                         Reset();
 
                     }
@@ -377,21 +373,14 @@ namespace Accounting.GUI.Forms
             }
 
 
-            //}
-            //catch
-            //{
-            //    bunifuCircleProgress2.ProgressColor = Color.Red;
-            //    MessageBox.Show("خطایی رخ داده است");
-            //    bunifuCircleProgress2.Value = 0;
-            ////    return;
-            //}
+
         }
 
         async private void btnDelete_Click(object sender, EventArgs e)
         {
             if (!WorkWithStrings.StringToIntValidations(txtProductCode.Text))
             {
-                MessageBox.Show("مقادیر ورودی نامعتر");
+                MessageBox.Show("مقادیر ورودی نامعتبر");
                 return;
 
             }
@@ -415,11 +404,11 @@ namespace Accounting.GUI.Forms
                         bool DeleteResult = await _ProductRepository.DeleteByCondition<Product>(n => n.ProductCode == ProductCode);
 
                         if (DeleteResult)
+                        {
+                            _unitOfWork.Save();
                             MessageBox.Show("رکورد با موفقیت حذف شد");
-
-                        _unitOfWork.Save();
-
-                        Reset();
+                            Reset();
+                        }
 
 
                     }
@@ -438,13 +427,7 @@ namespace Accounting.GUI.Forms
                 }
 
             }
-            //}
-            //catch
-            //{
-            //    bunifuCircleProgress4.ProgressColor = Color.Red;
-            //    MessageBox.Show("خطایی رخ داده است");
-            //    bunifuCircleProgress4.Value = 0;
-            //}
+
         }
 
         private void btnShowfrmProductRecords_Click(object sender, EventArgs e)

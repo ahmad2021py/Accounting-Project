@@ -144,7 +144,7 @@ namespace Accounting.GUI.Forms
             // btnCalculate
             // 
             this.btnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalculate.Location = new System.Drawing.Point(83, 187);
+            this.btnCalculate.Location = new System.Drawing.Point(29, 274);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(221, 57);
             this.btnCalculate.TabIndex = 8;
@@ -154,7 +154,7 @@ namespace Accounting.GUI.Forms
             // 
             // txtCostOfOperations
             // 
-            this.txtCostOfOperations.Location = new System.Drawing.Point(211, 280);
+            this.txtCostOfOperations.Location = new System.Drawing.Point(211, 195);
             this.txtCostOfOperations.Multiline = true;
             this.txtCostOfOperations.Name = "txtCostOfOperations";
             this.txtCostOfOperations.Size = new System.Drawing.Size(325, 31);
@@ -164,7 +164,7 @@ namespace Accounting.GUI.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 280);
+            this.label5.Location = new System.Drawing.Point(12, 195);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(178, 29);
             this.label5.TabIndex = 13;

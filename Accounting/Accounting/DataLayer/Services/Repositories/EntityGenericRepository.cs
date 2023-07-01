@@ -13,14 +13,9 @@ namespace Accounting.DataLayer.Services.Repositories
     public class EntityGenericRepository<T> : IEntityGenericRepository
     {
         //------------Fields----------------
-
-
         #region  Accounting_DbContext db Field
         private Accounting_DbContext _db;
-
         #endregion
-
-
         //-------Methods--------------------------
         #region constructor method
         public EntityGenericRepository(Accounting_DbContext context)
@@ -28,8 +23,6 @@ namespace Accounting.DataLayer.Services.Repositories
             _db = context;
         }
         #endregion
-
-
         #region IsExist Generic-Method
         public async Task<bool> IsExist<TEntity>(Expression<Func<TEntity, bool>> predicate = null) where TEntity : class
         {
@@ -109,7 +102,7 @@ namespace Accounting.DataLayer.Services.Repositories
         {
             return await Task.Run(() =>
             {
-                
+
                 var entity = _db.Set<TDelete>().Where(expression).FirstOrDefault();
                 if (_db.Entry<TDelete>(entity).State == EntityState.Detached)
                 {
@@ -118,7 +111,7 @@ namespace Accounting.DataLayer.Services.Repositories
 
                 _db.Set<TDelete>().Remove(entity);
                 return true;
-       
+
 
             });
         }

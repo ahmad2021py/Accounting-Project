@@ -38,7 +38,8 @@ namespace Accounting.GUI.Forms
                 DateTime finallMiladiDate = workwithdate.ShamsiToMiladi(txtPersianCalenderTo.Text);
                 //-----
                 //------Get SellInvoite in Duruing Date and get its TotalSellAmount , SellProductStockCodes per one -----
-                var Sellresult = await selllnvoiceRepository.GetAll<SellInvoice>(n => n.SellInvoiceDate >= MiladiDate && n.SellInvoiceDate <= finallMiladiDate);
+                var Sellresult = await selllnvoiceRepository.GetAll<SellInvoice>(n => n.SellInvoiceDate >= MiladiDate &&
+                n.SellInvoiceDate <= finallMiladiDate);
                 decimal TotalSellAmount = 0;
                 List<int> SellStockCodes = new List<int>();
                 int AllSellQuantity = 0;
