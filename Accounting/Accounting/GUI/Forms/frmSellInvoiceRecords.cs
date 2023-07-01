@@ -6,6 +6,7 @@ using Stimulsoft.Report;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -29,10 +30,36 @@ namespace Accounting.GUI.Forms
             // How to Activate Stimulsoft
             Stimulsoft.Base.StiLicense.Key = "6vJhGtLLLz2GNviWmUTrhSqnOItdDwjBylQzQcAOiHn0s4gy0Fr5YoUZ9V00Y0igCSFQzwEqYBh/N77k4f0fWXTHW5rqeBNLkaurJDenJ9o97TyqHs9HfvINK18Uwzsc/bG01Rq+x3H3Rf+g7AY92gvWmp7VA2Uxa30Q97f61siWz2dE5kdBVcCnSFzC6awE74JzDcJMj8OuxplqB1CYcpoPcOjKy1PiATlC3UsBaLEXsok1xxtRMQ283r282tkh8XQitsxtTczAJBxijuJNfziYhci2jResWXK51ygOOEbVAxmpflujkJ8oEVHkOA/CjX6bGx05pNZ6oSIu9H8deF94MyqIwcdeirCe60GbIQByQtLimfxbIZnO35X3fs/94av0ODfELqrQEpLrpU6FNeHttvlMc5UVrT4K+8lPbqR8Hq0PFWmFrbVIYSi7tAVFMMe2D1C59NWyLu3AkrD3No7YhLVh7LV0Tttr/8FrcZ8xirBPcMZCIGrRIesrHxOsZH2V8t/t0GXCnLLAWX+TNvdNXkB8cF2y9ZXf1enI064yE5dwMs2fQ0yOUG/xornE";
             //Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
+            setDataGridViewSettings(DGV1);
+
 
         }
 
+    
 
+        void setDataGridViewSettings(DataGridView dataGridView)
+        {
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.ColumnHeadersHeight = 50;
+            DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
+            Font font = new Font("Microsoft Sans Serif", 12);
+
+            dataGridViewCellStyle.Font = font;
+            dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle;
+            dataGridView.ColumnHeadersHeight = 50;
+            dataGridView.Dock = DockStyle.Right;
+            dataGridView.RowHeadersWidth = 30;
+            dataGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridView.RowsDefaultCellStyle.Font = font;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Size size = new Size();
+            size.Width = 800;
+            size.Height = 600;
+
+            dataGridView.Size = size;
+
+        }
         DataTable DesignAndFillDataTable(List<SellInvoice> DbSellInvoicelist)
         {
 

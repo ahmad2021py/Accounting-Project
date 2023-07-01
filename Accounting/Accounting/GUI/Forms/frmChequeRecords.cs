@@ -5,6 +5,7 @@ using Accounting.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Accounting.GUI.Forms
@@ -13,9 +14,35 @@ namespace Accounting.GUI.Forms
     {
         public frmChequeRecords()
         {
-            InitializeComponent();
+            InitializeComponent();  
+            setDataGridViewSettings(DGV1);
         }
 
+     
+
+        void setDataGridViewSettings(DataGridView dataGridView)
+        {
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToDeleteRows = false;
+            dataGridView.ColumnHeadersHeight = 50;
+            DataGridViewCellStyle dataGridViewCellStyle = new DataGridViewCellStyle();
+            Font font = new Font("Microsoft Sans Serif", 12);
+
+            dataGridViewCellStyle.Font = font;
+            dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle;
+            dataGridView.ColumnHeadersHeight = 50;
+            dataGridView.Dock = DockStyle.Right;
+            dataGridView.RowHeadersWidth = 30;
+            dataGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridView.RowsDefaultCellStyle.Font = font;
+            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Size size = new Size();
+            size.Width = 800;
+            size.Height = 600;
+
+            dataGridView.Size = size;
+
+        }
         private DataTable DesignAndFillDataTable(List<Cheque> ChequeRecords)
         {
             DataTable dataTable = new DataTable();
